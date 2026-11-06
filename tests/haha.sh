@@ -2,7 +2,7 @@
 PROJ_ROOT=$(cd "$(dirname -- "$0")" && pwd -P)
 export PROJ_ROOT
 
-export PROJ_VENDOR="${PROJ_ROOT}/vendor"
+export PROJ_VENDOR="${PROJ_ROOT}/../vendor"
 export PROJ_CUR_SCRIPT="${PROJ_ROOT}/$(basename "$0")"
 export PROJ_SHFMT="${PROJ_VENDOR}/shfmt-3.14.1/$(uname -s)/$(uname -m)/shfmt"
 export PROJ_SHELLCHECK="${PROJ_VENDOR}/shellcheck-0.11.0/$(uname -s)/$(uname -m)/shellcheck"
