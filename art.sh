@@ -1,15 +1,17 @@
 #!/usr/bin/env bash
-PROJ_ROOT=$(cd "$(dirname -- "$0")" && pwd -P)
-export PROJ_ROOT
+PROJ_ROOT=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)
+PROJ_OS="$(uname -s)"
+PROJ_ARCH="$(uname -m)"
+PROJ_VENDOR="${PROJ_ROOT}/vendor"
+PROJ_CUR_SCRIPT="${PROJ_ROOT}/${BASH_SOURCE[0]##*/}"
+PROJ_SHFMT="${PROJ_VENDOR}/shfmt-3.14.1/${PROJ_OS}/${PROJ_ARCH}/shfmt"
+PROJ_SHELLCHECK="${PROJ_VENDOR}/shellcheck-0.11.0/${PROJ_OS}/${PROJ_ARCH}/shellcheck"
+PROJ_SHELLHARDEN="${PROJ_VENDOR}/shellharden-4.3.2/${PROJ_OS}/${PROJ_ARCH}/shellharden"
 
-export PROJ_VENDOR="${PROJ_ROOT}/vendor"
-export PROJ_CUR_SCRIPT="${PROJ_ROOT}/$(basename "$0")"
-export PROJ_SHFMT="${PROJ_VENDOR}/shfmt-3.14.1/$(uname -s)/$(uname -m)/shfmt"
-export PROJ_SHELLCHECK="${PROJ_VENDOR}/shellcheck-0.11.0/$(uname -s)/$(uname -m)/shellcheck"
-export PROJ_SHELLHARDEN="${PROJ_VENDOR}/shellharden-4.3.2/$(uname -s)/$(uname -m)/shellharden"
+export PROJ_ROOT PROJ_OS PROJ_ARCH PROJ_CUR_SCRIPT PROJ_VENDOR PROJ_SHFMT PROJ_SHELLCHECK PROJ_SHELLHARDEN
 
 function dbg() {
-    $PROJ_SHFMT "$@"
+    "${PROJ_SHELLCHECK}" "$@"
 }
 
 function format_shell_file() {
@@ -21,39 +23,53 @@ function format_shell_file() {
         --language-dialect auto --write "${file}"
 }
 
+function check_shell_file() {
+    local file="$1"
+    "${PROJ_SHELLCHECK}" --check-sourced \
+                         --color=auto \
+                         --extended-analysis=true \
+                         --format=tty \
+                         --enable=all \
+                         --source-path='SCRIPTDIR' \
+                         --shell=bash \
+                         --severity=style \
+                         --wiki-link-count=0 \
+                         --external-sources "${file}"
+}
+
 function now_ms() {
     local raw sec frac value
 
     # bash >= 5：秒.微秒，小数点固定为 '.'
     raw=${EPOCHREALTIME-}
-    if [[ $raw == *.* ]]; then
+    if [[ ${raw} == *.* ]]; then
         sec=${raw%%.*}
         frac=${raw#*.}000
-        value=$((10#$sec * 1000 + 10#${frac:0:3}))
-        printf '%s\n' "$value"
+        value=$((10#${sec} * 1000 + 10#${frac:0:3}))
+        printf '%s\n' "${value}"
         return 0
     fi
 
     # GNU date。%3N 是毫秒；10# 避免前导 0 被当成八进制
-    if raw=$(date +%s%3N 2> /dev/null) && [[ $raw =~ ^[0-9]{13,}$ ]]; then
-        printf '%s\n' "$((10#$raw))"
+    if raw=$(date +%s%3N 2> /dev/null) && [[ ${raw} =~ ^[0-9]{13,}$ ]]; then
+        printf '%s\n' "$((10#${raw}))"
         return 0
     fi
     if command -v gdate > /dev/null 2>&1 &&
-        raw=$(gdate +%s%3N 2> /dev/null) && [[ $raw =~ ^[0-9]{13,}$ ]]; then
-        printf '%s\n' "$((10#$raw))"
+        raw=$(gdate +%s%3N 2> /dev/null) && [[ ${raw} =~ ^[0-9]{13,}$ ]]; then
+        printf '%s\n' "$((10#${raw}))"
         return 0
     fi
     if command -v perl > /dev/null 2>&1 &&
         raw=$(perl -MTime::HiRes=gettimeofday -e '($s,$us)=gettimeofday(); printf "%d", $s*1000+int($us/1000)' 2> /dev/null) &&
-        [[ $raw =~ ^[0-9]+$ ]]; then
-        printf '%s\n' "$raw"
+        [[ ${raw} =~ ^[0-9]+$ ]]; then
+        printf '%s\n' "${raw}"
         return 0
     fi
     if command -v python3 > /dev/null 2>&1 &&
         raw=$(python3 -c 'import time; print(int(time.time()*1000))' 2> /dev/null) &&
-        [[ $raw =~ ^[0-9]+$ ]]; then
-        printf '%s\n' "$raw"
+        [[ ${raw} =~ ^[0-9]+$ ]]; then
+        printf '%s\n' "${raw}"
         return 0
     fi
 
@@ -62,13 +78,13 @@ function now_ms() {
     if ((BASH_VERSINFO[0] > 4 || (BASH_VERSINFO[0] == 4 && BASH_VERSINFO[1] >= 2))); then
         printf -v raw '%(%s)T' -1
     fi
-    if [[ ! $raw =~ ^[0-9]+$ ]]; then
+    if [[ ! ${raw} =~ ^[0-9]+$ ]]; then
         raw=$(date +%s 2> /dev/null || true)
     fi
-    if [[ ! $raw =~ ^[0-9]+$ ]]; then
+    if [[ ! ${raw} =~ ^[0-9]+$ ]]; then
         raw=0
     fi
-    printf '%s\n' "$((10#$raw * 1000))"
+    printf '%s\n' "$((10#${raw} * 1000))"
 }
 
 function display_elapsed() {
@@ -113,12 +129,14 @@ function display_diff() {
 }
 
 function unique_name() {
-    local prefix=${1-}
+    local prefix timestamp
+    prefix="${1-}"
+    timestamp="$(date +%Y%m%d_%H%M%S)"
 
     if [[ -n ${prefix} ]]; then
-        printf '%s_%s_%s_%s' "${prefix}" "$(date +%Y%m%d_%H%M%S)" "$$" "${RANDOM}"
+        printf '%s_%s_%s_%s' "${prefix}" "${timestamp}" "$$" "${RANDOM}"
     else
-        printf '%s_%s_%s' "$(date +%Y%m%d_%H%M%S)" "$$" "${RANDOM}"
+        printf '%s_%s_%s' "${timestamp}" "$$" "${RANDOM}"
     fi
 }
 
@@ -152,6 +170,6 @@ function watch_cmd() {
 function main() {
     local funcName="$1"
     shift
-    "$funcName" "$@"
+    "${funcName}" "$@"
 }
 main "$@"
