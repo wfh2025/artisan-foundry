@@ -1,0 +1,48 @@
+line: 4, params: 0
+line: 7, params: 1
+line: 10, params: 0
+line: 13, params: [2, 2, 2]
+line: 16, params: [2, 2, 2, 1, 1]
+line: 22, params: false
+line: 26, params: Eggs
+line: 26, params: Milk
+line: 30, idx: 0, value: Eggs
+line: 30, idx: 1, value: Milk
+line: 34, params: ["Eggs", "Milk", "Baking Powder", "Chocolate Spread", "Cheese", "Butter"], Eggs
+line: 37, params: ["xxx", "Milk", "Baking Powder", "Chocolate Spread", "Cheese", "Butter"], xxx
+line: 40, params: ["xxx", "Milk", "Bananas", "Apples", "Butter"]
+line: 43, params: ["Maple Syrup", "xxx", "Milk", "Bananas", "Apples", "Butter"]
+line: 46, params: ["xxx", "Milk", "Bananas", "Apples", "Butter"], Maple Syrup
+line: 49, params: ["xxx", "Milk", "Bananas", "Apples"], Butter
+line: 52, params: []
+line: 55, params: ["Hip", "Rock"]
+line: 61, params: 3
+line: 65, params: Rock
+line: 73, not contains
+line: 77, params: Hip
+line: 77, params: Jazz
+line: 81, params: Hip
+line: 81, params: Jazz
+line: 88, params: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+line: 89, params: []
+line: 91, params: [1, 2, 9]
+line: 94, params: [1, 9]
+line: 100, params: true
+line: 101, params: true
+line: 102, params: true
+line: 106, params: [16: "sixteen"]
+line: 108, params: [:]
+line: 116, DUB, Dublin
+line: 116, YYZ, Toronto Pearson
+line: 120, DUB
+line: 120, YYZ
+line: 124, Dublin
+line: 124, Toronto Pearson
+line: 130, params: 2
+line: 132, params: ["DUB": "Dublin", "YYZ": "Toronto Pearson"]
+line: 135, params: Dublin, ["DUB": "Dublin Airport", "YYZ": "Toronto Pearson"]
+line: 139, params: Dublin Airport
+line: 145, params: ["YYZ": "Toronto Pearson"]
+line: 148, params: Toronto Pearson
+line: 156, type: Array<String>, Array<String>
+Program ended with exit code: 0

@@ -1,0 +1,12 @@
+line: 6 info: Optional<Int>, 123
+line: 10 info: Int, 123
+line: 14 info: Int, 123
+line: 18 info: Int, 123
+line: 24 info: 4, 42
+line: 31 info: 4, 42
+line: 40 info: Optional<String>, String
+line: 47 info: Optional<String>, An implicitly unwrapped optional string.
+line: 53 info: An implicitly unwrapped optional string.
+line: 59 info: An implicitly unwrapped optional string.
+line: 66 info: Optional<String>, String
+Program ended with exit code: 0

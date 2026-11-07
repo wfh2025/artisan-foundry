@@ -1,0 +1,96 @@
+\documentclass{../main.tex}{subfiles}
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Scapple}
+\section{概述}
+\emph{Scapple}允许在虚拟纸张任意位置记录笔记，并能快速、轻松在这些笔记之间建立关联。
+既能记录想法，又能梳理想法之间逻辑关系工具。
+
+\section{基础}
+\begin{enumerate}[itemsep=0pt, parsep=0pt, topsep=0pt, partopsep=0pt]
+  \item 创建scapple文档
+    \begin{itemize}[itemsep=0pt, parsep=0pt, topsep=0pt, partopsep=0pt]
+      \item 菜单: File $\blacktriangleright$ New
+      \item 快捷键: Command + N
+    \end{itemize}
+  \item 创建新note
+    \begin{itemize}[itemsep=0pt, parsep=0pt, topsep=0pt, partopsep=0pt]
+      \item 任意位置双击
+      \item 快捷键: Command + Enter
+    \end{itemize}
+  \item 编辑note: 双击note
+  \item 结束编辑note: 按下Escape
+  \item 导入: Finder拖入图像文件/文本文件
+  \item 选中note
+    \begin{itemize}[itemsep=0pt, parsep=0pt, topsep=0pt, partopsep=0pt]
+      \item 单个：点击
+      \item 拖动选中多个: note外点击并拖动创建矩形，拖动矩形可选中多个note
+      \item shift+点击或Command+点击，也能选中多个
+    \end{itemize}
+  \item 移动note
+    \begin{itemize}[itemsep=0pt, parsep=0pt, topsep=0pt, partopsep=0pt]
+      \item 选中note
+      \item 拖动
+    \end{itemize}
+  \item 删除note
+    \begin{itemize}[itemsep=0pt, parsep=0pt, topsep=0pt, partopsep=0pt]
+      \item Delete
+      \item 菜单: Edit $\blacktriangleright$ Delete
+    \end{itemize}
+  \item 连接操作
+    \begin{itemize}[itemsep=0pt, parsep=0pt, topsep=0pt, partopsep=0pt]
+      \item 将note拖到另外一个note，即可建立连接，重复操作会移除连接
+      \item 将note拖到另外一个note，按住Option创建/删除箭头连接，
+      \item 将note拖到另外一个note，拖放按住\texttt{Option+Command}可使箭头指向相反方向
+      \item 将note拖到另外一个note，按住\texttt{Shift+Command}箭头双向指向
+    \end{itemize}
+  \item 创建新note使用修饰键，会使新note与选中note建立连接
+    \begin{itemize}[itemsep=0pt, parsep=0pt, topsep=0pt, partopsep=0pt]
+      \item 双击按住\texttt{Command}，创建无箭头连接新note
+      \item 抓住并拖动note之间的连接线，可移动相互连接的note
+    \end{itemize}
+  \item 双击两个note之间的连接线，可创建一个与两者都相连的新笔记，并替换原来的连接
+  \item 点击并拖动note左边界或右边界可调整其大小；按住\texttt{Option}向两个方向调整大小
+\end{enumerate}
+
+\section{格式与排列}
+\begin{lstlisting}[style=lstCodeStylePlainText]
+- 使用检查器可以更改笔记以及整个文档的外观。
+- 通过"视图">"显示检查器"来显示检查器.(检查器中许多选项也可以在"格式"菜单中找到);
+- 可以通过"格式"菜单的"笔记样式"子菜单保存和应用格式预设。
+- 可以通过"格式"菜单的"笔记样式"子菜单保存和应用格式预设。可以通过一个命令应用多种格式选项，笔记样式也可以通过上下文菜单应用。
+- Notes菜单包含辅助排列note的命令，例如对齐、统一宽度/高度、置于顶层/底层
+- Tab键缩进选中的note；Shift-Tab减少缩进
+\end{lstlisting}
+
+\section{堆叠}
+\begin{lstlisting}[style=lstCodeStylePlainText]
+- 选中一条笔记后，Cmd+Return可创建一条新笔记，直接堆叠其下方，当笔记处于堆叠状态，若上方笔记被编辑或移出堆叠，垂直位置会自动调整以保证堆叠状态
+- 可以通过"Notes"菜单选择堆叠来堆叠选中的笔记(笔记会堆叠在最先选中的笔记下方)。
+- 要将现有笔记添加到一个堆叠中，首先在你希望放置该笔记的堆叠下方选择一个笔记，然后选中要移动的笔记；从“Notes"菜单或上下文菜单中选择"堆叠".
+\end{lstlisting}
+
+\section{背景形状}
+\begin{lstlisting}[style=lstCodeStylePlainText, title={背景形状}]
+- 背景形状用于包围notes(或其他背景形状)，作为视觉辅助。
+- 要创建背景形状，按住Ctrl单击，新建>背景形状。(如果按住Ctrl单击现有notes或形状，该命令变为"围绕所选内容新建背景形状");
+- 通过检查器或Notes菜单为背景形状开启“磁性”选项后，任何与该形状重叠的notes都会被吸附到它上面，因此移动该形状时嘛，重叠的note也会随之移动.
+\end{lstlisting}
+
+\section{缩放与导航}
+\begin{lstlisting}[style=lstCodeStylePlainText,title={缩放与导航}]
+- 使用option + Cmd + 上和option + Cmd + 下进行放大和缩小，或者使用底部栏中的滑块。可以在触摸板上进行缩放
+- 快速缩放：在非编辑note时，按下z键可缩小并查看整个文档。松开z，恢复之前缩放设置，此时聚焦松开z键时鼠标所悬停的文档部分
+- 按住空格+鼠标左键可以滚动文档
+\end{lstlisting}
+
+\section{移动模式}
+\begin{lstlisting}[style=lstCodeStylePlainText,title={移动模式}]
+- 非编辑note状态，按下m，进入移动模式;(底部出现带四个箭头的十字图标，表明处于移动模式)
+- 移动模式，按方向键会移动选中的笔记；
+- 按住shift可使笔记移动更大距离
+- 再次按下m可返回常规选择模式
+\end{lstlisting}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}

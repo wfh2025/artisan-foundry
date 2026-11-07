@@ -1,0 +1,7 @@
+line: 14 SizeForStruct(width: 20, height: 30)
+line: 18 sfs: SizeForStruct(width: 20, height: 30) sfsCopy: SizeForStruct(width: 99, height: 101)
+line: 23 3
+line: 26 sfc: 200 sfcRef: 200
+line: 31 引用相同实例
+line: 34 两个实例不相同
+Program ended with exit code: 0

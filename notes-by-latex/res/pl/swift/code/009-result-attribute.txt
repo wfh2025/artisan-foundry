@@ -1,0 +1,23 @@
+line: 27 Point(x: 5.0, y: 5.0)
+line: 31 10.0 10.0
+line: 57 10.0 13.0
+line: 68 40.0
+line: 75 new: 200
+line: 81 current: 200 old: 0
+line: 75 new: 360
+line: 81 current: 360 old: 200
+line: 75 new: 896
+line: 81 current: 896 old: 360
+line: 121 new: 0
+line: 124 new: 10
+line: 127 new: 12
+line: 159 0 0
+line: 167 1 1
+line: 175 2 3
+line: 179 5 4
+line: 187 1
+line: 190 12
+false
+line: 222 false
+line: 225 true
+Program ended with exit code: 0

@@ -1,0 +1,18 @@
+line: 45, parms: Optional<Int>
+line: 51 Unable to retrieve the number of rooms.
+line: 59 parms: nil
+line: 73 parms: nil
+line: 77 It was not possible to set the address.
+line: 83 It was not possible to print the number of rooms.
+line: 87 parms: Optional<()>
+line: 93 Unable to retrieve the first room name.
+line: 99 Failed to set residence first room
+line: 108 The first room name is Living Room.
+line: 115 Succeed to set residence room Bathroom
+line: 127 Optional<Array<Int>>
+line: 128 ["Bev": [80, 94, 81], "Dave": [91, 82, 84]]
+line: 130 Optional<String>
+line: 131 Optional<String>
+line: 135 Unable to retrieve the address.
+line: 148 John's building identifier begins with "The".
+Program ended with exit code: 0

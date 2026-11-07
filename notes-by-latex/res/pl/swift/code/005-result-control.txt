@@ -1,0 +1,38 @@
+line: 6 info: Anna
+line: 6 info: Alex
+line: 6 info: Brian
+line: 6 info: Jack
+line: 14 info: spider 8
+line: 14 info: ant 6
+line: 14 info: cat 4
+line: 20 info: 1
+line: 20 info: 2
+line: 20 info: 3
+line: 26 info: 1
+line: 26 info: 2
+line: 32 info: no index
+line: 32 info: no index
+line: 32 info: no index
+line: 38 info: 0
+line: 38 info: 5
+line: 38 info: 10
+line: 44 info: 0
+line: 44 info: 5
+line: 44 info: 10
+line: 44 info: 15
+line: 56 info: z
+line: 68 info: a
+line: 93 info: dozens of
+line: 106
+line: 114 info: 2
+line: 126 info: 1 -1
+line: 134 info: 9
+line: 149 info: grtmndsthnklk
+line: 169 info: 9
+line: 175
+line: 178
+line: 185 info: John
+line: 188 info: no location
+line: 185 info: Jane
+line: 192 info: Cupertino
+Program ended with exit code: 0

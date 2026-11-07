@@ -1,0 +1,2 @@
+line: 18 ["Ewa", "Daniella", "Chris", "Barry", "Alex"]
+Program ended with exit code: 0

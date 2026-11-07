@@ -1,0 +1,13 @@
+line: 14, directino: north
+enum item num: 4
+line: 27, elem: north
+line: 27, elem: south
+line: 27, elem: east
+line: 27, elem: west
+line: 43, parms: ABCDEFGHIJKPMNOP
+line: 51, parms: ABCDEFGHIJKPMNOP
+line: 55, raw: 2
+line: 58, type: Optional<CompassPoint>
+line: 62, invalid direction
+line: 86, product: 18
+Program ended with exit code: 0

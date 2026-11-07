@@ -1,0 +1,250 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{art-book}
+
+\usepackage{subfiles}
+\usepackage[inline]{enumitem}
+\usepackage{listings}
+\usepackage{todonotes}
+\usepackage{caption}
+\usepackage[table]{xcolor}
+\usepackage[listings, skins, breakable, xparse, raster, hooks,
+theorems, fitting]{tcolorbox}
+\usepackage[
+  colorlinks = true,
+  linkcolor = black,
+  bookmarks = true,
+  citecolor = black,
+  urlcolor = blue,
+  anchorcolor = black,
+  pdfstartview = FitH,
+  bookmarksnumbered = true, % PDF书签编号
+]{hyperref}
+\usepackage{amssymb}
+\usepackage{marvosym}
+
+% 常量
+\renewcommand{\listfigurename}{示意图}
+\renewcommand{\lstlistingname}{示例}
+\renewcommand{\lstlistlistingname}{示意代码}
+
+\definecolor{lightgrey}{rgb}{0.9,0.9,0.9}
+\definecolor{frenchplum}{RGB}{190,20,83}
+
+\lstdefinestyle{lstCodeStyleCpp} {
+  language = C++,
+  backgroundcolor = \color{white},
+  basicstyle = \small\ttfamily,               % 基础输出样式
+  breakatwhitespace = false,
+  breaklines = true,
+  classoffset = 0,
+  captionpos = b,
+  columns = fullflexible,
+  keywordstyle = \color{blue},                % 关键字风格
+  lineskip = -1pt,                            % 行间距，允许负数
+  commentstyle = \color{gray},                % 注释风格
+  emph = {
+  },
+  emphstyle={\color{frenchplum}},
+  frame = tb,                                 % 边框显示
+  morekeywords = {
+  },
+  numbers = left,                             % 行号位置
+  numberblanklines = true,                    % 空行是否显示行号
+  numbersep = 5pt,
+  numberstyle = \tiny\color{gray},
+  rulecolor = \color{black},                  % 边框颜色
+  showspaces = false,                         % 是否显示空格
+  showstringspaces = false,                    % 字符串常量是否显示空格
+  showtabs = false,                           % 是否显示tab
+  stepnumber = 1,
+  tabsize = 2,                                % tab长度
+}
+\lstdefinestyle{lstCodeStylePython} {
+  language = Python,
+  backgroundcolor = \color{white},
+  basicstyle = \small\ttfamily,               % 基础输出样式
+  breakatwhitespace = false,
+  breaklines = true,
+  classoffset = 0,
+  captionpos = b,
+  columns = fullflexible,
+  keywordstyle = \color{blue},                % 关键字风格
+  lineskip = -1pt,                            % 行间距，允许负数
+  commentstyle = \color{gray},                % 注释风格
+  emph = {
+  },
+  emphstyle={\color{frenchplum}},
+  frame = tb,                                 % 边框显示
+  morekeywords = {
+  },
+  numbers = left,                             % 行号位置
+  numberblanklines = true,                    % 空行是否显示行号
+  numbersep = 5pt,
+  numberstyle = \tiny\color{gray},
+  rulecolor = \color{black},                  % 边框颜色
+  showspaces = false,                         % 是否显示空格
+  showstringspaces = true,                    % 字符串常量是否显示空格
+  showtabs = false,                           % 是否显示tab
+  stepnumber = 1,
+  tabsize = 2,                                % tab长度
+}
+\lstdefinestyle{lstCodeStyleSwift} {
+  language = Swift,
+  backgroundcolor = \color{white},
+  basicstyle = \small\ttfamily,               % 基础输出样式
+  breakatwhitespace = false,
+  breaklines = true,
+  classoffset = 0,
+  captionpos = b,
+  columns = fullflexible,
+  keywordstyle = \color{blue},                % 关键字风格
+  lineskip = -1pt,                            % 行间距，允许负数
+  commentstyle = \color{gray},                % 注释风格
+  emph = {
+  },
+  emphstyle={\color{frenchplum}},
+  frame = tb,                                 % 边框显示
+  morekeywords = {
+  },
+  numbers = left,                             % 行号位置
+  numberblanklines = true,                    % 空行是否显示行号
+  numbersep = 5pt,
+  numberstyle = \tiny\color{gray},
+  rulecolor = \color{black},                  % 边框颜色
+  showspaces = false,                         % 是否显示空格
+  showstringspaces = false,                    % 字符串常量是否显示空格
+  showtabs = false,                           % 是否显示tab
+  stepnumber = 1,
+  tabsize = 2,                                % tab长度
+}
+\lstdefinestyle{lstCodeStyleLaTeX} {
+  language = [LaTeX]TeX,
+  backgroundcolor = \color{white},
+  basicstyle = \small\ttfamily,               % 基础输出样式
+  breakatwhitespace = false,
+  breaklines = true,
+  classoffset = 0,
+  captionpos = b,
+  columns = fullflexible,
+  keywordstyle = \color{blue},                % 关键字风格
+  lineskip = -1pt,                             % 行间距，允许负数
+  commentstyle = \color{gray},                % 注释风格
+  emph = {
+    fontenc,
+    fontspec,
+    xeCJK,
+    FiraMono,
+    xunicode,
+    newtxmath,
+    figure,
+    fig,
+    image,
+    img,
+    table,
+    itemize,
+    enumerate,
+    newtxtext,
+    newtxtt,
+    ctex,
+    microtype,
+    description,
+    times,
+    newtx,
+    booktabs,
+    tabular,
+    PDFLaTeX,
+    XeLaTeX,
+    type1cm,
+    BibTeX,
+    device,
+    color,
+    mode,
+    chinesefont,
+    cite,
+    bibstyle,
+    math,
+    lang,
+    amsthm,
+  },
+  emphstyle={\color{frenchplum}},
+  frame = tb,                                 % 边框显示
+  morekeywords = {
+    DeclareSymbolFont,
+    setCJKfamilyfont,
+    SetSymbolFont,
+    toprule,
+    midrule,
+    bottomrule,
+    institute,
+    version,
+    includegraphics,
+    setmainfont,
+    setsansfont,
+    setmonofont ,
+    setCJKmainfont,
+    setCJKsansfont,
+    setCJKmonofont,
+    RequirePackage,
+    figref,
+    pagecolor,
+    definecolor,
+    tabref,
+    email,
+    maketitle,
+    keywords,
+  },
+  numbers = left,                             % 行号位置
+  numberblanklines = true,                    % 空行是否显示行号
+  numbersep = 5pt,
+  numberstyle = \tiny\color{gray},
+  rulecolor = \color{black},                  % 边框颜色
+  showspaces = false,                         % 是否显示空格
+  showstringspaces = true,                    % 字符串常量是否显示空格
+  showtabs = false,                           % 是否显示tab
+  stepnumber = 1,
+  tabsize = 2,                                % tab长度
+}
+\lstdefinestyle{lstCodeStylePlainText} {
+  backgroundcolor = \color{white},
+  basicstyle = \small\ttfamily,               % 基础输出样式
+  breakatwhitespace = false,
+  breaklines = true,
+  classoffset = 0,
+  captionpos = b,
+  columns = fullflexible,
+  keywordstyle = \color{blue},                % 关键字风格
+  lineskip = -1pt,                             % 行间距，允许负数
+  commentstyle = \color{gray},                % 注释风格
+  emph = {
+  },
+  emphstyle={\color{frenchplum}},
+  frame = tb,                                 % 边框显示
+  morekeywords = {
+  },
+  numbers = left,                             % 行号位置
+  numberblanklines = true,                    % 空行是否显示行号
+  numbersep = 5pt,
+  numberstyle = \tiny\color{gray},
+  rulecolor = \color{black},                  % 边框颜色
+  showspaces = false,                         % 是否显示空格
+  showstringspaces = false,                   % 字符串常量是否显示空格
+  showtabs = false,                           % 是否显示tab
+  stepnumber = 1,
+  tabsize = 2,                                % tab长度
+}
+
+\lstnewenvironment{envCpp}[1][]{\lstset{style=lstCodeStyleCpp, #1}}{}
+\lstnewenvironment{envPython}[1][]{\lstset{style=lstCodeStylePython, #1}}{}
+\lstnewenvironment{envSwift}[1][]{\lstset{style=lstCodeStyleSwift, #1}}{}
+\lstnewenvironment{envLaTeX}[1][]{\lstset{style=lstCodeStyleLaTeX, #1}}{}
+\lstnewenvironment{envTxt}[1][]{\lstset{style=lstCodeStylePlainText, #1}}{}
+\newcommand{\inputCppFile}[2][]{\lstinputlisting[style=lstCodeStyleCpp,
+caption={#1}]{#2}}
+\newcommand{\inputSwiftFile}[2][]{\lstinputlisting[style=lstCodeStyleSwift,
+caption={#1}]{#2}}
+
+\newtcolorbox{artCaution} {
+  colback = red!5!white,
+  colframe = red!75!black,
+  title = {注意},
+}
