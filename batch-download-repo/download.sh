@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-export PROJ_ROOT=$(cd "$(dirname -- "$0")" && pwd -P)
+PROJ_ROOT=$(cd "$(dirname -- "$0")" && pwd -P)
+export PROJ_ROOT
 
 # ./download.sh repos_download ./repo-test.txt ~/tmp/x
 # github批量下载仓库
@@ -11,8 +12,8 @@ function repos_download() {
     #    local prefix="https://gitee.com/"
 
     while IFS= read -r url || [[ -n "${url}" ]]; do
-        url=$(echo "$url" | tr -d '\r' | xargs) # 删除回车符和空格
-        if [[ -z $url ]]; then
+        url=$(echo "${url}" | tr -d '\r' | xargs || true) # 删除回车符和空格
+        if [[ -z ${url} ]]; then
             continue
         fi
 
@@ -25,7 +26,7 @@ function repos_download() {
         repo=$(echo "${user_repo}" | cut -d '/' -f 2)
         repo="${repo%.git}"
         tgt_dir="${tgt_prefix}/${user}/${repo}"
-        if [ -d "${tgt_dir}" ]; then
+        if [[ -d "${tgt_dir}" ]]; then
             echo "${url} exist ${tgt_dir}, ignore"
             continue
         fi
@@ -36,12 +37,12 @@ function repos_download() {
             echo "Failed to git clone, url: ${url}"
             continue
         fi
-    done < "$list_file"
+    done < "${list_file}"
 }
 
 function main() {
     local funcName="$1"
     shift
-    "$funcName" "$@"
+    "${funcName}" "$@"
 }
 main "$@"
