@@ -1,0 +1,24 @@
+https://github.com/pocoproject/poco
+https://github.com/pocoproject/cmake-sample
+https://github.com/apache/kafka
+https://github.com/facebook/rocksdb
+https://github.com/memcached/memcached
+https://github.com/dragonflydb/dragonfly
+https://github.com/twitter/twemproxy
+https://github.com/kubernetes/kubernetes
+https://github.com/kubernetes/apiserver
+https://github.com/kubernetes/community
+https://github.com/kubernetes/enhancements
+https://github.com/kubernetes/website
+https://github.com/kubernetes/examples
+https://github.com/kubernetes/k8s.io
+https://github.com/DaveGamble/cJSON
+https://github.com/etcd-io/raft
+https://github.com/etcd-io/bbolt
+https://github.com/etcd-io/etcd
+https://github.com/aws/aws-sdk-cpp
+https://github.com/boto/boto3
+https://github.com/redis/go-redis
+https://github.com/jaywcjlove/awesome-mac
+# https://github.com/torvalds/linux
+
