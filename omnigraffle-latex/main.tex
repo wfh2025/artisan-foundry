@@ -1,0 +1,29 @@
+%!TEX program = xelatex
+\documentclass[12pt, a4paper]{ctexbook}
+
+\usepackage{art-book}
+% 文档暂无引用文献; 启用 biblatex 会在构建时产生 biber 告警, 需要时再打开:
+% \usepackage[style = gb7714-2015, backend = biber, sorting = ynt]{biblatex}
+% \addbibresource{ref/ref.bib}
+
+\title{OmniGraffle 7 for macOS}
+\author{The Omni Group}
+\date{Updated for OmniGraffle v7.18.2}
+
+\begin{document}
+\maketitle
+\frontmatter
+\pagenumbering{roman}
+
+% \subfile{chores/preface.tex}
+\subfile{intro/introduction.tex}
+\tableofcontents
+
+\mainmatter
+\pagenumbering{arabic}
+
+\subfile{basics/init.tex}
+\subfile{in-depth/init.tex}
+\subfile{reference/init.tex}
+% \printbibliography[title={参考文献}]
+\end{document}

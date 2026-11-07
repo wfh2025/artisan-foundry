@@ -1,0 +1,120 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Using OmniGraffle in Presentation Mode (\texorpdfstring{\textbf{PRO}}{PRO})}
+
+After creating your design---whether it's a prototype for an app or website, or a series of
+posters to promote an upcoming event---chances are you'll want to present that design to
+management or to a client. Fortunately for you, we have built in \textbf{Presentation Mode} to
+OmniGraffle.
+
+This chapter explains how to get the most from Presentation Mode, and provides you with tips and
+tricks for presenting from within OmniGraffle.
+
+\section{Presentation Basics}
+
+When you enter Presentation Mode, either by choosing \textbf{View} $\blacktriangleright$
+\textbf{Start Presentation}, or by pressing \textbf{Option-Command-P}, OmniGraffle takes over
+your entire screen. While in Presentation Mode:
+
+\begin{itemize}
+  \item The \textbf{Action Browse tool} \ogiconw{19.4pt}{res/og7_tools_actionbrowse.png} is
+    sticky; you cannot choose another tool in the Toolbar.
+  \item The Toolbar and Inspectors bar are inaccessible.
+  \item The Sidebar and menu bar are hidden from sight but remain available if you move your
+    mouse to the left or top edge of the screen, respectively.
+\end{itemize}
+
+Each canvas in your OmniGraffle document is a \textit{slide} in your presentation. To navigate
+through your presentation, you'll use the arrow keys on your keyboard as follows:
+
+\begin{itemize}
+  \item Use the Up ($\uparrow$) and Down ($\downarrow$) Arrow keys on your keyboard to go back
+    or forward through the canvases in your document, respectively.
+  \item Use the Left ($\leftarrow$) and Right ($\rightarrow$) Arrow keys to select the previous
+    or next artboard on the current canvas, respectively.
+
+    \begin{itemize}
+      \item If you press the Left or Right Arrow keys while on a canvas that does not have an
+        artboard, the presentation goes backward or forward through the canvases, respectively, to
+        find and select an artboard.
+      \item If your document does not contain artboards, nothing happens when you press the Left
+        or Right Arrow keys.
+    \end{itemize}
+
+    When you select an artboard, the objects on that artboard zoom in to fill the entire screen.
+    To zoom back out to see everything on the canvas, press the Up ($\uparrow$) Arrow key, or
+    press the Down ($\downarrow$) key to proceed to the next canvas/slide.
+\end{itemize}
+
+Move your mouse to the left side of the screen to bring in the Sidebar. The Sidebar only reveals
+canvases and artboards while presenting; you cannot access individual layers or objects in the
+Sidebar.
+
+Not all menu options are available while in Presentation Mode. For example, you cannot view the
+rulers or set alignment guides while presenting. The menu bar goes back into hiding when you
+move the mouse away.
+
+To exit Presentation Mode, you can either press \textbf{Option-Command-P} or \textbf{Escape}.
+
+\subsection{Using the Zoom Commands in Presentation Mode}
+
+While presenting, you can use the following keyboard shortcuts for adjusting the magnification
+level of objects onscreen:
+
+\begin{itemize}
+  \item Zoom to Actual Size (\textbf{Option-Command-0})
+  \item Zoom In (\textbf{Shift-Command->})
+  \item Zoom Out (\textbf{Shift-Command-<})
+\end{itemize}
+
+\section{Configuring OmniGraffle's Presentation Preferences}
+
+To customize the settings for Presentation Mode, you'll use the Presentation preferences,
+accessed by choosing \textbf{OmniGraffle} $\blacktriangleright$ \textbf{Preferences}, and then
+choose the \textbf{Presentation} tab.
+
+You can choose one of the following options to specify whether objects on the canvas receive a
+highlight (border) around the object:
+
+\begin{itemize}
+  \item \textbf{Highlight objects by pointing} --- Places a colored highlight around objects
+    that you mouse over.
+  \item \textbf{Highlight objects by clicking} --- Places a colored highlight around objects
+    that you click.
+  \item \textbf{Don't highlight objects} --- Objects on the canvas do not receive a highlight.
+\end{itemize}
+
+You can adjust the width of the highlight border using the \textbf{Width} slider.
+
+\ogfigure{0.800}{res/og7_present01.png}
+
+Beneath the \textbf{Highlight Behavior} options, the \textbf{Show link badge when highlighted}
+preference has been turned on by default. This option applies to objects that are assigned an
+Action using the Action inspector. If an object has an action assigned, its Action badge is
+displayed in Presentation Mode.
+
+\ogfigure{0.800}{res/og7_present02.png}
+
+You can change the default highlight color by clicking
+\ogicon{12.5pt}{res/og7_prefs_highlightwidget.png} to open the Colors window. You can change
+the color to anything you'd like, or you can set it so that the highlight surrounding an
+object always matches macOS's highlight color (set in \textbf{System Preferences}
+$\blacktriangleright$ \textbf{General} $\blacktriangleright$ \textbf{Highlight color}); for
+example:
+
+\begin{enumerate}
+  \item Under \textbf{Highlight Appearance}, click
+    \ogicon{12.5pt}{res/og7_prefs_highlightwidget.png} to open the Colors window.
+  \item At the top of the Colors window, click the third tab, \textbf{Color Palettes}.
+  \item In the pop-up menu, choose \textbf{Developer}.
+  \item Scroll down in the list of color options and choose \textbf{selectedControlColor}.
+\end{enumerate}
+
+\ogfigure{0.673}{res/og7_prefs_presentation_highlight.png}
+
+Now whenever you give a presentation from within OmniGraffle---such as when you're demoing an
+app prototype---the objects you hover over are highlighted with your system's default
+selection color.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}

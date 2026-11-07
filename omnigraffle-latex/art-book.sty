@@ -1,0 +1,230 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{art-book}
+
+\usepackage{float}
+\usepackage{subfiles}
+\usepackage{listings}
+\usepackage{graphicx}
+\usepackage[table]{xcolor}
+\usepackage[skins]{tcolorbox}
+
+% 显示特殊符号:
+% - \blacktriangleright
+\usepackage{amssymb}
+
+% 计算文本/内容宽度
+% \widthof
+\usepackage{calc}
+
+\usepackage{enumitem}
+\setlist[itemize] {
+  itemsep=0pt,  % 列表项之间的垂直距离
+  parsep=0pt,   % 列表项内段落间距
+  topsep=4pt,   % 列表与是上文间距
+  leftmargin=*  % 列表左缩进
+}
+
+% 单倍行间距
+\usepackage{setspace}
+\singlespacing
+
+\setcounter{tocdepth}{4}    % 目录显示级别
+\setcounter{secnumdepth}{3} % 章节编号级别
+
+% 生成随机数据
+\usepackage{lipsum}
+\usepackage{blindtext}
+\usepackage{pifont}
+
+\usepackage[
+  colorlinks = true,
+  linkcolor = black,
+  bookmarks = true,
+  citecolor = black,
+  urlcolor = blue,
+  anchorcolor = black,
+  pdfstartview = FitH,
+  bookmarksnumbered = true, % PDF书签编号
+]{hyperref}
+
+% HTML文档转换(OmniGraffle Help)所需:
+% - tcolorbox可跨页的note/tip/profeature等提示框
+\tcbuselibrary{breakable}
+% - 表格: xltabular = tabularx(自动换列) + longtable(跨页)
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{xltabular}
+% - 单元格内长代码任意字符折行(对应 CSS white-space: pre-wrap)
+\usepackage{seqsplit}
+
+% 版面: 适度加宽版心(原书约65字符/行), 并保证页眉有足够高度
+\usepackage{geometry}
+\geometry{a4paper, left=27mm, right=27mm, top=30mm, bottom=32mm,
+headheight=15pt, headsep=8mm, footskip=12mm}
+
+% 页眉: 标记以 \footnotesize 排版, 避免长章节标题溢出版心
+% (ctex 会在 \begin{document} 时重设 \ps@headings, 故挂在 AtBeginDocument)
+\AtBeginDocument{%
+  \makeatletter
+  \renewcommand{\ps@headings}{%
+    \let\@oddfoot\@empty
+    \let\@evenfoot\@empty
+    \def\@evenhead{\thepage\hfil{\footnotesize\slshape\leftmark}}%
+    \def\@oddhead{{\footnotesize\slshape\rightmark}\hfil\thepage}%
+    \let\@mkboth\markboth
+  }%
+  \makeatother
+  \pagestyle{headings}%
+}
+
+% dbg环境/命令
+% 命令行查找package: texdoc float
+% 在线查找package: https://ctan.org/pkg/
+\ifdefined\enddbg_termDesc
+\PackageError{art}{symbols already defined.}{rename it}
+\else
+\newenvironment{dbg_termDesc}{
+  \begin{description}[
+        style=nextline,
+        leftmargin=0em,
+        labelwidth=0em,
+        labelsep=0em,
+        itemsep=0em,
+        itemindent=0em,
+        parsep=0em,
+        topsep=0em,
+        align=left,
+        font=\bfseries\color{blue!80!black},
+      ]
+    }{
+  \end{description}
+}
+\fi
+
+% 无缩进全屏横线
+\newcommand{\dbgsepline}{%
+  \vspace{0ex}%                   % 上方间距
+  \noindent\rule{\textwidth}{2pt}%  % 无缩进全屏横线
+  \vspace{0ex}%                   % 下方间距
+}%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% OmniGraffle Help 转换支持
+% 样式规格取自帮助文档 css/graffle-screen.css(版心 520px):
+%   - note/tip/warning: 5%黑底、6px彩色左边框(蓝/绿/橙)、右侧圆角、
+%     框内首行为标签(Note/Tip/Warning), 小号字体
+%   - profeature: 3px浅绿(#AFF9B3)圆角边框、白底、右上角 PRO 标签、可跨页
+%   - sidebar: 4px灰(#CCC)圆角边框、白底
+%   - 表格: 全边框(#CCC)、表头蓝底白字, 勾/叉用 art 内原图 og7_yes/og7_no.png
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\definecolor{ognoteblue}{HTML}{3A8EEC}
+\definecolor{ogtipgreen}{HTML}{67BB35}
+\definecolor{ogwarnorange}{HTML}{FD8919}
+\definecolor{ogprogreen}{HTML}{AFF9B3}
+\definecolor{ogheaderblue}{HTML}{1568A6}
+\definecolor{ogboxbg}{HTML}{F2F2F2}
+\definecolor{ogbordergray}{HTML}{CCCCCC}
+
+\arrayrulecolor{ogbordergray}
+
+% 提示框公共样式: 灰底 + 4.5pt(6px)彩色左边框 + 仅右侧圆角
+\tcbset{
+  og alertbox/.style={
+    enhanced,
+    colback=ogboxbg,
+    colframe=ogboxbg,
+    borderline west={4.5pt}{0pt}{#1},
+    arc=1.2mm,
+    sharp corners=west,
+    boxsep=0pt,
+    left=1.2em,
+    right=0.8em,
+    top=0.7em,
+    bottom=0.7em,
+    before skip balanced=12pt,
+    after skip balanced=12pt,
+    fontupper=\small,
+  },
+}
+
+\newtcolorbox{ognote}{og alertbox=ognoteblue,
+before upper={\bfseries Note\par}}
+\newtcolorbox{ogtip}{og alertbox=ogtipgreen,
+before upper={\bfseries Tip\par}}
+\newtcolorbox{ogwarning}{og alertbox=ogwarnorange,
+before upper={\bfseries Warning\par}}
+
+% PRO 框: 浅绿圆角边框 + 右上角 PRO 标签; 内容较长, 允许跨页
+\newtcolorbox{ogpro}{
+  enhanced,
+  breakable,
+  colback=white,
+  colframe=ogprogreen,
+  boxrule=2pt,
+  arc=1.5mm,
+  left=1em,
+  right=1em,
+  top=1em,
+  bottom=0.8em,
+  before skip balanced=14pt,
+  after skip balanced=14pt,
+  title=PRO,
+  fonttitle=\bfseries,
+  coltitle=black!70,
+  attach boxed title to top right={yshift=-2.5mm, xshift=-4mm},
+  boxed title style={
+    colback=ogprogreen,
+    colframe=ogprogreen,
+    boxsep=1mm,
+    top=0.4mm,
+    bottom=0.4mm,
+    left=1.2mm,
+    right=1.2mm,
+  },
+}
+
+% 侧栏框: 灰色粗圆角边框、白底
+\newtcolorbox{ogsidebar}{
+  enhanced,
+  breakable,
+  colback=white,
+  colframe=ogbordergray,
+  boxrule=3pt,
+  arc=2mm,
+  left=15pt,
+  right=15pt,
+  top=12pt,
+  bottom=12pt,
+  before skip balanced=14pt,
+  after skip balanced=14pt,
+}
+
+% 插图: #1 为相对当前版心宽度的比例(与 HTML 中 min(原图宽, 80%*520px)/520px 一致;
+% 在列表/盒子内使用 \linewidth, 与 HTML 中图片按所在容器计比例的行为一致)
+\newcommand{\ogfigure}[2]{%
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=#1\linewidth,height=0.9\textheight,keepaspectratio]{#2}%
+  \end{figure}%
+}
+
+% 行内图标: #1 尺寸选项(height=/width=), #2 文件路径;
+% 在标题中使用时通过 texorpdfstring 保护 PDF 书签
+\newcommand{\ogicon}[2]{%
+\texorpdfstring{\raisebox{-0.4ex}{\includegraphics[height=#1]{#2}}}{}}
+\newcommand{\ogiconw}[2]{%
+\texorpdfstring{\raisebox{-0.4ex}{\includegraphics[width=#1]{#2}}}{}}
+
+% 表格勾/叉(HTML 中 .yes::after/.no::after 引用的原图)
+\newcommand{\ogyes}{\raisebox{-0.9ex}{\includegraphics[height=24pt]{res/og7_yes.png}}}
+\newcommand{\ogno}{\raisebox{-0.8ex}{\includegraphics[height=21pt]{res/og7_no.png}}}
+
+% 表格单元格内的代码: 可在任意字符处折行(注意: tabularx 扫描体内
+% 不能使用 \path/\verb 等 verbatim 命令)
+\newcommand{\ogcellcode}[1]{\texttt{\seqsplit{#1}}}
+
+% 排版修正: 图片密集型文档, 放弃版面底部强制对齐, 减少段落挤压
+\raggedbottom
+\emergencystretch=3em
+\hbadness=10000
+\vbadness=10000

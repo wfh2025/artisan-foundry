@@ -1,0 +1,322 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Using Templates and Diagram Styles}
+
+When you open a new OmniGraffle document, it calls upon a \textit{template} that defines the
+canvas, the units of measurement, and more. For example, the default template, Blank, has a
+plain white canvas with the units set to pixels. The Blank template is simple, and it's a good
+starting point for users new to OmniGraffle.
+
+Conversely, a \textit{diagram style} is more of a snapshot of the styles used in an OmniGraffle
+template that you can apply to your projects. Diagram styles allow you, for example, to
+quickly prototype something without having to worry about applying styles as you go, and to
+then sweep in at the end, apply the diagram style, and be done with your work.
+
+\begin{ognote}
+  The really cool part, though, is that a Diagram Style is nothing more than an OmniGraffle
+  template file (\textit{.gtemplate}) that contains styled objects. When you apply a Diagram
+  Style to a project, OmniGraffle references the objects in the template and applies matching
+  styles to the current document.
+\end{ognote}
+
+This chapter introduces you to \textbf{Templates} and \textbf{Diagram Styles}, showing you how
+to quickly apply styles from an existing template to help speed up your workflow.
+
+\section{Using Templates}
+
+In OmniGraffle, a \textit{template} is used to define the base properties of a project. When you
+create a new document---by either choosing \textbf{File} $\blacktriangleright$ \textbf{New} or
+pressing \textbf{Command-N}---OmniGraffle loads the default template into the window,
+supplying you with a single canvas and its base layer.
+
+As noted earlier, the default template for OmniGraffle 7 is the \textbf{Blank} template. It's
+pretty sparse, which is great when you're just getting started. To choose a different
+template, rather than choosing \textbf{File} $\blacktriangleright$ \textbf{New} to create a
+new document, choose \textbf{File} $\blacktriangleright$ \textbf{Resource Browser} instead.
+The Resource Browser is kind of like an OmniGraffle-specific Finder, that gives you access to
+your OmniGraffle files, templates, and stencils.
+
+\ogfigure{0.800}{res/og7_templates01.png}
+
+After opening the Resource Browser, you can either click the \textbf{Templates} heading in the
+sidebar to view all of the available templates, or select one of the folders for something
+more specific to the project you plan to work on.
+
+To learn more about a particular template, first click to select a template from one of the
+folders, and then click \ogicon{12.5pt}{res/og7_button_rb_info01.png} in the Resource
+Browser's upper-right corner. This button opens an Info pane along the right side of the
+Resource Browser that displays additional information about the selected template.
+
+\ogfigure{0.800}{res/og7_templates01a.png}
+
+The Info pane displays a preview of the template, along with additional information about the
+template's settings, including whether auto-layout is on or off, the dimensions of the canvas,
+the units of measurement, and whether snap to grid is on or off.
+
+\begin{ognote}
+  After opening the Resource Browser's Info pane, that pane remains available until you close it
+  again by clicking \ogicon{12.5pt}{res/og7_button_rb_info02.png}.
+\end{ognote}
+
+To open a new OmniGraffle project using the selected template, click \textbf{New Document}. Or,
+if you'd like to change the default template to something else, click \textbf{Set as Default}.
+
+\ogfigure{0.769}{res/og7_templates02.png}
+
+When you change the default template, the area beneath the template preview lets you decide what
+happens when you choose \textbf{File} $\blacktriangleright$ \textbf{New} (or press
+\textbf{Command-N}) when creating a new document:
+
+\ogfigure{0.769}{res/og7_templates03.png}
+
+You can choose from:
+
+\begin{itemize}
+  \item \textbf{Open the Resource Browser}, which opens the Resource Browser window so you can
+    choose a file, another template, or stencil to work on; or,
+  \item \textbf{Use the Default Template}, which applies the default template to your
+    OmniGraffle project when you click \textbf{New Document} in the Resource Browser's window.
+\end{itemize}
+
+\begin{ogtip}
+  You can also set the default template in the Resource Browser by right-clicking on a template
+  and choosing \textbf{Set as Default} from the contextual menu, or in OmniGraffle's General
+  preferences by clicking the \textbf{Choose} button in the \textbf{New Documents} section.
+\end{ogtip}
+
+\subsection{Editing an Existing Template}
+
+If you ever need to edit a template---say, to change turn on snap to grid, add ruler guides to
+the canvas, or to add a background color---OmniGraffle makes it easy:
+
+\begin{enumerate}
+  \item Choose \textbf{File} $\blacktriangleright$ \textbf{Resource Browser}.
+  \item \textbf{Control-/Right-click} the template that you want to edit, and then choose
+    \textbf{Edit} if you want to edit and save the template file, or choose \textbf{Edit a Copy}
+    from the menu:
+
+    \ogfigure{0.800}{res/og7_templates04.png}
+
+    \begin{itemize}
+      \item If you choose \textbf{Edit}, the template file opens for you to work on. Once the
+        template is open in OmniGraffle, you can work on it just like you would with any other
+        project. When you have finished making your changes, saving the file overwrites the
+        original file in the Templates folder.
+      \item If you choose \textbf{Edit a Copy}, the contents of the template file are placed in a
+        new, Untitled template file. When you've finished making your changes, be sure to give
+        this template file a different name than its predecessor so you don't overwrite the
+        original.
+    \end{itemize}
+\end{enumerate}
+
+\subsection{Creating a New Template}
+
+To create a new template, choose \textbf{File} $\blacktriangleright$ \textbf{New Resource}
+$\blacktriangleright$ \textbf{New Template}, and then use the inspectors to set the properties
+for the template. For example, you can:
+
+\begin{itemize}
+  \item Place Ruler Guides on the canvas so you don't have to recreate these for \textit{every}
+    project that uses the template
+  \item Turn on \textbf{Auto layout} in the Diagram Layout and Style inspector
+  \item Choose a default line type in the Line inspector
+  \item Specify an Infinite Canvas in the Canvas Size inspector
+  \item Set a background color or an image to use on the canvas in the Canvas Fill or Background
+    Image inspectors
+  \item Enter information about the project file in the Document Data inspector
+  \item and more!
+\end{itemize}
+
+When you save the template, OmniGraffle places the file inside the app container's
+\textbf{Templates} folder, or you can select one of the subfolders (or create a new one) in
+which to store your templates.
+
+\ogfigure{0.800}{res/og7_templates05.png}
+
+To view your template, choose \textbf{File} $\blacktriangleright$ \textbf{Resource Browser}
+(\textbf{Shift-Command-N}), and choose the folder in which you saved your template. If you
+didn't select a subfolder within the Templates folder, select the \textbf{Miscellaneous}
+folder in the Resource Browser's sidebar, and then select your template.
+
+\ogfigure{0.800}{res/og7_templates06.png}
+
+If you want to set your newly-created template as the default, click \textbf{Set as Default},
+and then choose one of the two options for what happens when you choose \textbf{File}
+$\blacktriangleright$ \textbf{New}, as shown earlier.
+
+\subsection{Creating a Shortcut to the Templates Folder}
+
+To make the process of exporting an OmniGraffle file as a Template or Diagram Style a little
+easier, you'll need to create a shortcut to the Templates folder in the Finder's sidebar.
+
+The Templates folder lives deep within OmniGraffle's container, but there's a quick way to get
+to the Stencils folder from within OmniGraffle. Follow along\ldots{}
+
+\begin{enumerate}
+  \item Choose \textbf{File} $\blacktriangleright$ \textbf{Resource Browser}, or use the
+    \textbf{Shift-Command-N} keyboard shortcut to open the Resource Browser.
+  \item In the Resource Browser, select any template, then click the Gear menu and choose
+    \textbf{Show in Finder}:
+
+    \ogfigure{0.800}{res/og7_templates_shortcut01.png}
+
+    This opens a Finder window with that particular template selected:
+
+    \ogfigure{0.800}{res/og7_templates_shortcut02.png}
+  \item With the Finder window selected, choose \textbf{View} $\blacktriangleright$ \textbf{as
+    Columns} (\textbf{Command-3}).
+  \item Scroll the Finder view backward until you see the \textbf{Templates} folder; click to
+    select the Templates folder:
+
+    \ogfigure{0.800}{res/og7_templates_shortcut03.png}
+  \item With the Templates folder selected, choose \textbf{File} $\blacktriangleright$
+    \textbf{Add to Sidebar} (\textbf{Control-Command-T}). This adds a shortcut to the Templates
+    folder in the \textbf{Favorites} section of the Finder's sidebar.
+
+    \ogfigure{0.740}{res/og7_templates_shortcut04.png}
+\end{enumerate}
+
+Now when you need to export an OmniGraffle file to use as a Template or Diagram Style, you can
+choose the \textbf{Templates} folder in the Favorites list on the left side of the save sheet.
+
+\ogfigure{0.800}{res/og7_templates_shortcut05.png}
+
+The other benefit of knowing where the Templates folder is on your Mac is so you can quickly add
+subfolders to organize your Templates and Diagram Styles, as well as rename or delete
+templates, too.
+
+\begin{ogsidebar}
+  If you need to access the Templates folder from a script you are writing, the Unix path to use
+  is:
+
+  \begin{itemize}
+    \item \textbf{Purchased from the Omni Group:}
+
+      \noindent\footnotesize\path{~/Library/Containers/com.omnigroup.OmniGraffle7/Data/Library/Application\ Support/The\ Omni\ Group/OmniGraffle/Templates}
+    \item \textbf{Purchased from the Mac App Store:}
+
+      \noindent\footnotesize\path{~/Library/Containers/com.omnigroup.OmniGraffle7.MacAppStore/Data/Library/Application\ Support/The\ Omni\ Group/OmniGraffle/Templates}
+  \end{itemize}
+
+  Triple-click the desired path, press \textbf{Command-C} to copy the path to the Clipboard, and
+  then paste (\textbf{Command-V}) it into your code editor.
+\end{ogsidebar}
+
+\section{Using Diagram Styles}
+
+Diagram Styles, which you can apply to a diagram using the Diagram Layout and Style inspector,
+are nothing more than an OmniGraffle Template file (\textit{.gtemplate}) with styled objects
+on the canvas. The difference between a \textit{template} and a \textit{diagram style},
+however, is that templates are used as the basis for a new OmniGraffle project, while a
+diagram style is \textit{applied} to an OmniGraffle project that you are already working on.
+
+Still confused? Don't be. Let's explore this further\ldots{}
+
+\begin{enumerate}
+  \item Choose \textbf{File} $\blacktriangleright$ \textbf{Resource Browser}
+    (\textbf{Shift-Command-N})
+  \item In the sidebar under \textbf{Templates}, select \textbf{Diagrams} and then select the
+    \textbf{Hierarchical Lines} template:
+\end{enumerate}
+
+\begin{ogwarning}
+  Do not click \textbf{New Document} quite yet. Keep following to learn more about Diagram
+  Styles\ldots{}
+\end{ogwarning}
+
+\ogfigure{0.800}{res/og7_diagramstyles01.png}
+
+As you can see by looking at the Hierarchical Lines template's preview in the Resource Browser,
+this particular template has a black background and a tree of colored lines with labels to
+denote a diagram's hierarchy. If you click \textbf{New Document}, OmniGraffle opens a new
+Untitled document window using the contents of the Hierarchical Lines template, including the
+diagram that is part of the template.
+
+\ogfigure{0.800}{res/og7_diagramstyles02.png}
+
+Now, you might be thinking, \textit{``Why would I want to open a project with stuff already on
+the canvas?''}. You probably wouldn't want to, and there's nothing that's stopping you from
+selecting everything that's on the canvas, pressing \textbf{Delete} and starting with a clean
+slate. But\ldots{}
+
+\ldots{}there may be times when you actually \textit{want} the stuff that's already on the
+canvas. But more importantly, when you create a new document that uses one of the templates in
+the Diagrams folder, what you are essentially getting is a pre-styled diagram. However, now
+you have to change all of the labels, and that kind of work can be tedious.
+
+Instead, what you really want is to \textit{apply} the styles from one of the templates in the
+Diagrams folder to a diagram that you are already working on. Here's how you do that:
+
+\begin{enumerate}
+  \item Choose \textbf{File} $\blacktriangleright$ \textbf{New} from the menu bar.
+  \item Use the \textbf{Outline} tab in the Sidebar to create the structure for your diagram.
+
+    \ogfigure{0.800}{res/og7_diagramstyles03.png}
+
+    The diagram in its current state doesn't really look like much; certainly not something that
+    would impress your boss or friends. At this point, you have two options:
+  \item Style objects individually (see Diagramming Basics), which could take a little while;
+    or,
+  \item Apply a \textbf{Diagram Style} to the diagram.
+
+    Let's go with Option 2.
+  \item Switch to the Canvas Inspector pane and navigate to the Diagram Layout and Style
+    inspector. Click \textbf{Choose\ldots{}} next to \textbf{Style} in the inspector. This opens
+    a sheet displaying the available Templates in the left sidebar.
+
+    \ogfigure{0.800}{res/og7_diagramstyles11.png}
+  \item Select the \textbf{Diagrams} folder in the left sidebar, and then click to select the
+    \textbf{Hierarchical Lines} template.
+
+    \ogfigure{0.800}{res/og7_diagramstyles04.png}
+  \item Click \textbf{Apply} to apply the styles from the Hierarchical Lines template to the
+    objects in the diagram:
+
+    \ogfigure{0.800}{res/og7_diagramstyles05.png}
+\end{enumerate}
+
+When you apply a diagram style, the items of the diagram are styled to match the template's
+styles for shapes, connection lines, text objects, and automatic layout settings. If your
+diagram has more levels than in the template you have applied, the deeper items use the styles
+of the deepest level of the template's style.
+
+\subsection{Customizing an Existing Template's Diagram Styles}
+
+Now that you know how to apply a diagram style to your projects, the final step in this journey
+is to customize an existing template's diagram styles to create one that's more \textit{your}
+style.
+
+\begin{enumerate}
+  \item Start by opening the Resource Browser (\textbf{Shift-Command-N}), and choose
+    \textbf{Diagrams} in the Templates section of the sidebar:
+
+    \ogfigure{0.800}{res/og7_diagramstyles06.png}
+  \item \textbf{Control-/Right-click} on the template that you would like to customize, and
+    choose \textbf{Edit a Copy} from the contextual menu that appears:
+
+    \ogfigure{0.800}{res/og7_diagramstyles07.png}
+
+    This opens a copy of the template file so you can change things up and then save it as a
+    different file name.
+
+    \ogfigure{0.800}{res/og7_diagramstyles08.png}
+  \item Change the styles. For example, with the Hierarchical Lines template, you could change
+    the background color, the font and text styles used for the object labels, balance out the
+    object styles so everything at the same hierarchical level has the same style properties,
+    and more.
+  \item When you have finished, save the template as a different filename. Templates are saved
+    by default to the Templates folder; however, you can click the \textbf{Where} pop-up menu to
+    select a subfolder within the Templates folder (such as the \textbf{Diagrams} folder), if
+    you'd like.
+
+    \ogfigure{0.800}{res/og7_diagramstyles09.png}
+\end{enumerate}
+
+You can double-check your work by going back to the Resource Browser and selecting the folder in
+which you saved the template, or you can put it to use by applying the template's diagram
+styles to an existing project.
+
+\ogfigure{0.800}{res/og7_diagramstyles10.png}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}

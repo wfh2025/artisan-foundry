@@ -1,0 +1,733 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Basic Concepts}
+When you first open OmniGraffle, there's a lot to absorb,
+but you can boil down the interface into four main areas: the Toolbar, Sidebar,
+\mbox{Inspectors}, and the Canvas.
+\ogfigure{0.800}{res/og7_concepts_hero.png}
+
+\begin{itemize}
+  \item The \textbf{Toolbar} contains the tools you use to create the things you draw.
+  \item The \textbf{Sidebar} is where you organize the canvases, layers, and objects within your
+    document.
+  \item The \textbf{Inspectors} are what you use to style the things you draw, and for setting
+    up your project.
+  \item The \textbf{Canvas} is where you draw things.
+\end{itemize}
+
+Yes, there's a lot more to it than that, and that's what this chapter is for;
+to provide you with a gentle introduction to some of OmniGraffle's key components and concepts
+so you can
+quickly get to work.
+
+\section{OmniGraffle Glossary}
+Every piece of software you use has a core set of terminology, and like those apps, OmniGraffle
+has a common
+nomenclature. To better help you understand the terms and terminology used when describing the
+interface or
+how to work in OmniGraffle, we're providing this brief \textit{lingua franca}.
+
+\begin{description}[
+      style=nextline,
+    ]
+  \item[Artboard] An \textit{artboard} is a special type of layer whose objects define an export
+    area, or act
+    as a container, for objects on \textit{standard} or \textit{shared layers} higher up in the
+    layer stack.
+  \item[Bounding Box] The rectangular area that defines the \textit{space} an object occupies on
+    the canvas
+    is known as the \textit{bounding box}. Bounding boxes have eight handles (one at each corner
+      and
+    centerpoint of the box), which you can click and drag to resize an object.
+  \item[Canvas] The \textit{canvas} is the big white area in the center of OmniGraffle's
+    interface where you
+    draw and create things. An OmniGraffle project always contains at least one canvas and one
+    layer.
+  \item[Document/Project] When you create a new file in OmniGraffle, the basic type of file you
+    can create is
+    a \textit{document}. However, documents tend to be associated with wordy things, not designy
+    things, so
+    throughout the documentation, you'll see us reference these as \textbf{OmniGraffle
+    Projects}.
+  \item[Group] A \textit{group} consists of two or more objects that are bound to each other. An
+    object
+    group, when selected, can be styled and moved on the canvas as a single unit; the styles you
+    apply using
+    the Object inspectors are assigned to each object in the group.
+  \item[Guides] There are two types of guides that you'll see in OmniGraffle:
+    \begin{itemize}[
+          leftmargin=1.5em,
+        ]
+      \item \textbf{Ruler Guides}, which are pink by default, are guides that you dra
+      \item \textbf{Smart Guides}, which are light blue by default, appear when you are aligning
+        objects on the canvas.
+    \end{itemize}
+
+    You can change the default colors of Ruler and Smart Guides by choosing
+    \textbf{OmniGraffle} $\blacktriangleright$
+    \textbf{Preferences} $\blacktriangleright$ \textbf{Appearance}.
+
+  \item[Inspector] You use an \textit{inspector} to define the styles and properties of an
+    object, define the
+    canvas area and units of measurement, and set document properties for saving and printing
+    your
+    OmniGraffle projects.
+    The individual inspectors are contained in four separate \textit{tabs} of the Inspector Bar,
+    located to
+    the right of the canvas.
+  \item[Inspector Bar] The \textbf{Inspector} bar is located to the right of the canvas. Similar
+    to the
+    Sidebar, the Inspector has four tabs which contain specific categories of inspectors:
+    \begin{itemize}[
+          leftmargin=3em,
+        ]
+      \item Use the \textbf{Object} inspectors to style, size, and arrange the objects you
+        create.
+      \item Use the \textbf{Properties} inspectors to define how and where lines connect to
+        other objects. If
+        you have OmniGraffle Pro, you can also add Notes and key-value metadata for the objects
+        you create,
+        and assign actions to objects.
+
+        \begin{ogtip}
+          If you have two or more objects selected on the canvas, you can use any of the Object
+          and
+          Properties inspectors to apply style and property changes to the selected objects.
+
+        \end{ogtip}
+
+      \item Use the \textbf{Canvas} inspectors to define the selected canvas. If your project
+        has multiple
+        canvases, you can set each canvas's properties independently. The Canvas inspectors are
+        used to set
+        the canvas's dimensions, choose whether the canvas automatically expands when working on
+        the canvas,
+        set an \textit{infinite} canvas, assign a background color or image fill to the canvas,
+        and more.
+      \item Use the \textbf{Document} inspectors to define how your OmniGraffle project file is
+        saved, set
+        printer margins, and add document-wide metadata for the project. Unlike the Canvas
+        inspectors, which
+        can be set on a canvas-by-canvas basis, the settings you choose in the Document
+        inspectors apply to
+        the everything in your project.
+    \end{itemize}
+
+  \item[Keyboard Shortcut] A set of keys you press to invoke a menu command, or a single
+    character or number
+    key that you press to select one of OmniGraffle's tools. You can change OmniGraffle's
+    default keyboard
+    shortcuts by choosing OmniGraffle $\blacktriangleright$ Keyboard Shortcuts from the menu
+    bar.
+  \item[Layer] A layer contains the objects that you draw. There are three different types of
+    layers in OmniGraffle:
+    \begin{itemize}[
+          leftmargin=3em,
+        ]
+      \item \textbf{Standard Layer} — this is the basic layer type, available in both
+        OmniGraffle
+        Standard and Pro.
+      \item \textbf{Shared Layer} — shared layers are used to share objects with multiple
+        canvases in your
+        project. Shared layers are only available in OmniGraffle Pro.
+      \item \textbf{Artboard Layer} — artboard layers contain a new object type in OmniGraffle
+        Pro, the artboard.
+      \item \textbf{Shared Artboard Layer} — an artboard layer that is shared with other
+        canvases in the document.
+    \end{itemize}
+    Canvases can contain multiple layers of any type.
+  \item[Layer Stack] The order in which layers appear in the \textit{sidebar}. When a canvas has
+    multiple
+    layers, those layers are stacked on top of each other. Layers can be repositioned in the
+    stack by
+    dragging them up or down in the sidebar.
+  \item[Line] A \textit{line} can be a standalone object on the canvas, or used to connect two
+    or more shapes
+    together. To create a line, use the \textbf{Line tool}. Use the Stroke inspector to change
+    the line's
+    style properties, and the Line inspector to change the line type, apply line ends, and
+    define how lines
+    hop each other.
+  \item[Movement Handle] A movement handle appears in the center of an object's bounding box
+    after choosing
+    \textbf{View} $\blacktriangleright$ \textbf{Movement Handles} from the menu bar. Once
+    enabled,
+    \textbf{click-and-drag} on a Movement Handle to move an object on the canvas.
+  \item[Object/Shape] The things you draw on the canvas are known as \textit{objects}. An object
+    can be a
+    shape that you draw with the Shape or Pen tools, a line that you draw with the Line tool, or
+    a block of
+    text or line label that you enter using the Text tool. If you have OmniGraffle Pro, you can
+    also use the
+    Artboard tool to add an artboard to your project, or to convert text and lines to shapes.
+  \item[Ruler] Positioned to the left and above the \textit{canvas} are the rulers. The rulers
+    reflect the
+    units of measurement set in the Units inspector, and are initially based on the template
+    used when
+    creating a new OmniGraffle document. You can hide and show the rulers by pressing
+    \textbf{Command-R}.
+  \item[Sidebar] The \textit{sidebar} to the left of the canvas, is used for managing everything
+    in your
+    project. You can organize and rename the canvases, layers, objects, and groups of objects
+    here. The
+    sidebar has four tabs which you can click to switch between different things in your
+    project:
+    \begin{itemize}[
+          leftmargin=3em,
+        ]
+      \item Use the \textbf{Layers} tab to organize and rename the canvases, layers, objects,
+        and groups of
+        objects in your project.
+      \item Use the \textbf{Guides} tab to add, position, and change the colors of the guides
+        you drag onto
+        the canvas from the rulers.
+      \item Use the \textbf{Outline} tab to rapidly create and label objects for a diagram or
+        flow chart;
+        things of a hierarchical nature.
+      \item Use the \textbf{Selection} tab to select, style, and interact with objects based on
+        their properties.
+    \end{itemize}
+  \item[Stencil] A \textit{stencil} is a reusable shape that can be dragged onto the canvas from
+    the
+    \textbf{Stencil Browser}. Stencils can be as simple as a square or triangle, or as complex
+    as a
+    multilayered and meticulously drawn illustration. For more details about stencils and the
+    Stencil
+    Browser, see Using, Curating, and Creating Stencils.
+  \item[Stencil Browser] A means of accessing stencils in OmniGraffle. By default, the Stencil
+    Browser is
+    available in the right sidebar. However, you can also relocate the Stencil Browser to the
+    left sidebar,
+    view it as a popup menu from the toolbar, or use it as a floating window. For more details
+    about stencils
+    and the Stencil Browser, see Using, Curating, and Creating Stencils.
+  \item[Stroke] A \textit{stroke} is the line that borders an object. To remove or apply styles
+    to an
+    object's stroke, or to a line created with the \textbf{Line tool}, use the \textbf{Stroke
+    inspector}.
+  \item[Subgraph] A subgraph is a special kind of group that can be expanded to show the
+    hierarchy inside it,
+    or collapsed to make it a single compact object.
+  \item[Table] A table is a special kind of group that organizes rows and columns of objects.
+  \item[Template] An OmniGraffle file type that contains the base settings, such as the canvas
+    size and units
+    of measurement, used when creating new OmniGraffle documents (\textbf{File}
+      $\blacktriangleright$
+    \textbf{New}). You can also apply a template's styles to an existing diagram by choosing
+    \textbf{Format}
+    $\blacktriangleright$ \textbf{Choose Diagram Style}. Use the sheet that appears to select
+    from one of
+    OmniGraffle's templates to apply its styles to your project.
+  \item[Toolbar, Tool Palette, and Tools] The region along the top of OmniGraffle's window is
+    the
+    \textit{toolbar}. The toolbar contains buttons for opening and closing the Sidebar (to the
+      left of the
+    canvas) and the Inspector sidebar (to the right of the canvas). In the middle of the
+    toolbar, you'll find
+    the \textbf{tool palette}, which contains the tools you use in OmniGraffle to select, draw,
+    connect,
+    create, and interact with objects.
+\end{description}
+Now that you have a better understanding of OmniGraffle's \textit{lingua franca}, it's time to
+dive in and
+learn more about the basics of using OmniGraffle.
+
+\section{Understanding the Canvas}
+The canvas is where you create, edit, and move objects around in your project. By default, every
+OmniGraffle
+document contains at least one canvas with one layer, and you can add as many canvases as you'd
+like.
+
+Canvases give you the flexibility to separate your work into distinct areas within the same
+project file. Not
+sure if you like how an illustration you've been working on is coming together? Duplicate the
+canvas and
+apply a new set of styles so you can see which one you like best.
+
+To work on a canvas, select the canvas by either clicking its name or the preview icon in the
+sidebar. When
+you do, the preview icon takes on a light blue highlight, and any objects appear on the working
+canvas in the
+middle of OmniGraffle's window.
+
+To delete a canvas, select the preview image in the sidebar and then use one of the following
+options:
+\begin{itemize}
+  \item Press the \textbf{Delete} key;
+  \item Choose \textbf{Edit} $\blacktriangleright$ \textbf{Canvases} $\blacktriangleright$
+    \textbf{Delete Canvas};
+  \item \textbf{Control-/Right-click} on the preview icon and select \textbf{Delete} Canvas from
+    the
+    contextual menu; or,
+  \item Choose \textbf{Delete Canvas} from the \textbf{Action} menu at the bottom of the Sidebar
+    next to the
+    Search field.
+    \begin{ognote}
+      OmniGraffle projects need at least one Canvas; you cannot delete the last one.
+
+    \end{ognote}
+\end{itemize}
+
+\subsection{Configuring the Canvas}
+When you create a new project in OmniGraffle, one of the first things you might consider doing
+is taking a
+pass through the \textbf{Canvas Inspectors} (\textbf{Inspectors} $\blacktriangleright$
+\textbf{Canvas}).
+These inspectors are fully defined in Working With the Inspectors, but here's a brief overview:
+\begin{itemize}
+  \item \textbf{Canvas Size} — Use the Canvas Size inspector to choose a \textbf{Canvas Mode}
+    (Fixed,
+    Flexible, or Infinite),
+    and define the printing options for this canvas.
+    \ogfigure{0.800}{res/og7_insp_canvassize.png}
+    \begin{itemize}
+      \item \textbf{Fixed}: A canvas with its width and height set to a specific size; for
+        example, $1024
+        \times 768$ pixels.
+      \item \textbf{Flexible}: A canvas which expands in a specified direction (up, down, left,
+        or right) to
+        suit your needs.
+      \item \textbf{Infinite}: A canvas that extends infinitely in all directions.
+    \end{itemize}
+  \item \textbf{Canvas Fill} — Use the Canvas Fill inspector to apply a fill color or pattern to
+    the canvas.
+    \ogfigure{0.800}{res/og7_insp_canvasfill.png}
+  \item \textbf{Background Image} — Use the Background Image inspector to select and use an
+    image as the background
+    for the canvas.
+    \ogfigure{0.800}{res/og7_insp_backgroundimg.png}
+
+    \begin{ognote}
+      If you choose to use both a Canvas Fill and a Background Image on the canvas, note that
+      the Background
+      Image sits in the foreground, above the Canvas Fill.
+
+      Also, if you would like the Canvas Fill or Background Image to be included as part of any
+      image export,
+      be sure to uncheck \textbf{Transparent background} in the export panel. For more details,
+      see
+      Exporting Image
+      and Graphics Files from OmniGraffle.
+
+    \end{ognote}
+
+  \item \textbf{Units} — Use the Units inspector to define the units of measurement and how
+    objects scale
+    on the canvas.
+    \ogfigure{0.800}{res/og7_insp_units.png}
+  \item \textbf{Grid} — Use the Grid inspector to specify the distance between major (thicker)
+    or minor (thinner) grid
+    lines, their color, and whether shapes on the canvas will snap to the grid when moved into
+    position.
+    \ogfigure{0.800}{res/og7_insp_grid.png}
+  \item \textbf{Diagram Layout and Style} — Use the Diagram Layout and Style inspector to turn
+    \textbf{Auto
+    Layout} on or off,
+    to set how connected objects flow in a diagram, and to apply diagram styles to objects in
+    the canvas.
+    \ogfigure{0.800}{res/og7_insp_diagramlayout.png}
+    See Diagramming Basics for a quick tutorial on diagramming in OmniGraffle.
+  \item \textbf{Canvas Data} — Use the Canvas Data inspector to change the name of the current
+    canvas, add a
+    descriptive note, or to set key-value pairs of metadata to help further define your project.
+    \ogfigure{0.800}{res/og7_insp_canvasdata.png}
+    Some examples of changes you might want to make to the Canvas prior to starting your work
+    include:
+    \begin{itemize}
+      \item If you are creating diagrams and flowcharts, you might want to turn on \textbf{Auto
+        layout} in
+        the \textbf{Diagram Layout and Style} inspector.
+      \item If you are creating icons for use in an app you're prototyping, you might want to
+        use the
+        \textbf{Units}
+        inspector to set the \textbf{Ruler Units} to pixels, and then adjust the \textbf{Scale}
+        according to
+        the assets you
+        need to export.
+      \item If you want pixel-perfect alignment, you could change the \textbf{Major Grid Steps}
+        to 1
+        px; each square
+        in the grid is now 1 px $\times$ 1 px, which is perfect for creating pixel art.
+    \end{itemize}
+\end{itemize}
+But the most interesting change you can make to the canvas comes up in the next section:
+\textit{Infinite Canvas}!
+
+\subsection{Rulers and Ruler Units}
+Bordering the Canvas—along the left and top edges—are the Rulers. You can also hide or show the
+rulers by
+choosing View $\blacktriangleright$ Rulers (Command-R).
+
+The point at which the rulers meet—the upper-left corner—is known as the Ruler Origin Point.
+This is the
+point from which all ruler measurements originate; its coordinates are 0,0.
+\ogfigure{0.800}{res/og7_ruleroriginpoint.png}
+To change the origin, click and drag the origin from the corner where the rulers meet.
+Alternatively, you can
+enter Origin values in the Units inspector. To reset the origin to the 0,0 position, click on
+the origin
+point between the two rulers. Click the origin point again and the origin point changes to its
+previous position.
+
+\begin{ogsidebar}
+  What Happens to the Canvas Origin with an Infinite Canvas?
+
+  In earlier versions of OmniGraffle, the Canvas Origin—the point from which the canvas expands
+  when
+  autosizing—has always been designated as 0,0, the top-left corner of the canvas. But what
+  happens to the
+  Origin when you have an Infinite Canvas?
+
+  With an Infinite Canvas, the \textbf{0,0} Origin still exists, but if you look closely at the
+  rulers, you'll notice
+  that the rulers extend into the negative space. This means that you can have an Origin of
+  \textbf{0,-100}
+  or \textbf{-100,0},
+  or whatever you'd like.
+
+  You can change the coordinates for the Origin point in the \textbf{Units} inspector, or you
+  can temporarily move the
+  Origin by clicking and dragging the \textbf{Origin Guides} out from the square above and to
+  the left of the rulers:
+  \ogfigure{0.800}{res/og7_infinitecanvas_sidebar01.png}
+
+  The Origin Guides are great for helping you work in an infinite space. You can drag them out
+  to an object
+  and, effectively, reposition the rulers at the same time.
+  \ogfigure{0.604}{res/og7_infinitecanvas_sidebar02.png}
+
+  To reposition the Origin Guides to their previous position, just click the Origin point by the
+  rulers again.
+\end{ogsidebar}
+
+\subsubsection{Changing Ruler Units to Suit Your Design Needs}
+The rulers reflect the units of measure defined in the default template, but you can also change
+the \textbf{Ruler
+Units} in the Units inspector (choose \textbf{Inspectors} $\blacktriangleright$
+\textbf{Canvas}).
+\ogfigure{0.800}{res/og7_rulerunits01.png}
+
+\begin{itemize}
+  \item Pixels (px)
+  \item Points (pt)*
+  \item Picas (p)
+  \item Millimeters (mm)
+  \item Centimeters (cm)$^*$
+  \item Meters (m)
+  \item Kilometers (km)
+  \item Inches, fractional ("or in$^*$)
+  \item Inches, decimal (in)
+  \item Feet (ft or ')
+  \item Yards (yd)
+  \item Miles (mi)
+\end{itemize}
+Ruler units followed by an asterisk $^*$ in the previous list means that these measurement types
+will print
+true to size when selected.
+\begin{ognote}
+  The \textbf{Units} inspector also offers the option for you to set a custom Scale. For
+  example, you could
+  specify that 1 inch on the canvas is the equivalent to 10 feet, or for really long distances,
+  100 pixels
+  could represent 93 million miles.
+\end{ognote}
+You can also change the ruler units by Control- or Right-clicking on the ruler or the Canvas
+itself. For
+example, Control-/Right-clicking on the Rulers provides you with options for hiding and showing
+the Rulers
+and Guides, as well as changing the Ruler Units.
+\ogfigure{0.800}{res/og7_rulerunits02.png}
+While Control-/Right-clicking on the Canvas gives you quick access to other options, including
+the ability to
+add or duplicate Canvases and Layers, and for controlling the Grid and Guides.
+\ogfigure{0.800}{res/og7_rulerunits03.png}
+Note that in both cases, the context menu displays the current setting next to the \textbf{Ruler
+Units} menu item.
+The unit type specified in the template you choose, or as set in the Units inspector, determines
+how other
+inspectors deal with units of measurement. For example, if Ruler Units are set to centimeters
+(cm), you will
+see this unit of measurement reflected in the following inspectors:
+\begin{itemize}
+  \item Geometry
+  \item Alignment
+  \item Size
+  \item Grid
+  \item Diagram Layout and Style
+  \item Margins
+\end{itemize}
+
+The Stroke, Shadow, Shape, Line, and Font inspectors specify their units in points (pt)
+regardless of the
+Ruler Units setting.
+
+\begin{ognote}
+  See Working With the Inspectors later in this guide for more details about the individual
+  inspectors.
+\end{ognote}
+
+\section{Toolbar Basics}
+Along the top of OmniGraffle's window is the \textbf{Toolbar}.
+\ogfigure{0.800}{res/og7_toolbar01.png}
+
+The toolbar has buttons for nearly every function in OmniGraffle. From buttons for opening and
+closing the
+Sidebar and the Inspector bar, to the Tool Palette at its center, everything you need to work in
+OmniGraffle
+is just one click away.
+
+You use the tools in the Tool Palette to work on the canvas. For example, you use the Selection
+tool to
+select and move objects, the Shape or Pen tools to draw shapes, the Line tool to draw lines or
+to connect
+shapes in a diagram or flowchart together, or the new Point Editor tool to further customize the
+shapes you draw.
+
+\begin{ognote}
+  For a detailed overview of the tools in the Tool Palette, see Using the Tools, later in this
+  guide.
+\end{ognote}
+Above the Tool Palette, you'll see a \textit{document icon}. Next to that is the filename, and
+if your OmniGraffle
+file has more than one Canvas, the filename is appended by a colon (:) followed by the name of
+the canvas
+you're presently working on.
+\ogfigure{0.673}{res/og7_concepts_docicon.png}
+
+If you \textbf{Command-click} on the document icon, you'll get a contextual menu that shows you
+where the file is stored
+on your Mac. This is sometimes handy for when you're working on duplicated files and you can't
+remember where
+you saved the last revision.
+
+\subsection{Bounding Box Basics}
+If you are new to design apps, such as OmniGraffle, you may not be familiar with what a
+\textit{bounding box}
+is and how to use them. An object's bounding box appears when you select an object with the
+\textbf{Selection} tool.
+
+Everything you add to the canvas—a shape, line, or an image—is surrounded by what's known as a
+\textbf{bounding box}. A bounding box defines an object or selection's width and height, and
+consists of
+eight selection handles which you can use to resize an object.
+
+\ogfigure{0.673}{res/og7_concepts_boundingbox01.png}
+
+A bounding box is ``drawn'' around one or more selected objects:
+\ogfigure{0.673}{res/og7_concepts_boundingbox02.png}
+If the selected objects are part of a group, the bounding box has a light blue highlight:
+\ogfigure{0.673}{res/og7_concepts_boundingbox03.png}
+Once selected, you can \textbf{click-and-drag} on any one of the selection handles to resize the
+object:
+\ogfigure{0.673}{res/og7_concepts_boundingbox04.png}
+
+If you \textbf{Shift-click-and-drag} on any of the selection handles, the object (or selection
+or group)
+resizes proportionally:
+\ogfigure{0.673}{res/og7_concepts_boundingbox05.png}
+Press \textbf{Option-Shift} and then \textbf{click-and-drag} on any of the selection handles to
+proportionally resize an object (or selection or group) based on its center point:
+\ogfigure{0.673}{res/og7_concepts_boundingbox06.png}
+To deselect any selected objects, press \textbf{Esc} on your keyboard.
+
+\section{The Left Sidebar}
+The sidebar on the left of OmniGraffle's window is where you organize your project. Each
+OmniGraffle project
+has at least one canvas with one layer, but your projects can have multiple canvases each with
+multiple
+layers, and each layer can have one or many objects. That's the beauty of OmniGraffle; your
+projects can be
+as simple or as complex as they need to be.
+
+This section introduces you to OmniGraffle's \textbf{Sidebar}. You'll get to know how canvases,
+layers, and objects
+stack, how to reorder those items, and how to duplicate and share layers between canvases.
+
+\subsection{Getting to Know “The Stack”}
+Among design apps, layers are a ubiquitous concept. Layers hold the things you are working on
+and can be,
+well, layered upon each other to create more complex effects. This is known as the \textit{layer
+stack}
+because the layers in your project stack on top of each other.
+
+In OmniGraffle, there's also the addition of an \textit{object stack}, comprised of the objects
+on each
+layer, and the \textit{canvas stack} which, if you have \textbf{OmniGraffle Pro}, can include
+shared layers
+that appear in the other canvases of your project.
+
+\subsubsection{Working with Just One Layer}
+Your projects don't need to have multiple layers—everything can exist on a single layer—but once
+you grasp
+the concept you'll discover that layers can really make a difference in your work.
+
+Individual layers have an object stack, made up of the objects on that particular layer. For
+example, if you
+draw a square on the canvas and then draw a second one over part of the first square, the second
+square is
+above the first square in the object stack.
+\ogfigure{0.588}{res/og7_layers_layerstack01.png}
+When you look at the sidebar, you'll see that \textbf{square 2} is above \textbf{square 1} in
+the layer's
+object stack. This is because objects are stacked above each other in the order they're drawn on
+the canvas,
+regardless of their actual position on the canvas.
+
+\ogfigure{0.800}{res/og7_layers_layerstack02.png}
+To get \textbf{square 1} above \textbf{square 2}, you can do one of the following:
+\begin{itemize}
+  \item In the Sidebar, drag \textbf{square 1} above \textbf{square 2}:
+    \ogfigure{0.800}{res/og7_layers_layerstack03.png}
+    As you drag \textbf{square 1} upward in the layer's object list, an \textit{insertion bar}
+    appears to
+    help guide where you drop the object in the list.
+  \item Either on the canvas or in the sidebar, select \textbf{square 1} and then:
+    \begin{itemize}
+      \item Click \textbf{Bring to Front}
+        \raisebox{-0.3ex}{\includegraphics[height=1.8ex]{res/og7_button_bringtofront.png}} in
+        the toolbar; or,
+      \item Choose \textbf{Arrange} $\blacktriangleright$ \textbf{Bring to Front
+        (Shift-Command-F)}, or
+        \textbf{Arrange} $\blacktriangleright$ \textbf{Bring Forward (Option-Command-F)}.
+    \end{itemize}
+\end{itemize}
+With only two objects on the layer, there is no difference between \textbf{Bring to Front} and
+\textbf{Bring
+Forward}. However, if you have multiple objects on the layer, \textbf{Bring to Front} always
+places the
+selected object at the top of the object stack, while \textbf{Bring Forward} moves that object
+up one place
+in the stack.
+\ogfigure{0.800}{res/og7_layers_layerstack04.png}
+The same principle applies to using \textbf{Send to Back}
+(\raisebox{-0.3ex}{\includegraphics[height=1.8ex]{res/og7_button_sendtoback.png}}) and
+\textbf{Send Backward}.
+\textbf{Send to Back} sends the selected object to the bottom of the object stack, while
+\textbf{Send
+Backward} moves the
+object one place lower in the stack.
+
+\subsubsection{Managing Multiple Layers}
+Layers provide a way for you to compartmentalize and focus on certain aspects of your design
+individually
+without splitting things out into separate projects. For example, you can turn off a layer's
+visibility so
+you can focus on something on a different layer, or lock in place a layer that's lower in the
+stack while you
+work on something higher up.
+
+\begin{ognote}
+  In Diagramming Basics, you will create a simple diagram, to which you will add a layer for
+  working with the
+  diagram's title text.
+\end{ognote}
+To reorganize a canvas's layers, you drag them up or down in the stack in the Sidebar. Unlike
+objects, there
+are no keyboard shortcuts or toolbar buttons for raising or lowering a layer's position in the
+stack.
+
+\ogfigure{0.800}{res/og7_layers_layerstack05.png}
+
+Moving \textbf{Layer 1} above \textbf{Layer 3} in this example simply places the square on a
+higher level
+than \textbf{Layer 2}, which contains the circle. The end result of raising Layer 1 in the stack
+is the
+square now overlaps the circle:
+\ogfigure{0.800}{res/og7_layers_layerstack06.png}
+
+\subsubsection{Managing Projects with Multiple Canvases}
+Like layers, your OmniGraffle projects can have one or many canvases. And, similar to layers,
+you can
+reorganize them in the Sidebar by dragging them up or down to a different position.
+\ogfigure{0.800}{res/og7_layers_layerstack07.png}
+However, unlike layers, which adhere to the settings of the canvas (which you specify in the
+  \textbf{Canvas}
+inspectors), the canvases in your project can have different properties. For example, you could
+have
+different canvases for laying out a project that needs to be printed in a range of sizes, from
+standard US
+letter size, to A4, to poster-sized.
+
+In addition to reordering canvases in the Sidebar, you can also drag layers and objects from one
+canvas to
+another. To duplicate a layer or object and add it to another canvas, hold the \textbf{Option}
+key and drag
+it into the canvas or layer where you'd like it.
+\ogfigure{0.800}{res/og7_layers_layerstack08.png}
+
+\begin{ognote}
+  If you have \textbf{OmniGraffle Pro}, you can also have \textbf{Shared Layers}, which appear
+  on multiple
+  canvases in your
+  project. For more information about shared layers, see Sharing Layers with Multiple Canvases
+  (PRO)
+\end{ognote}
+
+You can also use the Style Brush to copy styles applied to objects on one canvas, and apply them
+to objects
+on another canvas. Similarly, you can use the Style Tray at the bottom of the inspector sidebar
+to drag
+styles from one canvas to another. This is particularly helpful for when you've set a Canvas
+Fill on one
+canvas and want to apply that same styling to the other canvases in your project.
+
+\begin{ognote}
+  To learn more about the Sidebar, see Managing Canvases, Layers, and Objects in the Sidebar
+  later in this guide.
+\end{ognote}
+
+\section{The Inspector Sidebar}
+Along the right side of OmniGraffle's window you'll find the \textbf{Inspectors}. The concept of
+Inspectors
+is fairly common among macOS apps. For example, you'll find Inspectors in Pages, Keynote, and
+Numbers, and a
+bunch of other popular Mac apps. Inspectors are used to help you style things and apply various
+settings to
+your documents and projects.
+
+The same concept applies here with OmniGraffle. The Inspector sidebar contains four tabs which
+contain all of
+the controls you need to style objects, text, add properties to the canvas, and searchable
+metadata do your
+projects. Here's a quick rundown of what you'll find:
+\begin{itemize}
+  \item The \textbf{Object} and \textbf{Properties} inspectors let you control the appearance
+    and properties
+    of the objects on the canvas. First select an object on the canvas, and then, for example,
+    use the Object
+    inspectors to add a Fill color, or the Properties inspector to change the way objects accept
+    line
+    connections from other objects.
+    \ogfigure{0.800}{res/og7_concepts_objpropinspectors.png}
+  \item Use the \textbf{Canvas} inspectors to define the properties of the current canvas. If
+    your
+    OmniGraffle project has more than one canvas, you can set the canvas properties independent
+    of each
+    other, and if you have OmniGraffle Pro, you can use \textbf{Shared Layers} to share layers
+    and objects
+    between canvases.
+    \ogfigure{0.800}{res/og7_concepts_canvasinspectors.png}
+  \item Use the \textbf{Document} inspectors to choose how your OmniGraffle projects are saved,
+    configure
+    margins for printing, and add metadata related to the project. The information you add to
+    the
+    \textbf{Document Data} inspector is exposed to macOS's Spotlight search, so you can quickly
+    find and open
+    an OmniGraffle project.
+    \ogfigure{0.800}{res/og7_concepts_documentinspectors.png}
+\end{itemize}
+There's a lot more to the Inspectors than what can be covered in this chapter. To learn more
+about the
+Inspectors, see Working With the Inspectors later in this guide.
+\begin{itemize}
+  \item Use the \textbf{Stencil Browser}, located at the far right of the tab bar, to use,
+    locate, and add
+    stencils to OmniGraffle. To learn more about stencils, see Using, Curating, and Creating
+    Stencils later
+    in this guide.
+    \ogfigure{0.800}{res/og7_concepts_stencilsinspector.png}
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}

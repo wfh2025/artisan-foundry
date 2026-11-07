@@ -1,0 +1,165 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Using and Creating Custom Workspaces}
+
+Workspaces enable you to define how you work in OmniGraffle. With the latest update to
+OmniGraffle, we have taken Workspaces a bit further to help you not just define where and how
+the inspectors appear, but to customize them for how you work.
+
+\section{Using Workspaces}
+
+As you learned in the previous chapter, OmniGraffle's inspectors are located to the right of the
+canvas. This is known as the \textbf{Sidebar Workspace}.
+
+\ogfigure{0.800}{res/og7_workspaces_hero.png}
+
+In addition to the Sidebar workspace, OmniGraffle has two other Workspace states for the
+inspectors: \textbf{Floating} and \textbf{Palettes} Workspaces. Each Workspace is assigned a
+\textit{function} key as their keyboard shortcut:
+
+\begin{itemize}
+  \item Sidebar: \textbf{F2}
+  \item Floating: \textbf{F3}
+  \item Palettes: \textbf{F4}
+\end{itemize}
+
+If you are using a MacBook Pro, MacBook Air, or an Apple
+\href{http://www.apple.com/shop/product/MLA22LL/A/magic-keyboard-us-english?fnode=56}{Magic
+Keyboard} with your Mac, you also need to press the \textbf{fn} key---located at the
+lower-left corner of your keyboard---along with the applicable function key. For example,
+\textbf{fn-F4} to open the Palettes workspace. If you have an
+\href{http://www.apple.com/shop/product/MB110LL/B/apple-keyboard-with-numeric-keypad-us-english?fnode=56}{Apple
+Keyboard with Numeric Keypad}, the \textbf{fn} key is located below the \textbf{F13} key.
+
+Subsequent Workspaces that you add to OmniGraffle are assigned their own function key shortcut.
+
+\begin{ogtip}
+  Having the Inspectors available as a floating window or as individual floating palettes allows
+  you to take advantage of big external displays for OmniGraffle's main window while placing the
+  inspectors off to the side or on a secondary display (such as a laptop screen or another large
+  display).
+\end{ogtip}
+
+Use \textbf{Command--1} through \textbf{Command--4} to switch between the Object, Properties,
+Canvas, and Document inspector tabs (or windows, if you're using the Palettes Workspace),
+respectively.
+
+\subsection{Using the Floating Workspace}
+
+To open the Floating Workspace, choose \textbf{Inspectors} $\blacktriangleright$
+\textbf{Floating}, or press \textbf{F3}. The Floating Workspace contains all of the tabs you
+normally find in Inspector Sidebar, and you can switch between inspector sets using the
+default key commands, noted earlier.
+
+\ogfigure{0.800}{res/og7_workspaces01.png}
+
+\subsection{Using the Inspector Palettes Workspace}
+
+To open the inspector palettes, choose \textbf{Inspectors} $\blacktriangleright$
+\textbf{Palettes}, or press \textbf{F4}. You'll see a stack of windows appear over
+OmniGraffle's main window. You'll need to move them aside individually, but once you've got
+them set up---especially if you have them all on a second display---you'll be amazed at how
+addicted you can get to having the inspectors in palette form.
+
+\ogfigure{0.800}{res/og7_workspaces02.png}
+
+\section{Creating Custom Workspaces}
+
+In addition to the default Workspaces available from the \textbf{Inspectors} menu, you can also
+create custom Workspaces. You can also use Workspaces to save default \textit{states} of
+certain inspectors, or a totally custom Workspace window that you tailor to suit your
+workstyle.
+
+\subsection{Saving Inspector States as a Workspace}
+
+If you frequently need access to only the Fill and Stroke panes (for example), follow these
+steps to create a custom Workspace:
+
+\begin{enumerate}
+  \item Choose \textbf{Inspectors} $\blacktriangleright$ \textbf{Object} (\textbf{Command-1}) to
+    view the Object inspectors.
+  \item \textbf{Option-click} the \textbf{Fill} inspector; this opens the Fill inspector and
+    collapses the others in the sidebar.
+  \item Click the disclosure triangle next to the \textbf{Stroke} inspector to open that
+    inspector as well.
+  \item Choose \textbf{Inspectors} $\blacktriangleright$ \textbf{Edit Workspaces}; the following
+    window appears:
+
+    \ogfigure{0.800}{res/og7_config_workspaces01.png}
+  \item At the bottom of the Workspaces window, click \textbf{+} (for Add). You will hear the
+    shutter sound associated with taking a picture; this is OmniGraffle's way of letting you
+    know that it has captured the state of the inspector window.
+  \item Give this new workspace a name, such as \textbf{Fill-Stroke}.
+
+    \ogfigure{0.800}{res/og7_config_workspaces02.png}
+  \item Close the Workspaces window.
+\end{enumerate}
+
+Now, whenever you need to just tweak an object's Fill or Stroke, you can press \textbf{F5} to
+gain quick access to these two inspector panes.
+
+\subsection{Creating a Custom Workspace from Various Inspectors}
+
+One little-known feature of OmniGraffle is that you can \textit{tear away} inspectors from the
+Inspector sidebar. For example, press \textbf{Command-1} to view the Object inspector tab,
+click on the handle along the right side of the Shape inspector, and then drag the inspector
+to the canvas.
+
+\ogfigure{0.800}{res/og7_config_workspaces03.png}
+
+As you drag the Shape inspector away from the sidebar, you'll notice that it disappears from the
+sidebar. When you let go of the mouse, though, the Shape inspector appears in its own floating
+window.
+
+\ogfigure{0.769}{res/og7_config_workspaces04.png}
+
+You can switch to the other inspector tabs and drag additional inspectors into the window; for
+example, do the following:
+
+\begin{itemize}
+  \item From the Object inspectors, drag in the \textbf{Shadow} and \textbf{Geometry} inspectors
+  \item From the Properties inspectors (\textbf{Command-2}), drag in the \textbf{Connections}
+    inspector
+\end{itemize}
+
+As you drag the various inspectors from the Inspector sidebar into the window, you'll notice
+that they also disappear entirely from the sidebar. That's okay, and we'll show you how to get
+those inspectors back into their respective places in the Inspector sidebar later.
+
+The floating inspector window should appear as follows:
+
+\ogfigure{0.769}{res/og7_config_workspaces05.png}
+
+As you can see, the window's titlebar shows its name as \textbf{Custom 1}; however, you can save
+this configuration of inspectors as a Workspace by doing the following:
+
+\begin{enumerate}
+  \item Choose \textbf{Inspectors} $\blacktriangleright$ \textbf{Edit Workspaces} to open the
+    Workspaces window:
+
+    \ogfigure{0.800}{res/og7_config_workspaces06.png}
+  \item Click the \textbf{+} (Add) button, and replace the \textbf{Untitled} label\ldots{}
+
+    \ogfigure{0.800}{res/og7_config_workspaces07.png}
+
+    \ldots{}with something more specific to the inspectors you've chosen; for example,
+    \textbf{Diagramming}:
+
+    \ogfigure{0.800}{res/og7_config_workspaces08.png}
+  \item Close the Workspaces window.
+\end{enumerate}
+
+As you may have noticed, whenever you create a new Workspace, OmniGraffle assigns one of the
+Function keys as a shortcut for opening that particular Workspace. However, the keyboard
+shortcut doesn't close the Workspace window. Instead, you will need to click the red close
+button in the Workspace window's titlebar.
+
+When you close the Workspace window, you'll notice that its individual inspectors do not return
+to the Inspector sidebar. To get the inspectors back in the sidebar, you can either choose
+\textbf{Window} $\blacktriangleright$ \textbf{Sidebar} or press \textbf{F2}. If you were to
+press \textbf{F5} to open the Diagramming Workspace, the inspectors pop out of the sidebar
+again and take up residence in the \textbf{Custom 1} window until you return them to the
+sidebar.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
