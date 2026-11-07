@@ -1,0 +1,329 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Drawing Basics}
+
+Everything you'll do in OmniGraffle involves drawing. Whether you're creating the basic shapes
+for an organizational chart or prototyping a user interface for your next iOS or Mac app,
+OmniGraffle is packed with tools to feed your creativity.
+
+Before you dive in, though, take some time to learn some of the basics of drawing in
+OmniGraffle. There are many tips and tricks here that can help you master OmniGraffle in no
+time.
+
+\section{Creating Shapes}
+
+As mentioned in Basic Concepts, drawing in OmniGraffle takes the form of \textit{objects} on
+layers of a canvas. Shapes are the most common type of OmniGraffle object you can add to a
+project, and the most basic way to create, or \textit{draw}, a shape on the canvas is with the
+\textbf{Shape tool}.
+
+Select the Shape tool in the \textbf{Tool Palette}.
+
+\ogfigure{0.800}{res/og7_drawingbasics01.png}
+
+Next, open the \textbf{Object} inspectors by choosing \textbf{Inspectors} $\blacktriangleright$
+\textbf{Object}. You can also open the Object inspectors by pressing \textbf{Command-1}. Each
+of the inspector tabs can be accessed with a keyboard shortcut.
+
+Locate the \textbf{Shape} inspector and \textbf{Option-click} on either its disclosure triangle
+or on the inspector name. This opens the Shape inspector and collapses the other Object
+inspectors in that tab.
+
+\ogfigure{0.800}{res/og7_drawingbasics02.png}
+
+Click the \textbf{Shape Selection} button; this opens a popover from which you can choose a
+shape. \textbf{Double-click} on the square/rectangle shape in the upper-left corner of the
+popover.
+
+\ogfigure{0.800}{res/og7_drawingbasics03.png}
+
+With the Shape tool and the Rectangle shape selected, drag across the canvas until you have a
+rectangle that is the size you want. When you draw a shape, the mouse pointer changes to a set
+of crosshairs.
+
+\ogfigure{0.800}{res/og7_drawingbasics04.png}
+
+\begin{ogtip}
+  If you want to draw a perfect square, hold down the \textbf{Shift} key while drawing to restrain
+  the dimensions of the shape.
+\end{ogtip}
+
+It doesn't have to be perfect right now; to set an exact size, use the \textbf{Geometry} object
+inspector (\textbf{Command--1}).
+
+\ogfigure{0.800}{res/og7_drawingbasics05.png}
+
+The top two fields in the Geometry inspector let you know the position of the object in relation
+to the canvas origin, while the middle two fields reflect the object's width and height. The
+controls on the bottom row allow you to rotate the object or flip it horizontally or
+vertically.
+
+\section{Selecting, Resizing, and Moving Objects}
+
+To select an object, choose the \textbf{Selection} tool
+(\ogiconw{19.4pt}{res/og7_tools_selection.png}) from the Tool Palette, and then click the
+object. When the object is highlighted, you will see eight handles along its edges, plus a
+round handle at its center if you choose \textbf{View} $\blacktriangleright$ \textbf{Movement
+Handles}.
+
+\ogfigure{0.723}{res/og7_drawingbasics06.png}
+
+If you have selected two or more objects, the area of the selected objects receives the eight
+resizing handles. This allows you to position objects on the canvas first, and then later
+resize select objects as needed.
+
+\ogfigure{0.800}{res/og7_drawingbasics07.png}
+
+To perfectly align two objects with each other, \textbf{click-and-drag} one of the objects into
+position. As you drag the object into position, blue \textbf{Smart Guides} appear to help you
+align the objects.
+
+\ogfigure{0.800}{res/og7_drawingbasics31.png}
+
+For more precise control over aligning objects, select the objects that you want to be aligned,
+and use the \textbf{Alignment} inspector to align and specify the distance between objects
+vertically or horizontally.
+
+\ogfigure{0.800}{res/og7_drawingbasics32.png}
+
+\begin{ognote}
+  See Positioning Objects Neatly with the Alignment Inspector to learn more about the Alignment
+  inspector.
+\end{ognote}
+
+If you have an object on the canvas and you'd like to change its shape, select the shape and
+then use the \textbf{Shape} inspector's Shape Popover to select a different shape:
+
+\ogfigure{0.800}{res/og7_drawingbasics33.png}
+
+If you have two objects of different sizes on the canvas and you'd like them to be the same
+size, do the following:
+
+\begin{enumerate}
+  \item Select the object that has the dimensions you'd like the others to emulate.
+  \item \textbf{Command-click} on the objects that you want to be the same size as your first
+    selection.
+  \item Choose \textbf{Arrange} $\blacktriangleright$ \textbf{Size} and then choose one of the
+    resizing options:
+
+    \begin{itemize}
+      \item Make Same Width
+      \item Make Same Height
+      \item Make Same Size
+      \item Make Natural Size
+      \item Size to Fit Image (this option is only available if you are trying to fit an image
+        within the bounds of a shape)
+    \end{itemize}
+\end{enumerate}
+
+\ogfigure{0.800}{res/og7_drawingbasics34.png}
+
+Once you have selected an object, you can modify it with the \textbf{Inspectors} or use the menu
+commands to alter its appearance.
+
+\begin{itemize}
+  \item To resize an object, first select the object and then drag one of its resizing handles
+    until the object is the size you'd like.
+
+    \ogfigure{0.800}{res/og7_drawingbasics08.png}
+  \item To select or deselect more objects without losing the selection you've already made,
+    hold \textbf{Command} as you click other objects.
+
+    \ogfigure{0.800}{res/og7_drawingbasics09.png}
+  \item To select several adjacent objects at once, click in an empty area of the canvas and
+    drag a box around the objects that you want to select. If you hold down the \textbf{Option}
+    key while dragging, you'll get only the objects that fit completely inside the selection
+    rectangle.
+
+    \ogfigure{0.800}{res/og7_drawingbasics10.png}
+  \item To rotate an object, hold down the \textbf{Command} key while mousing over one of the
+    eight handles. The pointer changes from a standard resizing control to a curved one. An
+    angle control appears inside of the object, along with a helper dialog that shows the degree
+    of the angle.
+
+    \ogfigure{0.800}{res/og7_drawingbasics11.png}
+
+    \begin{ogtip}
+      If you are using a laptop or touch-sensitive trackpad, you can enable Multi-Touch trackpad
+      gestures for use with OmniGraffle (see Multi-Touch). With Multi-Touch gestures enabled, you
+      can use two fingers to rotate objects.
+    \end{ogtip}
+  \item To \textbf{duplicate} objects you've drawn, hold down the \textbf{Option} key and then
+    click on and drag the objects. An exact duplicate appears on the canvas. Unlike using Copy
+    and Paste from the \textbf{Edit} menu (which places the pasteboard content on the currently
+    active layer), the duplicated objects remain on their original layers.
+\end{itemize}
+
+\ogfigure{0.769}{res/og7_drawingbasics12.png}
+
+\begin{ognote}
+  Duplicating objects in this way does not replace other copied content currently on the
+  pasteboard.
+\end{ognote}
+
+\begin{itemize}
+  \item To move an object, use the \textbf{Selection} tool to click and hold on the object, and
+    then drag it to its new location. \textbf{Smart Alignment Guides} (the light blue lines)
+    appear to help you align objects to one another, while \textbf{Smart Distance Guides} appear
+    beneath the objects so you can space them evenly.
+\end{itemize}
+
+\ogfigure{0.800}{res/og7_drawingbasics13.png}
+
+\subsection{Grouping and Ungrouping Objects}
+
+A group behaves like a single object; you can select it, move it around, resize it, use
+inspectors to change its style and properties, connect lines to it, and so on. There is no
+limit to the number of objects that can be part of a group; you can even group multiple groups
+together to create subgroups.
+
+\begin{itemize}
+  \item To group two or more objects together so they can be moved or styled as a single unit,
+    select the objects and choose \textbf{Arrange} $\blacktriangleright$ \textbf{Group}
+    (\textbf{Shift-Command-G}).
+
+    \ogfigure{0.800}{res/og7_drawingbasics14.png}
+  \item To select an object that's part of a group:
+
+    \begin{itemize}
+      \item Click once to select the group as a whole, then click again to select an individual
+        member of the group. You can keep clicking to select members of groups within groups.
+    \end{itemize}
+
+    \ogfigure{0.800}{res/og7_drawingbasics14a.png}
+
+    \begin{itemize}
+      \item In the Sidebar, click the disclosure triangle next to the group to reveal the objects
+        or subgroups it contains, and then select the object you need:
+    \end{itemize}
+
+    \ogfigure{0.800}{res/og7_drawingbasics14b.png}
+
+    \begin{ogtip}
+      Similarly, if you have OmniGraffle Pro, you can select the individual objects within a
+      \textbf{Subgraph} or \textbf{Table} by opening their object group in the Sidebar. With a
+      Subgraph or Table open in the Sidebar, you can drag other objects on the canvas into or out
+      of a Subgraph or Table.
+    \end{ogtip}
+  \item To group two groups together (thus creating a subgroup), select the groups that you
+    would like to group together\ldots{}
+
+    \ogfigure{0.800}{res/og7_drawingbasics14c.png}
+
+    \ldots{}and then choose \textbf{Arrange} $\blacktriangleright$ \textbf{Group}
+    (\textbf{Shift-Command-G}):
+
+    \ogfigure{0.800}{res/og7_drawingbasics14d.png}
+  \item To add an object to an existing group, \textbf{select and drag} the object in the
+    Sidebar\ldots{}
+
+    \ogfigure{0.800}{res/og7_drawingbasics14e.png}
+
+    \ldots{}and then drop it into the group:
+
+    \ogfigure{0.800}{res/og7_drawingbasics14f.png}
+  \item To take a group apart, select it and choose \textbf{Arrange} $\blacktriangleright$
+    \textbf{Ungroup} (\textbf{Shift-Command-U}).
+\end{itemize}
+
+\section{Styling Shapes with the Object Inspectors}
+
+As you will learn more in the Diagramming Basics tutorial, you can apply styles to the shapes
+you create with the \textbf{Object inspectors}, available on the right side of the canvas.
+
+To style an object:
+
+\begin{enumerate}
+  \item Select the object you want to style with the \textbf{Selection} tool:
+
+    \ogfigure{0.800}{res/og7_drawingbasics24.png}
+
+    When you select the object, the Inspectors sidebar conveniently switches to the Object
+    inspectors.
+  \item \textbf{Option-click} on the \textbf{Fill} inspector. This opens the Fill inspector, and
+    collapses the other Object inspectors in the sidebar:
+
+    \ogfigure{0.800}{res/og7_drawingbasics25.png}
+  \item Click one of the \textbf{Color Swatches} or use the \textbf{Fill Color} menu to apply a
+    fill color to the object you selected on the canvas:
+
+    \ogfigure{0.800}{res/og7_drawingbasics26.png}
+
+    \ogfigure{0.800}{res/og7_drawingbasics27.png}
+  \item Similarly, you can use the \textbf{Stroke} inspector to change the point size of the
+    line around the object and its color:
+
+    \ogfigure{0.800}{res/og7_drawingbasics28.png}
+
+    \ogfigure{0.800}{res/og7_drawingbasics29.png}
+\end{enumerate}
+
+\subsection{Connecting Shapes with Lines}
+
+You can connect any two objects with the \textbf{Line} tool
+(\ogiconw{19.4pt}{res/og7_tools_line.png}).
+
+\begin{enumerate}
+  \item Select the Line tool.
+
+    \ogfigure{0.800}{res/og7_drawingbasics15.png}
+  \item Click the first object you would like to connect; this object becomes the
+    \textit{source} of the line. You'll notice that when you move the mouse over the object,
+    that a blue pulsing border appears around the object.
+
+    \ogfigure{0.800}{res/og7_drawingbasics16.png}
+  \item Click the second object you would like to connect; this object becomes the
+    \textit{destination} of the line. When you drag the line from the first object to the next,
+    you'll notice that the blue pulsing border appears around the object you're dragging the
+    line to.
+
+    \ogfigure{0.800}{res/og7_drawingbasics17.png}
+  \item When the objects are connected with a line, they stay connected no matter how much you
+    change or move them around. That means the logical integrity of your diagram is preserved
+    regardless of how you choose to style the objects.
+
+    \ogfigure{0.800}{res/og7_drawingbasics18.png}
+  \item You can disconnect a line from an object by selecting the line and then dragging one of
+    its end points. To delete the line, just select the line and press \textbf{Delete}.
+
+    \ogfigure{0.800}{res/og7_drawingbasics19.png}
+  \item You can add points to a line to control its routing by double-clicking the line at the
+    place where you would like to add the point, and dragging the point to reposition the line.
+    This behavior can be changed in Drawing Tools preferences.
+
+    \ogfigure{0.800}{res/og7_drawingbasics35.png}
+\end{enumerate}
+
+\begin{ogtip}
+  To create an orthogonal line like the one in the figure above, click the line to select it and
+  use the Line inspector to change the line type to \textbf{Orthogonal}.
+\end{ogtip}
+
+\subsection{Styling Connecting Lines and Adding Line Ends}
+
+The connecting lines that you draw between objects on the canvas can be styled, just like any
+other object you create in OmniGraffle. For example, you can change the point size and color
+of the line with the \textbf{Stroke} inspector:
+
+\ogfigure{0.800}{res/og7_drawingbasics20.png}
+
+And, if you are creating a flowchart or diagram where showing the flow of a process is needed,
+you can add line ends to the \textit{tail} or \textit{head} of the line. Using the
+\textbf{Line} inspector, you can add a \textbf{Line Tail} or \textbf{Line Head}, such as
+circles, squares, and various sets of arrows, depending on what it is you are diagramming.
+
+\ogfigure{0.800}{res/og7_drawingbasics21.png}
+
+The various line ends in OmniGraffle have some smart behavior. When you change the point size of
+the line---say, from 1 pt to 2 pts---the arrow scales with the point size of the line.
+
+\ogfigure{0.800}{res/og7_drawingbasics22.png}
+
+However, if all you want is a bigger arrow, you can adjust the size of the arrow using the scale
+field beneath the line tail or head pop-up menus. The scale fields accept positive and
+negative numbers, so you can have teeny-tiny or really huge arrows.
+
+\ogfigure{0.800}{res/og7_drawingbasics23.png}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}

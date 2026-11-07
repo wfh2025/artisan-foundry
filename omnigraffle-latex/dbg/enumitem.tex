@@ -1,0 +1,137 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{enumitem}
+
+Every piece of software you use has a core set of terminology, and like those apps, OmniGraffle has a common
+nomenclature. To better help you understand the terms and terminology used when describing the interface or
+how to work in OmniGraffle, we're providing this brief \textit{lingua franca}.
+
+% em: 当前字体字母M宽度为基准
+% ex: 当前字体字母x高度
+% \widthof{xxxxx}
+% style: 样式, 可选值: standard/unboxed/nextline/sameline/multiline
+%   standard: 类似标准类description,标签被盒装,设置itemindent
+%   unboxed: 类似standard但标签不盒装,避免间距不均和长标签被截断,设置itemindent
+%   nextline: 标签超出边距,文本在下一行继续;否则标签放到宽度为leftmargin-labelsep的盒子中,设置labelwidth
+%   sameline: 类似nextline但标签超出边距时文本在同一行继续
+%   multiline: 标签放到宽度为leftmargin的parbox中,可多行显示
+% topsep: 列表顶部与之前内容垂直空白距离，不包含基线间距
+% partopsep: 当列表之前是一个空行,列表顶部额外增加的空白距离
+% parsep: 同一个列表项(\item)内部的多个段落之间垂直间距,仅在item内有多段文本时生效
+% itemsep: 不同列表项(\item)之间垂直间距,即相邻两个列表项之间空白距离
+% leftmargin: 列表环境左侧空白长度,即列表整体与外部文本左边缘距离
+% rightmargin: 列表环境右侧空白长度,即列表整体与外部文本右边缘距离
+% listparindent: 列表项中第一行之后段落缩进量,仅当item出现分段时生效
+% labelwidth: 标签盒子宽度,用于容纳列表项的标签内容
+% labelsep: 标签盒子与列表项第一行文本之间的距离
+% itemindent: 列表项第一行文本缩进量,仅作用item首行
+% labelindent: 控制从外部列表/文本边缘到标签框左边空白距离, 关系: leftmargin+itemindent=labelindent+labelwidth+labelsep
+% label=<cmds>: 设置当前层次标签样式, 支持\alph* \Alph* \roman* \Roman*等带*计数器命令引用当前计数器, 支持使用\value*获取当前计数器
+% label*=<cmds>: 将值追加到父标签后,用于创建层级标签
+% ref=<cmds>: 单独设置交叉引用格式,覆盖label对引用默认设置,实现标签和引用格式不同效果
+% left=<labelindent>或left=<labelindent>..<leftmargin>: 快速设置常见标签和文本布局
+% beginpenalty: 设置列表开始处分页惩罚值,值越高,越不容易在列表开始处分页
+% midpenalty: 设置列表项之间分页惩罚值,值越高,越不容易在列表项之间分页
+% endpenalty: 设置列表结束处分页惩罚值,值越高,越不容易在列表结束处分页
+% before=<code>: 列表开始前执行代码,会覆盖之间设置before代码
+% before=*<code>: 列表开始前执行代码,会追加到已有before代码之后
+% after=<code>: 列表结束前执行代码,覆盖之前设置after代码
+% after=*<code>: 列表结束前执行代码,追加到已有after代码之后
+% first=<code>: 列表主体最开始执行代码,等同于在列表环境第一行直接写入代码
+% first=*<code>: 列表主体最开始执行代码,会追加到已有first代码之后
+% noitemsep: 移除列表项之间和段落之间的间距,即设置itemsep=0pt和parsep=0pt
+% nosep: 移除所有垂直间距,包括topsep/partopsep/itemsep/parsep
+% align: 控制标签在标签框对齐方式,left/right/parleft
+% font: 设置标签字体
+\begin{description}[
+      style=nextline,
+      leftmargin=0em,
+      labelwidth=0em,
+      labelsep=0em,
+      itemsep=0ex,
+      itemindent=0em,
+      parsep=0em,
+      topsep=0em,
+      align=left,
+      font=\bfseries\color{blue!80!black},
+    ]
+  \item[M] |MMMMMMMMMM| |MMMMMMMMMM| |MMMMMMMMMM| |MMMMMMMMMM| |MMMMMMMMMM| |MMMMMMMMMM|
+  \item[Artboard] An \textit{artboard} is a special type of layer whose objects define an export area.
+  \item[Bounding Box] The rectangular area that defines the \textit{space} an object occupies on the canvas.
+  \item[Canvas] The \textit{canvas} is the big white area in the center of OmniGraffle's interface where you draw.
+\end{description}
+
+\dbgsepline
+
+\newlist{displayIconEnumerate}{enumerate}{3}
+\setlist[displayIconEnumerate, 1]{label=\color{red}\ding{202}\arabic*, nosep, leftmargin=*}
+\setlist[displayIconEnumerate, 2]{label=\color{yellow}\ding{203}\arabic*, nosep, leftmargin=*}
+\setlist[displayIconEnumerate, 3]{label=\color{green}\ding{204}\arabic*, nosep, leftmargin=*}
+\begin{displayIconEnumerate}
+\item \lipsum[8][1-2]
+  \begin{displayIconEnumerate}
+  \item \blindtext[1][1]
+    \begin{displayIconEnumerate}
+    \item \lipsum[9][1]
+    \item \blindtext[1][1]
+    \end{displayIconEnumerate}
+  \item \lipsum[10][1]
+  \end{displayIconEnumerate}
+\item \blindtext[1][1-2]
+\end{displayIconEnumerate}
+
+\dbgsepline
+
+\newenvironment{displayDescription}{%
+  \begin{description}[
+        style=unboxed,              % 标签不盒装,长标签自然排版不截断
+        leftmargin=2em,             % 自定义左缩进
+        nosep,                      % 紧凑
+        font=\bfseries\color{blue}, % 标签格式
+      ]
+    }{%
+  \end{description}
+}%
+
+\begin{displayDescription}
+\item[{\lipsum[2][1]}] \lipsum[1][1-5]
+\end{displayDescription}
+
+\dbgsepline
+\newenvironment{displayItemize}{%
+  \begin{itemize}[
+        noitemsep,                                % 仅移除项目间/段间间距,保留上下外间距
+        leftmargin=1.5em,                         % 自定义左缩进
+        label=\raisebox{0.1ex}{\tiny\ding{117}},  % 设置标签样式
+      ]
+    }{%
+  \end{itemize}
+}%
+
+\begin{displayItemize}
+\item \lipsum[1][4-6]
+\item \lipsum[2][4-6]
+\item \lipsum[1][1-3] | \\
+  \lipsum[2][1-3] |
+\end{displayItemize}
+
+\dbgsepline
+
+\newlist{displayEnumerate}{enumerate}{5}
+\setlist[displayEnumerate]{%
+  nosep,                  % 移除所有垂直距离
+  label=(\arabic*),       % 标签样式: (1) (2)
+  align=left,             % 标签左对齐
+  leftmargin=*,           % 自动计算左外边距离
+}%
+
+\begin{displayEnumerate}
+\item \lipsum[1][4-6]
+\item \lipsum[2][4-6]
+\item \lipsum[1][1-3] | \\
+  \lipsum[2][1-3] |
+\end{displayEnumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}

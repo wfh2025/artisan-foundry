@@ -1,0 +1,432 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Using Artboards (\texorpdfstring{\textbf{PRO}}{PRO})}
+
+As you learned in the previous chapter, your OmniGraffle projects can be as simple or complex as
+you need. For example, your project can have a single canvas with a single layer, a single
+canvas with multiple layers, or it can contain multiple canvases each with multiple layers.
+
+This chapter introduces you to a new layer---and object---type that's only available in
+OmniGraffle Pro: The \textbf{Artboard}. \textbf{Artboard Layers} reside beneath or between the
+layers of your project, and the objects on an Artboard Layer, known as \textbf{Artboard
+Objects}, have a direct effect on the objects residing on layers higher up in the stack.
+Artboards can be used to define export areas in your project, while also acting as a container
+for objects on the layers above.
+
+For example, you could use artboards to:
+
+\begin{itemize}
+  \item Define the areas needed for toolbar buttons in a macOS app. You could mock up the
+    toolbar, and use separate artboards for each button location.
+  \item Export multiple resolution images (normal, 100\%, through @5x, 500\%) for use in an app
+    bundle or for a website.
+  \item Act as containers for objects in a project, such as an app prototype, where you need the
+    ability to move interaction ``screens'' around without breaking everything else.
+  \item And much, much more\ldots{}
+\end{itemize}
+
+As you'll soon discover, artboards are powerful new tools for your bag of design tricks.
+
+\section{Understanding Artboards}
+
+The fastest way to add an Artboard Layer \textit{and} an Artboard Object to your project is with
+the \textbf{Artboard Tool}:
+
+\ogfigure{0.800}{res/og7_artboards_toolpalette.png}
+
+Artboards are unlike other layers in OmniGraffle. For example, if you create a new OmniGraffle
+project and add a \textbf{New Layer}, you'll notice that \textbf{Layer 2} appears
+\textit{above} \textbf{Layer 1} in the layer stack.
+
+\ogfigure{0.800}{res/og7_artboards01.png}
+
+However, with the same new project, if you choose \textbf{File} $\blacktriangleright$
+\textbf{New Artboard Layer} in the toolbar (or use the Artboard Tool to create a new artboard
+object and layer), you'll notice that the \textbf{Artboard Layer 1} layer is added to the
+canvas \textit{underneath} \textbf{Layer 1}.
+
+\ogfigure{0.800}{res/og7_artboards02.png}
+
+This subtle behavior is deliberate because artboards are used to manage the behavior and output
+of the things you create on the layers \textit{above}. In fact, whenever you add a new
+Artboard Layer, it pops into the layer stack underneath the selected layer.
+
+And, like standard layers, your project can have as many Artboard Layers that you need; but
+unlike standard layers, there is no requirement for a project to have at least one Artboard
+Layer. If you don't need one, don't use one. (The same applies to Shared Layers, too.)
+
+\subsection{How Artboard Objects Interact with Objects on Other Layers}
+
+As noted earlier, artboards interact with the objects on layers higher up in the stack. This
+means that when you go to grab and move an artboard to a different location on the canvas,
+every object that's on a higher layer in the project---and within the bounds of the artboard,
+partially or otherwise---goes along for the ride.
+
+To help illustrate the point, let's look at a simple example\ldots{}
+
+\begin{enumerate}
+  \item Create a new OmniGraffle project.
+  \item In the menu bar, choose \textbf{View} and look in the \textbf{Extras} section to see if
+    \textbf{Movement Handles} has a checkmark next to it.
+  \item Click the \textbf{New Layer} button in the toolbar to add another standard layer to the
+    project; don't worry about renaming this layer.
+  \item On \textbf{Layer 1}, use the Shape tool to draw a square.
+  \item On \textbf{Layer 2}, use the Shape tool to draw a circle, but have the circle overlap
+    the square a little, like so:
+
+    \ogfigure{0.800}{res/og7_artboards_interaction01.png}
+  \item In the Tool Palette, select the \textbf{Artboard Tool}
+    \ogiconw{19.4pt}{res/og7_tools_artboard.png}.
+  \item Draw an artboard so that it intersects the circle on Layer 2:
+
+    \ogfigure{0.800}{res/og7_artboards_interaction02.png}
+
+    If you look at the Sidebar, you'll notice that the Artboard Layer has been added between
+    Layers 1 and 2.
+  \item Drag the Artboard Layer to the bottom of the layer stack, so that Layers 1 and 2 appear
+    above the artboard.
+
+    \ogfigure{0.673}{res/og7_artboards_interaction03.png}
+\end{enumerate}
+
+With the artboard at the bottom of the layer stack, and knowing that artboard objects affect the
+objects on layers higher up in the stack, \textbf{click and drag} on the artboard. Notice how
+the circle on Layer 2 moves along with the artboard but the square on Layer 1 stays in place.
+This is because a portion of the circle overlaps the artboard, but the square does not.
+
+\ogfigure{0.673}{res/og7_artboards_interaction04.png}
+
+Press \textbf{Command-Z} to undo that movement and reset the circle and artboard to their
+previous locations.
+
+If all you wanted to do was move the artboard so that it is placed beneath the square
+\textit{and} the circle, here's how you would do that:
+
+\begin{enumerate}
+  \item In the Sidebar, select the artboard.
+  \item First, \textbf{click-and-hold} on the artboard's Movement Handle, located at the center
+    of the Bounding Box Basics. This grabs the artboard so it can be moved:
+
+    \ogfigure{0.673}{res/og7_artboards_interaction05.png}
+  \item \textit{Then} press the \textbf{Control} key and move the artboard into position:
+
+    \ogfigure{0.673}{res/og7_artboards_interaction06.png}
+
+    When the Control key is added in that way, it temporarily decouples the artboard from any
+    objects on layers higher up in the stack so you can freely move the artboard around.
+  \item When the artboard is in the correct location, let go of the mouse button and then let go
+    of the Control key.
+\end{enumerate}
+
+Now if you move the artboard, both the square and circle go along for the ride.
+
+\subsection{Using Artboards as Containers}
+
+Sometimes, you need the flexibility of a group, without actually creating a group. For example,
+when you're trying to rapidly prototype something and you want the flexibility to move things
+around to see how they look when you move or add things to the design.
+
+For example, let's say that you're working on toolbar button designs for a Mac app. Toolbars, as
+you know, contain three circular window control buttons in the upper-left corner. One quick
+way to attach these to an artboard is to first select the three buttons, and then choose
+\textbf{Arrange} $\blacktriangleright$ \textbf{Make Artboard} (\textbf{Shift-Command-A}).
+
+\ogfigure{0.800}{res/og7_artboards22.png}
+
+The \textbf{Make Artboard} option wraps the selected objects in an artboard, and places that
+artboard layer at the bottom of the stack.
+
+\ogfigure{0.800}{res/og7_artboards22a.png}
+
+If, while iterating on your design, you decide that you want to see how the toolbar looks
+without the window controls, you can just grab the artboard and move it off to the side.
+
+\ogfigure{0.673}{res/og7_artboards23.png}
+
+The objects are still visible on the canvas and can be dragged back into place at any time.
+
+\subsection{Adding a Toolbar Button for Creating New Artboard Layers}
+
+If you plan to work with Artboards often, you should consider adding the \textbf{New Artboard
+Layer} button to OmniGraffle's toolbar. To do this, follow these steps:
+
+\begin{enumerate}
+  \item \textbf{Control-click} on the toolbar, and choose \textbf{Customize Toolbar}
+  \item Locate the \textbf{New Artboard Layer} button and drag that up to the toolbar:
+
+    \ogfigure{0.165}{res/og7_button_newartboardlayer.png}
+
+    \ogfigure{0.800}{res/og7_artboards_toolbar.png}
+  \item Click \textbf{Done}
+\end{enumerate}
+
+If you ever decide that you no longer want the New Artboard Layer button in the toolbar,
+\textbf{Control-click} on the toolbar again, and then drag the \textbf{New Artboard Layer}
+button away from the toolbar. When you let go of the mouse button, it disappears in a poof.
+
+\subsection{Changing an Artboard Object's Shape}
+
+By default, the Artboard Tool draws a rectangular shape when used. However, you can use the
+\textbf{Shape} inspector to change the shape of an Artboard Object \textit{before} or
+\textit{after} it has been added to an Artboard Layer; here's how:
+
+\subsubsection{Before Drawing the Artboard Object}
+
+\begin{enumerate}
+  \item In the Tool Palette, click to select the \textbf{Artboard Tool}
+  \item Press \textbf{Command-1} to view the \textbf{Object} inspectors in the inspector bar
+  \item \textbf{Option-click} the \textbf{Shape} inspector; this opens the Shape inspector, and
+    collapses the other Object inspectors
+  \item Click the \textbf{Shape Selection} button at the top of the \textbf{Shape} inspector,
+    and then double-click on another shape in the pop-up menu that appears.
+\end{enumerate}
+
+\subsubsection{After Drawing the Artboard Object}
+
+\begin{enumerate}
+  \item Select the Artboard Object on the Canvas
+  \item \textbf{Option-click} the \textbf{Shape} inspector; this opens the Shape inspector, and
+    collapses the other Object inspectors
+  \item Click the \textbf{Shape Selection} button at the top of the \textbf{Shape} inspector,
+    and then click on one of the shapes in the pop-up menu that appears. The Artboard Object
+    instantly changes its shape.
+\end{enumerate}
+
+\subsection{Deleting Artboards}
+
+If you decide that your project no longer needs an artboard, you can safely delete the artboard
+without deleting the objects that reside on other layers.
+
+To delete an artboard, you can do one of the following:
+
+\begin{itemize}
+  \item \textbf{Control-click} on the artboard layer in the Sidebar and choose \textbf{Delete
+    Layer} from the contextual menu that appears.
+  \item Select the artboard object in the Sidebar or on the canvas and press \textbf{Delete}.
+\end{itemize}
+
+\begin{ogwarning}
+  If you select the artboard on the canvas, make sure that you select \textbf{just} the artboard,
+  and not any of the objects on the layers above prior to pressing \textbf{Delete}.
+
+  If you delete something by accident, remember that you can always press \textbf{Command-Z} to
+  undo that action.
+\end{ogwarning}
+
+\section{Working with Artboards}
+
+To help illustrate how to use artboards in your own projects, there are a couple approaches you
+can take. First, if you know the dimensions of the image assets you need, you can start by
+laying down your artboard first and then drawing on the layers above. The second approach is
+when you already have the art you need in OmniGraffle, and you want to add an artboard to
+define the export areas you need.
+
+\subsection{Defining the Design Area with Artboards}
+
+Let's say that you've started up your own private rocket company, \textbf{MasterBlasters}, and
+you're using OmniGraffle for all of your design needs---from designing your brand ID to
+prototyping your website and companion app for iOS.
+
+The Web Team needs a transparent PNG image that's 1080 $\times$ 256 pixels, and the App Team
+needs a similar PNG image, except it needs to be 512 $\times$ 512 pixels.
+
+In the past, the process for doing this would be extremely tedious. You'd have different project
+files with different-sized assets, which meant there was a greater chance for failure when you
+split up everything that way---and who wants that when you're creating a rocket company?
+
+However, to accomplish this feat, you'll only need two artboard objects. To get the larger
+graphic for the billboard, you'll repurpose the artboard object you create to define the web
+banner, and then change the \textbf{Unit Scale} in the \textbf{Units} inspector.
+
+This is where the \textit{power} of artboard layers and objects come into play. Let's get
+started!
+
+\begin{enumerate}
+  \item Create a new OmniGraffle project.
+  \item Select the \textbf{Artboard Tool}, hold down the \textbf{Shift} key, and then draw a
+    \textbf{256 $\times$ 256 px} square on the canvas:
+
+    \ogfigure{0.800}{res/og7_artboards_area01.png}
+
+    Holding down the \textbf{Shift} key while drawing a shape ensures that the height and width of
+    the object are the same dimensions.
+  \item \textbf{Option-click} on the \textbf{Shape} inspector and set the Corner Radius to
+    \textbf{8 pt}:
+
+    \ogfigure{0.800}{res/og7_artboards_area02.png}
+  \item In the Sidebar, double-click on the artboard's name (currently, \textbf{Rectangle}), and
+    change that to \textbf{app-icon}:
+
+    \ogfigure{0.800}{res/og7_artboards_area03.png}
+
+    Notice how the Artboard Layer has a red highlight to its layer preview in the Sidebar. This
+    makes it easy for you to quickly identify the artboards in your project.
+
+    \begin{ogtip}
+      If you are designing iOS app icons, there is an \textbf{iOS App Icon} shape in the
+      \textbf{Shape} inspector's Shape Popover.
+    \end{ogtip}
+  \item Click to select the artboard on the canvas.
+  \item Hold down the \textbf{Option} key, and then \textbf{click and drag} on the artboard to
+    create a duplicate:
+
+    \ogfigure{0.673}{res/og7_artboards_area04.png}
+  \item In the Sidebar, double-click on the duplicate artboard's name, and change that to
+    \textbf{web-banner}:
+
+    \ogfigure{0.673}{res/og7_artboards_area05.png}
+  \item Click to select the \textbf{web-banner} artboard on the canvas.
+  \item \textbf{Option-click} the \textbf{Geometry} inspector, and change the artboard's width
+    to \textbf{1080} pixels:
+
+    \ogfigure{0.800}{res/og7_artboards_area06.png}
+  \item Next, you'll want to align the artboards so that the \textbf{app-icon} artboard is
+    centered on the \textbf{web-banner} artboard. Click on the canvas to bring that area into
+    focus, and then press \textbf{Command-A} (\textbf{Select All}) to select both artboards.
+  \item \textbf{Option-click} the \textbf{Alignment} inspector, and then press the following
+    buttons:
+
+    \begin{itemize}
+      \item \ogicon{12.5pt}{res/og7_button_align_vertcenter.png} to align the artboards based on
+        their vertical centers
+      \item \ogicon{12.5pt}{res/og7_button_align_horzcenter.png} to align the artboards based on
+        their horizontal centers
+    \end{itemize}
+\end{enumerate}
+
+This is how the artboards should appear on the canvas:
+
+\ogfigure{0.800}{res/og7_artboards_area07.png}
+
+With the artboards in place, you can work on your design on the layers above. When you set up
+your OmniGraffle project, you layer it just like you normally would, with a background, the
+rocketship, and the text blocks you need for the web banner.
+
+\ogfigure{0.800}{res/og7_artboards_area08.png}
+
+\subsubsection{Exporting Image Assets with Artboards}
+
+To create the image files you need, choose \textbf{File} $\blacktriangleright$ \textbf{Export}
+(\textbf{Option-Command-E}). After choosing \textbf{Export}, you'll catch your first glimpse
+of OmniGraffle's new Export panel.
+
+\ogfigure{0.800}{res/og7_artboards13.png}
+
+On the left side of the Export panel, under the \textbf{Export Area} section, make sure that
+\textbf{Export from artboards only} is checked. This tells OmniGraffle to export images based
+on the artboards in your project; without this option checked, what gets exported depends on
+what you have selected in the Export Area pop-up menu.
+
+If you look at the right side of the Export panel, you'll see the \textbf{Export Preview}, where
+you can page through the images as determined by their artboards.
+
+\ogfigure{0.800}{res/og7_artboards14.png}
+
+You'll notice that, when exported at 100\% size, the \textbf{web-banner} image will export at
+the size you need (1080 $\times$ 256 pixels), while the \textbf{app-icon} image exports at the
+size of the artboard---256 $\times$ 256 pixels---except, you need the \textbf{app-icon} to be
+512 $\times$ 512 pixels.
+
+If you look at the \textbf{Export Sizes} area of the Export panel, you'll see that you can also
+specify variable export sizes:
+
+\ogfigure{0.673}{res/og7_artboards_export01.png}
+
+In the \textbf{Export Sizes} area, click \ogicon{12.5pt}{res/og7_button_export_addsize.png} to
+add another export size. By default, OmniGraffle sets the next size to \textbf{200\%} and adds
+\textbf{@2x} as the suffix.
+
+\ogfigure{0.673}{res/og7_artboards_export02.png}
+
+If you look at the Export Preview, you'll notice that there are now four images that will be
+exported: two at 100\% and two at 200\%:
+
+\ogfigure{0.673}{res/og7_artboards_export03.png}
+
+When you click \textbf{Export}, the Save sheet flops down so you can choose a location on your
+Mac to save the files. When you export, the text you enter in the \textbf{Export As} field is
+used as the name for a folder to contain the images.
+
+\ogfigure{0.800}{res/og7_artboards15.png}
+
+When you click \textbf{Save}, OmniGraffle outputs the image files to the folder you have
+specified. In this case, four images are exported:
+
+\begin{itemize}
+  \item app-icon.png (256 $\times$ 256 px)
+  \item app-icon@2x.png (512 $\times$ 512 px)
+  \item web-banner.png (1080 $\times$ 256 px)
+  \item web-banner@2x.png (2160 $\times$ 512 px)
+\end{itemize}
+
+\ogfigure{0.800}{res/og7_artboards16.png}
+
+Depending on the needs of the Web and App Teams, you can either send them both sizes, or just
+the ones they need and then discard the others.
+
+\subsection{Adding Artboards to an Existing Project}
+
+Now that you know what artboards look like and how they interact with objects on other layers,
+you can also add artboards to an existing OmniGraffle project.
+
+To help illustrate the point, let's use an example of a spaceship landing game. The app is
+designed to fit an iPhone 7 screen (750 $\times$ 1334 pixels), both in portrait and landscape
+orientation. To start, the OmniGraffle project has three layers:
+
+\begin{itemize}
+  \item One that contains the spaceship.
+  \item A background layer that depicts an alien atmosphere.
+  \item A mountainous foreground with a few ``designated'' landing areas among the hazardous
+    peaks.
+\end{itemize}
+
+To add artboards to this project, do the following:
+
+\begin{enumerate}
+  \item Since you want the artboards to appear beneath everything else in the project, select
+    the layer lowest in the stack.
+  \item In the Tool Palette, select the \textbf{Artboard Tool} and then draw a \textbf{750
+    $\times$ 1334 px} rectangular artboard; these are the dimensions for the Portrait display.
+    When you draw the artboard, OmniGraffle creates the artboard layer to contain the artboard.
+  \item In the sidebar, name the artboard layer \textbf{Portrait} and the artboard itself
+    \textbf{portrait}.
+
+    \ogfigure{0.800}{res/og7_artboards_adding01.png}
+  \item Next, you need to create a \textbf{Landscape} version of the artboard, and for this,
+    you'll employ a little trick. \textbf{Control-click} on the \textbf{Portrait} artboard layer
+    and choose \textbf{Duplicate Layer} from the contextual menu that appears:
+
+    \ogfigure{0.673}{res/og7_artboards_adding02.png}
+  \item Rename the duplicated artboard layer to \textbf{Landscape}, and rename the artboard to
+    \textbf{landscape}, and then select the \textbf{landscape} artboard in the Sidebar.
+
+    \ogfigure{0.673}{res/og7_artboards_adding03.png}
+  \item \textbf{Option-click} on the \textbf{Geometry} inspector, and change the dimensions of
+    the \textbf{landscape} artboard to \textbf{1334 px} wide by \textbf{750 px} high:
+
+    \ogfigure{0.800}{res/og7_artboards_adding04.png}
+  \item After changing the dimensions of the \textbf{landscape} artboard, you'll notice that it
+    needs to be repositioned:
+
+    \ogfigure{0.800}{res/og7_artboards_adding05.png}
+  \item Use the following to relocate the \textbf{landscape} artboard without moving the objects
+    on the layers above:
+
+    \begin{enumerate}
+      \item \textbf{Click-and-hold} on the \textbf{landscape} artboard's center handle. This grabs
+        the artboard so it can be moved.
+      \item Press the \textbf{Control} key, and \textit{then} move the artboard into position:
+    \end{enumerate}
+
+    \ogfigure{0.800}{res/og7_artboards_adding06.png}
+
+    When the \textbf{landscape} artboard is in place, let go of the mouse button and the Control
+    key.
+\end{enumerate}
+
+And here are the Landscape and Portrait views of the game prototype after exporting the images:
+
+\ogfigure{0.800}{res/og7_artboards_adding07.png}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}

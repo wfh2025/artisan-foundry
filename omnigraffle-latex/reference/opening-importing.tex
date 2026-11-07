@@ -1,0 +1,247 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Opening and Importing Files in OmniGraffle}
+
+This chapter provides you with a quick overview of the file and image types supported by
+OmniGraffle. To help make it easy for you to find the file type you're looking for, we've
+listed them in a convenient table, along with notations about whether that type is supported
+by OmniGraffle Standard or Pro.
+
+\begingroup
+\small
+\setlength{\LTleft}{0.075\textwidth}
+\setlength{\LTright}{0.075\textwidth}
+\renewcommand{\arraystretch}{1.25}
+\begin{xltabular}{0.85\textwidth}{|>{\raggedright\arraybackslash}X|c|c|>{\raggedright\arraybackslash}X|}
+  \caption{List of supported file types}\\
+  \hline
+  \rowcolor{ogheaderblue}
+  \textcolor{white}{\textbf{File Type}} & \textcolor{white}{\textbf{Standard}} &
+  \textcolor{white}{\textbf{Pro}} & \textcolor{white}{\textbf{How to Open/Import}} \\
+  \hline
+  \endhead
+  \hline
+  \endfoot
+  PNG (\textit{.png}) & \ogyes & \ogyes & Drag onto a shape, layer, or canvas, or into the
+  image wells provided in the \textbf{Image} and \textbf{Background Image} inspectors. \\
+  \hline
+  JPEG (\textit{.jpg}, \textit{.jpeg}) & \ogyes & \ogyes &  \\
+  \hline
+  GIF (\textit{.gif}) & \ogyes & \ogyes &  \\
+  \hline
+  BMP (\textit{.bmp}) & \ogyes & \ogyes &  \\
+  \hline
+  TIFF (\textit{.tiff}) & \ogyes & \ogyes &  \\
+  \hline
+  EPS (\textit{.eps}) & \ogyes & \ogyes &  \\
+  \hline
+  SVG (\textit{.svg}) & \ogyes & \ogyes &  \\
+  \hline
+  PDF (\textit{.pdf}) & \ogyes & \ogyes & Use one of the methods above to add a \textit{.pdf}
+  file to the canvas as an image. Or, to add its individual elements as OmniGraffle objects,
+  choose \textbf{File} $\blacktriangleright$ \textbf{Open} or drag the \textit{.pdf} file
+  onto OmniGraffle's dock icon. \\
+  \hline
+  OmniGraffle Document (\textit{.graffle}) & \ogyes & \ogyes & Choose \textbf{File}
+  $\blacktriangleright$ \textbf{Open} \\
+  \hline
+  OmniGraffle Stencil (\textit{.gstencil}) & \ogyes & \ogyes & Choose \textbf{File}
+  $\blacktriangleright$ \textbf{Open} \\
+  \hline
+  OmniGraffle Template (\textit{.gtemplate}) & \ogyes & \ogyes & Choose \textbf{File}
+  $\blacktriangleright$ \textbf{Open} \\
+  \hline
+  macOS Folder Structures & \ogyes & \ogyes & Drag a folder from the Finder onto OmniGraffle's
+  app icon in the Dock \\
+  \hline
+  Framework Files (\textit{.framework}) & \ogyes & \ogyes & Drag the \textit{.framework} file
+  from the Finder onto OmniGraffle's app icon in the Dock \\
+  \hline
+  Graphiz DOT Files (\textit{.dot}) & \ogyes & \ogyes & Drag the \textit{.dot} file onto
+  OmniGraffle's app icon in the Dock \\
+  \hline
+  Adobe Photoshop (\textit{.psd}) & \ogyes & \ogyes & From the Finder, select and drag the
+  \textit{.psd} file onto the canvas \\
+  \hline
+  Xcode Files (\textit{.xcodeproj}) & \ogno & \ogyes & Drag the \textit{.xcodeproj} file from
+  the Finder onto OmniGraffle's app icon in the Dock \\
+  \hline
+  OmniOutliner (\textit{.oo3}) & \ogno & \ogyes & Choose \textbf{File} $\blacktriangleright$
+  \textbf{Open} \\
+  \hline
+  Microsoft Visio (\textit{.vsd}, \textit{.vsdx}, \textit{.vdx}, \textit{.vst}, \textit{.vtx},
+  \textit{.vss}, \textit{.vsx}, \textit{.vssx}) & \ogno & \ogyes & Choose \textbf{File}
+  $\blacktriangleright$ \textbf{Open}; select the Visio file, and then click \textbf{Open}
+  \\
+  \hline
+\end{xltabular}
+\endgroup
+
+\section{Importing OmniOutliner Files}
+
+OmniGraffle interprets the contents of an OmniOutliner file as a diagram. As such, you need to
+choose a diagram style when opening an OmniOutliner file in OmniGraffle:
+
+\begin{enumerate}
+  \item After choosing the OmniOutliner file to import, the \textbf{Import Outline} dialog
+    appears:
+
+    \ogfigure{0.800}{res/og7_import01.png}
+  \item Using the pop-up menu, choose a diagram style:
+
+    \ogfigure{0.800}{res/og7_import02.png}
+  \item When you click \textbf{OK}, OmniGraffle renders the contents of the outline as a
+    diagram:
+
+    \ogfigure{0.800}{res/og7_import03.png}
+\end{enumerate}
+
+\begin{ogpro}
+  When importing OmniOutliner files in OmniGraffle Pro, use the table to assign objects in the
+  diagram style to columns in an outline:
+
+  \ogfigure{0.800}{res/og7_import04.png}
+
+  If you want to show multiple columns of information for each item, use a diagram style that
+  has grouped objects. You can also assign a column to the objects' notes, or choose whether
+  to place the outline in a completely new document or in a new canvas on the open document.
+\end{ogpro}
+
+\subsection{Importing Microsoft Visio Files}
+
+\begin{ogpro}
+  When importing Microsoft\textsuperscript{\textregistered{}}
+  Visio\textsuperscript{\textregistered{}} (\textit{.vsd}, \textit{.vsdx}, \textit{.vdx},
+  \textit{.vst}, \textit{.vtx}, \textit{.vss}, \textit{.vsx} \textit{.vssx}), it's important to
+  note that Microsoft\textsuperscript{\textregistered{}}
+  Visio\textsuperscript{\textregistered{}} saves its files in an XML-based binary file format
+  which can be read by OmniGraffle Pro.
+
+  While OmniGraffle Pro can open the binary Visio file, you are prompted to save the file as an
+  OmniGraffle Stencil file (\textit{.gstencil}). Once imported, you can edit and add to the
+  stencil file as needed. If you need to use that stencil in Visio again, do the following:
+
+  \begin{enumerate}
+    \item Open the stencil file in OmniGraffle.
+    \item Choose \textbf{File} $\blacktriangleright$ \textbf{Export}
+      (\textbf{Option-Command-E}).
+    \item Choose \textbf{Visio} as the export format at the top of the Export panel.
+    \item Click \textbf{Export}.
+  \end{enumerate}
+
+  OmniGraffle exports the file to Visio's \textit{.vdx} file format.
+
+  Also note that graphics in the \textbf{Microsoft\textsuperscript{\textregistered{}} Enhanced
+  Metafile (EMF)} format cannot be imported.
+\end{ogpro}
+
+\subsection{Supported DOT Syntax}
+
+OmniGraffle understands a subset of the DOT language used by
+\href{http://www.graphviz.org}{Graphviz}. This isn't a full implementation of DOT, but it can
+be quite useful:
+
+\begingroup
+\small
+\setlength{\LTleft}{0.075\textwidth}
+\setlength{\LTright}{0.075\textwidth}
+\renewcommand{\arraystretch}{1.25}
+\begin{xltabular}{0.85\textwidth}{|l|>{\raggedright\arraybackslash}X|}
+  \caption{Supported DOT syntax}\\
+  \hline
+  \rowcolor{ogheaderblue}
+  \textcolor{white}{\textbf{Command}} & \textcolor{white}{\textbf{Entity Types}} \\
+  \hline
+  \endhead
+  \hline
+  \endfoot
+  URL (not on graphs) & edge/line, node/shape \\
+  \hline
+  arrowhead & edge/line \\
+  \hline
+  arrowtail & edge/line \\
+  \hline
+  color & edge/line, node/shape \\
+  \hline
+  dir & edge/line \\
+  \hline
+  fillcolor & node/shape \\
+  \hline
+  fixedsize & node/shape \\
+  \hline
+  fontcolor & edge/line, node/shape \\
+  \hline
+  fontname & edge/line, node/shape \\
+  \hline
+  fontsize & edge/line, node/shape \\
+  \hline
+  headlabel & edge/line \\
+  \hline
+  label & edge/line, node/shape \\
+  \hline
+  labelfontcolor & edge/line \\
+  \hline
+  labelfontname & edge/line \\
+  \hline
+  labelfontsize & edge/line \\
+  \hline
+  orientation & node/shape \\
+  \hline
+  rank & node/shape \\
+  \hline
+  rankdir & graph/page \\
+  \hline
+  shape & node/shape \\
+  \hline
+  style & edge/line, node/shape \\
+  \hline
+  taillabel & edge/line \\
+  \hline
+  width & node/shape \\
+  \hline
+\end{xltabular}
+\endgroup
+
+\begin{ognote}
+  All \href{http://www.graphviz.org/content/arrow-shapes}{Graphviz arrow shapes} are supported,
+  but a few do not correspond exactly to OmniGraffle arrow types. The \texttt{inv},
+  \texttt{invdot}, \texttt{invodot}, and \texttt{invempty} arrow types are replaced with the
+  closest available OmniGraffle line ending.
+\end{ognote}
+
+\subsection{Using LinkBack to Embed Content from Another Application}
+
+LinkBack is a way of embedding content between applications in such a way that you can always go
+back and edit the content with the software used to create it originally.
+
+\begin{ognote}
+  For information about LinkBack, and a list of applications that support it, see the
+  \href{http://linkback.org}{LinkBack project page} or the
+  \href{http://github.com/omnigroup/LinkBack}{LinkBack repository on GitHub}.
+\end{ognote}
+
+To embed OmniGraffle content in another LinkBack application, just copy and paste the content
+like you would normally. The same goes for embedding other applications' content in
+OmniGraffle diagrams.
+
+To embed OmniGraffle content inside a single object in OmniGraffle, select all of the objects on
+your canvas (\textbf{Command-A}), choose \textbf{Edit} $\blacktriangleright$ \textbf{Copy As}
+$\blacktriangleright$ \textbf{PDF} from the menu bar, and then Paste (\textbf{Command-V}). The
+objects you copied become a single image; double-clicking the object opens a new OmniGraffle
+window in which you can edit the objects to your heart's content.
+
+To edit OmniGraffle content embedded in another application:
+
+\begin{itemize}
+  \item Double-click the OmniGraffle content in the other application's document; an OmniGraffle
+    window appears containing the content.
+  \item Edit the content in the OmniGraffle window, just as you normally would.
+  \item In OmniGraffle, choose \textbf{File} $\blacktriangleright$ \textbf{Save}; the content in
+    the other application updates automatically.
+  \item To edit other LinkBack applications' content embedded in an OmniGraffle diagram, just
+    double-click it. When you save in the other application, the content in the OmniGraffle
+    diagram updates.
+\end{itemize}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}

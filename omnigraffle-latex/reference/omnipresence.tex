@@ -1,0 +1,438 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Getting Synced with OmniPresence and Omni Sync Server}
+
+Available on the Mac and iOS, OmniGraffle is an essential tool for all your design and
+diagramming needs. And when it comes to protecting those documents and sharing them between
+your Mac and iOS devices, we have something a little extra-special for you:
+\textbf{OmniPresence} and \textbf{Omni Sync Server}.
+
+\begin{itemize}
+  \item \textbf{OmniPresence} is a free utility that you install on your Mac for synchronizing
+    files. OmniPresence runs in the background, watching a ``connected folder.'' It makes sure
+    the files inside are in sync with files in the cloud (a WebDAV server of your choice), and
+    with your OmniPresence-enabled iPad apps.
+
+    On iOS, OmniPresence is built into all of our current document-based apps, including
+    OmniGraffle 2, OmniOutliner 2, and OmniPlan 3. You'll access OmniPresence folders and files
+    from within the app's respective Resource Browsers. The result is that all of your
+    OmniPresence-enabled devices detect changes wherever you make them, and constantly sync up
+    to keep your files up to date.
+
+    To get started, you'll need to
+    \href{http://www.omnigroup.com/download/latest/omnipresence}{download OmniPresence for Mac}
+    from our website.
+\end{itemize}
+
+\begin{ognote}
+  Unlike other Omni apps, OmniPresence isn't a replacement for your current sync solution for
+  OmniFocus. OmniFocus uses its own built-in sync code (rather than OmniPresence) to push
+  database changes to a WebDAV server and retrieve them from it. OmniFocus for Mac doesn't
+  require OmniPresence to be installed for its sync to function to work.
+\end{ognote}
+
+\begin{itemize}
+  \item \textbf{Omni Sync Server} resides in a well-air conditioned secure facility. Omni Sync
+    Server is our own custom WebDAV server and it functions as a central hub for all your
+    syncing needs; it's what OmniPresence connects to when shuttling files between your Mac and
+    iOS devices.
+
+    With Omni Sync Server, we never ever look at your data without your permission. For example,
+    when our Support Humans are working with you to restore a corrupt file or isolate a
+    particular issue you're having with our server. Beyond that, you can rest assured that your
+    data is safe and secure on Omni Sync Server.
+\end{itemize}
+
+\begin{ogsidebar}
+  Keeping Your Data Private with OmniPresence
+
+  We understand that sometimes you want to keep your data on your own server. This could be due
+  to company policy, for legal reasons, or just your desire to be in charge of backing up
+  everything that's important to you. We get it!
+
+  If you don't want to use Omni Sync Server, OmniPresence is capable of connecting to any WebDAV
+  server you choose. This could be one that you run on your own server, or a third-party
+  service that you rely on.
+
+  If you choose to run your own WebDAV server, step-by-step instructions for setting up WebDAV
+  on macOS Server are available
+  \href{http://support.omnigroup.com/omnipresence-os-x-server}{in this handy support article
+  on our website}.
+\end{ogsidebar}
+
+\section{Creating an Omni Sync Server Account}
+
+Your first order of business---if you are planning to use OmniPresence with Omni Sync
+Server---is to create an Omni Sync Server account. In doing so, you will create a Account Name
+and password, which you will use when connecting OmniPresence on your Mac.
+
+Follow along\ldots{}
+
+\begin{enumerate}
+  \item Using your favorite web browser, and go to the
+    \href{https://manage.sync.omnigroup.com}{Omni Sync Server webpage}:
+
+    \ogfigure{0.800}{res/op14mac_osscreate01.png}
+  \item At the top of the page, click \textbf{Sign Up}.
+  \item In the fields provided, enter the following information:
+
+    \ogfigure{0.800}{res/op14mac_osscreate02.png}
+
+    \begin{itemize}
+      \item \textbf{Account Name} --- You will use your Account Name when connecting to Omni Sync
+        Server. Account Names can include lowercase letters, numbers, or symbols---sorry,
+        uppercase letters, spaces, and the following symbols are not permitted:
+        \textbf{\textasciitilde{} ` : /} and \textbf{\textbackslash\{\}}.
+      \item \textbf{Email Address} --- Enter your email address.
+      \item \textbf{Password} --- Enter a unique, and secure, password. After entering your
+        password, you'll need to enter it again in the next field, just to verify that you have
+        entered the password correctly.
+    \end{itemize}
+  \item \textbf{Terms of Use} --- Please take some time to read through the Omni Sync Server
+    Terms of Use. If you agree with the terms and conditions, click the checkbox.
+  \item Finally, click \textbf{Create Account}.
+\end{enumerate}
+
+After clicking the \textbf{Create Account} button, we will send a confirmation message to the
+email address you specified. Keep an eye out for that email; when you receive it, be sure to
+click the \textbf{Finish Registration} button in that email to activate your Omni Sync Server
+account.
+
+\begin{ognote}
+  Keep the Account Name and Password used to create your Omni Sync Server account handy, as you
+  will need them in the next chapter when you install and configure OmniPresence on your Mac.
+\end{ognote}
+
+\section{Installing and Configuring OmniPresence}
+
+OmniPresence starts out its life on your Mac just like any other Mac app you install. You
+download a \textbf{disk image}, and drag the app icon to the Applications folder. However,
+unlike other Mac apps that show up in the Dock when you launch them, OmniPresence never shows
+up in your Dock. Instead, OmniPresence spends its life as a \textbf{menu bar extra}---one of
+those black icons---at the top of the screen.
+
+With the Account Name and Password for your Omni Sync Server account in-hand, this chapter takes
+you through the process of downloading, installing, and configuring OmniPresence on your Mac.
+
+\subsection{Downloading OmniPresence from our Server}
+
+OmniPresence is only available for download from our website; it isn't available on the Mac App
+Store.
+
+Click \href{http://www.omnigroup.com/download/latest/omnipresence}{this link to download
+OmniPresence}. OmniPresence is packaged within a disk image (a file ending with a
+\textit{.dmg} file extension), which is saved to the \textbf{Downloads} folder on your Mac.
+
+\ogfigure{0.800}{res/op14mac_sync01.png}
+
+\subsection{Installing OmniPresence}
+
+To install OmniPresence, follow these steps:
+
+\begin{enumerate}
+  \item Double-click \textbf{OmniPresence-1.4.1.dmg} to open the disk image. This opens the disk
+    image, mounting it under the \textbf{Devices} section of the Finder's sidebar.
+
+    \begin{ognote}
+      The filename you see might be slightly different. As of this writing, OmniPresence for Mac is
+      at version 1.4.1 (thus the filename, \textit{OmniPresence-1.4.1.dmg}). If you see a
+      different number in the filename, don't be worried; just go ahead and double-click that one.
+      It just means that our engineering team have been hard at work to improve OmniPresence for
+      Mac.
+    \end{ognote}
+  \item After agreeing to our license, you're presented with the following window:
+
+    \ogfigure{0.800}{res/op14mac_sync02.png}
+  \item Drag and drop the \textbf{OmniPresence.app} icon onto the Applications folder to install
+    OmniPresence on your Mac:
+
+    \ogfigure{0.800}{res/op14mac_sync03.png}
+  \item Close that window by pressing \textbf{Command-W}.
+  \item In the Finder's sidebar, click the eject button next to OmniPresence's disk image; this
+    unmounts the disk image so you can delete the disk image file from your system.
+
+    \ogfigure{0.800}{res/op14mac_ejectfmfinder.png}
+  \item In the Finder window, return to the \textbf{Downloads} folder. Select the file
+    \textit{OmniPresence-1.4.1.dmg} and press \textbf{Command-Delete} to move the file to the
+    Trash. The next time you empty the Trash, that disk image is purged from your system, saving
+    you precious disk space.
+\end{enumerate}
+
+With OmniPresence installed, now it's time to set up a synced folder for OmniPresence to sync
+to, and then connect to Omni Sync Server.
+
+\subsection{Starting OmniPresence and Connecting to Omni Sync Server}
+
+With OmniPresence installed, it's time to get it started and connect to your Omni Sync Server
+account.
+
+Follow along\ldots{}
+
+\begin{enumerate}
+  \item In the Finder window, choose \textbf{Applications} in the Finder's sidebar. (If you
+      don't see it there, choose \textbf{Go} $\blacktriangleright$ \textbf{Applications}, or use
+    \textbf{Shift-Command-A}.)
+
+    \ogfigure{0.800}{res/op14mac_sync04.png}
+  \item Scroll down in the list of applications installed on your Mac and locate
+    \textbf{OmniPresence.app}.
+  \item Double-click the OmniPresence.app icon to open the app. You'll notice that, unlike other
+    Mac apps, OmniPresence's icon doesn't appear in the Dock. Instead, OmniPresence installs a
+    \textit{menu bar extra} --- \ogicon{11.1pt}{res/op14mac_icon_syncready.png} --- in the menu
+    bar at the top of the screen.
+
+    \ogfigure{0.800}{res/op14mac_sync04a.png}
+
+    For more details about using OmniPresence's menu bar extra---and the icon's various
+    states---see Using OmniPresence on Your Mac.
+  \item Click \textbf{Set Up Syncing}:
+
+    \ogfigure{0.800}{res/op14mac_sync05.png}
+  \item Click \textbf{Create a Synced Folder}:
+
+    \ogfigure{0.800}{res/op14mac_sync06.png}
+  \item In the sheet that appears, you have the option to name the OmniPresence folder that
+    lives on your Mac. We've pre-filled the \textbf{New Folder} field with
+    \textbf{OmniPresence}, but you can change this to whatever you'd like.
+
+    You have total control over where the sync folder is stored on your Mac. For example, you
+    could create it within the \textbf{Documents} folder, or you could opt to have your
+    OmniPresence folder reside at the bottom level of your Home folder.
+
+    \ogfigure{0.800}{res/op14mac_sync07.png}
+
+    \ogfigure{0.800}{res/op14mac_sync07a.png}
+
+    When you've settled on a name and location for your OmniPresence folder---or if you've decided
+    to go with the default options---click \textbf{Save}. This creates the folder OmniPresence
+    uses to synchronize your files.
+  \item After creating the OmniPresence folder, your next task is to choose a server in the
+    cloud where OmniPresence stores your synced files.
+
+    You have two options to choose from:
+
+    \ogfigure{0.800}{res/op14mac_sync08.png}
+
+    \begin{itemize}
+      \item \textbf{Omni Sync Server}: This is Omni's free file server, which has specifically
+        been designed to work in unison with OmniPresence.
+      \item \textbf{Web Server}: This could be your own WebDAV server, or a WebDAV server hosted
+        by a third-party provider.
+    \end{itemize}
+  \item If you have an Omni Sync Server account, enter your \textbf{Account Name} and
+    \textbf{Password} in the applicable fields and click \textbf{Connect}.
+
+    \begin{ognote}
+      If you haven't already set up an Omni Sync Server account, click \textbf{Sign Up for an Omni
+      Sync Server Account}. This opens your default web browser and transports you to the Omni
+      Sync Server site where you can sign up for an account and set your password.
+    \end{ognote}
+
+    After clicking \textbf{Connect}, OmniPresence connects to the server you've chosen and tests
+    for server compatibility. This is more of an issue with third-party WebDAV servers than it
+    is for connecting to Omni Sync Server, which has been designed to work with OmniPresence.
+
+    If everything is okay, OmniPresence makes the connection and lets you know if it is able to
+    connect to Omni Sync Server (or the WebDAV server you've specified).
+
+    \ogfigure{0.800}{res/op14mac_sync09.png}
+  \item If you would like OmniPresence to start up whenever you log into your Mac, click the
+    checkbox for \textbf{Open OmniPresence at Login}.
+
+    \ogfigure{0.800}{res/op14mac_sync10.png}
+  \item At the bottom of that window, click \textbf{Done} if you're finished, or click
+    \textbf{Open Synced Folder} to open a Finder window displaying your new sync folder.
+
+    If you've already synced with OmniPresence on another device, OmniPresence automatically
+    starts populating this folder with your existing synced files. Otherwise, add files to this
+    folder to start syncing them with the server.
+
+    \ogfigure{0.800}{res/op14mac_sync11.png}
+\end{enumerate}
+
+Once OmniPresence connects with Omni Sync Server, you're ready to go. Whenever you create files
+with OmniGraffle, OmniOutliner, or OmniPlan, be sure to save them to your OmniPresence folder.
+And, if you have OmniGraffle, OmniOutliner, or OmniPlan for iOS, don't forget to connect to
+Omni Sync Server on your device so your files will be with you wherever you go.
+
+\section{Using OmniPresence on Your Mac}
+
+OmniPresence opens up a world of possibilities for syncing---and sharing---files between your
+Mac and iOS devices. On iOS, you access your synced folders from the Document Browser in
+OmniGraffle, OmniOutliner, or OmniPlan. On the Mac, however, you use the Finder for file
+management.
+
+This final section discusses ways to \textit{use} OmniPresence on your Mac, and from within
+OmniGraffle, OmniOutliner, and OmniPlan to help streamline your workflow. You'll also learn
+some valuable tips about how to deal with conflict files that might occur when the same synced
+file is accessed on two different Macs or devices.
+
+\subsection{How Much Data Can I Store on Omni Sync Server?}
+
+While we don't have a hard limit, we ask that you limit your data usage to 1 GB or less. This
+ensures that all our customers are able to get the best performance from their free Omni Sync
+Server account.
+
+To determine how much data is stored in your OmniPresence folder, select the folder in the
+Finder and press \textbf{Command-I}. This opens the \textbf{Get Info} window, which not only
+displays how much data is stored in the folder, but also the number of files within, too.
+
+\ogfigure{0.800}{res/op14mac_getinfowindow.png}
+
+If you are using more than 1 GB, we may ask you to reduce the amount of data you are storing. It
+is possible that we will implement a limit in the future, so it's a good idea to keep your
+usage of the Omni Sync Server to a reasonable size.
+
+If your workflow requires more storage than 1 GB, you may want to either host your own server,
+or use a third-party paid WebDAV host. In that case, the only limits are the ones you set for
+yourself.
+
+\begin{ogtip}
+  If you are interesting in hosting your own server, instructions can be found on our support
+  site, in \href{https://support.omnigroup.com/omnipresence-os-x-server}{Configure WebDAV for
+  OmniPresence}.
+\end{ogtip}
+
+\section{Getting to Know the Menu Bar Status Icons}
+
+As noted earlier, the way you interact with OmniPresence as an app is not by clicking an app
+icon in the Dock, but by clicking its icon in the menu bar.
+
+\begin{description}[style=nextline]
+  \item[{\ogicon{11.1pt}{res/op14mac_icon_syncready.png}}] In its most basic state, OmniPresence
+    is online and ready to sync files.
+  \item[{\ogicon{11.1pt}{res/op14mac_icon_syncinprogress.png}}] Whenever OmniPresence notices a
+    change to the files in the sync folder, the icon appears to be lifting a barbell.
+  \item[{\ogicon{11.1pt}{res/op14mac_icon_syncoffline.png}}] If you lose your Internet
+    connection (which is required for syncing), the icon turns gray to denote that you are
+    offline.
+  \item[{\ogicon{11.1pt}{res/op14mac_icon_syncerror.png}}] If you see a gray sync icon with an
+    exclamation mark, it means that OmniPresence failed to connect to the sync server. This
+    could be the result of an invalid Account Name or Password, or something as simple as an
+    intermittent Internet connection that drops while OmniPresence is trying to connect to the
+    sync server.
+
+    If the icon remains in this state, here are some things you could try:
+
+    \begin{itemize}
+      \item Double-check your \textbf{Account Name} and \textbf{Password}.
+      \item Check your network connection in \textbf{System Preferences} $\blacktriangleright$
+        \textbf{Network}.
+      \item Try quitting and restarting OmniPresence.
+    \end{itemize}
+
+    If that doesn't help, contact our Support Humans for assistance.
+  \item[{\ogicon{11.1pt}{res/op14mac_icon_syncpaused.png}}] If you pause syncing by clicking the
+    \textbf{Pause} button in the popover menu, the icon turns gray and gains a pause symbol. To
+    resume syncing, click the icon to open the popover menu, and then click
+    \ogicon{10.4pt}{res/op14mac_icon_syncresume.png}. If you are connected to the Internet,
+    OmniPresence springs back to life and syncs with the server.
+\end{description}
+
+\section{Creating Subfolders in Your Sync Folder}
+
+After creating your OmniPresence sync folder, there's nothing that's stopping you from just
+dumping all of your OmniGraffle, OmniOutliner, or OmniPlan files in there and calling it a
+day. But why be so cavalier when you can create subfolders for organizing your files?
+
+Follow along\ldots{}
+
+\begin{enumerate}
+  \item Open a Finder window and select your OmniPresence folder:
+
+    \ogfigure{0.800}{res/op14mac_subfolder01.png}
+  \item Choose \textbf{File} $\blacktriangleright$ \textbf{New Folder}, or use the keyboard
+    shortcut, \textbf{Shift-Command-N} to add an \textbf{untitled folder} inside the
+    OmniPresence folder:
+
+    \ogfigure{0.800}{res/op14mac_subfolder02.png}
+  \item Enter a new name for the folder, such as \textbf{Graffle Files}, or \textbf{Outlines},
+    or \textbf{Science Project}---whatever the case may be:
+
+    \ogfigure{0.800}{res/op14mac_subfolder03.png}
+  \item After renaming the folder, press \textbf{Return} to accept the name:
+
+    \ogfigure{0.800}{res/op14mac_subfolder04.png}
+\end{enumerate}
+
+\begin{ognote}
+  OmniPresence \textit{does not} sync empty folders. Instead, OmniPresence waits until something
+  is stored in the folder before the file \textit{and the folder} are synced to the server.
+\end{ognote}
+
+There is no limit (except for the 1 GB storage limit) to the number of subfolders and
+sub-subfolders your OmniPresence folder can contain. If you delete a folder, OmniPresence
+recognizes that, too, and will remove that folder (and any files it contains) from Omni Sync
+Server.
+
+\section{OmniPresence Tips}
+
+Here are some helpful tips for enhancing your OmniPresence experience:
+
+\begin{itemize}
+  \item Click the Action menu (the gear next to the Pause/Resume button) for a host of
+    OmniPresence options, including:
+
+    \ogfigure{0.800}{res/op_sync12.png}
+
+    \begin{itemize}
+      \item About OmniPresence
+      \item Release Notes
+      \item Open at Login
+      \item Check for Updates
+      \item Preferences and Privacy
+      \item OmniPresence Help
+      \item Contact Omni
+      \item Quit OmniPresence
+    \end{itemize}
+  \item To stop syncing a folder you've connected, click its \textbf{Info} button and choose
+    \textbf{Disconnect}. The folder on your Mac is moved to the Trash and the files inside will
+    no longer be synced. Any files left in the folder before disconnecting will stay safe and
+    sound at the cloud server location you've specified. To reconnect and start syncing with
+    those files again, just create a new folder connected to that cloud location.
+
+    \ogfigure{0.800}{res/op_sync14.png}
+  \item Unsure of when OmniPresence last synced? Click the OmniPresence icon in the menubar and
+    then look beneath each folder name to see the date and time that folder last synced.
+
+    \ogfigure{0.800}{res/op_sync13.png}
+\end{itemize}
+
+\begin{ognote}
+  If you don't set up sync now, but later decide that you want to, you can always install
+  OmniPresence and set up an Omni Sync Server account when it's more convenient for you.
+\end{ognote}
+
+\section{Linking Template and Stencil Folders on your Mac to OmniGraffle}
+
+To make it easier for you to quickly find your OmniGraffle stencils and template files, you can
+create a link to those folders in the Resource Browser. You can link to folders on your Mac's
+hard drive, as well as to folders you are syncing, such as those with OmniPresence or on
+iCloud Drive.
+
+Using the Resource Browser (\textbf{File} $\blacktriangleright$ \textbf{Resource Browser}), you
+can add a \textbf{Linked Folder} to the \textbf{Templates} and \textbf{Stencils} sections of
+the sidebar.
+
+\begin{enumerate}
+  \item In the Resource Browser, click \ogicon{12.5pt}{res/og7_button_linkedfolder.png}:
+
+    \ogfigure{0.800}{res/og7_sync_linkedfolder01.png}
+  \item Choose a folder in the sheet that appears and click \textbf{Open} to add the folder to
+    the Resource Browser's sidebar:
+
+    \ogfigure{0.800}{res/og7_sync_linkedfolder02.png}
+\end{enumerate}
+
+After you click \textbf{Open}, OmniGraffle examines the contents of the linked folder, and
+places a link to that folder to both the Templates and Stencils sections of the Resource
+Browser's sidebar.
+
+\ogfigure{0.800}{res/og7_sync_linkedfolder03.png}
+
+To remove a Linked Folder from the Resource Browser's sidebar, first select the folder in
+question, click \ogicon{12.5pt}{res/og7_button_rb_actionmenu.png}, and then choose
+\textbf{Remove Linked Folder}.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}

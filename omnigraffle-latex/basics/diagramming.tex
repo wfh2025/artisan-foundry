@@ -1,0 +1,563 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Diagramming Basics}
+
+Now that you understand the basics of working with OmniGraffle, it's time for a quick tutorial.
+The purpose of this tutorial is to help you master OmniGraffle as soon as possible.
+
+OmniGraffle excels at clarifying complex relationships, and nothing says ``complex
+relationships'' like a Shakespeare romantic comedy. Let's try to make some sense of
+\textit{Much Ado About Nothing}, and learn a bit about OmniGraffle in the process.
+
+\ogfigure{0.800}{res/og7_diagramming51.png}
+
+Of course, this play is just a handy example; if there's another story you're more familiar
+with, you can go ahead and use that instead.
+
+So grab your favorite beverage, find something soothing to listen to, and let's get to work!
+
+\section{Setting Up Your OmniGraffle Project}
+
+Start by creating a new OmniGraffle document:
+
+\begin{enumerate}
+  \item Choose \textbf{File} $\blacktriangleright$ \textbf{New} (\textbf{Command-N}). This
+    creates a new OmniGraffle document using the default template. Your OmniGraffle window
+    should look like this:
+
+    \ogfigure{0.800}{res/og7_diagramming01.png}
+
+    A nice, blank slate to work on!
+  \item Next, press \textbf{Command-3} to switch the Inspector sidebar on the right to the
+    \textbf{Canvas} inspectors.
+  \item \textbf{Option-click} on the \textbf{Diagram Layout and Style} inspector; this opens the
+    Diagram Layout and Style inspector, while collapsing the others in the Inspector sidebar.
+
+    For the purpose of this tutorial, leave the diagram style set to \textbf{Hierarchical}, but go
+    ahead and turn on \textbf{Auto layout} by clicking the checkbox, as so:
+
+    \ogfigure{0.800}{res/og7_diagramming05.png}
+
+    Auto layout ensures that the objects in the diagram you create are evenly spaced, and that
+    they automatically flow into place if you change the diagram style or add new items to the
+    diagram.
+\end{enumerate}
+
+\begin{ogtip}
+  You can learn more about the Inspectors in Working With the Inspectors, later in Part II.
+\end{ogtip}
+
+With the project set up, choose \textbf{File} $\blacktriangleright$ \textbf{Save} to save the
+OmniGraffle file somewhere on your Mac. Be sure to save your work at various points along the
+way, or before moving on to the next step in the tutorial.
+
+\section{Defining a Base Shape for Your Diagram}
+
+The next bit of setup that you'll want to do is define a shape to use as the default for the
+diagram.
+
+\begin{enumerate}
+  \item Select the \textbf{Shape} tool in the Tool Palette:
+
+    \ogfigure{0.800}{res/og7_diagramming06.png}
+  \item Press \textbf{Command-1} to switch to the \textbf{Object} inspectors.
+  \item \textbf{Option-click} the \textbf{Shape} inspector.
+  \item Click the \textbf{Shape Selector} button at the top of the Shape inspector. This opens a
+    popover menu from which you can choose from a variety of default shapes included with
+    OmniGraffle.
+  \item In the upper-left corner, double-click the \textbf{Rectangle} shape:
+
+    \ogfigure{0.800}{res/og7_diagramming07.png}
+  \item To the left of the Tool Palette, click the \textbf{Style Well}. This opens a pop-up menu
+    with details about the shape to be drawn; in this case, a rectangle with a white fill and a
+    a simple black stroke as its outline:
+
+    \ogfigure{0.800}{res/og7_diagramming08.png}
+\end{enumerate}
+
+\section{Creating Objects in the Sidebar's Outline Tab}
+
+To create and instantly label the objects for the \textit{Much Ado About Nothing} diagram,
+you'll use the \textbf{Outline} tab in the Sidebar.
+
+\begin{enumerate}
+  \item Press \textbf{Option-Command--4} to switch the Sidebar to the \textbf{Outline} tab.
+  \item Click where it says \textbf{Click to add a topic} to create your first object. A
+    \textbf{Topic} item appears in the outline, and an object labeled \textbf{Topic} appears on
+    the canvas simultaneously.
+
+    \ogfigure{0.800}{res/og7_diagramming10.png}
+  \item The item's text is already highlighted, so you can just start typing to rename it; enter
+    \textbf{Don John}, and then press \textbf{Return} to finish with this item and move on to
+    the next one.
+
+    \ogfigure{0.673}{res/og7_diagramming11.png}
+  \item A new item appears below the first one in the Outline tab, and a new shape appears on
+    the canvas to the right; name this object \textbf{Don Pedro} and press \textbf{Return}.
+  \item Name the third object \textbf{Leonato} and then press \textbf{Escape}:
+
+    \ogfigure{0.800}{res/og7_diagramming12.png}
+
+    Unlike pressing \textbf{Return}, which creates another object in the outline, pressing
+    \textbf{Escape} accepts the text you entered. (You can also press \textbf{Command-Return} to
+    turn editing on and off for the selected object.)
+\end{enumerate}
+
+Now you have three items in your Outline and three shapes on your canvas. Time to add some more
+structure to the diagram!
+
+\section{Creating Depth by Adding Child Objects}
+
+All of the characters you've created so far exist on the same level, but now let's add some more
+characters one level below them. The next two characters are soldiers who fought under Don
+Pedro's command.
+
+\begin{enumerate}
+  \item Click to select \textbf{Don Pedro} in the Outline tab, and press \textbf{Return} to
+    create a new object.
+  \item Press \textbf{Tab} to indent this item underneath Don Pedro, and name it
+    \textbf{Benedick}:
+
+    \ogfigure{0.800}{res/og7_diagramming13.png}
+  \item Press \textbf{Return} to create another item at the same level, name it
+    \textbf{Claudio}, and then press \textbf{Escape}. Now you have two characters who ``belong''
+    to Don Pedro.
+  \item Use the same technique to add \textbf{Beatrice} and \textbf{Hero} underneath Leonato
+    (they're his niece and daughter). Your diagram should appear as follows:
+
+    \ogfigure{0.800}{res/og7_diagramming14.png}
+\end{enumerate}
+
+\section{Adding Labels to the Connecting Lines}
+
+You can clarify the relationships between the characters by adding \textbf{Labels} to the
+connecting lines. Do do this, you'll use the \textbf{Text} tool.
+
+\ogfigure{0.800}{res/og7_diagrammingbasics_texttool.png}
+
+\begin{enumerate}
+  \item In the \textbf{Tool Palette}, double-click the \textbf{Text} tool---it's the one with a
+    letter \textbf{A} on it---to make the tool ``sticky.''
+  \item Place the mouse pointer over the line between Don Pedro and Claudio so that the line
+    glows and then click it to make a label appear. Type \textbf{Boss} as the label's text to
+    show that Claudio works for Don Pedro.
+
+    \ogfigure{0.673}{res/og7_diagramming15.png}
+  \item Add labels to the three remaining lines in the same way, as follows:
+
+    \begin{itemize}
+      \item Don Pedro is also Benedick's \textbf{Boss}
+      \item Leonato is Hero's \textbf{Father} and Beatrice's \textbf{Uncle}
+    \end{itemize}
+
+    \ogfigure{0.800}{res/og7_diagramming16.png}
+  \item Press \textbf{v} to turn off the Text tool and switch to the \textbf{Selection} tool.
+\end{enumerate}
+
+\section{Defining Relationships by Adding More Connections}
+
+By now, you've already got a fine diagram, but sometimes you want to diagram relationships that
+are not strictly tree-like. Let's manually add some more connections. Before you start
+connecting things together manually, however, it's a good idea to turn off the automatic
+layout feature.
+
+\begin{enumerate}
+  \item Press \textbf{Command--3} to open the \textbf{Canvas} inspectors.
+  \item Option-click the \textbf{Diagram Layout and Style} inspector and turn off \textbf{Auto
+    layout}:
+
+    \ogfigure{0.800}{res/og7_diagramming17.png}
+
+    With Auto layout disabled, the next part of the process is to further define the character's
+    relationships by connecting their objects with the \textbf{Line} tool.
+  \item Double-click the \textbf{Line} tool (or press \textbf{c} twice).
+  \item Press \textbf{Command-1} to open to the \textbf{Object} inspectors.
+  \item \textbf{Option-click} the \textbf{Line} inspector, and set the \textbf{Line type} to
+    \textbf{Straight}:
+
+    \ogfigure{0.800}{res/og7_diagramming18.png}
+
+    \begin{ognote}
+      With nothing selected on the canvas, if you choose the Shape, Line, Text, Pen, or Artboard
+      tool and then make a style change in any of the Object inspectors, the changes you make
+      become the \textit{new} default style for that tool. This applies not just to the current
+      document, but to new documents or other document windows (or tabs) that you open in
+      OmniGraffle.
+
+      For example, in a new document, if you select the Shape tool and then choose the diamond
+      shape in the Shape inspector, that sets the diamond as the default shape. If you had or
+      were to open another OmniGraffle window, the shapes you draw with the Shape tool would
+      also be diamonds.
+    \end{ognote}
+  \item Using the Line tool, make the following connections:
+
+    \begin{itemize}
+      \item Click \textbf{Don John} and drag a line to \textbf{Don Pedro}
+      \item Click \textbf{Don Pedro} and drag a line to \textbf{Leonato}
+      \item Click \textbf{Benedick} and drag a line to \textbf{Beatrice}
+      \item Click \textbf{Claudio} and drag a line to \textbf{Hero}
+    \end{itemize}
+  \item Double-click the \textbf{Text} tool (or press \textbf{t} twice), and add labels to the
+    lines as follows:
+
+    \begin{itemize}
+      \item Don John and Don Pedro are \textbf{Half-Brothers}
+      \item Don Pedro and Leonato are \textbf{Friends}
+      \item Benedick \textbf{Loves} Beatrice
+      \item Claudio \textbf{Loves} Hero
+    \end{itemize}
+
+    Your diagram should appear as follows:
+
+    \ogfigure{0.800}{res/og7_diagramming19.png}
+  \item Press \textbf{v} to switch back to the \textbf{Selection} tool.
+\end{enumerate}
+
+\section{Using Orthogonal Lines to Denote Non-Linear Relationships}
+
+Notice how the two ``Loves'' lines overlap each other and their respective objects; let's go
+ahead and fix that.
+
+\begin{enumerate}
+  \item Using the \textbf{Selection} tool, \textbf{Command-click} to select the two ``Loves''
+    lines.
+  \item Press \textbf{Command-1} to view the \textbf{Object} inspectors.
+  \item \textbf{Option-click} the \textbf{Line} inspector.
+  \item Change the \textbf{Line type} from \textbf{Straight} to \textbf{Orthogonal}; however,
+    nothing \textit{appears} to have changed\ldots{}but appearance isn't everything, right?
+
+    \ogfigure{0.800}{res/og7_diagramming20.png}
+  \item Click on the canvas to deselect the two lines, and then click on the line that extends
+    from \textbf{Benedick} to \textbf{Beatrice}; notice the block of four squares on the path:
+
+    \ogfigure{0.800}{res/og7_diagramming21.png}
+
+    This block is a \textit{handle} which you can click and drag to reposition the orthogonal line
+    so it routes around other objects in the diagram.
+  \item Click and drag the \textbf{orthogonal line handle} to extend the line so that it
+    highlights the relationship between Benedick and Beatrice:
+
+    \ogfigure{0.800}{res/og7_diagramming22.png}
+  \item Click on the canvas to deselect the line between Benedick and Beatrice, and then click
+    to select the line between \textbf{Claudio} and \textbf{Hero}.
+  \item Click and drag the \textbf{orthogonal line handle} to extend the line so that it
+    highlights the relationship between Claudio and Hero; your diagram should look similar to
+    the following:
+
+    \ogfigure{0.800}{res/og7_diagramming23.png}
+\end{enumerate}
+
+\section{Adding Magnets to Objects}
+
+By default, connecting lines are routed to the centerpoint of an object. For example, if you
+select the line that connects Don John and Don Pedro and zoom in, you'll see a red and green
+diamond at opposite ends of the lines:
+
+\ogfigure{0.800}{res/og7_diagramming_magnets01.png}
+
+A \textit{red diamond} denotes where the line started, while the \textit{green diamond} denotes
+the line's terminus.
+
+For most diagrams, routing the connecting lines to a centerpoint is effective. However, for
+times when you want, or \textit{need}, the line to connect to a different place on the object,
+you can add \textit{magnets} to an object and then re-route the connecting lines using the
+\textbf{Selection} tool.
+
+After adding the orthogonal lines that connect the \textbf{Love} relationships, you can achieve
+a smoother line routing by adding magnets to the child objects in the diagram.
+
+\begin{enumerate}
+  \item Press and hold the \textbf{Command} key.
+  \item Individually click to select \textbf{Benedick}, \textbf{Claudio}, \textbf{Beatrice}, and
+    \textbf{Hero}:
+
+    \ogfigure{0.800}{res/og7_diagramming_magnets02.png}
+  \item Choose \textbf{Edit} $\blacktriangleright$ \textbf{Magnets} $\blacktriangleright$
+    \textbf{Positions} $\blacktriangleright$ \textbf{8 Magnets}.
+  \item To see where the magnets are positioned for the objects, choose \textbf{View}
+    $\blacktriangleright$ \textbf{Magnets}:
+
+    \ogfigure{0.800}{res/og7_diagramming_magnets03.png}
+
+    The magnets are now visible as pink circles at each corner and midpoint along the child
+    object's path, while the parent objects (Don John, Don Pedro, and Leonato) only have one
+    magnet located at their centerpoint.
+  \item Using the \textbf{Selection} tool (\textbf{v}), click to select the orthogonal line that
+    connects \textbf{Claudio} to \textbf{Hero}, and reroute the line ends to the middle-bottom
+    of each object:
+
+    \ogfigure{0.800}{res/og7_diagramming_magnets04.png}
+
+    \ogfigure{0.800}{res/og7_diagramming_magnets05.png}
+  \item Drag the orthogonal line's handle downward to add more space between the objects and the
+    line itself:
+
+    \ogfigure{0.800}{res/og7_diagramming_magnets06.png}
+  \item With the orthogonal line adjusted to your liking, you can turn off visibility of the
+    magnets by again choosing \textbf{View} $\blacktriangleright$ \textbf{Magnets}.
+\end{enumerate}
+
+\section{Using the Line Inspector to Add a Line Hop}
+
+When two lines pass over each other, such as the two orthogonal lines in this diagram, it
+creates a slight possibility for someone to confuse which line goes where. The \textbf{Line}
+inspector includes a pop-up menu from which you can specify a \textbf{Line Hop} for a selected
+line.
+
+\begin{enumerate}
+  \item Click to select the orthogonal line between \textbf{Claudio} and \textbf{Hero}.
+  \item \textbf{Option-click} the Line inspector.
+  \item Click the \textbf{Line Hops} pop-up menu, and choose a style of your liking:
+
+    \ogfigure{0.800}{res/og7_diagramming_linehops01.png}
+
+    The pop-up menu includes options for specifying \textit{hops} that pass over or under another
+    line to create tiny bridges or tunnels for the lines to pass through:
+
+    \ogfigure{0.800}{res/og7_diagramming_linehops02.png}
+\end{enumerate}
+
+\section{Using the Object Inspectors to Add Styles to the Diagram}
+
+You've already used a couple inspectors, but now you're going to use the inspectors in earnest.
+There are 10 \textbf{Object} inspectors, and each one controls a certain aspect of the
+selected objects' appearance. The first inspector you'll use to style the shapes in the
+diagram is the \textbf{Fill} inspector.
+
+\begin{enumerate}
+  \item Select \textbf{Don John} on the canvas.
+  \item Press \textbf{Command-1} to view the \textbf{Object} inspectors.
+  \item \textbf{Option-click} the \textbf{Fill} inspector, which reflects that the \textbf{Don
+    John} object has a plain white fill color:
+
+    \ogfigure{0.800}{res/og7_diagramming24.png}
+  \item Click the \textbf{Fill Type} pop-up menu, and choose \textbf{Linear Gradient} from the
+    list of available fill types.
+  \item Beneath the pop-up menu, you will see two color menus for defining the gradient's
+    colors:
+
+    \begin{itemize}
+      \item Click the \textbf{Beginning gradient color} menu on the left and choose a color.
+      \item Click the \textbf{Ending gradient color} menu on the right and choose another,
+        complementary, color.
+    \end{itemize}
+
+    \ogfigure{0.800}{res/og7_diagramming25.png}
+  \item \textbf{Option-click} the \textbf{Stroke} inspector.
+  \item Change the thickness of the stroke to \textbf{2 pt}.
+  \item \textbf{Option-click} the \textbf{Shapes} inspector.
+  \item Change the \textbf{Corner radius} to \textbf{5 pt}:
+
+    \ogfigure{0.800}{res/og7_diagramming27.png}
+
+    This makes for a nice, heavy, rounded stroke around the object. You can zoom in so you can see
+    the progress you've made!
+  \item \textbf{Option-click} the \textbf{Font} inspector.
+  \item Choose a different font, then click the color well next to the Font button and choose a
+    color to contrast with the fill. Now you should have one quite charming shape object.
+
+    \ogfigure{0.800}{res/og7_diagramming28.png}
+\end{enumerate}
+
+\section{Using Style Swatches to Rapidly Apply Styles}
+
+With Don John still selected, look at the bottom of the Inspector bar for the \textbf{Style
+Tray}:
+
+\ogfigure{0.746}{res/og7_diagramming_styletray.png}
+
+The Style Swatch (or \textit{chit}) on the left combines all of the style properties of the
+selected object, while the grouping of Style Swatches on the right lists them individually by
+inspector.
+
+\begin{enumerate}
+  \item Click and drag the \textbf{All Styles} Swatch and drop it onto the \textbf{Don Pedro}
+    shape.
+
+    \ogfigure{0.800}{res/og7_diagramming29.png}
+
+    \ogfigure{0.800}{res/og7_diagramming30.png}
+  \item Do the same thing to \textbf{Leonato} so that all of the elder generation characters
+    have a consistent appearance.
+
+    \ogfigure{0.800}{res/og7_diagramming31.png}
+\end{enumerate}
+
+\section{Selecting and Styling the Child Objects}
+
+Let's style the remaining objects. A quick way to select lots of shapes at once is with the
+\textbf{Selection} tab of the Sidebar (\textbf{Option-Command-5}). The \textbf{Selection} tab
+lists all of the different kinds of objects on the canvas---lines, labels, shapes, and so
+on---based on their styles.
+
+\begin{enumerate}
+  \item In the \textbf{Selection} tab, click the item representing the four plain white
+    rectangles with black strokes. This selects all four objects at once.
+
+    \ogfigure{0.800}{res/og7_diagramming32.png}
+  \item Use the \textbf{Shape} inspector to change the shape of the four selected objects from
+    Rectangles to Circles (or, in this case, Ellipses).
+
+    \ogfigure{0.800}{res/og7_diagramming33.png}
+  \item Use the \textbf{Fill}, \textbf{Stroke}, and \textbf{Font} inspectors to simultaneously
+    style all four shapes in in a way that differentiates the three rectangular shapes. Here
+    we've chosen a different color, a slightly thicker stroke, and a larger font.
+
+    \ogfigure{0.800}{res/og7_diagramming34.png}
+\end{enumerate}
+
+\section{Adding Layers to Your Project}
+
+Layers contain different sets of objects on the same canvas. We'll place a background image on a
+new layer to keep it separate from the character diagram.
+
+\begin{enumerate}
+  \item Before adding a new layer to your project, choose \textbf{View} $\blacktriangleright$
+    \textbf{Show Contents} $\blacktriangleright$ \textbf{Layers} (or press
+    \textbf{Option-Command-2}) to switch to the Layers tab in the Sidebar.
+  \item In the toolbar, click \textbf{New Layer} to add another one to the canvas. A new layer
+    is born. You can name it if you like; something like ``Background'' should suffice.
+
+    \ogfigure{0.673}{res/og7_diagramming35.png}
+  \item As you learned in The Left Sidebar, the order of layers is important; objects on higher
+    layers appear in front of stuff on lower layers. Since you want the Background layer and its
+    image to appear behind the diagram, drag the Diagram layer above the Background layer.
+
+    \ogfigure{0.800}{res/og7_diagramming36.png}
+  \item Let's concentrate on the Background layer. The layer you're working with right now has a
+    pencil icon to the left of its preview in the Sidebar. If the Background layer doesn't have
+    the pencil icon, click just to the left of the layer preview to put it there.
+
+    \ogfigure{0.673}{res/og7_diagramming37.png}
+  \item For your background, rather than using the \textbf{Background Image} inspector, which
+    would place a background image on the entire canvas, you'll want to drag an image onto the
+    layer. A new shape containing the image is created on the Background layer.
+
+    \ogfigure{0.800}{res/og7_diagramming38.png}
+  \item Use the controls in the \textbf{Image} inspector to change the size and scaling or the
+    opacity of the image to suit your liking.
+
+    \ogfigure{0.800}{res/og7_diagramming39.png}
+
+    \ogfigure{0.800}{res/og7_diagramming40.png}
+\end{enumerate}
+
+Now you have an attractive, informative diagram.
+
+\ogfigure{0.800}{res/og7_diagramming41.png}
+
+As you can see, there's still some work to be done on the connecting lines and their labels, so
+let's move on to those next.
+
+\section{Styling Lines and Labels}
+
+So far, we've focused on styling the object blocks and giving the diagram a nice background. But
+if you look at the previous image, you can see that there's still some work to do,
+particularly with the lines and labels.
+
+Here we want the lines to help people visualize the relationships between the characters, and to
+do more than just show a simple connection. So let's address the lines first, and then you'll
+see how to remove the fill from a label.
+
+\begin{enumerate}
+  \item Choose \textbf{Inspectors} $\blacktriangleright$ \textbf{Object} (\textbf{Command--1})
+    to view the Object inspectors on the right.
+  \item \textbf{Option-click} the \textbf{Stroke} inspector.
+  \item Select the line between Don John and Don Pedro.
+  \item In the \textbf{Stroke} inspector, set the stroke width to \textbf{1.5 pt}, and change
+    the line's color to a nice shade of blue.
+  \item With the line still selected, \textbf{Option-click} on the \textbf{Line} inspector; the
+    Stroke inspector collapses while the Line inspector opens.
+  \item Give the line arrows at both the left and right sides. Your diagram and inspectors
+    should look something like this:
+
+    \ogfigure{0.800}{res/og7_diagramming42.png}
+  \item Use a similar approach for the other lines, as follows:
+
+    \begin{itemize}
+      \item Create a double-arrowed line between Don Pedro and Leonato
+      \item Create single-arrowed lines that point up from Claudio and Benedick to Don Pedro
+      \item Create single-arrowed lines that point up from Beatrice and Hero to Leonato
+      \item Create double-arrowed lines between Benedick and Beatrice, and between Claudio and
+        Hero
+    \end{itemize}
+
+    When you've finished, your diagram should look something like the following:
+
+    \ogfigure{0.800}{res/og7_diagramming43.png}
+\end{enumerate}
+
+Now let's deal with the labels on the lines. As you can see, they have a white background that
+obscures the lines and blots out the background image. Let's fix that!
+
+\begin{enumerate}
+  \item To make this process go faster, let's go back to our old friend, the \textbf{Selection}
+    tab (\textbf{Option-Command--5}). The Selection tab, if you recall from Selecting and
+    Styling the Child Objects, lets you quickly select similar items in your diagram. In this
+    case, you'll want to select all eight of the text labels in the Selection tab.
+
+    \ogfigure{0.800}{res/og7_diagramming44.png}
+  \item Choose \textbf{Inspectors} $\blacktriangleright$ \textbf{Object} (\textbf{Command--1}),
+    \textbf{Option-click} on the \textbf{Fill} inspector, and then set the \textbf{Fill} for the
+    labels to \textbf{No Fill}. This removes the white box behind the labels so the lines and
+    the background image show through.
+
+    \ogfigure{0.800}{res/og7_diagramming45.png}
+
+    The only problem is that---with some of the labels---the text interferes with the lines. Let's
+    fix that.
+  \item In the diagram, \textbf{Command-click} the \textbf{Love} labels to select both of those.
+  \item \textbf{Option-click} the \textbf{Geometry} inspector to change their positioning
+    related to the line.
+
+    \ogfigure{0.800}{res/og7_diagramming46.png}
+  \item Select the \textbf{Half-Brothers} label and tap the \textbf{Up Arrow} key on your
+    keyboard to nudge the label above the line.
+  \item Select the \textbf{Friends} label and nudge that above the line using the \textbf{Up
+    Arrow} key on your keyboard.
+  \item Use \textbf{Command-click} to select the two \textbf{Boss}, \textbf{Uncle}, and
+    \textbf{Father} labels.
+  \item In the \textbf{Geometry} object inspector, change their orientation relative to the line
+    from \textbf{Horizontal} to \textbf{Parallel}.
+
+    \ogfigure{0.800}{res/og7_diagramming47.png}
+  \item Finally, select each of those four labels individually to move them off the lines. Your
+    diagram should look similar to the following:
+
+    \ogfigure{0.800}{res/og7_diagramming48.png}
+\end{enumerate}
+
+\section{Adding a Title to the Diagram}
+
+Now it's time for you to take a little bit of a breather. You've been going at this pretty hard
+now, so we'll make this one simple. All you need to do is add a title to the diagram.
+
+\begin{enumerate}
+  \item Choose \textbf{View} $\blacktriangleright$ \textbf{Show Contents} $\blacktriangleright$
+    \textbf{Layers} (or press \textbf{Option-Command-2}) to switch to the Layers tab in the
+    Sidebar.
+  \item In the toolbar, click \textbf{New Layer} to add another layer to the project. Name this
+    layer \textbf{Title}:
+
+    \ogfigure{0.800}{res/og7_diagramming49.png}
+  \item Select the \textbf{Text} tool, click on the Canvas in the open area to the left of
+    \textbf{Don John}, and enter \textit{Much Ado About Nothing}.
+  \item Use the \textbf{Font} and \textbf{Text Position} inspectors to style the title however
+    you'd like.
+
+    \ogfigure{0.800}{res/og7_diagramming50.png}
+\end{enumerate}
+
+\section{Where to Go From Here}
+
+When you've finished, here's what the \textit{Much Ado About Nothing} diagram looks like:
+
+\ogfigure{0.800}{res/og7_diagramming51.png}
+
+Take some time now to experiment with OmniGraffle a little more. The more you use OmniGraffle,
+the more comfortable you'll become with all of its abilities. Don't worry about ``messing''
+anything up; just remember that you can always press \textbf{Command-Z} to undo any recent
+changes you've made.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}

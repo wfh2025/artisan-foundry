@@ -1,0 +1,1497 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Working With the Inspectors}
+
+Along the right side of the window, you'll find the \textbf{Inspectors} sidebar. You use the
+Inspectors to change the style attributes for the objects on the canvas, set the properties of
+the canvas itself, and to include document-specific metadata and define how the OmniGraffle
+file is saved.
+
+\begin{ogtip}
+  If you don't see the Inspector sidebar, click \ogicon{12.5pt}{res/og7_button_inspectors.png} in
+  the toolbar or choose \textbf{Inspectors} $\blacktriangleright$ \textbf{Hide/Show Inspectors}
+  (\textbf{Shift-Command-I}).
+\end{ogtip}
+
+The Inspectors sidebar has five tabs along its top, used for categorizing the individual
+\textit{inspector panes} based on their purpose:
+
+\ogfigure{0.800}{res/og7_insp_tabs.png}
+
+\begin{enumerate}
+  \item \textbf{Object} inspectors are used for styling the objects on the canvas.
+  \item \textbf{Properties} inspectors are used for defining the properties of the objects on
+    the canvas.
+  \item \textbf{Canvas} inspectors are used for defining the canvas itself, including units of
+    measure and the alignment grid.
+  \item \textbf{Document} inspectors are used for setting how the OmniGraffle file is saved,
+    setting printer margins, and for adding document metadata.
+  \item \textbf{Stencil Browser} is used for finding and placing stencils (pre-styled objects)
+    on the canvas.
+\end{enumerate}
+
+\begin{ognote}
+  Since the Stencil Browser is not an inspector, it won't be covered in this chapter. See Using,
+  Curating, and Creating Stencils for more details about the Stencil Browser and stencils in
+  general.
+\end{ognote}
+
+To make it easy for you to access the inspectors, we have conveniently mapped the Inspector tabs
+to the following keyboard shortcuts:
+
+\begin{itemize}
+  \item Use \textbf{Command--1} to view the Object inspectors.
+  \item Use \textbf{Command--2} to view the Properties inspectors.
+  \item Use \textbf{Command--3} to view the Canvas inspectors.
+  \item Use \textbf{Command--4} to view the Document inspectors.
+\end{itemize}
+
+Each tab contains a series of \textit{inspector panes}, for such things as adding a fill to an
+object or setting a background image for the project you're working on.
+
+To open an inspector pane, hover over the title with the mouse, and then click on the disclosure
+triangle to open and use the inspector. To open one particular inspector (for example the
+\textbf{Fill} inspector) and close any other open inspectors, \textbf{Option-click} on the
+disclosure triangle. To open or close all of the inspectors, \textbf{Shift-click} on one of
+the disclosure triangles.
+
+\ogfigure{0.800}{res/og7_inspectors01.png}
+
+\begin{ogtip}
+  You can configure OmniGraffle's preferences so that only the inspectors you need are displayed
+  in the sidebar. Choose \textbf{OmniGraffle} $\blacktriangleright$ \textbf{Preferences}
+  $\blacktriangleright$ \textbf{General} $\blacktriangleright$ \textbf{Inspectors} and turn on
+  \textbf{Hide inspectors that don't apply}.
+\end{ogtip}
+
+\section{Using the Inspectors}
+
+By default, OmniGraffle's inspectors reside in a sidebar just to the right of the Canvas.
+However, you can also open the inspectors as a floating window, or as four floating palettes,
+one for each tab. The different ways of viewing the Inspectors are known as Workspaces,
+because they help define how you work in OmniGraffle.
+
+You can quickly switch between Workspaces by using the following keyboard shortcuts:
+
+\begin{itemize}
+  \item \textbf{Sidebar}: F2
+  \item \textbf{Floating}: F3
+  \item \textbf{Palettes}: F4
+\end{itemize}
+
+\begin{ognote}
+  If you are using a MacBook Pro, MacBook Air, or an
+  \href{https://www.apple.com/shop/product/MLA22LL/A/magic-keyboard-us-english}{Apple Magic
+  Keyboard} with your Mac, you also need to press the \textbf{fn} key---located at the
+  lower-left corner of your keyboard---along with the applicable function key. If you have an
+  \href{https://www.apple.com/shop/product/MQ052LL/A/magic-keyboard-with-numeric-keypad-us-english}{Apple
+  Magic Keyboard with Numeric Keypad}, the \textbf{fn} key is located below the \textbf{F13}
+  key.
+\end{ognote}
+
+\subsection{Interacting with the Inspectors}
+
+In all of the inspectors, you can click in a text field that contains a number, and then press
+the up or down arrow keys to increment or decrement the number.
+
+When it comes to rotating objects, you have a couple options. First select the object and then
+go to the \textbf{Geometry} inspector. Click and spin the rotation dial and watch the object
+revolve around its center point. After clicking the rotation dial, keep the mouse button held
+down while moving the pointer away from the control to gain more rotational precision.
+
+\ogfigure{0.800}{res/og7_inspectors05.png}
+
+If you have enabled the use of Multi-Touch gestures (\textbf{OmniGraffle} $\blacktriangleright$
+\textbf{Preferences} $\blacktriangleright$ \textbf{Multi-Touch}), you can use a two-fingered
+spin gesture to rotate an object on the canvas.
+
+\begin{ognote}
+  The use of Multi-Touch gestures requires a touch-enabled trackpad. Most Apple laptops support
+  Multi-Touch, as does Apple's Magic Trackpad.
+\end{ognote}
+
+Select and touch an object with two fingers, and then rotate the fingers (or pivot one around
+the other) to rotate the object. While rotating the object, you'll notice that a blue angle
+indicator appears within the object, and a tiny popover appears showing you the degree of the
+angle.
+
+\ogfigure{0.800}{res/og7_inspectors06.png}
+
+Any color swatch in the Colors window can be dragged to an object on the canvas or to an
+inspector's color control. When you drag a color swatch to an object, you can drop the color
+on the object's fill, stroke, or text (label) color.
+
+\ogfigure{0.800}{res/og7_inspectors07.png}
+
+In places where you can enter measurements, such as in the Geometry inspector, values are shown
+in the current ruler units, or, if there is no unit scale, in the Units inspector. You can,
+however, enter values in any unit type that is available in the ruler, such as miles or
+kilometers. As soon as you finish entering the value, OmniGraffle converts it to the correct
+units automatically.
+
+\ogfigure{0.800}{res/og7_inspectors08.png}
+
+You can also perform simple arithmetic in the input fields; for example, add (\textbf{+}),
+subtract (\textbf{$-$}), multiply (\textbf{*}), or divide (\textbf{/}).
+
+\ogfigure{0.800}{res/og7_inspectors09.png}
+
+If you don't specify a unit type in your math (for example, \textbf{(2+2)*25}), OmniGraffle uses
+the Unit Type specified in the Units inspector. You can, however, enter a different Unit Type
+as part of the arithmetic (for example, \textbf{(2in+2cm)*25}) and OmniGraffle will convert
+the Unit Type you have specified as part of the math to the Unit Type specified in the Units
+inspector.
+
+You can also enter unit values that are different from the \textbf{Ruler Units} specified in the
+\textbf{Units} inspector. For example, if you have your project set up to use \textbf{inches}
+for the Ruler Units, and you enter \textbf{2.54 cm} in a field, OmniGraffle would convert that
+to \textbf{1 in}.
+
+\section{The Object Inspectors}
+
+Use the \textbf{Object inspectors} to view and change details about the objects on the Canvas.
+You can quickly access the Object inspectors by pressing \textbf{Command-1}, or by selecting
+any object on the canvas.
+
+\subsection{Coloring Shapes with the Fill Inspector}
+
+Use the Fill inspector to choose a color, gradient, or pattern to fill the inside of the
+selected shapes. Depending on the type of fill you've selected in the \textbf{Fill Type}
+pop-up menu, the Fill inspector adapts to provide the controls you need to adjust the fill's
+settings.
+
+\ogfigure{0.800}{res/og7_inspectors10.png}
+
+\ogfigure{0.800}{res/og7_inspectors11.png}
+
+The Fill inspector has the following controls:
+
+\begin{itemize}
+  \item \textbf{Fill Type}: Use the pop-up menu at the top of the inspector to choose from the
+    nine fill types, including: Solid, Linear Gradient, Radial Gradient, Double Linear Gradient,
+    Double Radial Gradient, Stipple, Marker, Squiggle, and Plastic. The \textbf{No Fill} option
+    is also available as an option for objects where transparency is desired.
+
+    With the \textbf{Fill Type} set to \textbf{Solid}, you'll also see a series of default color
+    swatches that you can choose from. The larger swatches along the top range from black to
+    white with varying shades of gray in between, with smaller color swatches underneath.
+  \item \textbf{Fill Color}: Located underneath the Fill Type pop-up menu is the Fill Color
+    pop-up. Clicking the arrows lets you choose from one of 12 preset colors, or you can click
+    on the color well to the left of the arrows to open the Colors palette to blend your own
+    color.
+  \item \textbf{Color Swatches}: Beneath the Fill Color picker is a palette of color swatches
+    that you can click and drag to quickly apply colors to objects on the canvas, or anywhere
+    else that can receive a color swatch application.
+
+    These color swatches start with a default palette set, but can be customized by dragging from
+    a color well in the color picker and dropping onto a spot in the palette. Other drag sources
+    for color (such as the style well in the bottom toolbar) also work for this.
+
+    To restore the default color to a palette swatch, control-click it to open the contextual menu
+    and choose \textbf{Restore Default Color}.
+\end{itemize}
+
+\begin{ogpro}
+  If you have OmniGraffle Pro, the Fill inspector has two additional pop-up menus along the
+  bottom: \textbf{Fill Blend Type} and \textbf{Distortion Effect}.
+
+  \ogfigure{0.800}{res/og7_inspectors12.png}
+
+  \begin{itemize}
+    \item \textbf{Blending Mode}: The Blending Mode pop-up lets you choose how to blend the
+      currently selected object's fill with objects on the same canvas. By default, this is set
+      to \textbf{No Effect}.
+
+      \ogfigure{0.800}{res/og7_inspectors13.png}
+    \item \textbf{Distortion Effect Type}: The Fill inspector includes three Distortion Effect
+      Types: \textbf{Blur}, \textbf{Pixelate}, and \textbf{Magnify}. For example, you could
+      apply the \textbf{Magnify} effect to an object that sits atop an image so you can use it
+      like a magnifying glass.
+
+      \ogfigure{0.800}{res/og7_inspectors14.png}
+
+      \ogfigure{0.800}{res/og7_inspectors15.png}
+
+      \ogfigure{0.800}{res/og7_inspectors16.png}
+  \end{itemize}
+
+  You can also add a \textbf{pattern fill} to the objects in your projects. When you click on
+  the color portion of a Fill Color pop-up menu, that opens the Colors window. Click the tab
+  on the right, the \textbf{Pattern Palette}, to choose from a pattern to fill the objects.
+
+  \ogfigure{0.800}{res/og7_inspectors18.png}
+\end{ogpro}
+
+Some additional notes about the Fill inspector:
+
+\begin{itemize}
+  \item The gradient rotation control becomes active when you choose one of the Linear Gradient
+    fills; enter a number of degrees in the field or drag the circular control to set the angle
+    of the gradient. The blend position control becomes active when you choose a radial
+    gradient; drag its crosshair to move the gradient's center.
+  \item If you have chosen \textbf{Linear Gradient} or \textbf{Radial Gradient}, you can click
+    the swap button between the color wells to exchange the two colors.
+
+    \ogfigure{0.800}{res/og7_inspectors17.png}
+  \item Drag the \textbf{Gradient Midpoint slider} next to the color wells to adjust the
+    gradient.
+  \item If you choose one of the Gradient fills, two or three color wells become available.
+    Click them to choose the colors to blend together.
+\end{itemize}
+
+You can also edit the fill color of a canvas itself using the \textbf{Canvas Fill} inspector.
+
+\subsection{Defining Line and Path Behaviors with the Stroke Inspector}
+
+Use the Stroke inspector to change the appearance of the selected connection lines or of the
+line drawn around the edge of the selected shapes.
+
+\ogfigure{0.800}{res/og7_inspectors19.png}
+
+\begin{itemize}
+  \item Use the dropdown menu to choose one of the following stroke types: No Stroke, Single
+    Stroke, Double Stroke, Freehand Stroke, Plastic Stroke, Inner Stroke, or Outer Stroke.
+  \item Click the color well to choose a color for the stroke.
+  \item Enter a number in the Thickness field or use the keyboard arrows to choose how thick the
+    stroke should be.
+  \item With any Stroke Type except \textbf{Plastic Stroke} selected, you'll find three sets of
+    controls for further defining the stroke:
+
+    \ogfigure{0.800}{res/og7_inspectors20.png}
+
+    \begin{itemize}
+      \item Use the pop-up menu on the left to select a \textbf{Stroke Pattern}, ranging from
+        solid, to dashed, to dotted, and everything in between. There are 25 stroke patterns to
+        choose from.
+      \item The center set of controls determines how the stroke appears at its corners:
+        \textbf{Miter} creates a sharp corner, \textbf{Round} creates a soft corner, and
+        \textbf{Bevel} creates a cut-off corner.
+      \item The controls on the right determine how the stroke appears at its ends: The
+        \textbf{Butt} option ends the line by cutting across its endpoint at an angle
+        perpendicular to the line itself, while the \textbf{Round} and \textbf{Square} options let
+        the line extend past its endpoint based on the stroke width.
+    \end{itemize}
+  \item With the \textbf{Plastic Stroke} type selected, the Stroke inspector takes on a
+    different set of controls:
+
+    \ogfigure{0.800}{res/og7_inspectors21.png}
+
+    The middle row of controls lets you set a color for the Plastic Stroke's \textbf{Stroke} and
+    \textbf{Highlight} colors. Use the \textbf{Highlight angle} wheel on the left to change the
+    ``lighting'' angle for the highlight. Use the slider on the right to make the Plastic Stroke
+    flatter or to give it more height.
+\end{itemize}
+
+\subsection{Casting Shadows with the Shadow Inspector}
+
+Use the Shadow inspector to drop a shadow behind the selected objects.
+
+\ogfigure{0.800}{res/og7_inspectors22.png}
+
+\begin{itemize}
+  \item Use the pop-up menu to choose whether the selected object has a shadow, and whether the
+    shadow appears in front of or behind objects on the same layer, or if the object takes on an
+    inner shadow. If you choose to let shadows appear in front of objects on the same layer, the
+    ordering of objects matters; you can reorder objects with the \textbf{Bring} and
+    \textbf{Send} commands in the \textbf{Arrange} menu.
+  \item Enter a number in the blur field or use the keyboard arrows to choose how precise or
+    blurry the shadow should be.
+  \item Click the color well to choose a color for the shadow; partially transparent black tends
+    to work best.
+  \item Drag the crosshair in the offset control or enter numbers in the offset fields to set
+    how far away from the object the shadow should fall.
+\end{itemize}
+
+\subsection{Choosing a Shape with the Shape Inspector}
+
+With a shape object selected, use this inspector to transform it in various ways.
+
+\ogfigure{0.800}{res/og7_inspectors23.png}
+
+\begin{itemize}
+  \item To change the shape (for example, from a rectangle to a circle), click the menu at the
+    top of the inspector to reveal the \textbf{Shape Popover}. It includes all of OmniGraffle's
+    built-in shapes plus any custom shapes you've created.
+
+    \ogfigure{0.800}{res/og7_inspectors24.png}
+  \item Use the \textbf{Corner Radius} field to set how round the corners of the shape should
+    be; enter 0 for perfectly pointy corners.
+\end{itemize}
+
+\begin{ogpro}
+  \begin{itemize}
+    \item In OmniGraffle Pro, with multiple shapes selected use the \textit{shape combination}
+      buttons for crafting custom shapes. Available actions include \textbf{Combine Shapes},
+      \textbf{Intersect Shapes}, \textbf{Subtract Shapes}, and \textbf{Uncombine Shapes}.
+
+      \ogfigure{0.800}{res/og7_inspectors25.png}
+  \end{itemize}
+\end{ogpro}
+
+\subsubsection{Using Adjustable Shapes}
+
+Underneath the \textbf{Common Shapes} found in the Shape Popover, you'll see a row of five
+\textbf{Adjustable} shapes that you can choose from:
+
+\begin{itemize}
+  \item Adjustable Arrow
+  \item Adjustable Double Arrow
+  \item Adjustable Arc
+  \item Adjustable Wedge
+  \item Adjustable Star
+\end{itemize}
+
+\ogfigure{0.800}{res/og7_insp_shapes_adjustable01.png}
+
+As their name implies, adjustable shapes can be morphed to take on different appearances. The
+thing that makes an Adjustable Shape \textit{adjustable} are the \textbf{Blue Adjustment
+Handles}.
+
+Depending on the shape, an Adjustable Shape has either one or two \textbf{Blue Adjustment
+Handles}. The Adjustable Arrow and Double Adjustable Arrow have a single Adjustment Handle,
+which you can use to resize the shape of the arrowhead.
+
+\ogfigure{0.800}{res/og7_insp_shapes_adjustable02.png}
+
+The \textbf{Adjustable Arc} and \textbf{Adjustable Wedge} shapes have two Adjustment Handles,
+which you can grab and drag to change the degrees in the arc. If you hold down the
+\textbf{Shift} key while adjusting the an Arc or Wedge, the shape increases or decreases in
+size in 15-degree increments.
+
+\ogfigure{0.800}{res/og7_insp_shapes_adjustable03.png}
+
+The \textbf{Adjustable Arcs} and \textbf{Wedges} can be Filled with any color or pattern, and
+arranged to create exploding pie charts.
+
+\ogfigure{0.800}{res/og7_insp_shapes_adjustable04.png}
+
+\textbf{Adjustable Stars} have two adjustment handles, which you can use to make the points more
+or less pointier, and to decrease or increase the number of points on a star.
+
+\ogfigure{0.800}{res/og7_insp_shapes_adjustable05.png}
+
+\textbf{Adjustable Shapes} can really speed up your time to creation, so look for ways to use
+them for diagrams, charts, wireframes, or website mockups.
+
+\subsection{Defining Line Attributes and Behaviors with the Line Inspector}
+
+Use this inspector to configure the properties of lines used to connect objects.
+
+\ogfigure{0.800}{res/og7_inspectors26.png}
+
+\begin{itemize}
+  \item Use the pop-up menu at the top to set how the line travels from its source to its
+    destination:
+
+    \begin{itemize}
+      \item \textbf{Straight} for a line that takes the shortest possible path between points.
+      \item \textbf{Curved} for a line that turns smoothly to pass through each point.
+      \item \textbf{Orthogonal} for a line that always travels horizontally or vertically.
+      \item \textbf{Bézier} for a line with control points you can adjust with the selection tool.
+    \end{itemize}
+  \item In the middle of the Line inspector, you'll find two pop-up menus on the right and
+    left---used to set the appearance of the tail and head of the line. Click the reverse button
+    to swap the line's source and destination points.
+  \item Use the fields below the tail and head menus to change the line ending sizes. If you've
+    set the line type to \textbf{Orthogonal}, you can use the curve radius field in the middle
+    to add some curvature to the line's corners.
+  \item The \textbf{Line Hops} menu determines what the line should do when it crosses (or is
+    crossed by) another line.
+
+    To better understand how Line Hops work, it's important to understand how the things you draw
+    or place on a layer stack in relation to each other.
+
+    Everything you draw or place on the same layer of a canvas---including lines---shares the same
+    \textit{stacking order}. The first thing drawn is at the bottom of that layer's object
+    stack; all subsequent objects and lines drawn on that layer appear further up in the object
+    stack.
+
+    Consider the following:
+
+    \ogfigure{0.800}{res/og7_linehops01.png}
+
+    Use the \textbf{Line} tool to connect the objects, using the numbers on the lines shown here
+    as the order in which to draw the lines:
+
+    \ogfigure{0.800}{res/og7_linehops02.png}
+
+    As you can see, Lines 3 and 5 cross each other. Following the principles of object stacking,
+    Line 3 appears under Line 5. If you select Lines 3 and 5 and choose \textbf{Round hops over}
+    in the \textbf{Line Hops} pop-up menu, Line 5 hops over Line 3 because it is lower in the
+    stack.
+
+    \ogfigure{0.800}{res/og7_linehops03.png}
+
+    Conversely, if you choose \textbf{Round hops under} in the \textbf{Line Hops} pop-up menu,
+    Line 3 loops underneath Line 5 because it is higher in the stack.
+
+    \ogfigure{0.800}{res/og7_linehops04.png}
+
+    If you would like a line to appear higher or lower in the object stack, select the line in
+    question, choose the \textbf{Arrange} menu, and then choose one of the following menu
+    options:
+
+    \begin{itemize}
+      \item Bring to Front (\textbf{Shift-Command-F})
+      \item Bring Forward (\textbf{Option-Command-F})
+      \item Send to Back (\textbf{Shift-Command-B})
+      \item Send Backward (\textbf{Option-Command-B})
+    \end{itemize}
+\end{itemize}
+
+\subsection{Placing Graphics Inside a Shape with the Image Inspector}
+
+You can use this inspector to place and position an image inside a shape, or to work with an
+image you have dragged directly to the canvas.
+
+\ogfigure{0.800}{res/og7_inspectors27.png}
+
+\begin{itemize}
+  \item Click \textbf{Set Image} to choose and place an image in the selected shape. When you
+    browse for an image file, clicking \textbf{Option} in the lower-left of the selection sheet
+    provides you with options to \textbf{Include image in document} or \textbf{Link to image
+    file}.
+
+    \ogfigure{0.800}{res/og7_inspectors28.png}
+
+    If you choose the \textbf{Link to image file} option, OmniGraffle places an alias of the image
+    in the shape and relies on having access to that image file locally.
+
+    \begin{ogtip}
+      If you delete the linked image file from your Mac, or try to open the OmniGraffle file on
+      another Mac, OmniGraffle displays an alert to let you know that it can't find the image. The
+      alert displays the name of the image file and the linked location on your filesystem, so you
+      can try to relocate or re-link the image.
+    \end{ogtip}
+
+    If an object's image comes from an alias, some extra commands become available in the Gear
+    menu \ogicon{12.5pt}{res/og7_button_imageinsp_gear.png}:
+
+    \begin{itemize}
+      \item \textbf{Reveal in Finder} open a Finder window and takes you to where the image file
+        is located.
+      \item \textbf{Embed in Document} places a copy of the image file in the OmniGraffle file,
+        allowing you to safely send the file to another OmniGraffle user.
+      \item \textbf{Edit LinkBack Item} gives you the ability to edit a LinkBack item's resource.
+    \end{itemize}
+  \item Once an image is set, a \textbf{Remove} button becomes available so you can remove the
+    image and try another.
+\end{itemize}
+
+Beneath the image well, you'll find the following controls for working with the image:
+
+\begin{itemize}
+  \item Use the slider to change the image's opacity:
+
+    \ogfigure{0.800}{res/og7_inspectors29.png}
+  \item The following row of buttons lets you choose how the image is placed within the shape.
+    You can choose to use the image's natural size (left), to stretch the image to fit within
+    the shape's dimensions (center), or to tile the image within the shape (right).
+
+    \ogfigure{0.308}{res/og7_inspectors30.png}
+  \item The positioning offsets are enabled if you are displaying the image at its natural
+    aspect ratio, as set by the first of the three buttons to the left. You can enter a positive
+    or negative percentage, or drag the image around in the image well to indicate the area you
+    want.
+  \item The zoom controls are available unless you are stretching the image to fit the shape.
+    You can enter a zoom percentage, or just drag the slider, to make the image larger or
+    smaller.
+
+    \ogfigure{0.800}{res/og7_inspectors31.png}
+  \item When you press the \textbf{Mask} button, a \textbf{Masking Shape} with an inner grid is
+    placed on top of the image, and opaque corner brackets with lines in between are placed
+    outside the masking area for resizing the image itself:
+
+    \ogfigure{0.800}{res/og7_inspectors32.png}
+
+    By default, the Masking Shape is a rectangle that's placed on top of the image. You can change
+    the shape by choosing another from the Shape Popover in the \textbf{Shape} inspector (see
+    Choosing a Shape with the Shape Inspector).
+
+    \begin{itemize}
+      \item To resize the Masking Shape, click-and-drag on the shape's bounding box handles.
+      \item To resize the image, click-and-drag on the opaque image handles that are outside of
+        the image itself.
+      \item To reposition the image within the Masking Shape, you can either click and drag the
+        image on the canvas, or use the image well to move the image around within the shape's
+        area.
+      \item When resizing the Masking Shape or the image itself, use the \textbf{Shift} key to
+        proportionally resize the item, or use \textbf{Option-Shift} to proportionally resize the
+        item based on its centerpoint.
+      \item You can enter values in the \textbf{Offset} fields (horizontally and/or vertically),
+        or to adjust the \textbf{Scale} values for the image's width and height.
+    \end{itemize}
+
+    When you've finished making adjustments to the image mask, click the \textbf{Mask} button
+    again to hide the masking handles.
+\end{itemize}
+
+\begin{ogtip}
+  While not exactly the same as cropping an image, using an image mask is a great way to get a
+  crop effect by making only a selected portion of the image visible.
+\end{ogtip}
+
+At the bottom of the image inspector is a list of metadata associated with the image file,
+including the following properties:
+
+\begin{itemize}
+  \item \textbf{Kind} --- The file type of the image.
+  \item \textbf{Image Size} --- The horizontal and vertical dimensions of the original image, in
+    pixels.
+  \item \textbf{Visible Size} --- The horizontal and vertical dimensions of the image as
+    displayed on the canvas, in pixels.
+  \item \textbf{Resolution} --- The resolution of the original image, in dots per inch (DPI).
+  \item \textbf{File Size} --- The file size of the image.
+  \item \textbf{Color Space} --- The \href{https://en.wikipedia.org/wiki/Color_space}{color
+    space} of the image.
+\end{itemize}
+
+\subsection{Choosing a Font, Size, and Color with the Font Inspector}
+
+Use this inspector to modify the font properties of the selected objects, including style, size,
+and color.
+
+\ogfigure{0.800}{res/og7_inspectors33.png}
+
+\begin{itemize}
+  \item Click the \textbf{Font Family} menu to choose a font, or to open macOS's \textbf{Fonts
+    Panel}.
+
+    \ogfigure{0.800}{res/og7_inspectors34.png}
+
+    \ogfigure{0.800}{res/og7_inspectors35.png}
+  \item Enter a number to set the point size of the text.
+  \item Choose a Typeface, if there is one available for the font family you've chosen.
+  \item Click the color well to choose a font color.
+\end{itemize}
+
+At the bottom of the Font inspector, you will find controls for adjusting the Kerning (the space
+between individual characters) and Leading (the space between lines of text).
+\textbf{Auto-kern} is turned on by default, but you can uncheck that box if you so desire.
+
+\subsection{Styling Text with the Text Position Inspector}
+
+Use this inspector to control the positioning and appearance of the selected shape's text. If
+you have OmniGraffle Pro, the Text Position inspector also includes \textit{offset
+positioning} controls.
+
+\ogfigure{0.800}{res/og7_inspectors36.png}
+
+The controls in the Text Position inspector are as follows:
+
+\begin{itemize}
+  \item \textbf{Vertical Text Alignment} --- The first three buttons are used for setting the
+    vertical alignment of the text; choose to align to the top, middle, or bottom of the shape.
+  \item \textbf{Horizontal Text Alignment} --- With the horizontal alignment buttons, you can
+    align left, center, align right, or justify the text.
+  \item \textbf{Text Positioning} --- There are five buttons for controlling how the text
+    relates to the shape; you can choose:
+
+    \begin{itemize}
+      \item To fill the shape with the text
+      \item To let the text overflow outside of the shape
+      \item To crop off the text that doesn't fit inside the shape
+      \item To resize the shape to make the text fit
+      \item To make the text follow the shape's path
+    \end{itemize}
+
+    If you choose to have the shape resize, the object will only be manually resizable in the
+    horizontal direction; it will resize vertically according to its text.
+  \item Select the \textbf{Wrap to Shape} checkbox to limit the text's width to the width of the
+    shape.
+\end{itemize}
+
+\subsubsection{Adding Text to the Path of a Shape}
+
+To add text as the border of a shape, double-click the shape to enter the text, then choose
+\textbf{Text Follows Shape's Path} (the farthest right Text Positioning button).
+
+\ogfigure{0.800}{res/og7_text_on_a_shape.png}
+
+\begin{ogtip}
+  To add text to the path of a line instead, see Adding Text to the Path of a Line.
+\end{ogtip}
+
+\subsubsection{Offsetting Text in the Text Position Inspector
+(\texorpdfstring{\textbf{PRO}}{PRO})}
+
+\begin{ogpro}
+  OmniGraffle Pro includes these additional text offset and positioning controls:
+
+  \begin{itemize}
+    \item By default, the \textbf{Use default offsets} option is turned on. If you uncheck this
+      option, you can adjust the text's position using the four input fields:
+
+      \begin{itemize}
+        \item \textbf{Text Offset from Left} --- This adjusts the text's position from the left
+          edge of the object.
+        \item \textbf{Text Offset from Top} --- This adjusts the text's position from the top edge
+          of the object.
+        \item \textbf{Width} --- This adjusts the text box's width.
+        \item \textbf{Height} --- This adjusts the text box's height.
+      \end{itemize}
+    \item Use the text's rotation value to determine how the text appears when you rotate the
+      object:
+
+      \begin{itemize}
+        \item \textbf{Relative} is turned on by default, which means that the text within an
+          object will maintain its relative position when an object is rotated.
+        \item \textbf{Absolute} permits the text to be rotated independent of its bounding object.
+      \end{itemize}
+
+      You can either enter a rotation value in the field or drag the circular control to rotate
+      the text.
+  \end{itemize}
+\end{ogpro}
+
+\subsection{Changing Object Position and Size with the Geometry Inspector}
+
+This inspector deals with an object's position and orientation.
+
+\ogfigure{0.800}{res/og7_inspectors37.png}
+
+\begin{itemize}
+  \item At the top of the inspector, you'll find a pop-up menu with the following options:
+
+    \begin{itemize}
+      \item \textbf{No Scaling} --- by default, the objects you draw on the canvas are not scaled
+        to any size or proportion.
+      \item \textbf{Maintain Aspect Ratio} --- the objects you draw or resize are scaled
+        proportionally. In addition, there are three additional aspect-related options:
+
+        \begin{itemize}
+          \item \textbf{Scale Stroke} --- scales the object's stroke proportionally.
+          \item \textbf{Scale Font} --- proportionally scales any text inside an object, while also
+            scaling the text object.
+          \item \textbf{Scale Stroke and Font} --- scales the objects stroke and text
+            proportionally.
+        \end{itemize}
+    \end{itemize}
+  \item Underneath the scaling pop-up menu are two fields which display the X and Y (horizontal
+    and vertical) coordinates for the selected objects; the value represents the distance
+    between the canvas's origin and the upper-left corner of the object:
+
+    \ogfigure{0.800}{res/og7_insp_geometry01.png}
+
+    If you click on the blue arrow buttons next to the fields, you can measure the distance from
+    the canvas origin to the top- or left-center of the object\ldots{}
+
+    \ogfigure{0.800}{res/og7_insp_geometry02.png}
+
+    \ldots{}or to the bottom-right corner of the selected object:
+
+    \ogfigure{0.800}{res/og7_insp_geometry03.png}
+
+    If you have multiple objects selected, two hyphens (\textbf{--}) appear in the fields that
+    have different values. Enter a new X or Y value to move an object on the canvas.
+  \item The next two fields contain the Width and Height values for the selected objects. If you
+    have multiple objects selected, two hyphens (\textbf{--}) appear in the fields that have
+    different values.
+
+    To change the dimensions of an object, enter a new Width or Height in the fields. Entering a
+    number value and pressing Tab or Return changes the Width or Height based on the
+    \textbf{Ruler Units} set in the Units inspector. However, you can enter a value for
+    \textit{any} unit of measurement, even percentages. OmniGraffle takes the value you have
+    entered, and converts that into the unit of measurement you have specified in the Units
+    inspector. For example, if \textbf{Ruler Units} is set to pixels (px) and you enter
+    \textbf{2 cm} into the Width field, OmniGraffle changes the width of the object to
+    \textbf{56.6929 px}.
+  \item To rotate the object, enter a degree value in the rotation field, or drag the circular
+    control.
+  \item Click the flip buttons to reverse the object horizontally or vertically.
+\end{itemize}
+
+If you have selected a line label, two additional controls become active:
+
+\ogfigure{0.800}{res/og7_inspectors38.png}
+
+\begin{itemize}
+  \item \textbf{Label Horizontal Position} --- Use the slider at the top of the inspector to
+    adjust the label's position along the line, moving it to the left or right.
+  \item \textbf{Label Orientation Menu} --- Use the pop-up menu to set how the label's text
+    appears in relation to the line. Options include: Horizontal, Vertical, Parallel,
+    Perpendicular, Independent, and Follows Path.
+  \item \textbf{Label Vertical Position} --- Use the slider at the bottom of the inspector to
+    position the label above or below the line, or somewhere in between.
+\end{itemize}
+
+\subsubsection{Adding Text to the Path of a Line}
+
+To add text that follows the path of a line, select the Text tool and click the line to add a
+line label. Enter the text, then choose \textbf{Follows Path} from the Label Orientation menu.
+
+\ogfigure{0.800}{res/og7_text_on_a_line.png}
+
+\begin{ogtip}
+  To add text to the border of a shape instead, see Adding Text to the Path of a Shape.
+\end{ogtip}
+
+\subsection{Positioning Objects Neatly with the Alignment Inspector}
+
+Use this inspector to uniformly align objects, either in relation to themselves, or to the
+canvas. At the top of the inspector, choose between \textbf{Align to Shape} or \textbf{Align
+to Canvas}.
+
+\subsubsection{Align to Shape}
+
+If you choose \textbf{Align to Shape}, the align and spread buttons consider the shape's
+position in relation to other selected shapes. This makes it so you can precisely align and
+set horizontal and vertical spacing between objects.
+
+\ogfigure{0.800}{res/og7_inspectors39.png}
+
+How other objects align is based on the position of the first object selected. For example, if
+you have three objects on the canvas and you want the objects to align based on the position
+of the center object, \textbf{Command-click} the center object first, and then
+\textbf{Command-click} to select the other two objects:
+
+\ogfigure{0.800}{res/og7_insp_aligntoshape01.png}
+
+There are eight buttons for controlling how the selected objects will align to each other, as
+follows:
+
+\begin{itemize}
+  \item \ogiconw{30.0pt}{res/og7_button_aligntop.png} aligns objects along their top edges
+  \item \ogiconw{30.0pt}{res/og7_button_alignhcenter.png} aligns objects based on their
+    horizontal center
+  \item \ogiconw{30.0pt}{res/og7_button_alignbottom.png} aligns objects based on their bottom
+    edges
+  \item \ogiconw{30.0pt}{res/og7_button_alignleft.png} aligns objects based on their left edges
+  \item \ogiconw{30.0pt}{res/og7_button_alignvcenter.png} aligns objects based on their vertical
+    center
+  \item \ogiconw{30.0pt}{res/og7_button_alignright.png} aligns objects based on their right
+    edges
+\end{itemize}
+
+Off to the right are two additional positioning controls:
+
+\begin{itemize}
+  \item \ogiconw{30.0pt}{res/og7_button_spreadv.png} spreads the selected objects evenly based
+    on the positions of the top and bottom objects
+  \item \ogiconw{30.0pt}{res/og7_button_spreadh.png} spreads the selected objects evenly based
+    on the positions of the left and right objects
+\end{itemize}
+
+\begin{ognote}
+  Use Canvas Preferences to switch the default behavior of the Align to Shape controls between
+  aligning to the \textit{first object} (as described above) and aligning objects to the
+  \textit{selection} instead.
+
+  When aligning to the selection, objects are positioned based on the location of the object
+  furthest in the direction of the alignment choice, as follows:
+
+  \begin{itemize}
+    \item \ogiconw{30.0pt}{res/og7_button_aligntop.png} aligns objects along the top edge of the
+      uppermost object
+    \item \ogiconw{30.0pt}{res/og7_button_alignhcenter.png} aligns objects to the horizontal
+      center of the uppermost object
+    \item \ogiconw{30.0pt}{res/og7_button_alignbottom.png} aligns objects along the bottom edge
+      of the lowermost object
+    \item \ogiconw{30.0pt}{res/og7_button_alignleft.png} aligns objects along the left edge of
+      the leftmost object
+    \item \ogiconw{30.0pt}{res/og7_button_alignvcenter.png} aligns objects along the horizontal
+      center of the leftmost object
+    \item \ogiconw{30.0pt}{res/og7_button_alignright.png} aligns objects along the right edge of
+      the rightmost object
+  \end{itemize}
+\end{ognote}
+
+\subsubsection{Align to Canvas}
+
+If you choose \textbf{Align to Canvas}, the align and spread buttons consider the canvas edges
+as ``objects'' when arranging the selected objects. This makes it so that you can align
+objects to a canvas edge, or space objects evenly between the canvas edges.
+
+\ogfigure{0.800}{res/og7_inspectors40.png}
+
+\begin{itemize}
+  \item \ogiconw{30.0pt}{res/og7_button_canvastop.png} aligns objects to the top edge of the
+    canvas
+  \item \ogiconw{30.0pt}{res/og7_button_canvashcenter.png} aligns objects to the horizontal
+    center of the canvas
+  \item \ogiconw{30.0pt}{res/og7_button_canvasbottom.png} aligns objects to the bottom edge of
+    the canvas
+  \item \ogiconw{30.0pt}{res/og7_button_canvasleft.png} aligns objects to the left edge of the
+    canvas
+  \item \ogiconw{30.0pt}{res/og7_button_canvasvcenter.png} aligns objects to the vertical center
+    of the canvas
+  \item \ogiconw{30.0pt}{res/og7_button_canvasright.png} aligns objects to the right edge of the
+    canvas
+\end{itemize}
+
+Off to the right are two additional positioning controls:
+
+\begin{itemize}
+  \item \ogiconw{30.0pt}{res/og7_button_canvasspreadv.png} spreads the selected objects evenly
+    between the top and bottom edges of the canvas
+  \item \ogiconw{30.0pt}{res/og7_button_canvasspreadh.png} spreads the selected objects evenly
+    between the left and right edges of the canvas
+\end{itemize}
+
+\subsubsection{Aligning to the Grid}
+
+If you are working on a grid layout or creating pixel art, you may opt to use either of the two
+buttons on the right side of the Alignment inspector:
+
+\begin{itemize}
+  \item \ogiconw{30.0pt}{res/og7_button_aligngridcenter.png} aligns the selected objects to the
+    grid's center.
+  \item \ogiconw{30.0pt}{res/og7_button_aligngridedge.png} aligns the selected objects to the
+    grid's edge.
+\end{itemize}
+
+\subsubsection{Controlling How Objects Space Apart}
+
+At the bottom of the Alignment inspector are two controls for setting the spacing between
+objects:
+
+\begin{itemize}
+  \item \ogiconw{30.0pt}{res/og7_button_alignspaceh.png} sets the spacing between objects
+    horizontally
+  \item \ogiconw{30.0pt}{res/og7_button_alignspacev.png} sets the spacing between objects
+    vertically
+\end{itemize}
+
+Enter a value in the field and then click either the horizontal or vertical spacing button.
+These buttons are only useful if you have at least two objects selected.
+
+\subsection{Applying Object Styles with the Style Tray}
+
+Beneath the Inspectors in the bottom bar you'll find the \textbf{Style Tray}, a row of Style
+Swatches (also known as \textit{chits}) that provide a summary of the styles applied to the
+currently selected object.
+
+\ogfigure{0.746}{res/og7_diagramming_styletray.png}
+
+From left to right, the Swatches represent:
+
+\begin{itemize}
+  \item Summary (All Styles)
+  \item Fill
+  \item Stroke
+  \item Image
+  \item Shadow
+  \item Shape
+  \item Font
+  \item Text Position
+\end{itemize}
+
+Click and drag a Style Swatch from the tray onto an object to apply that style (or set of
+styles) to it.
+
+\begin{ogtip}
+  You can also drag styles from the Style Tray straight onto items in the Sidebar's Outline or
+  Layers tabs.
+\end{ogtip}
+
+\section{The Properties Inspectors}
+
+Use the \textbf{Properties inspectors} to manage how objects connect to one another, and in
+OmniGraffle Pro, set actions and add notes and key-value pair relationships to objects.
+
+\subsection{Changing the Way Objects Connect with the Connections Inspector}
+
+Use this inspector to control how lines and objects connect to one another.
+
+\subsubsection{Connections To and From Lines}
+
+Use the \textbf{Lines} tab of the Connections inspector to define the relationship of the lines
+you draw with the \textbf{Line} tool.
+
+\ogfigure{0.800}{res/og7_inspectors41.png}
+
+\begin{itemize}
+  \item \textbf{Allow connections from lines} permits lines to connect to each other.
+  \item \textbf{Allow connections to other objects} defines whether the selected line(s) connect
+    to other objects.
+  \item \textbf{Allow shapes to become labels} lets you set a shape as the background to a line
+    label.
+  \item \textbf{Route from object centers} defines whether connecting lines between objects
+    route to/from the object's center point or based on \textbf{Magnet} positions.
+\end{itemize}
+
+For example, if you are using the Line tool to draw in OmniGraffle, you may want to turn off
+\textbf{Allow connections from lines}. If that option is turned on, the lines you draw will
+try to connect to one another, which can be problematic when freehand sketching with lines.
+
+\subsubsection{Connections with Other Objects}
+
+Use the \textbf{Other Objects} tab to define how shapes accept connections from other objects on
+the canvas.
+
+\ogfigure{0.800}{res/og7_inspectors42.png}
+
+\begin{itemize}
+  \item Turn off \textbf{Allow connections from lines} to make it impossible for connection
+    lines to use the selected objects as sources or destinations.
+  \item If you have a group or a table selected, you can choose whether connection lines should
+    be allowed to connect to objects in the group or only to the group as a whole.
+  \item The \textbf{Magnet Positions} pop-up menu contains a bunch of magnet presets that you
+    can choose and assign to the selected shape. Magnets are points on a shape that attract
+    connection lines. You can choose to have \textbf{No magnets} (the default), magnets placed
+    according to cardinal directions (North, South, East, and West), magnets on each vertex
+    (corner), or a certain number of magnets on each side of the shape.
+
+    If you select some number of magnets per side, then hold \textbf{Shift} while opening the
+    pop-up menu and selecting another number, the two numbers are added together; you can get up
+    to 10 magnets per side in this way.
+
+    \begin{ogtip}
+      Of course, you can always use the Magnet tool to add magnets to a shape. See Adding and
+      Adjusting Connections with the Magnet Tool for more information about the Magnet tool.
+    \end{ogtip}
+  \item If you have a line selected, the Lines checkboxes become available. Deselect the
+    \textbf{Allow connections to other objects} checkbox to make it impossible for the line to
+    have an object as its source or destination. Deselect the \textbf{Allow shapes to become
+    labels} checkbox to make it impossible to drag a shape onto the line and make it a line
+    label; existing labels stay attached.
+  \item Use the \textbf{Rank} pop-up menu to set objects' \textit{preferred rank}, which affects
+    how the Diagram Layout feature positions the objects relative to any connected objects.
+
+    \begin{itemize}
+      \item \textbf{Default Object Ranking} lets OmniGraffle decide the rank based on the objects'
+        original position in the hierarchy.
+      \item \textbf{Minimum Rank} places the objects as peers of the top level of the hierarchy.
+      \item \textbf{Maximum Rank} places the objects as peers of the bottom level of the
+        hierarchy.
+      \item \textbf{Same Rank} ensures that the objects end up on the same level (only available
+        when multiple objects are selected).
+    \end{itemize}
+
+    These assignments don't change the relationships between objects (though they may appear to
+    shift in the outline), so you can always select all of your objects and choose
+    \textbf{Default Object Ranking} to return them to normal.
+\end{itemize}
+
+\begin{ogtip}
+  Setting object rank is particularly useful for fine-tuning a diagram where certain relationships
+  may not be possible to depict using the outline alone.
+
+  For example, show a marriage between members of two houses by using the Line tool to connect
+  the two objects that represent them, select both objects, and choose \textbf{Same Rank} from
+  the pop-up menu.
+\end{ogtip}
+
+\subsection{Making Objects Interactive with the Action Inspector
+(\texorpdfstring{\textbf{PRO}}{PRO})}
+
+\begin{ogpro}
+  The \textbf{Action inspector} determines what should happen when someone clicks the selected
+  object with the Action Browse Tool \ogiconw{19.4pt}{res/og7_tools_actionbrowse.png} in the
+  toolbar. The default action is \textbf{Does Nothing}. You can click the object all you want,
+  and nothing happens.
+
+  \begin{itemize}
+    \item \textbf{Open a URL} --- Specify a URL or filepath to open. Links (URLs) to web sites
+      are opened in your default web browser, while files are opened in the appropriate app.
+
+      \ogfigure{0.800}{res/og7_inspectors43.png}
+    \item \textbf{Open a File} --- Choose a file to open; when the Action is clicked, the file
+      will open in its default app.
+
+      \ogfigure{0.800}{res/og7_inspectors44.png}
+
+      Note that file paths are absolute: they start from the root \texttt{Users} folder of your
+      hard drive. Click \textbf{Open} button to try opening the file or URL that you've
+      specified. When the object is clicked, the file or URL is opened in the appropriate app.
+    \item \textbf{Run AppleScript} --- Runs an AppleScript that you enter into the space
+      provided.
+
+      \ogfigure{0.800}{res/og7_inspectors45.png}
+
+      If you choose \textbf{Run AppleScript}, you get a text field for entering an AppleScript.
+      The script that you enter is run such that \texttt{self} refers to the clicked object.
+      Click \textbf{Check Syntax} to make sure that the AppleScript is correct, and then click
+      \textbf{Run Script} to try it out. In Presentation Mode (\textbf{Option-Command-P}), the
+      script runs when an actionable object is clicked.
+    \item \textbf{Run Automation Action} --- Runs an Omni Automation Plug-In, which you specify
+      by selecting the script file from the \textbf{Automation} menu. After choosing the
+      Plug-In, you can assign an \textbf{Action} to the script.
+
+      \ogfigure{0.800}{res/og7_insp_action_automation.png}
+
+      To learn more about writing Omni Automation Plug-Ins with JavaScript, visit the
+      \href{https://www.omni-automation.com}{Omni Automation website}.
+    \item \textbf{Jump to} --- Jump to another location in the current OmniGraffle file. You can
+      specify a specific canvas name, and choose the location type from the pop-up menu that
+      appears above the preview.
+
+      \ogfigure{0.800}{res/og7_inspectors46.png}
+
+      Locations you can choose from include:
+
+      \begin{itemize}
+        \item Highlight an Object
+        \item Center on a Point
+        \item Zoom to Display a Rectangle
+        \item Switch to the Previous Canvas
+        \item Switch to the Next Canvas
+        \item Switch to a Specific Canvas
+      \end{itemize}
+
+      Some of these options offer a canvas preview, in which you can click or drag to indicate
+      which object to highlight, which point to center on, or where to zoom. If you select
+      \textbf{Switch to a Specific Canvas}, use the \textbf{Canvas} pop-up menu to choose from
+      one of the canvases in your project.
+    \item \textbf{Show or Hide Layers} --- You can indicate whether to Show, Hide, or Toggle the
+      visibility of any layer of the current canvas.
+
+      \ogfigure{0.800}{res/og7_inspectors47.png}
+  \end{itemize}
+\end{ogpro}
+
+\subsection{Assigning Metadata to Objects With the Object Data Inspector
+(\texorpdfstring{\textbf{PRO}}{PRO})}
+
+\begin{ogpro}
+  The Object Data inspector contains a field for entering text to associate with the selected
+  object, and a table of custom data.
+
+  \ogfigure{0.800}{res/og7_inspectors48.png}
+
+  Object Data can be formatted as Rich Text, which means you can use all of the different font
+  styles and colors that you can use elsewhere in OmniGraffle. When you place the mouse
+  pointer over an object on the canvas with data assigned, the object's data appears in a help
+  tag floating over the object.
+
+  You can use the custom data table to keep your own information about the object. Custom data
+  is stored as key/value pairs: the \textbf{Data Key} is like a label for what type of
+  information you are storing, and the \textbf{Data Value} is the information itself.
+
+  For example, imagine you have a diagram of a computer network, and you want to assign a model
+  number to each component. Click the placeholder row or the plus button to create a new
+  key/value pair. In the Data Key column, you would type Part Number, and in the Data Value
+  field, you would type, say, A1181. This data doesn't have any effect on the way OmniGraffle
+  works; it's just a way for you to store pertinent data about objects in your diagram. To
+  delete a row of data, click the `x' button on the right side of the row.
+
+  The information you add to the Object Data inspector is also exposed to macOS's Spotlight
+  search feature, in case you need to find which of your OmniGraffle diagrams contains
+  specific information.
+\end{ogpro}
+
+\section{The Canvas Inspectors}
+
+Use the Canvas inspectors to manage the appearance and properties of the current or selected
+canvases.
+
+\subsection{Define the Size and Autosizing Properties of Your Canvas with the Canvas Size
+Inspector}
+
+Use the Canvas Size inspector to specify your type of canvas; choose between:
+
+\begin{itemize}
+  \item Fixed
+  \item Flexible
+  \item Infinite
+\end{itemize}
+
+\subsubsection{Fixed}
+
+The canvas is a size of your specification, based on the values set in the \textbf{Width} and
+\textbf{Height} fields. Choose a Fixed Canvas Mode when you know the dimensions of the thing
+you are creating; for example, an app icon.
+
+\ogfigure{0.800}{res/og7_insp_canvassize_fixed.png}
+
+\begin{itemize}
+  \item \textbf{Width}: Enter a different value or click the tiny arrows to decrease or increase
+    the width of the canvas.
+  \item \textbf{Height}: Enter a different value or click the tiny arrows to decrease or
+    increase the height of the canvas.
+\end{itemize}
+
+\subsubsection{Flexible}
+
+A canvas that can be expanded in any direction: up, down, left, right, or any combination of the
+four. Choose a Flexible Canvas Mode when want the canvas to expand or collapse to the size of
+objects on the canvas.
+
+\ogfigure{0.800}{res/og7_insp_canvassize_flexible.png}
+
+\begin{itemize}
+  \item \textbf{Width}: Enter a different value or click the tiny arrows to decrease or increase
+    the width of the canvas. Changing the Width after the Autosizing Switches have been set
+    turns off the left and right switches.
+  \item \textbf{Height}: Enter a different value or click the tiny arrows to decrease or
+    increase the height of the canvas. Changing the Height after the Autosizing Switches have
+    been set turns off the top and bottom switches.
+\end{itemize}
+
+Use the \textbf{Autosizing Switches} to enable canvas expansion in that direction.
+
+\ogfigure{0.800}{res/og7_canvas_autosizeswitches.png}
+
+\begin{itemize}
+  \item If your design has a specific width, you can set the \textbf{Canvas Width}, and then
+    choose which direction the canvas autosizes vertically (Up, Down, or both).
+  \item Similarly, if your design has a specific height, you can set the \textbf{Canvas Height},
+    and then choose which direction the canvas autosizes horizontally (left, right, or both).
+\end{itemize}
+
+\subsubsection{Infinite}
+
+A canvas that infinitely extends in all directions. Choose an Infinite Canvas Mode when you have
+a document that needs a lot of space.
+
+\ogfigure{0.800}{res/og7_insp_canvassize_infinite.png}
+
+\begin{ognote}
+  The \textbf{Width} and \textbf{Height} of an Infinite canvas are not adjustable.
+\end{ognote}
+
+Additional options you'll find in the Canvas Size inspector include:
+
+\begin{itemize}
+  \item With \textbf{Show page breaks} selected, lines appear on the canvas to indicate how your
+    document will be printed.
+  \item With \textbf{Size uses printer pages} selected, the Canvas Size is determined by the
+    \textbf{Paper Size} you have selected in the \textbf{Print Setup} screen (\textbf{File}
+    $\blacktriangleright$ \textbf{Print Setup}, or \textbf{Shift-Command-P}).
+  \item The \textbf{Canvas Scroll Margin} field lets you adjust how much area is added as a
+    scrolling margin around the canvas. When set to \textbf{100\%}, your entire canvas can
+    scroll out of view.
+  \item The \textbf{Orientation} of pages can be \textbf{Portrait} (vertical),
+    \textbf{Landscape} (horizontal), or can be taken from the settings in \textbf{Page Setup},
+    which is the default setting.
+  \item With \textbf{Print canvas on one page} selected, the canvas gets scaled up or down when
+    printed to fit on a single piece of paper, regardless of its size on the screen.
+\end{itemize}
+
+\begin{ogpro}
+  \begin{itemize}
+    \item If you have OmniGraffle Pro, you can also specify how things look onscreen when
+      viewing your document at \textbf{100\% Zoom}:
+
+      \begin{itemize}
+        \item \textbf{One screen pixel} matches the pixel density of your display. For example, at
+          100\% zoom, objects viewed at \textbf{One screen pixel} only appear smaller onscreen;
+          however, they retain their actual size (which you can verify by looking at the object's
+          dimensions in the \textbf{Geometry} inspector).
+        \item \textbf{One Apple point} (the default) relates to resolution-independent distance on
+          the display. For example, on a standard-resolution display, 1 point equals 1 pixel; on a
+          Retina display, 1 point equals 2 pixels. At 100\% zoom, objects viewed at \textbf{One
+          Apple point} only appear smaller onscreen; however, they retain their actual size (which
+            you can verify by looking at the object's dimensions in the \textbf{Geometry}
+          inspector).
+        \item \textbf{One PostScript point} displays the contents of your document at real-world
+          size. At 100\% zoom, you can hold a ruler up to your display and the size of the object
+          you are measuring onscreen will match the dimensions you see in the \textbf{Geometry}
+          inspector.
+      \end{itemize}
+
+      The \textbf{100\% Zoom} options make it possible for you to work on large-scale projects
+      (such as a poster for an event, or even a highway billboard) at a smaller scale onscreen,
+      and provide you with the flexibility to view your work in real-world dimensions when
+      needed.
+  \end{itemize}
+\end{ogpro}
+
+\subsection{Specify a Background Fill or Pattern in the Canvas Fill Inspector}
+
+Select a canvas by clicking its preview in the sidebar to edit its background fill properties.
+As with the Fill inspector (see Coloring Shapes with the Fill Inspector, earlier in this
+chapter), you can choose from nine fill styles and edit various parameters of each.
+
+\ogfigure{0.800}{res/og7_inspectors51.png}
+
+\subsection{Use an Image as a Backdrop in the Background Image Inspector}
+
+You can also add an image to a canvas. Just click the canvas in the sidebar and then use the
+Background Image inspector to place an image similarly to the Image inspector (see Placing
+Graphics Inside a Shape with the Image Inspector, earlier in this chapter).
+
+\ogfigure{0.800}{res/og7_inspectors52.png}
+
+Use the controls above the Mask button to Manually Size, Stretch, or Tile the image you've
+placed. Use the grid of four fields to the right to position the image from left, from top,
+sized horizontally, or sized vertically. Use the slider beneath the image well to change the
+image's opacity.
+
+\subsection{Defining the Units of Measurement in the Units Inspector}
+
+Use the \textbf{Units inspector} to determine the unit of measure to use for the canvas and its
+rulers, as well as to set the scale and ruler origin points.
+
+\ogfigure{0.800}{res/og7_inspectors53.png}
+
+\subsubsection{Ruler Units}
+
+The \textbf{Ruler Units} pop-up menu is where you set the type of measurement units you'd like
+to use for the current canvas.
+
+\ogfigure{0.781}{res/og7_inspectors54.png}
+
+\begin{ognote}
+  You can also change the Ruler Units by Control- or Right-clicking on the Canvas or one of the
+  rulers. For more information, see Changing Ruler Units to Suit Your Design Needs earlier in
+  this guide.
+\end{ognote}
+
+The actual size of your diagram does not change when you change the Ruler Units; it is merely
+measured differently. The ruler and the inspectors display measurements in whichever unit you
+select.
+
+As you may have noticed, \textit{Points} (pt), \textit{Centimeters} (cm), and \textit{Inches,
+fractional} (in) each have an asterisk (\textbf{*}) next to them in the Ruler Units pop-up
+menu. With one of these Ruler Units selected, objects on the canvas will print to size as long
+as the Scale is 1:1 (i.e., \textbf{1 pt = 1 pt}, \textbf{1 cm = 1 cm}, or \textbf{1 in = 1
+in}). For example, if you have a 5 cm square on the canvas and you print that canvas (by
+choosing \textbf{File} $\blacktriangleright$ \textbf{Print}), you could measure that square
+with a ruler to reveal it is the exact size and scale as noted in the Units inspector.
+
+\subsubsection{Scale}
+
+The \textbf{Scale} pop-up menu can be used to interpret simple expressions of scale. This allows
+you, for example, to use OmniGraffle for things like creating to-scale drawings of your house
+and garden area, or for scaling icons and graphics needed for an app or website.
+
+By default, the scale is based on what you have selected in the \textbf{Ruler Units} pop-up. For
+example, if you set the Ruler Units to \textbf{feet (ft)}, the \textbf{Scale} pop-up reads
+\textbf{12 in = 1 ft}.
+
+\ogfigure{0.800}{res/og7_inspectors55.png}
+
+If you choose \textbf{Custom} from the \textbf{Scale} pop-up, you can change the scale to suit
+the project you're currently working on. For example, if you enter \textbf{1 cm = 1 m}, 1 cm
+on the ruler now becomes 1 meter, objects on the canvas that were 2 cm wide are now 2 meters
+wide, and so on. The Units setting changes to match the second value in the equation.
+
+You can also enter a ratio, such as \textbf{1:2} or \textbf{100:93000000}, as a \textbf{Custom}
+scaling option. The Scale ratio you set respects the Ruler Units selected in the pop-up menu
+above. For example, if the Ruler Units are set to \textbf{pixels (px)}, and the scale uses a
+ratio of \textbf{1:2}, objects on the Canvas are, effectively, twice as big.
+
+\subsubsection{Enforce Canvas Scale}
+
+If you need to draw something to a different scale (for example, if you are doing landscape
+planning), clearly you don't want to print an exact-scale replica of your garden. However, if
+you first select \textbf{Enforce canvas scale} in the Units inspector, you can change the
+scale to something more sane; such as \textbf{1 in = 12 in}, where 1 inch on the canvas is the
+equivalent of 12 inches (1 foot) in the real world. You'll notice that the objects and rulers
+change their scale, but the object retains its dimensions in the \textbf{Geometry} inspector.
+
+Optionally, you can turn on \textbf{Enforce canvas scale} in the Units inspector. With
+\textbf{Enforce canvas scale} enabled, nothing happens to the objects on the Canvas when the
+Scale is at a 1:1 ratio (e.g., \textbf{1 pt = 1 px} or \textbf{1 in = 1 in}). If you change
+the Scale ratio to 1:3, for example, the objects appear to be smaller as the canvas scales to
+the new setting. However, if you select an object and examine its properties in the
+\textbf{Geometry} inspector, you'll notice that the object is still the same size---it just
+looks smaller because the Canvas Scale's is no longer 1:1.
+
+The one caveat to enabling \textbf{Enforce canvas scale} is when you are adding stencils to your
+canvas. Stencils, such as the \textbf{Basic} $\blacktriangleright$ \textbf{Shapes} objects,
+already have a predetermined size:
+
+\ogfigure{0.800}{res/og7_inspectors56.png}
+
+With a 1:1 Scale---regardless of whether \textbf{Enforce canvas scale} is enabled---stencils you
+place on the canvas are sized normally. If you turn on \textbf{Enforce canvas scale} and then
+change the ratio to something like 1:4, the stencil appears to be smaller, but it is sized to
+fit the Canvas Scale. However, if you have the same 1:4 canvas scale ratio but turn off
+\textbf{Enforce canvas scale}, the stencil not only appears to be four times larger, it
+\textit{is} four times larger when you examine its properties in the \textbf{Geometry}
+inspector.
+
+\subsubsection{Canvas Origin Points}
+
+By default, the very upper-left corner of a canvas is its origin (that is, the point where the
+rulers' measurements start from, where the coordinates are 0,0). To change the origin, enter
+values in the two Origin fields. (You can also drag the origin from the corner where the
+rulers meet.) The coordinates in the Geometry inspector are based on this origin point.
+
+\begin{ognote}
+  In the case of an Infinite Canvas, a base \textit{point} on the canvas is used as the origin
+  (0,0). The numbers on the rulers can extend in all directions, from negative to positive. See
+  What Happens to the Canvas Origin with an Infinite Canvas, earlier in this guide.
+\end{ognote}
+
+\subsection{Setting Up a Grid with the Grid Inspector}
+
+Use this inspector to set up a grid on the canvas, so you can keep objects lined up nicely.
+
+\ogfigure{0.800}{res/og7_inspectors57.png}
+
+The two fields at the top of the inspector are where you can set the values for the Major and
+Minor Grid spacing, respectively:
+
+\begin{itemize}
+  \item The \textbf{Major Grid Spacing} field determines how large each square of the main grid
+    should be. Click the color well next to it to choose a color for the major grid.
+  \item The \textbf{Minor Grid Steps} field determines how many minor grid squares should fit
+    across one major grid square. For example, if your major grid squares are 100 pixels across,
+    and you have 10 minor grid steps, your minor grid squares are 10 pixels across. Click the
+    color well next to it to choose a color for the minor grid.
+\end{itemize}
+
+The checkboxes beneath the Major and Minor Grid spacing fields provide additional control over
+how the grid is used and its appearance:
+
+\begin{itemize}
+  \item While the \textbf{Snap to grid} checkbox is selected, all objects fit themselves to the
+    grid as you create or move them. (If you want to snap objects already on the canvas, use the
+    Align To Grid button below.)
+  \item Select \textbf{Show grid lines} to show the Minor Grid lines on the canvas.
+
+    \begin{itemize}
+      \item Select \textbf{Show major} to make the heavier Major Grid lines visible as well.
+      \item Select \textbf{Grid in front} to make the grid visible in front of objects on the
+        canvas.
+      \item Select \textbf{Print grid} to include the grid when printing.
+    \end{itemize}
+\end{itemize}
+
+\begin{ogtip}
+  Choose \textbf{Arrange} $\blacktriangleright$ \textbf{Grid} $\blacktriangleright$ \textbf{Align
+  Objects to Grid} (\textbf{Option-Command-[}) to make all of the selected objects line up to
+    the grid right away.
+  \end{ogtip}
+
+  \subsubsection{Nudging Objects on the Canvas}
+
+  While working in OmniGraffle, there are times when you just need to give an object a little
+  ``nudge'' to get it into position. To nudge an object, select it first and then press one of
+  the arrow keys on the keyboard to move it up, down, left, or right.
+
+  The \textit{nudge distance} is determined by the distance set in the Grid inspector's
+  \textbf{Minor Grid Steps} field, and whether \textbf{Snap to grid} is on or off:
+
+  \begin{itemize}
+    \item \textbf{When Snap to Grid is Off}, pressing an arrow key nudges the selected object 1 pt
+      in the direction of the arrow key pressed, regardless of the units you are using.
+    \item \textbf{When Snap to Grid is On}, pressing an arrow key nudges the selected object by
+      one \textbf{Minor Grid Step} in the direction of the arrow key pressed.
+  \end{itemize}
+
+  \begin{ogtip}
+    Holding \textbf{Shift} while nudging inverts the nudge behavior. For example, if \textbf{Snap to
+    grid} is \textit{off} and you hold \textbf{Shift} while nudging an object, the object is
+    nudged by one \textbf{Minor Grid Step}.
+
+    Similarly, if \textbf{Snap to grid} is \textit{on} and you hold the \textbf{Shift} key while
+    nudging an object, the object is nudged by 1 pt in the direction of the arrow key pressed.
+  \end{ogtip}
+
+  \subsection{Automatically Arranging and Styling Objects with the Diagram Layout and Style
+  Inspector}
+
+  Use this inspector to automatically lay out shapes based on the logical relationships
+  established by the connection lines between them, and to apply a diagram style to connected
+  objects on the canvas.
+
+  Use the \textbf{Include} pop-up menu to determine whether auto layout and diagram style
+  properties apply to all objects on the canvas, or only objects that are connected to one
+  another.
+
+  Use the \textbf{Layout Type} pop-up menu to select from one of four layout types: Hierarchical
+  (the default), Force-directed, Circular, and Radial. The various controls within the Diagram
+  Layout section of the inspector change depending on which layout type you choose.
+
+  \begin{description}[style=nextline]
+    \item[{Hierarchical}] The hierarchical layout creates layers of equally-ranked objects,
+      extending in one direction.
+
+      \ogfigure{0.800}{res/og7_inspectors58.png}
+    \item[{Force-directed}] The force-directed layout grows in semi-random directions from the
+      center, rather than in one particular direction from the edge.
+
+      \ogfigure{0.800}{res/og7_inspectors59.png}
+
+      The top slider determines the length of the connecting lines between objects, and the bottom
+      slider determines how far apart the objects appear in the diagram.
+    \item[{Circular}] The circular layout tries to arrange sibling shapes in a circle around their
+      parent.
+
+      \ogfigure{0.800}{res/og7_inspectors60.png}
+    \item[{Radial}] The radial layout tries to arrange sibling shapes in arcs around their parent.
+
+      \ogfigure{0.800}{res/og7_inspectors61.png}
+  \end{description}
+
+  When you use a hierarchical layout:
+
+  \begin{itemize}
+    \item The Direction buttons change where the top level objects start, and which way to layer
+      the lower level objects from there.
+    \item The Rank Separation field controls how far away each level of objects should be from the
+      next.
+    \item The Object Separation field controls how far away each object should be from other
+      objects on the same level.
+  \end{itemize}
+
+  When you use other layout methods:
+
+  \begin{itemize}
+    \item Connection lines can stretch and compress, but you can adjust their average length by
+      dragging the Line Length slider.
+    \item The Shape Repulsion slider determines how strongly the shapes try to avoid coming near
+      one another. If the line length and shape repulsion are small enough, shapes can be made to
+      overlap.
+  \end{itemize}
+
+  Finally, you can turn on \textbf{Auto layout} to make OmniGraffle distribute the objects on the
+  canvas whenever the connections between them change.
+
+  \ogfigure{0.800}{res/og7_inspectors66.png}
+
+  The Style section of the Diagram Layout and Style Inspector contains controls for choosing and
+  applying styles to a diagram on the canvas.
+
+  \begin{description}[style=nextline]
+    \item[{Choose\ldots{}}] Opens the diagram style chooser for applying a consistent style to all
+      objects in the diagram. When you choose a style, it appears to the left in the
+      \textbf{Style:} slot.
+    \item[{Enforce Style}] Turn on to automatically apply the selected style to any new objects
+      added to the canvas. (The styles of these objects can be subsequently changed.) With
+      \textbf{Enforce Style} turned off, new objects added to the canvas retain their original
+      style properties.
+    \item[{Restyle Now}] Use to apply the diagram style to any objects that differ from it. This
+      reverts any customizations you have made to object styles back to the default for that
+      template. Changes you make to object styles are otherwise preserved regardless of how you
+      reposition them in the diagram.
+  \end{description}
+
+  \begin{ogtip}
+    Hold down the \textbf{Option} key to change Restyle Now to \textbf{Restyle Selection}, for more
+    fine-grained control over the objects that receive the diagram style update.
+  \end{ogtip}
+
+  \subsection{Defining Your Canvases in the Canvas Data Inspector
+  (\texorpdfstring{\textbf{PRO}}{PRO})}
+
+  \begin{ogpro}
+    You can also edit the note and other metadata of a canvas itself. Select the canvas in the
+    Sidebar and then use the Canvas Data inspector to add metadata for the canvas.
+
+    \ogfigure{0.800}{res/og7_inspectors62.png}
+
+    As with the data added using the Object Data inspector, this information is used primarily for
+    indexing and doesn't affect the appearance of your OmniGraffle document in any way.
+  \end{ogpro}
+
+  \section{The Document Inspectors}
+
+  Use the Document inspectors to manage the properties of your OmniGraffle document.
+
+  \subsection{The Margins Inspector}
+
+  Here you can specify your own page margins, or choose \textbf{Use printer margins} to default to
+  the margins defined by your printer driver (or by any custom settings you've made in
+  \textbf{File} $\blacktriangleright$ \textbf{Page Setup}).
+
+  \ogfigure{0.800}{res/og7_inspectors64.png}
+
+  \subsection{Storing Information in the Document Data Inspector}
+
+  The Document Data inspector has fields for lots of information about your document, in case you
+  care to keep track of such things. The available fields are Subject, Copyright, Version,
+  Description, and Comments. The pop-up menu includes options for adding information about the
+  document's Authors, Organizations, Languages, Keywords, and Projects.
+
+  \ogfigure{0.800}{res/og7_inspectors65.png}
+
+  All of this data is made available to macOS's Spotlight searching feature, to help you find the
+  diagram you're looking for.
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \end{document}
