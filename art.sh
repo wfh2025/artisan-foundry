@@ -4,6 +4,7 @@ PROJ_OS="$(uname -s)"
 PROJ_ARCH="$(uname -m)"
 PROJ_VENDOR="${PROJ_ROOT}/vendor"
 PROJ_CUR_SCRIPT="${PROJ_ROOT}/${BASH_SOURCE[0]##*/}"
+PROJ_RUFF="${PROJ_VENDOR}/ruff-0.17.4/${PROJ_OS}/${PROJ_ARCH}/ruff"
 PROJ_SHFMT="${PROJ_VENDOR}/shfmt-3.14.1/${PROJ_OS}/${PROJ_ARCH}/shfmt"
 PROJ_SHELLCHECK="${PROJ_VENDOR}/shellcheck-0.11.0/${PROJ_OS}/${PROJ_ARCH}/shellcheck"
 PROJ_SHELLHARDEN="${PROJ_VENDOR}/shellharden-4.3.2/${PROJ_OS}/${PROJ_ARCH}/shellharden"
@@ -11,7 +12,13 @@ PROJ_SHELLHARDEN="${PROJ_VENDOR}/shellharden-4.3.2/${PROJ_OS}/${PROJ_ARCH}/shell
 export PROJ_ROOT PROJ_OS PROJ_ARCH PROJ_CUR_SCRIPT PROJ_VENDOR PROJ_SHFMT PROJ_SHELLCHECK PROJ_SHELLHARDEN
 
 function dbg() {
-    "${PROJ_SHELLCHECK}" "$@"
+    "${PROJ_RUFF}" "$@"
+}
+
+function make_vendor_bin() {
+    cp -r shellcheck-0.11.0 ruff-0.17.4
+    find ./ruff-0.17.4 -type f -delete
+    find ruff-0.17.4 -type f -name "*.tar.gz" -execdir tar -zxvf {} \;
 }
 
 function format_shell_file() {
