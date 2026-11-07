@@ -1,0 +1,11 @@
+line: 13 info 8 109
+line: 19 info Hello, kugou
+line: 25 info Bill Cupertino Fei CN
+line: 31 info Bill Cupertino
+line: 43 info 2.5
+line: 53 info 4 3
+line: 60 info (Int, Int) -> Int 5
+line: 65 7
+line: 72 9
+line: 86 4
+Program ended with exit code: 0

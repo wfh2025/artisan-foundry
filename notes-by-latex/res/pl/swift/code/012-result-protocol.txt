@@ -1,0 +1,40 @@
+line: 9 Person(fullName: "John Appleseed")
+line: 23 swift_proj.Starship
+line: 40 0.3746499199817101
+line: 41 0.729023776863283
+line: 59 on
+line: 75 3
+line: 75 5
+line: 75 4
+line: 75 5
+line: 75 4
+line: 129 Started a new game of Snakes and Ladders
+line: 132 The game is using a 6-sided dice
+line: 137 3
+line: 137 5
+line: 137 4
+line: 137 5
+line: 140 4
+line: 159 A 12-sided dice
+line: 166 A game of Snakes and Ladders with 25 squares
+line: 175 [A 6-sided dice, A 12-sided dice]
+line: 186 A hamster named Simon
+line: 195 equal
+line: 208 beginner
+line: 208 intermediate
+line: 208 expert(stars: 3)
+line: 208 expert(stars: 5)
+line: 213 A game of Snakes and Ladders with 25 squares
+line: 213 A 12-sided dice
+line: 213 A hamster named Simon
+line: 237 A game of Snakes and Ladders with 25 squares:
+0 0 > 0 0 > 0 0 > > 0 0 0 < 0 0 0 0 < 0 0 < 0 < 0 
+line: 251 Happy birthday, Malcolm, you're 21!
+line: 272 Hello, Seattle!
+line: 305 Area is 12.5663708
+line: 305 Area is 243610.0
+line: 307 Something that doesn't have an area
+line: 317 Here's a random number: 0.3746499199817101
+line: 319 And here's a random Boolean: true
+line: 338 true false
+Program ended with exit code: 0

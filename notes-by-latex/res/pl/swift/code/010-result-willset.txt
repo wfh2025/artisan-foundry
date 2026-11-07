@@ -1,0 +1,12 @@
+line: 6 willSet 9
+line: 7 cur num 3
+line: 10 cur num 9
+line: 11 didSet 3
+line: 18 Size(num: 9)
+line: 20 -----------------------
+line: 6 willSet 100
+line: 7 cur num 9
+line: 10 cur num 100
+line: 11 didSet 9
+line: 25 Size(num: 100)
+Program ended with exit code: 0

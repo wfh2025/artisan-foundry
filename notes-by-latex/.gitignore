@@ -1,0 +1,39 @@
+# 指定文件
+main.pdf
+
+
+# 系统文件
+**/.DS_Store
+
+# LaTeX生成的临时文件
+**/*.aux
+**/*.bbl
+**/*.blg
+**/*.idx
+**/*.ind
+**/*.lof
+**/*.lot
+**/*.out
+**/*.toc
+**/*.acn
+**/*.acr
+**/*.alg
+**/*.glg
+**/*.glo
+**/*.gls
+**/*.fls
+**/*.log
+**/*.fdb_latexmk
+**/*.snm
+**/*.synctex.gz
+**/*.nav
+**/*.vrb
+**/*.lol
+**/*.xdv
+**/*.bcf
+**/*.run.xml
+
+# 编辑器文件
+**/.texpadtmp
+**/.*.swp
+**/.*.swo

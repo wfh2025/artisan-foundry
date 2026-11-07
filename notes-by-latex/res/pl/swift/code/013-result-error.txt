@@ -1,0 +1,3 @@
+line: 73 Insufficient funds. Please insert an additional 4 coins.
+line: 82 Couldn't buy that from the vending machine.
+Program ended with exit code: 0

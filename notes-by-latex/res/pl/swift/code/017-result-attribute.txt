@@ -1,0 +1,11 @@
+line: 54 Elements(x1: 1, x2: 2, x3: 3, $__lazy_storage_$_x100: nil) -1
+line: 14 x3设置之前调用，从 3 2
+line: 21 x3设置之后调用，从 3 2
+line: 56 Elements(x1: 1, x2: 2, x3: 2, $__lazy_storage_$_x100: nil)
+line: 14 x3设置之前调用，从 2 3
+line: 21 x3设置之后调用，从 2 3
+line: 58 Elements(x1: 1, x2: 3, x3: 3, $__lazy_storage_$_x100: nil)
+line: 14 x3设置之前调用，从 3 100
+line: 21 x3设置之后调用，从 3 100
+line: 64 Elements(x1: 1, x2: 3, x3: 100, $__lazy_storage_$_x100: nil)
+Program ended with exit code: 0

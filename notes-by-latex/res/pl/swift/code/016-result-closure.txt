@@ -1,0 +1,7 @@
+line: 24 xxxx
+line: 42 (Int, Int, Double, Double) (9, 3, 18.0, 2.0)
+line: 48 xxxx
+line: 65 (Int, Int, Double, Double) (9, 3, 18.0, 2.0)
+line: 71 xxxx
+line: 87 (Int, Int, Double, Double) (9, 3, 18.0, 2.0)
+Program ended with exit code: 0

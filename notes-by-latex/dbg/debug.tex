@@ -1,0 +1,26 @@
+\documentclass{../main.tex}{subfiles}
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{snippet}
+\section{无题}
+\begin{enumerate}[itemsep=0pt, parsep=0pt, topsep=0pt, partopsep=0pt]
+  \item 001
+  \item 002
+\end{enumerate}
+
+\begin{envCpp}[caption={xxx yyy}]
+  #include <iostream>
+  int main()
+  {
+    std::cout << "Hello World" << std::endl;
+  }
+\end{envCpp}
+
+\inputCppFile[文件导入C++代码]{res/dbg/code/main.cpp}
+\begin{lstlisting}[style=lstCodeStylePlainText,title={测试}]
+  xxxx
+\end{lstlisting}
+\lstinputlisting[style=lstCodeStyleCpp,
+caption={引用不能重定位2}]{res/pl/cpp/code/010-ref-not-redirect.cpp}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
