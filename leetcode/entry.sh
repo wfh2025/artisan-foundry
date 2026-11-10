@@ -20,9 +20,9 @@ PROJ_SHELLCHECK="${PROJ_VENDOR}/shellcheck-0.11.0/${PROJ_OS}/${PROJ_ARCH}/shellc
 PROJ_SHELLHARDEN="${PROJ_VENDOR}/shellharden-4.3.2/${PROJ_OS}/${PROJ_ARCH}/shellharden"
 
 export PROJ_ROOT PROJ_OS PROJ_ARCH PROJ_CUR_SCRIPT \
-        PROJ_VENDOR PROJ_SHFMT PROJ_SHELLCHECK \
-        PROJ_SHELLHARDEN PROJ_BUILD PROJ_DEPS \
-        PROJ_CC PROJ_CXX PROJ_CMAKE_GENERATOR PROJ_CMAKE
+    PROJ_VENDOR     PROJ_SHFMT PROJ_SHELLCHECK \
+    PROJ_SHELLHARDEN     PROJ_BUILD PROJ_DEPS \
+    PROJ_CC     PROJ_CXX PROJ_CMAKE_GENERATOR PROJ_CMAKE
 
 function dbg() {
     "${PROJ_RUFF}" "$@"
@@ -48,12 +48,12 @@ function build_deps() {
     done
 
     for i in "${!fns[@]}"; do
-        if wait "${pids[$i]}"; then
-            printf '==> [deps] ok %s\n' "${fns[$i]}"
+        if wait "${pids[${i}]}"; then
+            printf '==> [deps] ok %s\n' "${fns[${i}]}"
         else
             rc=1
-            printf '==> [deps] FAIL %s, log: %s\n' "${fns[$i]}" "${logs[$i]}"
-            cat "${logs[$i]}"
+            printf '==> [deps] FAIL %s, log: %s\n' "${fns[${i}]}" "${logs[${i}]}"
+            cat "${logs[${i}]}"
         fi
     done
 
