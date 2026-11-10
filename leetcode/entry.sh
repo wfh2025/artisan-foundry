@@ -22,10 +22,12 @@ export PROJ_ROOT PROJ_OS PROJ_ARCH PROJ_CUR_SCRIPT \
     PROJ_VENDOR PROJ_SHFMT PROJ_SHELLCHECK PROJ_BUILD PROJ_DEPS \
     PROJ_CC PROJ_CXX PROJ_CMAKE_GENERATOR PROJ_CMAKE PROJ_CLANGFORMAT
 
+#: 调试插槽：当前包装 clang-format，用于验证参数效果
 function dbg() {
     "${PROJ_CLANGFORMAT}" "$@"
 }
 
+#: 递归格式化并静态检查所有 shell 脚本(shfmt + shellcheck)
 function pretty() {
     local file rc=0 total=0 fail=0
 
@@ -67,6 +69,7 @@ function pretty() {
     return "${rc}"
 }
 
+#: 并行构建第三方依赖(googletest、spdlog)到 deps/
 function build_deps() {
     local -a fns=(
         build_googletest
@@ -99,6 +102,7 @@ function build_deps() {
     return "${rc}"
 }
 
+#: CMake 构建并安装 spdlog 到 deps/spdlog
 function build_spdlog() {
     local build_dir="${PROJ_BUILD}/spdlog"
     local install_dir="${PROJ_DEPS}/spdlog"
@@ -118,6 +122,7 @@ function build_spdlog() {
     # rm -fr "${build_dir}"
 }
 
+#: CMake 构建并安装 googletest 到 deps/googletest
 function build_googletest() {
     local build_dir="${PROJ_BUILD}/googletest"
     local install_dir="${PROJ_DEPS}/googletest"
@@ -136,12 +141,14 @@ function build_googletest() {
     # rm -fr "${build_dir}"
 }
 
+#: 从 vendor/*.tar.gz 解压生成各工具的二进制目录
 function make_vendor_bin() {
     cp -r shellcheck-0.11.0 ruff-0.17.4
     find ./ruff-0.17.4 -type f -delete
     find ruff-0.17.4 -type f -name "*.tar.gz" -execdir tar -zxvf {} \;
 }
 
+#: 用 shfmt 格式化单个文件
 function format_shell_file() {
     local file="$1"
     "${PROJ_SHFMT}" --indent 4 \
@@ -151,6 +158,7 @@ function format_shell_file() {
         --language-dialect auto --write "${file}"
 }
 
+#: 用 shellcheck 最严格档检查单个文件
 function check_shell_file() {
     local file="$1"
     "${PROJ_SHELLCHECK}" --check-sourced \
@@ -165,6 +173,7 @@ function check_shell_file() {
                          --external-sources "${file}"
 }
 
+#: 输出当前毫秒级时间戳(多平台兜底)
 function now_ms() {
     local raw sec frac value
 
@@ -215,6 +224,7 @@ function now_ms() {
     printf '%s\n' "$((10#${raw} * 1000))"
 }
 
+#: 执行命令并打印耗时
 function display_elapsed() {
     local cmd="$*"
     local startMs endMs costMs rc=0
@@ -240,6 +250,7 @@ function display_elapsed() {
     return "${rc}"
 }
 
+#: 回显命令并执行
 function display_cmd() {
     local rc=0
 
@@ -249,6 +260,7 @@ function display_cmd() {
     return "${rc}"
 }
 
+#: 并排对比两个文件差异
 function display_diff() {
     local l="$1"
     local r="$2"
@@ -256,6 +268,7 @@ function display_diff() {
     printf '\n'
 }
 
+#: 生成 前缀_时间戳_pid_随机 的唯一名
 function unique_name() {
     local prefix timestamp
     prefix="${1-}"
@@ -268,6 +281,7 @@ function unique_name() {
     fi
 }
 
+#: 保存后自动重跑指定命令(watch)
 function watch_cmd() {
     local cmdName="${1-}"
     local cmdPath=""
@@ -295,6 +309,7 @@ function watch_cmd() {
     watch -n -1 -d --exec -- "${cmdPath}" "$@"
 }
 
+#: 导出 man 手册为 PDF
 function export_cmd_pdf() {
     local cmd file page section
     section="$1"
@@ -304,9 +319,119 @@ function export_cmd_pdf() {
     mandoc -T pdf "${page}" > "${file}"
 }
 
+#: 打印所有命令及功能说明(#: 注释支持多行，自动拼接)
+function help() {
+    printf 'Usage: %s <command> [args...]\n\n' "${PROJ_CUR_SCRIPT}"
+    awk '
+        /^#: / {
+            sub(/^#: */, "")
+            desc = desc ? desc " " $0 : $0
+        }
+        /^function / {
+            name = $2
+            sub(/\(\)/, "", name)
+            printf "  %-18s %s\n", name, desc
+            desc = ""
+        }
+    ' "${PROJ_CUR_SCRIPT}"
+}
+
+#: 打印 TAB 补全注册代码；zsh 用 compdef -p 模式注册，一次安装对所有 entry.sh 实例生效
+function completion() {
+    local script="${PROJ_CUR_SCRIPT}"
+
+    if [[ ${SHELL-} == *zsh* ]]; then
+        cat << EOF
+if ! (( \$+functions[compdef] )); then
+    autoload -Uz compinit && compinit
+fi
+_entry_sh_complete() {
+    local script="\${words[1]:a}"
+    local -a cmds
+    cmds=(\${(f)"\$(awk '/^#: /{sub(/^#: */,"");d=d?d" "\$0:\$0} /^function /{n=\$2;sub(/\(.*/,"",n);print n":"d;d=""}' "\${script}")"})
+    _describe 'command' cmds
+}
+compdef -p '*entry.sh' _entry_sh_complete
+EOF
+    else
+        cat << EOF
+_entry_sh_complete() {
+    local script="\${COMP_WORDS[0]}"
+    local cur="\${COMP_WORDS[COMP_CWORD]}"
+    COMPREPLY=(\$(compgen -W "\$(awk '/^function /{n=\$2;sub(/\(.*/,"",n);print n}' "\${script}")" -- "\$cur"))
+}
+complete -F _entry_sh_complete entry.sh ${script} ./entry.sh
+EOF
+    fi
+}
+
+#: 安装 TAB 补全：写入 ~/.config/entry-sh/ 并在 rc 文件追加 source 行(幂等)
+function install() {
+    local rc comp_dir comp_file
+    local tag='# entry.sh completion (managed by entry.sh install)'
+
+    if [[ ${SHELL-} == *zsh* ]]; then
+        rc="${HOME}/.zshrc"
+    else
+        rc="${HOME}/.bashrc"
+    fi
+
+    comp_dir="${HOME}/.config/entry-sh"
+    comp_file="${comp_dir}/completion.${SHELL-}"
+    mkdir -p "${comp_dir}"
+
+    completion | grep -v '^#' > "${comp_file}" || true
+
+    if ! grep -Fq "${tag}" "${rc}" 2> /dev/null; then
+        printf '\n%s\nsource %q\n' "${tag}" "${comp_file}" >> "${rc}"
+        printf '==> [install] 已写入 %s 并追加 source 行到 %s\n' "${comp_file}" "${rc}"
+    else
+        printf '==> [install] 已安装过，仅刷新 %s\n' "${comp_file}"
+    fi
+    printf '==> [install] 生效：重开终端，或执行 source %q\n' "${comp_file}"
+}
+
+#: 卸载 TAB 补全：删除 rc 文件中的安装行与补全文件
+function uninstall() {
+    local rc comp_dir comp_file tmp
+    local tag='# entry.sh completion (managed by entry.sh install)'
+
+    if [[ ${SHELL-} == *zsh* ]]; then
+        rc="${HOME}/.zshrc"
+    else
+        rc="${HOME}/.bashrc"
+    fi
+    comp_dir="${HOME}/.config/entry-sh"
+    comp_file="${comp_dir}/completion.${SHELL-}"
+
+    if [[ -f ${rc} ]] && grep -Fq "${tag}" "${rc}"; then
+        tmp=$(mktemp)
+        awk -v tag="${tag}" '
+            $0 == tag { skip = 2; next }
+            skip > 0 { skip--; next }
+            { print }
+        ' "${rc}" > "${tmp}" && mv "${tmp}" "${rc}"
+        printf '==> [uninstall] 已从 %s 移除安装行\n' "${rc}"
+    else
+        printf '==> [uninstall] %s 中未发现安装行\n' "${rc}"
+    fi
+    rm -fr "${comp_dir}"
+    printf '==> [uninstall] 已删除 %s\n' "${comp_dir}"
+}
+
+#: 入口：分发 ./entry.sh <命令> [参数...]
 function main() {
-    local funcName="$1"
-    shift
+    local funcName="${1-}"
+    (($#))   && shift
+
+    if [[ -z ${funcName} ]]; then
+        help
+        return 0
+    fi
+    if ! declare -F "${funcName}" > /dev/null 2>&1; then
+        printf 'Unknown command: %s, try: %s help\n' "${funcName}" "${PROJ_CUR_SCRIPT}" >&2
+        return 127
+    fi
     "${funcName}" "$@"
 }
 main "$@"
