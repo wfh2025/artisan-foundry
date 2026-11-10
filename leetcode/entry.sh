@@ -14,18 +14,57 @@ PROJ_CMAKE=$(command -v cmake)
 
 PROJ_CMAKE_GENERATOR="Ninja"
 
-PROJ_RUFF="${PROJ_VENDOR}/ruff-0.17.4/${PROJ_OS}/${PROJ_ARCH}/ruff"
 PROJ_SHFMT="${PROJ_VENDOR}/shfmt-3.14.1/${PROJ_OS}/${PROJ_ARCH}/shfmt"
 PROJ_SHELLCHECK="${PROJ_VENDOR}/shellcheck-0.11.0/${PROJ_OS}/${PROJ_ARCH}/shellcheck"
-PROJ_SHELLHARDEN="${PROJ_VENDOR}/shellharden-4.3.2/${PROJ_OS}/${PROJ_ARCH}/shellharden"
+PROJ_CLANGFORMAT="$(brew --prefix llvm)/bin/clang-format"
 
 export PROJ_ROOT PROJ_OS PROJ_ARCH PROJ_CUR_SCRIPT \
-    PROJ_VENDOR     PROJ_SHFMT PROJ_SHELLCHECK \
-    PROJ_SHELLHARDEN     PROJ_BUILD PROJ_DEPS \
-    PROJ_CC     PROJ_CXX PROJ_CMAKE_GENERATOR PROJ_CMAKE
+    PROJ_VENDOR PROJ_SHFMT PROJ_SHELLCHECK PROJ_BUILD PROJ_DEPS \
+    PROJ_CC PROJ_CXX PROJ_CMAKE_GENERATOR PROJ_CMAKE PROJ_CLANGFORMAT
 
 function dbg() {
-    "${PROJ_RUFF}" "$@"
+    "${PROJ_CLANGFORMAT}" "$@"
+}
+
+function pretty() {
+    local file rc=0 total=0 fail=0
+
+    local -a blacklist=(
+        -path "${PROJ_BUILD}"
+        -o -path "${PROJ_DEPS}"
+        -o -name '.*'
+    )
+
+    local -a suffixes=(
+        -name '*.sh'
+        -o -name '*.bash'
+    )
+
+    local -a find_args=(
+        "${PROJ_ROOT}"
+        \(
+        "${blacklist[@]}"
+        \) -prune -o
+        \(
+        "${suffixes[@]}"
+        \)
+        -type f
+        -print
+    )
+
+    while IFS= read -r file; do
+        [[ -n ${file} ]] || continue
+        total=$((total + 1))
+        printf '==> [pretty] %s\n' "${file}"
+        if ! "${PROJ_CUR_SCRIPT}" format_shell_file "${file}" ||
+            ! "${PROJ_CUR_SCRIPT}" check_shell_file "${file}"; then
+            fail=$((fail + 1))
+            rc=1
+        fi
+    done < <(find "${find_args[@]}" || true)
+
+    printf '==> [pretty] total=%d fail=%d\n' "${total}" "${fail}"
+    return "${rc}"
 }
 
 function build_deps() {
