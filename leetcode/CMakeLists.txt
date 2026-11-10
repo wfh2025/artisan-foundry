@@ -1,0 +1,11 @@
+cmake_minimum_required(VERSION 3.0...1024.0)
+project(ArtLeetCode)
+
+set(OUTPUT_PREFIX "${CMAKE_BINARY_DIR}")
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${OUTPUT_PREFIX}/bin")
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${OUTPUT_PREFIX}/lib")
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${OUTPUT_PREFIX}/lib")
+set(ART_CXX_DEPS_DIR "${CMAKE_SOURCE_DIR}/deps")
+
+
+add_subdirectory(native)
