@@ -29,8 +29,35 @@ function dbg() {
 }
 
 function build_deps() {
-    build_googletest
-    build_spdlog
+    local -a fns=(
+        build_googletest
+        build_spdlog
+    )
+    local -a pids=() logs=()
+    local fn pid log i rc=0
+
+    mkdir -p "${PROJ_BUILD}"
+
+    for fn in "${fns[@]}"; do
+        log="${PROJ_BUILD}/${fn}.log"
+        "${fn}" > "${log}" 2>&1 &
+        pid=$!
+        pids+=("${pid}")
+        logs+=("${log}")
+        printf '==> [deps] start %s (pid=%s)\n' "${fn}" "${pid}"
+    done
+
+    for i in "${!fns[@]}"; do
+        if wait "${pids[$i]}"; then
+            printf '==> [deps] ok %s\n' "${fns[$i]}"
+        else
+            rc=1
+            printf '==> [deps] FAIL %s, log: %s\n' "${fns[$i]}" "${logs[$i]}"
+            cat "${logs[$i]}"
+        fi
+    done
+
+    return "${rc}"
 }
 
 function build_spdlog() {
@@ -234,7 +261,7 @@ function export_cmd_pdf() {
     section="$1"
     cmd="$2"
     file="${3:-${cmd}.pdf}"
-    page=$(man -w "${cmd}") || return 1
+    page=$(man -w "${section}" "${cmd}") || return 1
     mandoc -T pdf "${page}" > "${file}"
 }
 
