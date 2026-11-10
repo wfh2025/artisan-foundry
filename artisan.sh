@@ -179,7 +179,7 @@ function export_cmd_pdf() {
     section="$1"
     cmd="$2"
     file="${3:-${cmd}.pdf}"
-    page=$(man -w "${cmd}") || return 1
+    page=$(man -w "${section}" "${cmd}") || return 1
     mandoc -T pdf "${page}" > "${file}"
 }
 
