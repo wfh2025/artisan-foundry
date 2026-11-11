@@ -351,7 +351,7 @@ _entry_sh_complete() {
     cmds=(\${(f)"\$(awk '/^#: /{sub(/^#: */,"");d=d?d" "\$0:\$0} /^function /{n=\$2;sub(/\(.*/,"",n);print n":"d;d=""}' "\${script}")"})
     _describe 'command' cmds
 }
-compdef -p '*entry.sh' _entry_sh_complete
+compdef -p _entry_sh_complete '*entry.sh'
 EOF
     else
         cat << EOF
@@ -365,35 +365,43 @@ EOF
     fi
 }
 
-#: 安装 TAB 补全：写入 ~/.config/entry-sh/ 并在 rc 文件追加 source 行(幂等)
+#: 安装 TAB 补全：写入 ~/.config/entry-sh/ 并在 rc 文件追加 source 行(幂等，重跑自动修正旧路径)
 function install() {
-    local rc comp_dir comp_file
+    local rc comp_dir comp_file sh_name tmp
     local tag='# entry.sh completion (managed by entry.sh install)'
 
     if [[ ${SHELL-} == *zsh* ]]; then
         rc="${HOME}/.zshrc"
+        sh_name="zsh"
     else
         rc="${HOME}/.bashrc"
+        sh_name="bash"
     fi
 
     comp_dir="${HOME}/.config/entry-sh"
-    comp_file="${comp_dir}/completion.${SHELL-}"
+    comp_file="${comp_dir}/completion.${sh_name}"
     mkdir -p "${comp_dir}"
 
     completion | grep -v '^#' > "${comp_file}" || true
 
-    if ! grep -Fq "${tag}" "${rc}" 2> /dev/null; then
-        printf '\n%s\nsource %q\n' "${tag}" "${comp_file}" >> "${rc}"
-        printf '==> [install] 已写入 %s 并追加 source 行到 %s\n' "${comp_file}" "${rc}"
-    else
-        printf '==> [install] 已安装过，仅刷新 %s\n' "${comp_file}"
+    # 自愈：先移除旧安装行(可能指向历史坏路径)，再追加当前正确路径
+    if [[ -f ${rc} ]] && grep -Fq "${tag}" "${rc}"; then
+        tmp=$(mktemp)
+        awk -v tag="${tag}" '
+            $0 == tag { skip = 2; next }
+            skip > 0 { skip--; next }
+            { print }
+        ' "${rc}" > "${tmp}" && mv "${tmp}" "${rc}"
+        printf '==> [install] 已移除旧安装行\n'
     fi
+    printf '\n%s\nsource %q\n' "${tag}" "${comp_file}" >> "${rc}"
+    printf '==> [install] 已写入 %s 并追加 source 行到 %s\n' "${comp_file}" "${rc}"
     printf '==> [install] 生效：重开终端，或执行 source %q\n' "${comp_file}"
 }
 
 #: 卸载 TAB 补全：删除 rc 文件中的安装行与补全文件
 function uninstall() {
-    local rc comp_dir comp_file tmp
+    local rc comp_dir tmp
     local tag='# entry.sh completion (managed by entry.sh install)'
 
     if [[ ${SHELL-} == *zsh* ]]; then
@@ -402,7 +410,6 @@ function uninstall() {
         rc="${HOME}/.bashrc"
     fi
     comp_dir="${HOME}/.config/entry-sh"
-    comp_file="${comp_dir}/completion.${SHELL-}"
 
     if [[ -f ${rc} ]] && grep -Fq "${tag}" "${rc}"; then
         tmp=$(mktemp)
