@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
-# ─── 注释规范 ───────────────────────────────────────────────
-# #: 仅用于函数上方连续注释块(紧邻 function，无空行分隔)：
-#    首行 = 摘要(进 help/TAB 补全)，后续行 = 源码级补充说明
-# #  用于其他一切场合(文件头/函数体内/行尾/分隔线)
-# 可见性：_ 前缀函数为内部实现，不进 help/TAB；无前缀 = 用户命令
-# ───────────────────────────────────────────────────────────
+# ─── 注释规范 ─────────────────────────────
+# 1. 函数上方连续注释块使用 #:
+# 2. 其他地方注释使用 #
+# 3. 私有函数名使用 _ 作为前缀
+# ───────────────────────────────────────────
 PROJ_ROOT=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)
 PROJ_DEPS="${PROJ_ROOT}/deps"
 PROJ_BUILD="${PROJ_ROOT}/build"
@@ -128,7 +127,7 @@ function _build_spdlog() {
           -DSPDLOG_BUILD_SHARED=OFF -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
     ${PROJ_CMAKE} --build "${build_dir}" --parallel --target install
 
-    # rm -fr "${build_dir}"
+    rm -fr "${build_dir}"
 }
 
 #: CMake 构建并安装 googletest 到 deps/googletest
@@ -147,7 +146,7 @@ function _build_googletest() {
           -DBUILD_SHARED_LIBS=OFF \
           -DCMAKE_INSTALL_PREFIX="${install_dir}" -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
     ${PROJ_CMAKE} --build "${build_dir}" --parallel --target install
-    # rm -fr "${build_dir}"
+    rm -fr "${build_dir}"
 }
 
 #: 从 vendor/*.tar.gz 解压生成各工具的二进制目录
@@ -443,7 +442,6 @@ function uninstall() {
     printf '==> [uninstall] 已删除 %s\n' "${comp_dir}"
 }
 
-#: 入口：分发 ./entry.sh <命令> [参数...]
 function _main() {
     local funcName="${1-}"
     (($#))   && shift
