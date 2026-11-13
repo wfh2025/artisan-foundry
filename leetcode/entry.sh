@@ -21,18 +21,14 @@ PROJ_CMAKE_GENERATOR="Ninja"
 
 PROJ_SHFMT="${PROJ_VENDOR}/shfmt-3.14.1/${PROJ_OS}/${PROJ_ARCH}/shfmt"
 PROJ_SHELLCHECK="${PROJ_VENDOR}/shellcheck-0.11.0/${PROJ_OS}/${PROJ_ARCH}/shellcheck"
-PROJ_CLANGFORMAT="$(brew --prefix llvm)/bin/clang-format"
 
 export PROJ_ROOT PROJ_OS PROJ_ARCH PROJ_CUR_SCRIPT \
     PROJ_VENDOR PROJ_SHFMT PROJ_SHELLCHECK PROJ_BUILD PROJ_DEPS \
-    PROJ_CC PROJ_CXX PROJ_CMAKE_GENERATOR PROJ_CMAKE PROJ_CLANGFORMAT
+    PROJ_CC PROJ_CXX PROJ_CMAKE_GENERATOR PROJ_CMAKE
 
 #: 调试插槽：当前包装 clang-format，用于验证参数效果
-# gaga
-# xxx
 function dbg() {
-    # gaga xxyyy #:
-    "${PROJ_CLANGFORMAT}" "$@"
+    "$(brew --prefix llvm)/bin/clang-format" "$@"
 }
 
 #: 递归格式化并静态检查所有 shell 脚本(shfmt + shellcheck)
@@ -66,8 +62,8 @@ function pretty() {
         [[ -n ${file} ]] || continue
         total=$((total + 1))
         printf '==> [pretty] %s\n' "${file}"
-        if ! "${PROJ_CUR_SCRIPT}" _format_shell_file "${file}" ||
-            ! "${PROJ_CUR_SCRIPT}" _check_shell_file "${file}"; then
+        if ! _format_shell_file "${file}" ||
+            ! _check_shell_file "${file}"; then
             fail=$((fail + 1))
             rc=1
         fi
