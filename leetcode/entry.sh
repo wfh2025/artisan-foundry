@@ -1,4 +1,10 @@
 #!/usr/bin/env bash
+# ─── 注释规范 ───────────────────────────────────────────────
+# #: 仅用于函数上方连续注释块(紧邻 function，无空行分隔)：
+#    首行 = 摘要(进 help/TAB 补全)，后续行 = 源码级补充说明
+# #  用于其他一切场合(文件头/函数体内/行尾/分隔线)
+# 可见性：_ 前缀函数为内部实现，不进 help/TAB；无前缀 = 用户命令
+# ───────────────────────────────────────────────────────────
 PROJ_ROOT=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)
 PROJ_DEPS="${PROJ_ROOT}/deps"
 PROJ_BUILD="${PROJ_ROOT}/build"
@@ -23,7 +29,10 @@ export PROJ_ROOT PROJ_OS PROJ_ARCH PROJ_CUR_SCRIPT \
     PROJ_CC PROJ_CXX PROJ_CMAKE_GENERATOR PROJ_CMAKE PROJ_CLANGFORMAT
 
 #: 调试插槽：当前包装 clang-format，用于验证参数效果
+# gaga
+# xxx
 function dbg() {
+    # gaga xxyyy #:
     "${PROJ_CLANGFORMAT}" "$@"
 }
 
@@ -58,8 +67,8 @@ function pretty() {
         [[ -n ${file} ]] || continue
         total=$((total + 1))
         printf '==> [pretty] %s\n' "${file}"
-        if ! "${PROJ_CUR_SCRIPT}" format_shell_file "${file}" ||
-            ! "${PROJ_CUR_SCRIPT}" check_shell_file "${file}"; then
+        if ! "${PROJ_CUR_SCRIPT}" _format_shell_file "${file}" ||
+            ! "${PROJ_CUR_SCRIPT}" _check_shell_file "${file}"; then
             fail=$((fail + 1))
             rc=1
         fi
@@ -72,8 +81,8 @@ function pretty() {
 #: 并行构建第三方依赖(googletest、spdlog)到 deps/
 function build_deps() {
     local -a fns=(
-        build_googletest
-        build_spdlog
+        _build_googletest
+        _build_spdlog
     )
     local -a pids=() logs=()
     local fn pid log i rc=0
@@ -103,7 +112,7 @@ function build_deps() {
 }
 
 #: CMake 构建并安装 spdlog 到 deps/spdlog
-function build_spdlog() {
+function _build_spdlog() {
     local build_dir="${PROJ_BUILD}/spdlog"
     local install_dir="${PROJ_DEPS}/spdlog"
     local src="${PROJ_VENDOR}/spdlog-1.17.0"
@@ -123,7 +132,7 @@ function build_spdlog() {
 }
 
 #: CMake 构建并安装 googletest 到 deps/googletest
-function build_googletest() {
+function _build_googletest() {
     local build_dir="${PROJ_BUILD}/googletest"
     local install_dir="${PROJ_DEPS}/googletest"
     local src="${PROJ_VENDOR}/googletest-1.18.0"
@@ -149,7 +158,7 @@ function make_vendor_bin() {
 }
 
 #: 用 shfmt 格式化单个文件
-function format_shell_file() {
+function _format_shell_file() {
     local file="$1"
     "${PROJ_SHFMT}" --indent 4 \
               --case-indent \
@@ -159,7 +168,7 @@ function format_shell_file() {
 }
 
 #: 用 shellcheck 最严格档检查单个文件
-function check_shell_file() {
+function _check_shell_file() {
     local file="$1"
     "${PROJ_SHELLCHECK}" --check-sourced \
                          --color=auto \
@@ -174,7 +183,7 @@ function check_shell_file() {
 }
 
 #: 输出当前毫秒级时间戳(多平台兜底)
-function now_ms() {
+function _now_ms() {
     local raw sec frac value
 
     # bash >= 5：秒.微秒，小数点固定为 '.'
@@ -230,9 +239,9 @@ function display_elapsed() {
     local startMs endMs costMs rc=0
     local elapsed
 
-    startMs=$(now_ms)
+    startMs=$(_now_ms)
     "$@" || rc=$?
-    endMs=$(now_ms)
+    endMs=$(_now_ms)
 
     costMs=$((endMs - startMs))
     if ((costMs < 1000)); then
@@ -319,18 +328,20 @@ function export_cmd_pdf() {
     mandoc -T pdf "${page}" > "${file}"
 }
 
-#: 打印所有命令及功能说明(#: 注释支持多行，自动拼接)
+#: 打印所有命令及功能说明(#: 首行进帮助，后续行仅作源码注释)
 function help() {
     printf 'Usage: %s <command> [args...]\n\n' "${PROJ_CUR_SCRIPT}"
     awk '
-        /^#: / {
+        /^#: / && desc == "" {
             sub(/^#: */, "")
-            desc = desc ? desc " " $0 : $0
+            desc = $0
         }
         /^function / {
             name = $2
             sub(/\(\)/, "", name)
-            printf "  %-18s %s\n", name, desc
+            if (name !~ /^_/) {
+                printf "  %-18s %s\n", name, desc
+            }
             desc = ""
         }
     ' "${PROJ_CUR_SCRIPT}"
@@ -348,7 +359,7 @@ fi
 _entry_sh_complete() {
     local script="\${words[1]:a}"
     local -a cmds
-    cmds=(\${(f)"\$(awk '/^#: /{sub(/^#: */,"");d=d?d" "\$0:\$0} /^function /{n=\$2;sub(/\(.*/,"",n);print n":"d;d=""}' "\${script}")"})
+    cmds=(\${(f)"\$(awk '/^#: /&&d==""{sub(/^#: */,"");d=\$0} /^function /{n=\$2;sub(/\(.*/,"",n);if(n!~/^_/)print n":"d;d=""}' "\${script}")"})
     _describe 'command' cmds
 }
 compdef -p _entry_sh_complete '*entry.sh'
@@ -358,7 +369,7 @@ EOF
 _entry_sh_complete() {
     local script="\${COMP_WORDS[0]}"
     local cur="\${COMP_WORDS[COMP_CWORD]}"
-    COMPREPLY=(\$(compgen -W "\$(awk '/^function /{n=\$2;sub(/\(.*/,"",n);print n}' "\${script}")" -- "\$cur"))
+    COMPREPLY=(\$(compgen -W "\$(awk '/^function /{n=\$2;sub(/\(.*/,"",n);if(n!~/^_/)print n}' "\${script}")" -- "\$cur"))
 }
 complete -F _entry_sh_complete entry.sh ${script} ./entry.sh
 EOF
@@ -427,7 +438,7 @@ function uninstall() {
 }
 
 #: 入口：分发 ./entry.sh <命令> [参数...]
-function main() {
+function _main() {
     local funcName="${1-}"
     (($#))   && shift
 
@@ -441,4 +452,4 @@ function main() {
     fi
     "${funcName}" "$@"
 }
-main "$@"
+_main "$@"
