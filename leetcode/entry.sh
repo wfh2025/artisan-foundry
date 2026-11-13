@@ -167,6 +167,12 @@ function _format_shell_file() {
         --language-dialect auto --write "${file}"
 }
 
+#: 格式化脚本: xxx.sh fmt <args.0> <args.1> ...
+function fmt() {
+    _format_shell_file "$@"
+    _check_shell_file "$@"
+}
+
 #: 用 shellcheck 最严格档检查单个文件
 function _check_shell_file() {
     local file="$1"
