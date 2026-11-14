@@ -276,6 +276,7 @@ function unique_name() {
 }
 
 #: 保存后自动重跑指定命令(watch)
+#: macOS: brew install watch
 function watch_cmd() {
     local cmdName="${1-}"
     local cmdPath=""
