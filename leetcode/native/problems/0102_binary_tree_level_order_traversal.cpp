@@ -4,31 +4,26 @@ TEST(binary_tree_level_order_traversal_102, queue)
 {
     class Solution
     {
-    public:
+       public:
         vector<vector<int>> levelOrder(TreeNode* root)
         {
             std::vector<std::vector<int>> res;
-            if (nullptr == root)
-            {
+            if (nullptr == root) {
                 return res;
             }
             std::queue<TreeNode*> q;
             q.push(root);
-            while (!q.empty())
-            {
+            while (!q.empty()) {
                 int levelSize = q.size();
                 std::vector<int> curVec;
-                for (int i = 0; i < levelSize; i++)
-                {
+                for (int i = 0; i < levelSize; i++) {
                     TreeNode* cur = q.front();
                     q.pop();
                     curVec.push_back(cur->val);
-                    if (cur->left != nullptr)
-                    {
+                    if (cur->left != nullptr) {
                         q.push(cur->left);
                     }
-                    if (cur->right != nullptr)
-                    {
+                    if (cur->right != nullptr) {
                         q.push(cur->right);
                     }
                 }

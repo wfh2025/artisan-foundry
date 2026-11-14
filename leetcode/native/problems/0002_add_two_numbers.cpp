@@ -3,17 +3,15 @@ TEST(add_two_numbers_3, 001)
 {
     class Solution
     {
-    public:
+       public:
         ListNode* addTwoNumbers(ListNode* l1, ListNode* l2)
         {
             ListNode dummy(0, nullptr);
             ListNode* prev = &dummy;
             int carry = 0;
 
-            while (true)
-            {
-                if (l1 == nullptr && l2 == nullptr && carry == 0)
-                {
+            while (true) {
+                if (l1 == nullptr && l2 == nullptr && carry == 0) {
                     break;
                 }
                 int lVal = (l1 == nullptr) ? 0 : l1->val;
@@ -25,12 +23,10 @@ TEST(add_two_numbers_3, 001)
 
                 carry = sum / 10;
 
-                if (l1 != nullptr)
-                {
+                if (l1 != nullptr) {
                     l1 = l1->next;
                 }
-                if (l2 != nullptr)
-                {
+                if (l2 != nullptr) {
                     l2 = l2->next;
                 }
             }

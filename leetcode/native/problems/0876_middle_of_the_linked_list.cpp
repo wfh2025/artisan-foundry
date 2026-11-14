@@ -4,15 +4,13 @@ TEST(middle_of_the_linked_list_876, 001)
 {
     class Solution
     {
-    public:
+       public:
         ListNode* middleNode(ListNode* head)
         {
             ListNode* fast = head;
             ListNode* slow = head;
-            while (true)
-            {
-                if ((fast == nullptr) || (fast->next == nullptr))
-                {
+            while (true) {
+                if ((fast == nullptr) || (fast->next == nullptr)) {
                     break;
                 }
                 slow = slow->next;

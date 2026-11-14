@@ -4,11 +4,10 @@ TEST(maximum_depth_of_binary_tree_104, recursive)
 {
     class Solution
     {
-    public:
+       public:
         int maxDepth(TreeNode* root)
         {
-            if (root == nullptr)
-            {
+            if (root == nullptr) {
                 return 0;
             }
             int leftDepth = maxDepth(root->left);
@@ -35,29 +34,24 @@ TEST(maximum_depth_of_binary_tree_104, queue)
 {
     class Solution
     {
-    public:
+       public:
         int maxDepth(TreeNode* root)
         {
-            if (nullptr == root)
-            {
+            if (nullptr == root) {
                 return 0;
             }
             std::queue<TreeNode*> q;
             q.push(root);
             int maxVal = 0;
-            while (!q.empty())
-            {
+            while (!q.empty()) {
                 int levelSize = q.size();
-                for (int i = 0; i < levelSize; i++)
-                {
+                for (int i = 0; i < levelSize; i++) {
                     TreeNode* cur = q.front();
                     q.pop();
-                    if (nullptr != cur->left)
-                    {
+                    if (nullptr != cur->left) {
                         q.push(cur->left);
                     }
-                    if (nullptr != cur->right)
-                    {
+                    if (nullptr != cur->right) {
                         q.push(cur->right);
                     }
                 }
