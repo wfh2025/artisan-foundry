@@ -16,6 +16,7 @@ PROJ_ARCH="$(uname -m)"
 PROJ_CC=$(command -v cc)
 PROJ_CXX=$(command -v c++)
 PROJ_CMAKE=$(command -v cmake)
+PROJ_CLANGFORMAT=$(command -v clang-format)
 
 PROJ_CMAKE_GENERATOR="Ninja"
 
@@ -24,16 +25,12 @@ PROJ_SHELLCHECK="${PROJ_VENDOR}/shellcheck-0.11.0/${PROJ_OS}/${PROJ_ARCH}/shellc
 
 export PROJ_ROOT PROJ_OS PROJ_ARCH PROJ_CUR_SCRIPT \
     PROJ_VENDOR PROJ_SHFMT PROJ_SHELLCHECK PROJ_BUILD PROJ_DEPS \
-    PROJ_CC PROJ_CXX PROJ_CMAKE_GENERATOR PROJ_CMAKE
+    PROJ_CC PROJ_CXX PROJ_CMAKE_GENERATOR PROJ_CMAKE PROJ_CLANGFORMAT
 
 #: 调试插槽
 function dbg() {
     # "$(brew --prefix llvm)/bin/clang-format" "$@"
-    local distro kernel arch info
-
-    info=$(platform_info) || return 1
-    IFS='|' read -r distro kernel arch <<< "${info}"
-    printf 'distro = %s, kernel = %s, arch = %s \n' "${distro}" "${kernel}" "${arch}"
+    printf '%s \n' "${PROJ_CLANGFORMAT}"
 }
 
 #: 递归格式化并静态检查所有 shell 脚本(shfmt + shellcheck)
@@ -359,6 +356,39 @@ function export_cmd_pdf() {
     mandoc -T pdf "${page}" > "${file}"
 }
 
+#: 批量导出clang-format内置style配置
+function dump_clangformat_styles() {
+    local out_dir="${1:-.}"
+    local style file
+    local total=0 fail=0 rc=0
+    local -a styles=(
+        GNU
+        LLVM
+        Google
+        WebKit
+        Mozilla
+        Chromium
+        Microsoft
+    )
+
+    mkdir -p "${out_dir}" || return 1
+    out_dir=$(cd -- "${out_dir}" && pwd -P) || return 1
+    for style in "${styles[@]}"; do
+        file="${out_dir}/cpp-$(printf '%s' "${style}" | tr '[:upper:]' '[:lower:]').clang-format"
+        total=$((total + 1))
+        printf '==> [clang-format] %s -> %s\n' "${style}" "${file}"
+        if "${PROJ_CLANGFORMAT}" -style="${style}" -dump-config > "${file}"; then
+            continue
+        fi
+        rm -fv "${file}"
+        fail=$((fail + 1))
+        rc=1
+        printf '==> [clang-format] FAIL %s\n' "${style}"
+    done
+    printf '==> [clang-format] total=%d fail=%d\n' "${total}" "${fail}"
+    return "${rc}"
+}
+
 #: 打印所有命令及功能说明(#: 首行进帮助，后续行仅作源码注释)
 function help() {
     printf 'Usage: %s <command> [args...]\n\n' "${PROJ_CUR_SCRIPT}"
@@ -371,9 +401,16 @@ function help() {
             name = $2
             sub(/\(\)/, "", name)
             if (name !~ /^_/) {
-                printf "  %-18s %s\n", name, desc
+                n++
+                names[n] = name
+                descs[n] = desc
+                if (length(name) > maxlen) maxlen = length(name)
             }
             desc = ""
+        }
+        END {
+            for (i = 1; i <= n; i++)
+                printf "  %-*s %s\n", maxlen, names[i], descs[i]
         }
     ' "${PROJ_CUR_SCRIPT}"
 }
