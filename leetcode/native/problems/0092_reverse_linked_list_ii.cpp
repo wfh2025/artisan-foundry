@@ -4,14 +4,13 @@ TEST(reverse_linked_list_ii_92, segmentation)
 {
     class Solution
     {
-    public:
+       public:
         ListNode* reverseBetween(ListNode* head, int left, int right)
         {
             ListNode dummy(0, head);
             ListNode* leftPrevNode = &dummy;
 
-            for (int i = 0; i < left - 1; i++)
-            {
+            for (int i = 0; i < left - 1; i++) {
                 leftPrevNode = leftPrevNode->next;
             }
             ListNode* leftNode = leftPrevNode->next;
@@ -22,10 +21,8 @@ TEST(reverse_linked_list_ii_92, segmentation)
             ListNode* prev = leftPrevNode;
             ListNode* cur = leftNode;
             ListNode* rightNextNode = nullptr;
-            while (true)
-            {
-                if (cnt == betweenNodes)
-                {
+            while (true) {
+                if (cnt == betweenNodes) {
                     rightNextNode = cur;
                     break;
                 }
@@ -46,13 +43,15 @@ TEST(reverse_linked_list_ii_92, segmentation)
     {
         ListNode* inLi = td::createList(std::vector<int>{1, 2, 3, 4, 5});
         ListNode* outLi = sln.reverseBetween(inLi, 2, 4);
-        EXPECT_THAT(td::listToVec(outLi), testing::ContainerEq(std::vector<int>{1, 4, 3, 2, 5}));
+        EXPECT_THAT(td::listToVec(outLi),
+                    testing::ContainerEq(std::vector<int>{1, 4, 3, 2, 5}));
     }
 
     {
         ListNode* inLi = td::createList(std::vector<int>{5});
         ListNode* outLi = sln.reverseBetween(inLi, 1, 1);
-        EXPECT_THAT(td::listToVec(outLi), testing::ContainerEq(std::vector<int>{5}));
+        EXPECT_THAT(td::listToVec(outLi),
+                    testing::ContainerEq(std::vector<int>{5}));
     }
 }
 
@@ -60,21 +59,19 @@ TEST(reverse_linked_list_ii_92, segmentation2)
 {
     class Solution
     {
-    public:
+       public:
         ListNode* reverseBetween(ListNode* head, int left, int right)
         {
             ListNode dummy(0, head);
             ListNode* leftPrevNode = &dummy;
 
-            for (int i = 0; i < left - 1; i++)
-            {
+            for (int i = 0; i < left - 1; i++) {
                 leftPrevNode = leftPrevNode->next;
             }
             ListNode* leftNode = leftPrevNode->next;
 
             ListNode* rightNode = leftNode;
-            for (int i = 0; i < (right - left); i++)
-            {
+            for (int i = 0; i < (right - left); i++) {
                 rightNode = rightNode->next;
             }
             ListNode* rightNextNode = rightNode->next;
@@ -93,8 +90,7 @@ TEST(reverse_linked_list_ii_92, segmentation2)
         {
             ListNode* prev = nullptr;
             ListNode* cur = head;
-            while (cur != nullptr)
-            {
+            while (cur != nullptr) {
                 ListNode* tmp = cur->next;
                 cur->next = prev;
                 prev = cur;
@@ -109,12 +105,14 @@ TEST(reverse_linked_list_ii_92, segmentation2)
     {
         ListNode* inLi = td::createList(std::vector<int>{1, 2, 3, 4, 5});
         ListNode* outLi = sln.reverseBetween(inLi, 2, 4);
-        EXPECT_THAT(td::listToVec(outLi), testing::ContainerEq(std::vector<int>{1, 4, 3, 2, 5}));
+        EXPECT_THAT(td::listToVec(outLi),
+                    testing::ContainerEq(std::vector<int>{1, 4, 3, 2, 5}));
     }
 
     {
         ListNode* inLi = td::createList(std::vector<int>{5});
         ListNode* outLi = sln.reverseBetween(inLi, 1, 1);
-        EXPECT_THAT(td::listToVec(outLi), testing::ContainerEq(std::vector<int>{5}));
+        EXPECT_THAT(td::listToVec(outLi),
+                    testing::ContainerEq(std::vector<int>{5}));
     }
 }

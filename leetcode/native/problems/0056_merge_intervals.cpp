@@ -4,29 +4,28 @@ TEST(merge_intervals_56, 001)
 {
     class Solution
     {
-    public:
+       public:
         vector<vector<int>> merge(vector<vector<int>>& intervals)
         {
-            if (intervals.empty())
-            {
+            if (intervals.empty()) {
                 return {};
             }
 
-            std::sort(intervals.begin(), intervals.end(), [](const std::vector<int>& lhs, const std::vector<int>& rhs) { return lhs[0] < rhs[0]; });
+            std::sort(
+                intervals.begin(), intervals.end(),
+                [](const std::vector<int>& lhs, const std::vector<int>& rhs) {
+                    return lhs[0] < rhs[0];
+                });
 
             std::vector<std::vector<int>> res;
             res.push_back(intervals[0]);
 
-            for (int i = 1; i < intervals.size(); i++)
-            {
-                std::vector<int>& last = res.back(); // 注意: 返回引用
+            for (int i = 1; i < intervals.size(); i++) {
+                std::vector<int>& last = res.back();  // 注意: 返回引用
                 std::vector<int>& cur = intervals[i];
-                if (cur[0] <= last[1])
-                {
+                if (cur[0] <= last[1]) {
                     last[1] = std::max(last[1], cur[1]);
-                }
-                else
-                {
+                } else {
                     res.push_back(cur);
                 }
             }

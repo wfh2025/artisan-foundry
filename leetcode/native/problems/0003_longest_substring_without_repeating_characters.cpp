@@ -4,19 +4,17 @@ TEST(longest_substring_without_repeating_characters_3, 001)
 {
     class Solution
     {
-    public:
+       public:
         int lengthOfLongestSubstring(string s)
         {
             std::unordered_set<char> cache;
             int maxLen = 0;
             int l = 0;
-            for (int r = 0; r < s.size(); r++)
-            {
+            for (int r = 0; r < s.size(); r++) {
                 // 1. 扩大win
 
                 // 2. 观察是否满足条件，不满足条件重复处理到满足条件位置
-                while (cache.count(s[r]))
-                {
+                while (cache.count(s[r])) {
                     cache.erase(s[l]);
                     l++;
                 }

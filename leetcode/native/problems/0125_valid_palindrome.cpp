@@ -4,23 +4,19 @@ TEST(valid_palindrome_125, 001)
 #include <cctype>
     class Solution
     {
-    public:
+       public:
         bool isPalindrome(string s)
         {
             int l = 0;
             int r = s.size() - 1;
-            while (l < r)
-            {
-                while ((l < r) && !isalnum(s[l]))
-                {
+            while (l < r) {
+                while ((l < r) && !isalnum(s[l])) {
                     l++;
                 }
-                while ((l < r) && !isalnum(s[r]))
-                {
+                while ((l < r) && !isalnum(s[r])) {
                     r--;
                 }
-                if (std::tolower(s[l]) != std::tolower(s[r]))
-                {
+                if (std::tolower(s[l]) != std::tolower(s[r])) {
                     return false;
                 }
                 l++;
@@ -48,28 +44,24 @@ TEST(valid_palindrome_125, 002)
 {
     class Solution
     {
-    public:
+       public:
         bool isPalindrome(string s)
         {
             int l = 0;
             int r = s.size() - 1;
-            while (l < r)
-            {
-                if (!isalnum(s[l]))
-                {
+            while (l < r) {
+                if (!isalnum(s[l])) {
                     l++;
                     continue;
                 }
-                if (!isalnum(s[r]))
-                {
+                if (!isalnum(s[r])) {
                     r--;
                     continue;
                 }
 
                 auto lVal = std::tolower(s[l]);
                 auto rVal = std::tolower(s[r]);
-                if (lVal != rVal)
-                {
+                if (lVal != rVal) {
                     return false;
                 }
                 l++;
