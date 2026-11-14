@@ -150,13 +150,6 @@ function _build_googletest() {
     rm -fr "${build_dir}"
 }
 
-#: 从 vendor/*.tar.gz 解压生成各工具的二进制目录
-function make_vendor_bin() {
-    cp -r shellcheck-0.11.0 ruff-0.17.4
-    find ./ruff-0.17.4 -type f -delete
-    find ruff-0.17.4 -type f -name "*.tar.gz" -execdir tar -zxvf {} \;
-}
-
 #: 用 shfmt 格式化单个文件
 function _format_shell_file() {
     local file="$1"
