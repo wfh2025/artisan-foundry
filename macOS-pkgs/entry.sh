@@ -36,6 +36,12 @@ function dbg() {
     printf 'distro = %s, kernel = %s, arch = %s \n' "${distro}" "${kernel}" "${arch}"
 }
 
+#: 批量安装包，存在则忽略；缺省 Brewfile
+function install_pkgs_noupgrade() {
+    local brew_file="${1:-Brewfile}"
+    brew bundle install --no-upgrade --file "${brew_file}"
+}
+
 #: 递归格式化并静态检查所有 shell 脚本(shfmt + shellcheck)
 function pretty() {
     local file rc=0 total=0 fail=0
