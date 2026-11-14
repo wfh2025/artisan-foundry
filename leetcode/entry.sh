@@ -200,7 +200,8 @@ function platform_info() {
 
     case ${kernel} in
         Darwin)
-            distro=macOS
+            # 系统自述产品名: macOS(新)/Mac OS X(旧)；与 Linux 读 os-release 对称
+            distro=$(sw_vers -productName 2> /dev/null) || distro=unknown
             ;;
         Linux)
             # /etc/os-release 的 ID 是发行版小写标识：ubuntu/centos/rocky/debian...
