@@ -4,28 +4,24 @@ TEST(binary_tree_preorder_traversal, stack)
 {
     class Solution
     {
-    public:
+       public:
         vector<int> preorderTraversal(TreeNode* root)
         {
             std::vector<int> arr;
-            if (root == nullptr)
-            {
+            if (root == nullptr) {
                 return arr;
             }
             std::stack<TreeNode*> stk;
             stk.push(root);
-            while (!stk.empty())
-            {
+            while (!stk.empty()) {
                 TreeNode* cur = stk.top();
                 stk.pop();
 
                 arr.push_back(cur->val);
-                if (cur->right != nullptr)
-                {
+                if (cur->right != nullptr) {
                     stk.push(cur->right);
                 }
-                if (cur->left != nullptr)
-                {
+                if (cur->left != nullptr) {
                     stk.push(cur->left);
                 }
             }
@@ -35,13 +31,17 @@ TEST(binary_tree_preorder_traversal, stack)
 
     Solution sln;
     {
-        TreeNode* tree = td::createTree(std::vector<int>{1, 2, 3, 4, 5, INT_MIN, 8, INT_MIN, INT_MIN, 6, 7, 9});
-        EXPECT_THAT(sln.preorderTraversal(tree), testing::ContainerEq(std::vector<int>{1, 2, 4, 5, 6, 7, 3, 8, 9}));
+        TreeNode* tree = td::createTree(std::vector<int>{
+            1, 2, 3, 4, 5, INT_MIN, 8, INT_MIN, INT_MIN, 6, 7, 9});
+        EXPECT_THAT(
+            sln.preorderTraversal(tree),
+            testing::ContainerEq(std::vector<int>{1, 2, 4, 5, 6, 7, 3, 8, 9}));
         td::deleteTree(tree);
     }
     {
         TreeNode* tree = td::createTree(std::vector<int>{1, INT_MIN, 2, 3});
-        EXPECT_THAT(sln.preorderTraversal(tree), testing::ContainerEq(std::vector<int>{1, 2, 3}));
+        EXPECT_THAT(sln.preorderTraversal(tree),
+                    testing::ContainerEq(std::vector<int>{1, 2, 3}));
         td::deleteTree(tree);
     }
 }
@@ -50,7 +50,7 @@ TEST(binary_tree_preorder_traversal, dfs)
 {
     class Solution
     {
-    public:
+       public:
         vector<int> preorderTraversal(TreeNode* root)
         {
             std::vector<int> arr;
@@ -60,8 +60,7 @@ TEST(binary_tree_preorder_traversal, dfs)
 
         void dfs(TreeNode* node, std::vector<int>& res)
         {
-            if (node == nullptr)
-            {
+            if (node == nullptr) {
                 return;
             }
             res.push_back(node->val);
@@ -71,13 +70,17 @@ TEST(binary_tree_preorder_traversal, dfs)
     };
     Solution sln;
     {
-        TreeNode* tree = td::createTree(std::vector<int>{1, 2, 3, 4, 5, INT_MIN, 8, INT_MIN, INT_MIN, 6, 7, 9});
-        EXPECT_THAT(sln.preorderTraversal(tree), testing::ContainerEq(std::vector<int>{1, 2, 4, 5, 6, 7, 3, 8, 9}));
+        TreeNode* tree = td::createTree(std::vector<int>{
+            1, 2, 3, 4, 5, INT_MIN, 8, INT_MIN, INT_MIN, 6, 7, 9});
+        EXPECT_THAT(
+            sln.preorderTraversal(tree),
+            testing::ContainerEq(std::vector<int>{1, 2, 4, 5, 6, 7, 3, 8, 9}));
         td::deleteTree(tree);
     }
     {
         TreeNode* tree = td::createTree(std::vector<int>{1, INT_MIN, 2, 3});
-        EXPECT_THAT(sln.preorderTraversal(tree), testing::ContainerEq(std::vector<int>{1, 2, 3}));
+        EXPECT_THAT(sln.preorderTraversal(tree),
+                    testing::ContainerEq(std::vector<int>{1, 2, 3}));
         td::deleteTree(tree);
     }
 }

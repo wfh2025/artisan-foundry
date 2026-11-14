@@ -9,7 +9,10 @@ struct TestCaseId
 {
     std::string testSuiteName;
     std::string testName;
-    TestCaseId(std::string suit, std::string name) : testSuiteName(suit), testName(name) {}
+    TestCaseId(std::string suit, std::string name)
+        : testSuiteName(suit), testName(name)
+    {
+    }
 };
 
 static std::vector<TestCaseId> g_runCases = {
@@ -18,16 +21,13 @@ static std::vector<TestCaseId> g_runCases = {
 
 static void runCases()
 {
-    if (g_runCases.empty())
-    {
+    if (g_runCases.empty()) {
         return;
     }
     std::string rule = "";
-    for (const TestCaseId& caseId : g_runCases)
-    {
+    for (const TestCaseId& caseId : g_runCases) {
         std::string item = caseId.testSuiteName + "." + caseId.testName;
-        if (!rule.empty())
-        {
+        if (!rule.empty()) {
             rule.append(":");
         }
         rule.append(item);

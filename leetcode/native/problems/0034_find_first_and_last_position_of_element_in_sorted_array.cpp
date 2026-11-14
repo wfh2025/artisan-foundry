@@ -4,31 +4,26 @@ TEST(find_first_and_last_position_of_element_in_sorted_array_34, 001)
 {
     class Solution
     {
-    public:
+       public:
         vector<int> searchRange(vector<int>& nums, int target)
         {
             int left = lower_bound(nums, target);
-            if (left == nums.size() || nums[left] != target)
-            {
+            if (left == nums.size() || nums[left] != target) {
                 return {-1, -1};
             }
             int right = upper_bound(nums, target) - 1;
             return {left, right};
         }
 
-    private:
+       private:
         int lower_bound(const vector<int>& arr, int tgt)
         {
             int l = 0, r = arr.size();
-            while (l < r)
-            {
+            while (l < r) {
                 int mid = l + (r - l) / 2;
-                if (arr[mid] < tgt)
-                {
+                if (arr[mid] < tgt) {
                     l = mid + 1;
-                }
-                else
-                {
+                } else {
                     r = mid;
                 }
             }
@@ -38,15 +33,11 @@ TEST(find_first_and_last_position_of_element_in_sorted_array_34, 001)
         int upper_bound(const vector<int>& arr, int tgt)
         {
             int l = 0, r = arr.size();
-            while (l < r)
-            {
+            while (l < r) {
                 int mid = l + (r - l) / 2;
-                if (arr[mid] <= tgt)
-                {
+                if (arr[mid] <= tgt) {
                     l = mid + 1;
-                }
-                else
-                {
+                } else {
                     r = mid;
                 }
             }

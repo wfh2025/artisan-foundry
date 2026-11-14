@@ -4,7 +4,7 @@ TEST(binary_tree_inorder_traversal_94, recursive)
 {
     class Solution
     {
-    public:
+       public:
         vector<int> inorderTraversal(TreeNode* root)
         {
             std::vector<int> arr;
@@ -14,8 +14,7 @@ TEST(binary_tree_inorder_traversal_94, recursive)
 
         void inorder(TreeNode* root, std::vector<int>& res)
         {
-            if (nullptr == root)
-            {
+            if (nullptr == root) {
                 return;
             }
             inorder(root->left, res);
@@ -32,7 +31,8 @@ TEST(binary_tree_inorder_traversal_94, recursive)
         td::deleteTree(input);
     }
     {
-        TreeNode* input = td::createTree({1, 2, 3, 4, 5, INT_MIN, 8, INT_MIN, INT_MIN, 6, 7, 9});
+        TreeNode* input = td::createTree(
+            {1, 2, 3, 4, 5, INT_MIN, 8, INT_MIN, INT_MIN, 6, 7, 9});
         std::vector<int> expect = {4, 2, 6, 5, 7, 1, 3, 9, 8};
         EXPECT_EQ(sln.inorderTraversal(input), expect);
         td::deleteTree(input);
@@ -43,21 +43,18 @@ TEST(binary_tree_inorder_traversal_94, stack)
 {
     class Solution
     {
-    public:
+       public:
         vector<int> inorderTraversal(TreeNode* root)
         {
             TreeNode* cur = root;
             std::vector<int> arr;
             std::stack<TreeNode*> stk;
-            while (true)
-            {
-                if ((cur == nullptr) && stk.empty())
-                {
+            while (true) {
+                if ((cur == nullptr) && stk.empty()) {
                     break;
                 }
 
-                while (cur != nullptr)
-                {
+                while (cur != nullptr) {
                     stk.push(cur);
                     cur = cur->left;
                 }
@@ -80,7 +77,8 @@ TEST(binary_tree_inorder_traversal_94, stack)
         td::deleteTree(input);
     }
     {
-        TreeNode* input = td::createTree({1, 2, 3, 4, 5, INT_MIN, 8, INT_MIN, INT_MIN, 6, 7, 9});
+        TreeNode* input = td::createTree(
+            {1, 2, 3, 4, 5, INT_MIN, 8, INT_MIN, INT_MIN, 6, 7, 9});
         std::vector<int> expect = {4, 2, 6, 5, 7, 1, 3, 9, 8};
         EXPECT_EQ(sln.inorderTraversal(input), expect);
         td::deleteTree(input);
