@@ -242,6 +242,26 @@ function display_diff() {
     printf '\n'
 }
 
+#: 原地删除文件中所有 # 注释行(保留 shebang): strip_comments <file>...
+function strip_comments() {
+    local file tmp
+    for file in "$@"; do
+        if [[ ! -f ${file} ]]; then
+            printf 'Not a regular file: %s\n' "${file}" >&2
+            return 1
+        fi
+        tmp=$(mktemp "${file}.XXXXXX") || return 1
+        if sed '1!{ /^[[:space:]]*#/d; }' "${file}" > "${tmp}"; then
+            cat "${tmp}" > "${file}" # 回写以保留原 inode 与权限
+            rm -f "${tmp}"
+            printf '==> [strip_comments] %s\n' "${file}"
+        else
+            rm -f "${tmp}"
+            return 1
+        fi
+    done
+}
+
 #: 生成 前缀_时间戳_pid_随机 的唯一名
 function unique_name() {
     local prefix timestamp
