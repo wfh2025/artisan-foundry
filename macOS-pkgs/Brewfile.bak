@@ -1,0 +1,241 @@
+tap "didriksg/tap"
+# Archival front-end
+brew "atool"
+# Tool for generating GNU Standards-compliant Makefiles
+brew "automake"
+# Light UNIX download accelerator
+brew "axel"
+# Clone of cat(1) with syntax highlighting and Git integration
+brew "bat"
+# Parser generator
+brew "bison"
+# Incredibly fast JavaScript runtime, bundler, test runner, and package manager
+brew "bun"
+# GNU File, Shell, and Text utilities
+brew "coreutils"
+# Emacs dependency management
+brew "cask"
+# Modern, C++-native, test framework
+brew "catch2"
+# C unit testing framework
+brew "check"
+# Formatting tools for C, C++, Obj-C, Java, JavaScript, TypeScript
+brew "clang-format"
+# Interpreter for PostScript and PDF
+brew "ghostscript"
+# Small tool to convert Djvu files to PDF files
+brew "djvu2pdf"
+# Convert text between DOS, UNIX, and Mac formats
+brew "dos2unix"
+# Fast and exact implementation of the C++ from_chars functions for number types
+brew "fast_float"
+# SDL2 compatibility layer that uses SDL3 behind the scenes
+brew "sdl2-compat"
+# I/O benchmark and stress test
+brew "fio"
+# Git extension for versioning large files
+brew "git-lfs"
+# Render markdown on the CLI
+brew "glow"
+# Open source programming language to build simple/reliable/efficient software
+brew "go"
+# Google Testing and Mocking Framework
+brew "googletest"
+# Graph visualization software from AT&T and Bell Labs
+brew "graphviz"
+# Numerical library for C and C++
+brew "gsl"
+# Improved top (interactive process viewer)
+brew "htop"
+# Display an interface's bandwidth usage
+brew "iftop"
+# Lightweight and flexible command-line JSON processor
+brew "jq"
+# Kubernetes CLI To Manage Your Clusters In Style!
+brew "k9s"
+# Kubernetes command-line interface
+brew "kubernetes-cli"
+# Add indentation to LaTeX files
+brew "latexindent"
+# Simple terminal UI for git commands
+brew "lazygit"
+# Key-value storage library with ordered mapping
+brew "leveldb"
+# Postgres C API library
+brew "libpq"
+# Next-gen compiler infrastructure
+brew "llvm"
+# Tools for zmodem/xmodem/ymodem file transfer
+brew "lrzsz"
+# Deep clean and optimize your Mac
+brew "mole"
+# Turn marked-up plain text into well-formatted documents
+brew "multimarkdown"
+# Open source relational database management system
+brew "mysql", restart_service: :changed
+# Open source relational database management system
+brew "mysql-client"
+# NCurses Disk Usage
+brew "ncdu"
+# Ambitious Vim-fork focused on extensibility and agility
+brew "neovim"
+# Small build system for use with gyp or CMake
+brew "ninja"
+# Port scanning utility for large networks
+brew "nmap"
+# Manage multiple Node.js versions
+brew "nvm"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.13"
+# Open source computer vision library
+brew "opencv"
+# 7-Zip (high compression file archiver) implementation
+brew "p7zip"
+# Pretty system information tool written in POSIX sh
+brew "pfetch"
+# Display the PID number for a given process name
+brew "pidof"
+# Coreutils progress viewer
+brew "progress"
+# Show ps output as a tree
+brew "pstree"
+# Tools for and transforming and inspecting PDF files
+brew "qpdf"
+# Persistent key-value database, with built-in net interface
+brew "redis"
+# Rust toolchain installer
+brew "rustup"
+# Multi-media library with bindings for multiple languages
+brew "sfml"
+# Static analysis and lint tool, for (ba)sh scripts
+brew "shellcheck"
+# Autoformat shell script source code
+brew "shfmt"
+# Prints a steam locomotive if you type sl instead of ls
+brew "sl"
+# Super fast C++ logging library
+brew "spdlog"
+# Command-line interface for https://speedtest.net bandwidth tests
+brew "speedtest-cli"
+# Tool to create intelligent and beautiful documentation
+brew "sphinx-doc"
+# Non-interactive SSH password auth
+brew "sshpass"
+# Version control system designed to be a better CVS
+brew "subversion"
+# Formatting technology for Swift source code
+brew "swift-format"
+# Traceroute implementation using TCP packets
+brew "tcptraceroute"
+# Extremely fast LaTeX formatter written in Rust
+brew "tex-fmt"
+# Programmatically correct mistyped console commands
+brew "thefuck"
+# Text interface for Git repositories
+brew "tig"
+# Display directories as trees (with optional color/HTML output)
+brew "tree"
+# Markup-based typesetting system
+brew "typst"
+# Extremely fast Python package installer and resolver, written in Rust
+brew "uv"
+# Tool for creating isolated virtual python environments
+brew "virtualenv"
+# Executes a program periodically, showing output fullscreen
+brew "watch"
+# Internet file retriever
+brew "wget"
+# Web debugging Proxy application
+cask "charles"
+# Managed desktop virtualization solution
+cask "citrix-workspace"
+# C and C++ IDE
+cask "clion"
+# Family of tools to build, test and package software
+cask "cmake-app"
+# Menu bar display manager: DDC brightness, HiDPI, presets, virtual displays
+cask "crisp"
+# Write, edit, and chat about your code with AI
+cask "cursor"
+# Agentic IDE with AI agent command center
+cask "devin-desktop"
+# Visually compare and merge files
+cask "diffmerge"
+# App to build and share containerised applications and microservices
+cask "docker-desktop"
+# Generate documentation from source code
+cask "doxygen-app"
+# Online diagram software
+cask "drawio"
+# Hybrid IDE and text editor
+cask "fleet"
+cask "font-maple-mono"
+# Web browser
+cask "google-chrome"
+# Free and open-source media player
+cask "iina"
+# Vector graphics editor
+cask "inkscape"
+# Terminal emulator as alternative to Apple's Terminal app
+cask "iterm2"
+# Full TeX Live distribution with GUI applications
+cask "mactex"
+# Meet, chat, call, and collaborate in just one place
+cask "microsoft-teams"
+# Knowledge base that works on top of a local folder of plain text Markdown files
+cask "obsidian"
+# Document editor
+cask "onlyoffice"
+# IDE for Python programming - Community Edition
+cask "pycharm-ce"
+# Collection of apps available by subscription
+cask "setapp"
+# PDF reader and note-taking application
+cask "skim"
+# App to switch hosts
+cask "switchhosts"
+# Terminal emulator, SSH and serial client
+cask "tabby"
+# Virtual machines UI using QEMU
+cask "utm"
+# Open-source code editor
+cask "visual-studio-code"
+# Network protocol analyzer
+cask "wireshark-app"
+# AI-assisted development environment
+cask "zcode"
+# Multiplayer code editor
+cask "zed"
+vscode "766b.go-outliner"
+vscode "cheshirekow.cmake-format"
+vscode "doubao.doubao-app-share-vscode-plugin"
+vscode "github.copilot"
+vscode "github.copilot-chat"
+vscode "golang.go"
+vscode "james-yu.latex-workshop"
+vscode "llvm-vs-code-extensions.lldb-dap"
+vscode "ms-azuretools.vscode-containers"
+vscode "ms-ceintl.vscode-language-pack-zh-hans"
+vscode "ms-vscode-remote.remote-containers"
+vscode "ms-vscode-remote.remote-ssh"
+vscode "ms-vscode-remote.remote-ssh-edit"
+vscode "ms-vscode.cpptools"
+vscode "ms-vscode.cpptools-extension-pack"
+vscode "ms-vscode.cpptools-themes"
+vscode "ms-vscode.makefile-tools"
+vscode "ms-vscode.remote-explorer"
+vscode "msyrus.go-doc"
+vscode "natizyskunk.sftp"
+vscode "redhat.java"
+vscode "reditorsupport.r"
+vscode "reditorsupport.r-syntax"
+vscode "swiftlang.swift-vscode"
+vscode "vscjava.vscode-gradle"
+vscode "vscjava.vscode-java-dependency"
+vscode "vscjava.vscode-java-pack"
+vscode "vscjava.vscode-maven"
+npm "@fission-ai/openspec"
+npm "@openai/codex"
+npm "corepack"
+npm "deepseek-tui"
+npm "openskills"
