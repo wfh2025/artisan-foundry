@@ -23,9 +23,12 @@ PROJ_CMAKE_GENERATOR="Ninja"
 PROJ_SHFMT="${PROJ_VENDOR}/shfmt-3.14.1/${PROJ_OS}/${PROJ_ARCH}/shfmt"
 PROJ_SHELLCHECK="${PROJ_VENDOR}/shellcheck-0.11.0/${PROJ_OS}/${PROJ_ARCH}/shellcheck"
 
+PROJ_CLANGFORMAT_STYLE="${PROJ_ROOT}/artisan.clang-format"
+
 export PROJ_ROOT PROJ_OS PROJ_ARCH PROJ_CUR_SCRIPT \
     PROJ_VENDOR PROJ_SHFMT PROJ_SHELLCHECK PROJ_BUILD PROJ_DEPS \
-    PROJ_CC PROJ_CXX PROJ_CMAKE_GENERATOR PROJ_CMAKE PROJ_CLANGFORMAT
+    PROJ_CC PROJ_CXX PROJ_CMAKE_GENERATOR PROJ_CMAKE \
+    PROJ_CLANGFORMAT PROJ_CLANGFORMAT_STYLE
 
 #: 调试插槽
 function dbg() {
@@ -33,8 +36,16 @@ function dbg() {
     printf '%s \n' "${PROJ_CLANGFORMAT}"
 }
 
-#: 递归格式化并静态检查所有 shell 脚本(shfmt + shellcheck)
+#: 格式化并静态检查代码
 function pretty() {
+    local rc=0
+    _pretty_shell || rc=1
+    _pretty_by_clangformat || rc=1
+    return "${rc}"
+}
+
+#: 递归格式化并静态检查所有 shell 脚本(shfmt + shellcheck)
+function _pretty_shell() {
     local file rc=0 total=0 fail=0
 
     local -a blacklist=(
@@ -66,6 +77,55 @@ function pretty() {
         printf '==> [pretty] %s\n' "${file}"
         if ! _format_shell_file "${file}" ||
             ! _check_shell_file "${file}"; then
+            fail=$((fail + 1))
+            rc=1
+        fi
+    done < <(find "${find_args[@]}" || true)
+
+    printf '==> [pretty] total=%d fail=%d\n' "${total}" "${fail}"
+    return "${rc}"
+}
+
+#: 递归格式化并静态检查所有 C/C++/Java文件
+function _pretty_by_clangformat() {
+    local file rc=0 total=0 fail=0
+
+    local -a blacklist=(
+        -path "${PROJ_BUILD}"
+        -o -path "${PROJ_DEPS}"
+        -o -name '.*'
+    )
+
+    local -a suffixes=(
+        -name '*.c'
+        -o -name '*.cc'
+        -o -name '*.cpp'
+        -o -name '*.cxx'
+        -o -name '*.h'
+        -o -name '*.hpp'
+        -o -name '*.hh'
+        -o -name '*.hxx'
+        -o -name '*.java'
+    )
+
+    local -a find_args=(
+        "${PROJ_ROOT}"
+        \(
+        "${blacklist[@]}"
+        \) -prune -o
+        \(
+        "${suffixes[@]}"
+        \)
+        -type f
+        -print
+    )
+
+    while IFS= read -r file; do
+        [[ -n ${file} ]] || continue
+        total=$((total + 1))
+        printf '==> [pretty] %s\n' "${file}"
+        if ! _format_file_by_clangformat "${file}" ||
+            ! _check_file_by_clangformat "${file}"; then
             fail=$((fail + 1))
             rc=1
         fi
@@ -157,10 +217,22 @@ function _format_shell_file() {
         --language-dialect auto --write "${file}"
 }
 
-#: 格式化脚本: xxx.sh fmt <args.0> <args.1> ...
-function fmt() {
-    _format_shell_file "$@"
-    _check_shell_file "$@"
+#: 用 clang-format格式化文件
+function _format_file_by_clangformat() {
+    local file="$1"
+    "${PROJ_CLANGFORMAT}" --Werror \
+        --fail-on-incomplete-format \
+        --style="file:${PROJ_CLANGFORMAT_STYLE}" \
+        -i "${file}"
+}
+
+#: 用clang-format检查文件
+function _check_file_by_clangformat() {
+    local file="$1"
+    "${PROJ_CLANGFORMAT}" --Werror --dry-run \
+        --fail-on-incomplete-format \
+        --style="file:${PROJ_CLANGFORMAT_STYLE}" \
+        "${file}"
 }
 
 #: 用 shellcheck 最严格档检查单个文件
@@ -357,7 +429,7 @@ function export_cmd_pdf() {
 }
 
 #: 批量导出clang-format内置style配置
-function dump_clangformat_styles() {
+function _dump_clangformat_styles() {
     local out_dir="${1:-.}"
     local style file
     local total=0 fail=0 rc=0
@@ -444,8 +516,8 @@ EOF
     fi
 }
 
-#: 安装 TAB 补全：写入 ~/.config/entry-sh/ 并在 rc 文件追加 source 行(幂等，重跑自动修正旧路径)
-function install() {
+#: 安装 TAB 补全
+function _install() {
     local rc comp_dir comp_file sh_name tmp
     local tag='# entry.sh completion (managed by entry.sh install)'
 
@@ -479,7 +551,7 @@ function install() {
 }
 
 #: 卸载 TAB 补全：删除 rc 文件中的安装行与补全文件
-function uninstall() {
+function _uninstall() {
     local rc comp_dir tmp
     local tag='# entry.sh completion (managed by entry.sh install)'
 
