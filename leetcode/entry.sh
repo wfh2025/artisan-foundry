@@ -26,9 +26,14 @@ export PROJ_ROOT PROJ_OS PROJ_ARCH PROJ_CUR_SCRIPT \
     PROJ_VENDOR PROJ_SHFMT PROJ_SHELLCHECK PROJ_BUILD PROJ_DEPS \
     PROJ_CC PROJ_CXX PROJ_CMAKE_GENERATOR PROJ_CMAKE
 
-#: 调试插槽：当前包装 clang-format，用于验证参数效果
+#: 调试插槽
 function dbg() {
-    "$(brew --prefix llvm)/bin/clang-format" "$@"
+    # "$(brew --prefix llvm)/bin/clang-format" "$@"
+    local distro kernel arch info
+
+    info=$(platform_info) || return 1
+    IFS='|' read -r distro kernel arch <<< "${info}"
+    printf 'distro = %s, kernel = %s, arch = %s \n' "${distro}" "${kernel}" "${arch}"
 }
 
 #: 递归格式化并静态检查所有 shell 脚本(shfmt + shellcheck)
@@ -181,6 +186,37 @@ function _check_shell_file() {
                          --severity=style \
                          --wiki-link-count=0 \
                          --external-sources "${file}"
+}
+
+#: 输出平台信息单行: distro|kernel|arch (ubuntu|Linux|x86_64)
+#: local distro kernel arch info
+#: info=$(platform_info) || return 1
+#: IFS='|' read -r distro kernel arch <<< "${info}"
+function platform_info() {
+    local kernel arch distro
+
+    kernel=$(uname -s) # Darwin / Linux
+    arch=$(uname -m)   # arm64 / x86_64 / ...
+
+    case ${kernel} in
+        Darwin)
+            distro=macOS
+            ;;
+        Linux)
+            # /etc/os-release 的 ID 是发行版小写标识：ubuntu/centos/rocky/debian...
+            # ID 缺失或为空时退回 ID_LIKE 的第一个同族名，再缺失则 unknown
+            distro=$(
+                # shellcheck disable=SC1091
+                . /etc/os-release 2> /dev/null &&
+                    printf '%s' "${ID:-${ID_LIKE%% *}}" || printf 'unknown'
+            )
+            ;;
+        *)
+            distro=unknown
+            ;;
+    esac
+
+    printf '%s|%s|%s\n' "${distro}" "${kernel}" "${arch}"
 }
 
 #: 输出当前毫秒级时间戳(多平台兜底)
