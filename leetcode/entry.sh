@@ -391,6 +391,7 @@ function unique_name() {
 }
 
 #: 保存后自动重跑指定命令(watch)
+#: macOS: brew install watch
 function watch_cmd() {
     local cmdName="${1-}"
     local cmdPath=""
@@ -452,7 +453,7 @@ function _dump_clangformat_styles() {
         if "${PROJ_CLANGFORMAT}" -style="${style}" -dump-config > "${file}"; then
             continue
         fi
-        rm -fv "${file}"
+        rm -f "${file}"
         fail=$((fail + 1))
         rc=1
         printf '==> [clang-format] FAIL %s\n' "${style}"
