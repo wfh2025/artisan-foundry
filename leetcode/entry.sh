@@ -283,13 +283,13 @@ function _check_file_by_clangformat() {
 #: 用 ruff format 就地格式化单个 Python 文件(风格: artisan-ruff.toml)
 function _format_python_file() {
     local file="$1"
-    "${PROJ_RUFF}" format --config "${PROJ_RUFF_CONFIG}" "${file}"
+    "${PROJ_RUFF}" format --no-cache --config "${PROJ_RUFF_CONFIG}" "${file}"
 }
 
 #: 用 ruff check 最严格档检查单个 Python 文件(--select ALL, 风格: artisan-ruff.toml)
 function _check_python_file() {
     local file="$1"
-    "${PROJ_RUFF}" check --config "${PROJ_RUFF_CONFIG}" "${file}"
+    "${PROJ_RUFF}" check --no-cache --config "${PROJ_RUFF_CONFIG}" "${file}"
 }
 
 #: 用 shellcheck 最严格档检查单个文件
