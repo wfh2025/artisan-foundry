@@ -17,6 +17,7 @@ PROJ_CC=$(command -v cc)
 PROJ_CXX=$(command -v c++)
 PROJ_CMAKE=$(command -v cmake)
 PROJ_CLANGFORMAT=$(command -v clang-format)
+PROJ_SWIFTFORMAT=$(command -v swift-format)
 
 PROJ_CMAKE_GENERATOR="Ninja"
 
@@ -26,11 +27,14 @@ PROJ_RUFF="${PROJ_VENDOR}/ruff-0.17.4/${PROJ_OS}/${PROJ_ARCH}/ruff"
 
 PROJ_CLANGFORMAT_STYLE="${PROJ_ROOT}/artisan.clang-format"
 PROJ_RUFF_CONFIG="${PROJ_ROOT}/artisan-ruff.toml"
+PROJ_SWIFTFORMAT_STYLE="${PROJ_ROOT}/artisan.swift-format"
 
 export PROJ_ROOT PROJ_OS PROJ_ARCH PROJ_CUR_SCRIPT \
     PROJ_VENDOR PROJ_SHFMT PROJ_SHELLCHECK PROJ_BUILD PROJ_DEPS \
     PROJ_CC PROJ_CXX PROJ_CMAKE_GENERATOR PROJ_CMAKE \
-    PROJ_CLANGFORMAT PROJ_CLANGFORMAT_STYLE PROJ_RUFF PROJ_RUFF_CONFIG
+    PROJ_CLANGFORMAT PROJ_CLANGFORMAT_STYLE \
+    PROJ_RUFF PROJ_RUFF_CONFIG \
+    PROJ_SWIFTFORMAT PROJ_SWIFTFORMAT_STYLE
 
 #: 调试插槽
 function dbg() {
@@ -44,6 +48,7 @@ function pretty() {
     _pretty_shell || rc=1
     _pretty_by_clangformat || rc=1
     _pretty_python || rc=1
+    _pretty_swift || rc=1
     return "${rc}"
 }
 
@@ -176,6 +181,47 @@ function _pretty_python() {
         fi
     done < <(find "${find_args[@]}" || true)
 
+        printf '==> [pretty] total=%d fail=%d\n' "${total}" "${fail}"
+    return "${rc}"
+}
+
+#: 递归格式化并静态检查所有 Swift 文件(swift-format format + swift-format lint)
+function _pretty_swift() {
+    local file rc=0 total=0 fail=0
+
+    local -a blacklist=(
+        -path "${PROJ_BUILD}"
+        -o -path "${PROJ_DEPS}"
+        -o -name '.*'
+    )
+
+    local -a suffixes=(
+        -name '*.swift'
+    )
+
+    local -a find_args=(
+        "${PROJ_ROOT}"
+        \(
+        "${blacklist[@]}"
+        \) -prune -o
+        \(
+        "${suffixes[@]}"
+        \)
+        -type f
+        -print
+    )
+
+    while IFS= read -r file; do
+        [[ -n ${file} ]] || continue
+        total=$((total + 1))
+        printf '==> [pretty] %s\n' "${file}"
+        if ! _format_swift_file "${file}" ||
+            ! _check_swift_file "${file}"; then
+            fail=$((fail + 1))
+            rc=1
+        fi
+    done < <(find "${find_args[@]}" || true)
+
     printf '==> [pretty] total=%d fail=%d\n' "${total}" "${fail}"
     return "${rc}"
 }
@@ -290,6 +336,22 @@ function _format_python_file() {
 function _check_python_file() {
     local file="$1"
     "${PROJ_RUFF}" check --no-cache --config "${PROJ_RUFF_CONFIG}" "${file}"
+}
+
+#: 用 swift-format 就地格式化单个 Swift 文件(风格: artisan.swift-format)
+function _format_swift_file() {
+    local file="$1"
+    "${PROJ_SWIFTFORMAT}" format --in-place \
+        --configuration "${PROJ_SWIFTFORMAT_STYLE}" \
+        "${file}"
+}
+
+#: 用 swift-format lint 最严格档检查单个 Swift 文件(--strict, 风格: artisan.swift-format)
+function _check_swift_file() {
+    local file="$1"
+    "${PROJ_SWIFTFORMAT}" lint --strict \
+        --configuration "${PROJ_SWIFTFORMAT_STYLE}" \
+        "${file}"
 }
 
 #: 用 shellcheck 最严格档检查单个文件
