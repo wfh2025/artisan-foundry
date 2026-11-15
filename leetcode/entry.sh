@@ -181,7 +181,7 @@ function _pretty_python() {
         fi
     done < <(find "${find_args[@]}" || true)
 
-        printf '==> [pretty] total=%d fail=%d\n' "${total}" "${fail}"
+    printf '==> [pretty] total=%d fail=%d\n' "${total}" "${fail}"
     return "${rc}"
 }
 
