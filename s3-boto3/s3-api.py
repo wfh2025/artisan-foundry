@@ -1,3 +1,5 @@
+"""演示 boto3 S3 对象接口的参数用法."""
+
 import datetime
 import logging
 import pprint
@@ -7,7 +9,9 @@ import boto3
 import botocore.config
 import botocore.endpoint
 
-s3_config = {'bucket_name': 'haha', }
+s3_config = {
+    'bucket_name': 'haha',
+}
 
 # 配置参考: https://docs.aws.amazon.com/botocore/latest/reference/config.html
 client = boto3.client(
@@ -18,7 +22,7 @@ client = boto3.client(
     verify=None,
     endpoint_url='https://192.168.3.10:12538',
     aws_access_key_id='abcdefg',
-    aws_secret_access_key='hjklmn',
+    aws_secret_access_key='hjklmn',  # noqa: S106 演示用假密钥
     aws_session_token=None,
     config=botocore.config.Config(
         region_name=None,
@@ -51,7 +55,8 @@ client = boto3.client(
         use_dualstack_endpoint=None,
         use_fips_endpoint=None,
         ignore_configured_endpoint_urls=None,
-        defaults_mode='legacy', tcp_keepalive=None,
+        defaults_mode='legacy',
+        tcp_keepalive=None,
         request_min_compression_size_bytes=None,
         disable_request_compression=None,
         client_context_params=None,
@@ -66,8 +71,11 @@ client = boto3.client(
 
 logging.basicConfig(
     level=logging.INFO,
-    format="[%(asctime)s.%(msecs)03d] [%(levelname)s] [%(process)d] [%(threadName)s] [%(filename)s:%(funcName)s:%(lineno)d] %(message)s",
-    datefmt="%Y-%m-%d %H:%M:%S",
+    format=(
+        '[%(asctime)s.%(msecs)03d] [%(levelname)s] [%(process)d] '
+        '[%(threadName)s] [%(filename)s:%(funcName)s:%(lineno)d] %(message)s'
+    ),
+    datefmt='%Y-%m-%d %H:%M:%S',
     handlers=[logging.StreamHandler(sys.stdout)],
     force=True,
 )
@@ -75,25 +83,37 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 
-def upload_file():
-    file_path = "/s3-auth.py"
-    key = "key-aws-sdk-cpp.tar.gz"
-    client.upload_file(file_path, s3_config["bucket_name"], key)
+def upload_file() -> None:
+    """上传本地文件到 S3."""
+    file_path = '/s3-auth.py'
+    key = 'key-aws-sdk-cpp.tar.gz'
+    client.upload_file(file_path, s3_config['bucket_name'], key)
 
 
-def list_objects():
-    resp = client.list_objects(Bucket=s3_config["bucket_name"], Delimiter='/', EncodingType='url', Marker='abcd',
-                               MaxKeys=123, Prefix='8!@#$%^&*()/98', )
-    pprint.pprint(resp)
+def list_objects() -> None:
+    """列出桶内对象(List Objects v1)."""
+    resp = client.list_objects(
+        Bucket=s3_config['bucket_name'],
+        Delimiter='/',
+        EncodingType='url',
+        Marker='abcd',
+        MaxKeys=123,
+        Prefix='8!@#$%^&*()/98',
+    )
+    logger.info('resp: %s', pprint.pformat(resp))
 
 
-def put_object():
+def put_object() -> None:
+    """上传单个对象(PUT Object)."""
     logger.info(''.center(100, '-'))
-    resp = client.put_object(Bucket=s3_config["bucket_name"], Key='a/b/c.txt', Body=b"Hello World")
-    pprint.pprint(resp)
+    resp = client.put_object(
+        Bucket=s3_config['bucket_name'], Key='a/b/c.txt', Body=b'Hello World'
+    )
+    logger.info('resp: %s', pprint.pformat(resp))
 
 
-def abort_multipart_upload():
+def abort_multipart_upload() -> None:
+    """中止分片上传."""
     logger.info(''.center(100, '-'))
     resp = client.abort_multipart_upload(
         Bucket='string',
@@ -101,12 +121,15 @@ def abort_multipart_upload():
         UploadId='string',
         RequestPayer='requester',
         ExpectedBucketOwner='string',
-        IfMatchInitiatedTime=datetime.datetime(2015, 1, 1)
+        IfMatchInitiatedTime=datetime.datetime(
+            2015, 1, 1, tzinfo=datetime.UTC
+        ),
     )
-    pprint.pprint(resp)
+    logger.info('resp: %s', pprint.pformat(resp))
 
 
-def complete_multipart_upload():
+def complete_multipart_upload() -> None:
+    """完成分片上传."""
     logger.info(''.center(100, '-'))
     resp = client.complete_multipart_upload(
         Bucket='string',
@@ -125,7 +148,7 @@ def complete_multipart_upload():
                     'ChecksumXXHASH64': 'string',
                     'ChecksumXXHASH3': 'string',
                     'ChecksumXXHASH128': 'string',
-                    'PartNumber': 123
+                    'PartNumber': 123,
                 },
             ]
         },
@@ -149,10 +172,11 @@ def complete_multipart_upload():
         SSECustomerAlgorithm='string',
         SSECustomerKey='string',
     )
-    pprint.pprint(resp)
+    logger.info('resp: %s', pprint.pformat(resp))
 
 
-def create_multipart_upload():
+def create_multipart_upload() -> None:
+    """创建分片上传."""
     logger.info(''.center(100, '-'))
     resp = client.create_multipart_upload(
         ACL='public-read-write',
@@ -162,15 +186,13 @@ def create_multipart_upload():
         ContentEncoding='string',
         ContentLanguage='string',
         ContentType='string',
-        Expires=datetime.datetime(2015, 1, 1),
+        Expires=datetime.datetime(2015, 1, 1, tzinfo=datetime.UTC),
         GrantFullControl='string',
         GrantRead='string',
         GrantReadACP='string',
         GrantWriteACP='string',
         Key='string',
-        Metadata={
-            'string': 'string'
-        },
+        Metadata={'string': 'string'},
         ServerSideEncryption='AES256',
         StorageClass='STANDARD',
         WebsiteRedirectLocation='string',
@@ -182,16 +204,19 @@ def create_multipart_upload():
         RequestPayer='requester',
         Tagging='string',
         ObjectLockMode='GOVERNANCE',
-        ObjectLockRetainUntilDate=datetime.datetime(2015, 1, 1),
+        ObjectLockRetainUntilDate=datetime.datetime(
+            2015, 1, 1, tzinfo=datetime.UTC
+        ),
         ObjectLockLegalHoldStatus='ON',
         ExpectedBucketOwner='string',
         ChecksumAlgorithm='CRC32',
         ChecksumType='COMPOSITE',
     )
-    pprint.pprint(resp)
+    logger.info('resp: %s', pprint.pformat(resp))
 
 
-def delete_object():
+def delete_object() -> None:
+    """删除单个对象."""
     logger.info(''.center(100, '-'))
     resp = client.delete_object(
         Bucket='string',
@@ -202,13 +227,16 @@ def delete_object():
         BypassGovernanceRetention=True,
         ExpectedBucketOwner='string',
         IfMatch='string',
-        IfMatchLastModifiedTime=datetime.datetime(2015, 1, 1),
-        IfMatchSize=123
+        IfMatchLastModifiedTime=datetime.datetime(
+            2015, 1, 1, tzinfo=datetime.UTC
+        ),
+        IfMatchSize=123,
     )
-    pprint.pprint(resp)
+    logger.info('resp: %s', pprint.pformat(resp))
 
 
-def delete_objects():
+def delete_objects() -> None:
+    """批量删除对象."""
     logger.info(''.center(100, '-'))
     resp = client.delete_objects(
         Bucket='string',
@@ -218,8 +246,10 @@ def delete_objects():
                     'Key': 'string',
                     'VersionId': 'string',
                     'ETag': 'string',
-                    'LastModifiedTime': datetime.datetime(2015, 1, 1),
-                    'Size': 123
+                    'LastModifiedTime': datetime.datetime(
+                        2015, 1, 1, tzinfo=datetime.UTC
+                    ),
+                    'Size': 123,
                 },
             ],
             'Quiet': True,
@@ -230,28 +260,30 @@ def delete_objects():
         ExpectedBucketOwner='string',
         ChecksumAlgorithm='CRC32',
     )
-    pprint.pprint(resp)
+    logger.info('resp: %s', pprint.pformat(resp))
 
 
-def delete_object_tagging():
+def delete_object_tagging() -> None:
+    """删除对象标签."""
     logger.info(''.center(100, '-'))
     resp = client.delete_object_tagging(
         Bucket='string',
         Key='string',
         VersionId='string',
-        ExpectedBucketOwner='string'
+        ExpectedBucketOwner='string',
     )
-    pprint.pprint(resp)
+    logger.info('resp: %s', pprint.pformat(resp))
 
 
-def get_object():
+def get_object() -> None:
+    """获取对象(GET Object)."""
     logger.info(''.center(100, '-'))
     resp = client.get_object(
         Bucket='string',
         IfMatch='string',
-        IfModifiedSince=datetime.datetime(2015, 1, 1),
+        IfModifiedSince=datetime.datetime(2015, 1, 1, tzinfo=datetime.UTC),
         IfNoneMatch='string',
-        IfUnmodifiedSince=datetime.datetime(2015, 1, 1),
+        IfUnmodifiedSince=datetime.datetime(2015, 1, 1, tzinfo=datetime.UTC),
         Key='string',
         Range='string',
         ResponseCacheControl='string',
@@ -259,38 +291,40 @@ def get_object():
         ResponseContentEncoding='string',
         ResponseContentLanguage='string',
         ResponseContentType='string',
-        ResponseExpires=datetime.datetime(2015, 1, 1),
+        ResponseExpires=datetime.datetime(2015, 1, 1, tzinfo=datetime.UTC),
         VersionId='string',
         SSECustomerAlgorithm='string',
         SSECustomerKey='string',
         RequestPayer='requester',
         PartNumber=123,
         ExpectedBucketOwner='string',
-        ChecksumMode='ENABLED'
+        ChecksumMode='ENABLED',
     )
-    pprint.pprint(resp)
+    logger.info('resp: %s', pprint.pformat(resp))
 
 
-def get_object_tagging():
+def get_object_tagging() -> None:
+    """获取对象标签."""
     logger.info(''.center(100, '-'))
     resp = client.get_object_tagging(
         Bucket='string',
         Key='string',
         VersionId='string',
         ExpectedBucketOwner='string',
-        RequestPayer='requester'
+        RequestPayer='requester',
     )
-    pprint.pprint(resp)
+    logger.info('resp: %s', pprint.pformat(resp))
 
 
-def head_object():
+def head_object() -> None:
+    """获取对象元数据(HEAD Object)."""
     logger.info(''.center(100, '-'))
     resp = client.head_object(
         Bucket='string',
         IfMatch='string',
-        IfModifiedSince=datetime.datetime(2015, 1, 1),
+        IfModifiedSince=datetime.datetime(2015, 1, 1, tzinfo=datetime.UTC),
         IfNoneMatch='string',
-        IfUnmodifiedSince=datetime.datetime(2015, 1, 1),
+        IfUnmodifiedSince=datetime.datetime(2015, 1, 1, tzinfo=datetime.UTC),
         Key='string',
         Range='string',
         ResponseCacheControl='string',
@@ -298,19 +332,20 @@ def head_object():
         ResponseContentEncoding='string',
         ResponseContentLanguage='string',
         ResponseContentType='string',
-        ResponseExpires=datetime.datetime(2015, 1, 1),
+        ResponseExpires=datetime.datetime(2015, 1, 1, tzinfo=datetime.UTC),
         VersionId='string',
         SSECustomerAlgorithm='string',
         SSECustomerKey='string',
         RequestPayer='requester',
         PartNumber=123,
         ExpectedBucketOwner='string',
-        ChecksumMode='ENABLED'
+        ChecksumMode='ENABLED',
     )
-    pprint.pprint(resp)
+    logger.info('resp: %s', pprint.pformat(resp))
 
 
-def list_multipart_uploads():
+def list_multipart_uploads() -> None:
+    """列出进行中的分片上传."""
     logger.info(''.center(100, '-'))
     resp = client.list_multipart_uploads(
         Bucket='string',
@@ -321,12 +356,13 @@ def list_multipart_uploads():
         Prefix='string',
         UploadIdMarker='string',
         ExpectedBucketOwner='string',
-        RequestPayer='requester'
+        RequestPayer='requester',
     )
-    pprint.pprint(resp)
+    logger.info('resp: %s', pprint.pformat(resp))
 
 
-def list_object_versions():
+def list_object_versions() -> None:
+    """列出对象所有版本."""
     logger.info(''.center(100, '-'))
     resp = client.list_object_versions(
         Bucket='string',
@@ -340,12 +376,13 @@ def list_object_versions():
         RequestPayer='requester',
         OptionalObjectAttributes=[
             'RestoreStatus',
-        ]
+        ],
     )
-    pprint.pprint(resp)
+    logger.info('resp: %s', pprint.pformat(resp))
 
 
-def list_objects_v2():
+def list_objects_v2() -> None:
+    """列出桶内对象(List Objects v2)."""
     logger.info(''.center(100, '-'))
     resp = client.list_objects_v2(
         Bucket='string',
@@ -360,12 +397,13 @@ def list_objects_v2():
         ExpectedBucketOwner='string',
         OptionalObjectAttributes=[
             'RestoreStatus',
-        ]
+        ],
     )
-    pprint.pprint(resp)
+    logger.info('resp: %s', pprint.pformat(resp))
 
 
-def list_parts():
+def list_parts() -> None:
+    """列出已上传的分片."""
     logger.info(''.center(100, '-'))
     resp = client.list_parts(
         Bucket='string',
@@ -378,10 +416,11 @@ def list_parts():
         SSECustomerAlgorithm='string',
         SSECustomerKey='string',
     )
-    pprint.pprint(resp)
+    logger.info('resp: %s', pprint.pformat(resp))
 
 
-def put_object_tagging():
+def put_object_tagging() -> None:
+    """设置对象标签."""
     logger.info(''.center(100, '-'))
     resp = client.put_object_tagging(
         Bucket='string',
@@ -391,19 +430,17 @@ def put_object_tagging():
         ChecksumAlgorithm='CRC32',
         Tagging={
             'TagSet': [
-                {
-                    'Key': 'string',
-                    'Value': 'string'
-                },
+                {'Key': 'string', 'Value': 'string'},
             ]
         },
         ExpectedBucketOwner='string',
-        RequestPayer='requester'
+        RequestPayer='requester',
     )
-    pprint.pprint(resp)
+    logger.info('resp: %s', pprint.pformat(resp))
 
 
-def upload_part():
+def upload_part() -> None:
+    """上传单个分片."""
     logger.info(''.center(100, '-'))
     response = client.upload_part(
         Body=b'bytes',
@@ -427,12 +464,13 @@ def upload_part():
         SSECustomerAlgorithm='string',
         SSECustomerKey='string',
         RequestPayer='requester',
-        ExpectedBucketOwner='string'
+        ExpectedBucketOwner='string',
     )
-    pprint.pprint(response)
+    logger.info('resp: %s', pprint.pformat(response))
 
 
-def main():
+def main() -> None:
+    """入口: 执行 put_object 演示."""
     put_object()
 
 

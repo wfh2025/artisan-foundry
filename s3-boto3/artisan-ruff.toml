@@ -14,6 +14,9 @@ ignore = [
 [lint.pydocstyle]
 convention = "pep257"
 
+[lint.flake8-import-conventions]
+aliases = {}
+
 [lint.flake8-quotes]
 inline-quotes = "single"
 

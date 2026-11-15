@@ -1,8 +1,27 @@
+"""演示 boto3 S3 的最小用法."""
+
+# ruff: noqa: ERA001 注释保留的 botocore.Config 参数备忘
+
+import logging
 import pprint
+import sys
 
 import boto3
 import botocore.config
 import botocore.endpoint
+
+logging.basicConfig(
+    level=logging.INFO,
+    format=(
+        '[%(asctime)s.%(msecs)03d] [%(levelname)s] [%(process)d] '
+        '[%(threadName)s] [%(filename)s:%(funcName)s:%(lineno)d] %(message)s'
+    ),
+    datefmt='%Y-%m-%d %H:%M:%S',
+    handlers=[logging.StreamHandler(sys.stdout)],
+    force=True,
+)
+
+logger = logging.getLogger(__name__)
 
 s3_config = {
     'bucket_name': 'haha',
@@ -17,7 +36,7 @@ client = boto3.client(
     verify=None,
     endpoint_url='https://192.168.3.10:12538',
     aws_access_key_id='abcdefg',
-    aws_secret_access_key='hjklmn',
+    aws_secret_access_key='hjklmn',  # noqa: S106 演示用假密钥
     aws_session_token=None,
     config=botocore.config.Config(
         region_name=None,
@@ -65,32 +84,33 @@ client = boto3.client(
 )
 
 
-def upload_file():
-    file_path = "/s3-auth.py"
-    key = "key-aws-sdk-cpp.tar.gz"
-    client.upload_file(file_path, s3_config["bucket_name"], key)
+def upload_file() -> None:
+    """上传本地文件到 S3."""
+    file_path = '/s3-auth.py'
+    key = 'key-aws-sdk-cpp.tar.gz'
+    client.upload_file(file_path, s3_config['bucket_name'], key)
 
 
-def list_objects():
+def list_objects() -> None:
+    """列出桶内对象(List Objects v1)."""
     resp = client.list_objects(
-        Bucket=s3_config["bucket_name"],
+        Bucket=s3_config['bucket_name'],
         Delimiter='/',
         EncodingType='url',
         Marker='abcd',
         MaxKeys=123,
         Prefix='8!@#$%^&*()/98',
     )
-    pprint.pprint(resp)
+    logger.info('resp: %s', pprint.pformat(resp))
 
 
-def put_object():
+def put_object() -> None:
+    """上传单个对象(PUT Object)."""
     resp = client.put_object(
-        Bucket=s3_config["bucket_name"],
-        Key='a/b/c.txt',
-        Body=b"Hello World"
+        Bucket=s3_config['bucket_name'], Key='a/b/c.txt', Body=b'Hello World'
     )
-    pprint.pprint(resp)
+    logger.info('resp: %s', pprint.pformat(resp))
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     put_object()
