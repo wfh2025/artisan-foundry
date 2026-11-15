@@ -415,8 +415,9 @@ function _build_civetweb() {
 
 #: CMake 构建并安装 spdlog 到 deps/spdlog
 function _build_spdlog() {
-    local build_dir="${PROJ_BUILD}/spdlog"
-    local install_dir="${PROJ_DEPS}/spdlog"
+    local name="spdlog"
+    local build_dir="${PROJ_BUILD}/${name}"
+    local install_dir="${PROJ_DEPS}/${name}"
     local src="${PROJ_VENDOR}/spdlog-1.17.0"
 
     rm -fr "${build_dir}" "${install_dir}" && mkdir -p "${install_dir}"
