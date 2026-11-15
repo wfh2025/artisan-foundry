@@ -5,3 +5,4 @@ aidlc/
 
 leetcode/build/
 leetcode/deps/
+leetcode/.ruff_cache/

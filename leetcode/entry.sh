@@ -22,13 +22,15 @@ PROJ_CMAKE_GENERATOR="Ninja"
 
 PROJ_SHFMT="${PROJ_VENDOR}/shfmt-3.14.1/${PROJ_OS}/${PROJ_ARCH}/shfmt"
 PROJ_SHELLCHECK="${PROJ_VENDOR}/shellcheck-0.11.0/${PROJ_OS}/${PROJ_ARCH}/shellcheck"
+PROJ_RUFF="${PROJ_VENDOR}/ruff-0.17.4/${PROJ_OS}/${PROJ_ARCH}/ruff"
 
 PROJ_CLANGFORMAT_STYLE="${PROJ_ROOT}/artisan.clang-format"
+PROJ_RUFF_CONFIG="${PROJ_ROOT}/artisan-ruff.toml"
 
 export PROJ_ROOT PROJ_OS PROJ_ARCH PROJ_CUR_SCRIPT \
     PROJ_VENDOR PROJ_SHFMT PROJ_SHELLCHECK PROJ_BUILD PROJ_DEPS \
     PROJ_CC PROJ_CXX PROJ_CMAKE_GENERATOR PROJ_CMAKE \
-    PROJ_CLANGFORMAT PROJ_CLANGFORMAT_STYLE
+    PROJ_CLANGFORMAT PROJ_CLANGFORMAT_STYLE PROJ_RUFF PROJ_RUFF_CONFIG
 
 #: 调试插槽
 function dbg() {
@@ -41,6 +43,7 @@ function pretty() {
     local rc=0
     _pretty_shell || rc=1
     _pretty_by_clangformat || rc=1
+    _pretty_python || rc=1
     return "${rc}"
 }
 
@@ -126,6 +129,48 @@ function _pretty_by_clangformat() {
         printf '==> [pretty] %s\n' "${file}"
         if ! _format_file_by_clangformat "${file}" ||
             ! _check_file_by_clangformat "${file}"; then
+            fail=$((fail + 1))
+            rc=1
+        fi
+    done < <(find "${find_args[@]}" || true)
+
+    printf '==> [pretty] total=%d fail=%d\n' "${total}" "${fail}"
+    return "${rc}"
+}
+
+#: 递归格式化并静态检查所有 Python 文件(ruff format + ruff check)
+function _pretty_python() {
+    local file rc=0 total=0 fail=0
+
+    local -a blacklist=(
+        -path "${PROJ_BUILD}"
+        -o -path "${PROJ_DEPS}"
+        -o -name '.*'
+    )
+
+    local -a suffixes=(
+        -name '*.py'
+        -o -name '*.pyi'
+    )
+
+    local -a find_args=(
+        "${PROJ_ROOT}"
+        \(
+        "${blacklist[@]}"
+        \) -prune -o
+        \(
+        "${suffixes[@]}"
+        \)
+        -type f
+        -print
+    )
+
+    while IFS= read -r file; do
+        [[ -n ${file} ]] || continue
+        total=$((total + 1))
+        printf '==> [pretty] %s\n' "${file}"
+        if ! _format_python_file "${file}" ||
+            ! _check_python_file "${file}"; then
             fail=$((fail + 1))
             rc=1
         fi
@@ -233,6 +278,18 @@ function _check_file_by_clangformat() {
         --fail-on-incomplete-format \
         --style="file:${PROJ_CLANGFORMAT_STYLE}" \
         "${file}"
+}
+
+#: 用 ruff format 就地格式化单个 Python 文件(风格: artisan-ruff.toml)
+function _format_python_file() {
+    local file="$1"
+    "${PROJ_RUFF}" format --config "${PROJ_RUFF_CONFIG}" "${file}"
+}
+
+#: 用 ruff check 最严格档检查单个 Python 文件(--select ALL, 风格: artisan-ruff.toml)
+function _check_python_file() {
+    local file="$1"
+    "${PROJ_RUFF}" check --config "${PROJ_RUFF_CONFIG}" "${file}"
 }
 
 #: 用 shellcheck 最严格档检查单个文件
