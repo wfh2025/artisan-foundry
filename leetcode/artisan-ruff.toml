@@ -1,18 +1,7 @@
-# artisan python 风格: 严格对齐 Python 官方编码规范
-# - PEP 8  (Style Guide for Python Code)          -> 风格规则 + 79 列
-# - PEP 257 (Docstring Conventions)                -> pydocstyle pep257 convention
-# - PEP 484 (Type Hints)                           -> flake8-annotations 全家
-# 由 entry.sh 的 _format_python_file / _check_python_file 通过 --config 显式加载
-# 规则全貌: ruff rules (本机 vendor/ruff-0.17.4)
-
-#: PEP 8: "Limit all lines to a maximum of 79 characters"
 line-length = 79
 
 [lint]
-#: 最严格基底 = 全部稳定规则(类比 shellcheck --enable=all)
 select = ["ALL"]
-
-#: ALL 中与官方规范冲突/重复/项目噪音的规则, 逐条列出理由(新噪音在此追加)
 ignore = [
     "INP001", # 隐式命名空间包: 算法练习无包结构(项目性噪音, 非规范要求)
     "CPY001", # 缺版权声明: PEP 8/257 均无此要求(个人项目)
@@ -23,17 +12,11 @@ ignore = [
 ]
 
 [lint.pydocstyle]
-#: PEP 257 官方约定: 摘要行在首行、三引号独立行的取舍等, 由 convention 统一裁决
 convention = "pep257"
 
 [lint.flake8-quotes]
-#: PEP 8 未规定引号; 与 format.quote-style 同源决策(标准库主流 ~60% 单引号)
-#: lint/format 两引擎必须同口径, 否则互相打架导致永不幂等
 inline-quotes = "single"
 
 [format]
-#: PEP 8 未规定引号; 参照 CPython 标准库主流用法(实测 3.14: 单引号 ~60%)
-#: 本机统计命令见 entry.sh 的 _check_python_file 注释
 quote-style = "single"
-#: PEP 8 "Use 4 spaces per indentation level"
 indent-style = "space"
