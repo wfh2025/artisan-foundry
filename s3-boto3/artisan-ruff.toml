@@ -1,0 +1,22 @@
+line-length = 79
+
+[lint]
+select = ["ALL"]
+ignore = [
+    "INP001", # 隐式命名空间包: 算法练习无包结构(项目性噪音, 非规范要求)
+    "CPY001", # 缺版权声明: PEP 8/257 均无此要求(个人项目)
+    "D203",   # pep257 convention 自动处理: 与 D211 互斥
+    "D213",   # pep257 convention 自动处理: 与 D212 互斥
+    "COM812", # 尾逗号: 与 ruff formatter 冲突, 官方建议禁用(尾逗号交给 format)
+    "ISC001", # 隐式字符串拼接: 与 formatter 冲突, 官方建议禁用
+]
+
+[lint.pydocstyle]
+convention = "pep257"
+
+[lint.flake8-quotes]
+inline-quotes = "single"
+
+[format]
+quote-style = "single"
+indent-style = "space"
