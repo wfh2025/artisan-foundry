@@ -651,6 +651,39 @@ function display_elapsed() {
     return "${rc}"
 }
 
+#: 生成定宽标题行: 两侧用填充字符、中间放文字(宽度按字符数计, 奇数余量归右侧)
+#: banner <width> [text] [char]
+#: banner 7 xxx          -> ==xxx==
+#: banner 20 xxx         -> ========xxx=========
+#: banner 20 '' '*'      -> ********************
+function banner() {
+    local width text ch
+    width="${1-}"
+    text="${2-}"
+    ch="${3-=}"
+
+    if [[ ! ${width} =~ ^[1-9][0-9]*$ ]]; then
+        printf 'Usage: banner <width> [text] [char]\n' >&2
+        return 1
+    fi
+
+    local text_len left right left_pad right_pad
+    text_len=${#text}
+
+    # 文本长度不小于总宽时原样输出
+    if ((text_len >= width)); then
+        printf '%s\n' "${text}"
+        return 0
+    fi
+
+    left=$(((width - text_len) / 2))
+    right=$((width - text_len - left))
+
+    printf -v left_pad '%*s' "${left}" ''
+    printf -v right_pad '%*s' "${right}" ''
+    printf '%s%s%s\n' "${left_pad// /${ch}}" "${text}" "${right_pad// /${ch}}"
+}
+
 #: 回显命令并执行
 function display_cmd() {
     local rc=0
