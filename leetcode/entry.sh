@@ -25,7 +25,7 @@ PROJ_SHFMT="${PROJ_VENDOR}/shfmt-3.14.1/${PROJ_OS}/${PROJ_ARCH}/shfmt"
 PROJ_SHELLCHECK="${PROJ_VENDOR}/shellcheck-0.11.0/${PROJ_OS}/${PROJ_ARCH}/shellcheck"
 PROJ_RUFF="${PROJ_VENDOR}/ruff-0.17.4/${PROJ_OS}/${PROJ_ARCH}/ruff"
 
-PROJ_CLANGFORMAT_STYLE="${PROJ_ROOT}/artisan.clang-format"
+PROJ_CLANGFORMAT_STYLE="${PROJ_ROOT}/.clang-format"
 PROJ_RUFF_CONFIG="${PROJ_ROOT}/artisan-ruff.toml"
 PROJ_SWIFTFORMAT_STYLE="${PROJ_ROOT}/artisan.swift-format"
 
