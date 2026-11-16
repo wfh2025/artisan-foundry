@@ -3,6 +3,7 @@
         "llvm-vs-code-extensions.vscode-clangd",
         "ms-ceintl.vscode-language-pack-zh-hans",
         "anysphere.remote-ssh",
-        "ms-vscode.cpptools-themes"
+        "ms-vscode.cpptools-themes",
+        "mads-hartmann.bash-ide-vscode"
     ]
 }
