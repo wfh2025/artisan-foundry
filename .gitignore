@@ -6,3 +6,6 @@ aidlc/
 leetcode/build/
 leetcode/deps/
 leetcode/.ruff_cache/
+
+examples/all-in-one/build
+examples/all-in-one/deps
