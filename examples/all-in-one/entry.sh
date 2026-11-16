@@ -269,8 +269,9 @@ function build_deps() {
 
 #: 构建gflags
 function _build_gflags() {
-    local build_dir="${PROJ_BUILD}/gflags"
-    local install_dir="${PROJ_DEPS}/gflags"
+    local name="gflags"
+    local build_dir="${PROJ_BUILD}/${name}"
+    local install_dir="${PROJ_DEPS}/${name}"
     local src="${PROJ_VENDOR}/gflags-2.2.2"
 
     rm -fr "${build_dir}" "${install_dir}" && mkdir -p "${install_dir}"
@@ -288,8 +289,10 @@ function _build_gflags() {
 
 #: 构建json
 function _build_nlohmann_json() {
-    local build_dir="${PROJ_BUILD}/json"
-    local install_dir="${PROJ_DEPS}/json"
+    local name="json"
+    local build_dir="${PROJ_BUILD}/${name}"
+    local install_dir="${PROJ_DEPS}/${name}"
+
     local src="${PROJ_VENDOR}/json-3.12.0"
 
     rm -fr "${build_dir}" "${install_dir}" && mkdir -p "${install_dir}"
@@ -308,8 +311,9 @@ function _build_nlohmann_json() {
 
 #: 构建leveldb
 function _build_leveldb() {
-    local build_dir="${PROJ_BUILD}/leveldb"
-    local install_dir="${PROJ_DEPS}/leveldb"
+    local name="leveldb"
+    local build_dir="${PROJ_BUILD}/${name}"
+    local install_dir="${PROJ_DEPS}/${name}"
     local src="${PROJ_VENDOR}/leveldb-1.23"
 
     rm -fr "${build_dir}" "${install_dir}" && mkdir -p "${install_dir}"
@@ -331,8 +335,9 @@ function _build_leveldb() {
 
 #: 构建libressl
 function _build_libressl() {
-    local build_dir="${PROJ_BUILD}/libressl"
-    local install_dir="${PROJ_DEPS}/libressl"
+    local name="libressl"
+    local build_dir="${PROJ_BUILD}/${name}"
+    local install_dir="${PROJ_DEPS}/${name}"
     local src="${PROJ_VENDOR}/libressl-4.2.1"
 
     rm -fr "${build_dir}" "${install_dir}" && mkdir -p "${install_dir}"
@@ -349,8 +354,9 @@ function _build_libressl() {
 
 #: 构建pugixml
 function _build_pugixml() {
-    local build_dir="${PROJ_BUILD}/pugixml"
-    local install_dir="${PROJ_DEPS}/pugixml"
+    local name="pugixml"
+    local build_dir="${PROJ_BUILD}/${name}"
+    local install_dir="${PROJ_DEPS}/${name}"
     local src="${PROJ_VENDOR}/pugixml-1.15"
 
     rm -fr "${build_dir}" "${install_dir}" && mkdir -p "${install_dir}"
@@ -367,8 +373,9 @@ function _build_pugixml() {
 
 #: 构建fmt
 function _build_fmt() {
-    local build_dir="${PROJ_BUILD}/fmt"
-    local install_dir="${PROJ_DEPS}/fmt"
+    local name="fmt"
+    local build_dir="${PROJ_BUILD}/${name}"
+    local install_dir="${PROJ_DEPS}/${name}"
     local src="${PROJ_VENDOR}/fmt-12.0.0"
 
     rm -fr "${build_dir}" "${install_dir}" && mkdir -p "${install_dir}"
@@ -384,8 +391,9 @@ function _build_fmt() {
 
 #: 构建civetweb
 function _build_civetweb() {
-    local build_dir="${PROJ_BUILD}/civetweb"
-    local install_dir="${PROJ_DEPS}/civetweb"
+    local name="civetweb"
+    local build_dir="${PROJ_BUILD}/${name}"
+    local install_dir="${PROJ_DEPS}/${name}"
     local src="${PROJ_VENDOR}/civetweb-1.16"
 
     rm -fr "${build_dir}" "${install_dir}" && mkdir -p "${install_dir}"
@@ -436,8 +444,9 @@ function _build_spdlog() {
 
 #: CMake 构建并安装 googletest 到 deps/googletest
 function _build_googletest() {
-    local build_dir="${PROJ_BUILD}/googletest"
-    local install_dir="${PROJ_DEPS}/googletest"
+    local name="googletest"
+    local build_dir="${PROJ_BUILD}/${name}"
+    local install_dir="${PROJ_DEPS}/${name}"
     local src="${PROJ_VENDOR}/googletest-1.18.0"
 
     rm -fr "${build_dir}" "${install_dir}" && mkdir -p "${install_dir}"
@@ -455,8 +464,9 @@ function _build_googletest() {
 
 #: 构建abseil-cpp
 function _build_abseil_cpp() {
-    local build_dir="${PROJ_BUILD}/abseil-cpp"
-    local install_dir="${PROJ_DEPS}/abseil-cpp"
+    local name="abseil-cpp"
+    local build_dir="${PROJ_BUILD}/${name}"
+    local install_dir="${PROJ_DEPS}/${name}"
     local src="${PROJ_VENDOR}/abseil-cpp-20250814.1"
 
     rm -fr "${build_dir}" "${install_dir}" && mkdir -p "${install_dir}"
