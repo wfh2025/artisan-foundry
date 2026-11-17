@@ -1,5 +1,0 @@
-/Users/wu.feihu/ws/artisan-foundry/cxx/.build/main/CMakeFiles/edit_cache.dir
-/Users/wu.feihu/ws/artisan-foundry/cxx/.build/main/CMakeFiles/rebuild_cache.dir
-/Users/wu.feihu/ws/artisan-foundry/cxx/.build/main/main/CMakeFiles/tgt-learn-cxx.dir
-/Users/wu.feihu/ws/artisan-foundry/cxx/.build/main/main/CMakeFiles/edit_cache.dir
-/Users/wu.feihu/ws/artisan-foundry/cxx/.build/main/main/CMakeFiles/rebuild_cache.dir
