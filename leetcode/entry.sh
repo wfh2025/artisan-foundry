@@ -5,8 +5,8 @@
 # 3. 私有函数名使用 _ 作为前缀
 # ───────────────────────────────────────────
 PROJ_ROOT=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)
-PROJ_DEPS="${PROJ_ROOT}/deps"
-PROJ_BUILD="${PROJ_ROOT}/build"
+PROJ_DEPS="${PROJ_ROOT}/.deps"
+PROJ_BUILD="${PROJ_ROOT}/.build"
 PROJ_VENDOR="${PROJ_ROOT}/../vendor"
 PROJ_CUR_SCRIPT="${PROJ_ROOT}/${BASH_SOURCE[0]##*/}"
 
