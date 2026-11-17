@@ -187,6 +187,7 @@ function _pretty_by_clangformat() {
     printf '==> [pretty] total=%d fail=%d\n' "${total}" "${fail}"
     return "${rc}"
 }
+
 #: 格式化并静态检查代码
 function pretty() {
     local rc=0
