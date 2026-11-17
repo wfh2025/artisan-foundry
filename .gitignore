@@ -3,8 +3,8 @@
 aidlc/
 
 
-leetcode/build/
-leetcode/deps/
+leetcode/.build/
+leetcode/.deps/
 leetcode/.ruff_cache/
 
 examples/all-in-one/build

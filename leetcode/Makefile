@@ -1,6 +1,6 @@
 PROJ_DIR                 := $(abspath $(CURDIR))
-DEPS_DIR                 := ${PROJ_DIR}/deps
-BUILD_DIR                := ${PROJ_DIR}/build/main
+DEPS_DIR                 := ${PROJ_DIR}/.deps
+BUILD_DIR                := ${PROJ_DIR}/.build/main
 PROJ_CC                  := $(shell command -v cc)
 PROJ_CXX                 := $(shell command -v c++)
 PROJ_CMAKE               := cmake

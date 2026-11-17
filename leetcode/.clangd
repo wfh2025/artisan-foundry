@@ -1,5 +1,5 @@
 # leetcode/.clangd
 CompileFlags:
-  CompilationDatabase: build/main
+  CompilationDatabase: .build/main
 Diagnostics:
   UnusedIncludes: None
