@@ -15,12 +15,19 @@ set_target_properties("${TARGET_NAME}" PROPERTIES CXX_STANDARD 20
 
 target_include_directories("${TARGET_NAME}" PRIVATE "${CMAKE_SOURCE_DIR}")
 
-file(GLOB SRC_FILES CONFIGURE_DEPENDS 
-    "${ART_CXX_ROOT}/cstdint/*.h"
-    "${ART_CXX_ROOT}/cstdint/*.hpp"
-    "${ART_CXX_ROOT}/cstdint/*.cpp"
-    "${ART_CXX_ROOT}/cstdint/*.cxx"
-)
+# 学习模块列表：新增模块只需在此追加目录名
+set(ART_CXX_MODULES cstdint climits)
+
+set(SRC_FILES "")
+foreach(module IN LISTS ART_CXX_MODULES)
+    file(GLOB module_srcs CONFIGURE_DEPENDS
+        "${ART_CXX_ROOT}/${module}/*.h"
+        "${ART_CXX_ROOT}/${module}/*.hpp"
+        "${ART_CXX_ROOT}/${module}/*.cpp"
+        "${ART_CXX_ROOT}/${module}/*.cxx"
+    )
+    list(APPEND SRC_FILES ${module_srcs})
+endforeach()
 
 target_sources("${TARGET_NAME}" PRIVATE ${SRC_FILES})
 
