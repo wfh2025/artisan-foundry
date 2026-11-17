@@ -12,3 +12,4 @@ examples/all-in-one/deps
 
 cxx/.build/
 cxx/.deps/
+cxx/.cache/

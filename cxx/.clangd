@@ -1,5 +1,8 @@
 # leetcode/.clangd
 CompileFlags:
   CompilationDatabase: .build/main
+  Add: [-Wall, -Wextra]
 Diagnostics:
   UnusedIncludes: None
+Index:
+  StandardLibrary: Yes
