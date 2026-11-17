@@ -1,0 +1,33 @@
+Language:        Cpp
+BasedOnStyle:   Google
+IndentWidth:     4
+TabWidth:        4
+BreakBeforeBraces: Custom
+BraceWrapping:
+  AfterClass: true
+  AfterStruct: true
+  AfterFunction: true
+  AfterNamespace: true
+  AfterEnum: true
+  AfterUnion: true
+---
+Language:        C
+BasedOnStyle:   Google
+IndentWidth:     4
+TabWidth:        4
+BreakBeforeBraces: Custom
+BraceWrapping:
+  AfterStruct: true
+  AfterFunction: true
+  AfterEnum: true
+  AfterUnion: true
+---
+Language:        Java
+BasedOnStyle:   Google
+IndentWidth:     4
+TabWidth:        4
+BreakBeforeBraces: Custom
+BraceWrapping:
+  AfterClass: true
+  AfterFunction: true
+  AfterEnum: true

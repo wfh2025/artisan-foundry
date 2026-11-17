@@ -1,0 +1,12 @@
+prefix=/Users/wu.feihu/ws/artisan-foundry/cxx/.deps/civetweb
+exec_prefix=${prefix}
+includedir=${prefix}/include
+libdir=${exec_prefix}/lib
+
+Name: civetweb-cpp
+Description: generic graph library
+Version: 
+Requires:
+Libs: -L${libdir} -lcivetweb-cpp
+Cflags: -I${includedir}
+

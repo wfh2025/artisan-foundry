@@ -1,0 +1,13 @@
+cmake_minimum_required(VERSION 3.0...1024.0)
+project(LearnCxx)
+
+set(ART_CXX_ROOT "${CMAKE_SOURCE_DIR}")
+set(ART_CXX_DEPS_DIR "${ART_CXX_ROOT}/.deps")
+set(ART_CXX_VENDOR_DIR "${ART_CXX_ROOT}/../vendor")
+
+set(ART_CXX_OUTPUT "${CMAKE_BINARY_DIR}")
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${ART_CXX_OUTPUT}/bin")
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${ART_CXX_OUTPUT}/lib")
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${ART_CXX_OUTPUT}/lib")
+
+add_subdirectory(main)

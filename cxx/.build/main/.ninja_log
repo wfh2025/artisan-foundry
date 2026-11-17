@@ -1,0 +1,5 @@
+# ninja log v7
+0	7	1794927761384455644	/Users/wu.feihu/ws/artisan-foundry/cxx/.build/main/CMakeFiles/cmake.verify_globs	69568e32b58a2d83
+7	703	1794927761391198541	main/CMakeFiles/tgt-learn-cxx.dir/main.cpp.o	d0f18af5e36c0af2
+7	735	1794927761391388042	main/CMakeFiles/tgt-learn-cxx.dir/__/cstdint/cstdint.cpp.o	f6bada9e1c33ca5b
+735	769	1794927762119394065	bin/bin-learn-cxx	2e3845f15094dd78

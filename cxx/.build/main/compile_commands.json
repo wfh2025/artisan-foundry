@@ -1,0 +1,14 @@
+[
+{
+  "directory": "/Users/wu.feihu/ws/artisan-foundry/cxx/.build/main",
+  "command": "/usr/bin/c++ -DSPDLOG_ACTIVE_LEVEL=SPDLOG_LEVEL_DEBUG -DSPDLOG_COMPILED_LIB -I/Users/wu.feihu/ws/artisan-foundry/cxx -isystem /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/googletest/include -isystem /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/spdlog/include -std=c++20 -arch arm64 -ggdb -Wno-unused-value -Wno-unused-parameter -Wno-return-stack-address -Wno-tautological-undefined-compare -o main/CMakeFiles/tgt-learn-cxx.dir/main.cpp.o -c /Users/wu.feihu/ws/artisan-foundry/cxx/main/main.cpp",
+  "file": "/Users/wu.feihu/ws/artisan-foundry/cxx/main/main.cpp",
+  "output": "main/CMakeFiles/tgt-learn-cxx.dir/main.cpp.o"
+},
+{
+  "directory": "/Users/wu.feihu/ws/artisan-foundry/cxx/.build/main",
+  "command": "/usr/bin/c++ -DSPDLOG_ACTIVE_LEVEL=SPDLOG_LEVEL_DEBUG -DSPDLOG_COMPILED_LIB -I/Users/wu.feihu/ws/artisan-foundry/cxx -isystem /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/googletest/include -isystem /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/spdlog/include -std=c++20 -arch arm64 -ggdb -Wno-unused-value -Wno-unused-parameter -Wno-return-stack-address -Wno-tautological-undefined-compare -o main/CMakeFiles/tgt-learn-cxx.dir/__/cstdint/cstdint.cpp.o -c /Users/wu.feihu/ws/artisan-foundry/cxx/cstdint/cstdint.cpp",
+  "file": "/Users/wu.feihu/ws/artisan-foundry/cxx/cstdint/cstdint.cpp",
+  "output": "main/CMakeFiles/tgt-learn-cxx.dir/__/cstdint/cstdint.cpp.o"
+}
+]

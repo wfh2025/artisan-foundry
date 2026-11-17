@@ -1,0 +1,318 @@
+CMake Deprecation Warning at CMakeLists.txt:2 (cmake_minimum_required):
+  Compatibility with CMake < 3.10 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+  to tell CMake that the project requires at least <min> but has been updated
+  to work with policies introduced by <max> or earlier.
+
+
+CMake Deprecation Warning at CMakeLists.txt:3 (cmake_policy):
+  Compatibility with CMake < 3.10 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+  to tell CMake that the project requires at least <min> but has been updated
+  to work with policies introduced by <max> or earlier.
+
+
+-- The C compiler identification is AppleClang 17.0.0.17000013
+-- The CXX compiler identification is AppleClang 17.0.0.17000013
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Target architecture - arm64
+-- Enabling tests in the build - OFF
+-- Thread Stack Size - 102400
+-- Enabling server executable - ON
+-- Serve no static files - OFF
+-- Disable CGI support - OFF
+-- Disable caching support - OFF
+-- C++ wrappers - ON
+-- IP Version 6 - ON
+-- Websockets support - ON
+-- Server statistics support - ON
+-- Memory Debugging - ON
+-- ASAN in debug mode - ON
+-- Force x32 / x64 architecture - OFF
+-- Lua CGI support - OFF
+-- zlib support - OFF
+-- Executable installation - ON
+-- Build if there are warnings - OFF
+-- Duktape CGI support - OFF
+-- SSL support - OFF
+-- Compile for OpenSSL 1.0 API - OFF
+-- Compile for OpenSSL 1.1 API - ON
+-- Compile for OpenSSL 3.0 API - OFF
+-- Configuring C Compiler
+-- Performing Test HAVE_C_FLAG_STD_C11
+-- Performing Test HAVE_C_FLAG_STD_C11 - Success
+-- Performing Test HAVE_C_FLAG_WERROR
+-- Performing Test HAVE_C_FLAG_WERROR - Success
+-- Performing Test HAVE_C_FLAG_WX
+-- Performing Test HAVE_C_FLAG_WX - Failed
+-- Performing Test HAVE_C_FLAG_FSANITIZE_UNDEFINED
+-- Performing Test HAVE_C_FLAG_FSANITIZE_UNDEFINED - Success
+-- Performing Test HAVE_C_FLAG_FSANITIZE_ADDRESS
+-- Performing Test HAVE_C_FLAG_FSANITIZE_ADDRESS - Failed
+-- Performing Test HAVE_C_FLAG_COVERAGE
+-- Performing Test HAVE_C_FLAG_COVERAGE - Failed
+-- Configuring C++ Compiler
+-- Performing Test HAVE_CXX_FLAG_STD_CXX14
+-- Performing Test HAVE_CXX_FLAG_STD_CXX14 - Success
+-- Performing Test HAVE_CXX_FLAG_WALL
+-- Performing Test HAVE_CXX_FLAG_WALL - Success
+-- Performing Test HAVE_CXX_FLAG_WEXTRA
+-- Performing Test HAVE_CXX_FLAG_WEXTRA - Success
+-- Performing Test HAVE_CXX_FLAG_WSHADOW
+-- Performing Test HAVE_CXX_FLAG_WSHADOW - Success
+-- Performing Test HAVE_CXX_FLAG_WMISSING_PROTOTYPES
+-- Performing Test HAVE_CXX_FLAG_WMISSING_PROTOTYPES - Success
+-- Performing Test HAVE_CXX_FLAG_WEVERYTHING
+-- Performing Test HAVE_CXX_FLAG_WEVERYTHING - Success
+-- Performing Test HAVE_CXX_FLAG_W4
+-- Performing Test HAVE_CXX_FLAG_W4 - Failed
+-- Performing Test HAVE_CXX_FLAG_WNO_PADDED
+-- Performing Test HAVE_CXX_FLAG_WNO_PADDED - Success
+-- Performing Test HAVE_CXX_FLAG_WD4820
+-- Performing Test HAVE_CXX_FLAG_WD4820 - Failed
+-- Performing Test HAVE_CXX_FLAG_WNO_UNUSED_MACROS
+-- Performing Test HAVE_CXX_FLAG_WNO_UNUSED_MACROS - Success
+-- Performing Test HAVE_CXX_FLAG_WNO_FORMAT_NONLITERAL
+-- Performing Test HAVE_CXX_FLAG_WNO_FORMAT_NONLITERAL - Success
+-- Performing Test HAVE_CXX_FLAG_WERROR
+-- Performing Test HAVE_CXX_FLAG_WERROR - Failed
+-- Performing Test HAVE_CXX_FLAG_WX
+-- Performing Test HAVE_CXX_FLAG_WX - Failed
+-- Performing Test HAVE_CXX_FLAG_PEDANTIC_ERRORS
+-- Performing Test HAVE_CXX_FLAG_PEDANTIC_ERRORS - Success
+-- Performing Test HAVE_CXX_FLAG_FVISIBILITY_HIDDEN
+-- Performing Test HAVE_CXX_FLAG_FVISIBILITY_HIDDEN - Success
+-- Performing Test HAVE_CXX_FLAG_FSTACK_PROTECTOR_STRONG
+-- Performing Test HAVE_CXX_FLAG_FSTACK_PROTECTOR_STRONG - Success
+-- Performing Test HAVE_CXX_FLAG_FLTO
+-- Performing Test HAVE_CXX_FLAG_FLTO - Success
+-- Performing Test HAVE_CXX_FLAG_FSANITIZE_UNDEFINED
+-- Performing Test HAVE_CXX_FLAG_FSANITIZE_UNDEFINED - Success
+-- Performing Test HAVE_CXX_FLAG_FSANITIZE_ADDRESS
+-- Performing Test HAVE_CXX_FLAG_FSANITIZE_ADDRESS - Failed
+-- Performing Test HAVE_CXX_FLAG_FSTACK_PROTECTOR_ALL
+-- Performing Test HAVE_CXX_FLAG_FSTACK_PROTECTOR_ALL - Success
+-- Performing Test HAVE_CXX_FLAG_COVERAGE
+-- Performing Test HAVE_CXX_FLAG_COVERAGE - Failed
+-- Performing Test HAVE_C_FLAG_WALL
+-- Performing Test HAVE_C_FLAG_WALL - Success
+-- Performing Test HAVE_C_FLAG_WEXTRA
+-- Performing Test HAVE_C_FLAG_WEXTRA - Success
+-- Performing Test HAVE_C_FLAG_WSHADOW
+-- Performing Test HAVE_C_FLAG_WSHADOW - Success
+-- Performing Test HAVE_C_FLAG_WCONVERSION
+-- Performing Test HAVE_C_FLAG_WCONVERSION - Success
+-- Performing Test HAVE_C_FLAG_WMISSING_PROTOTYPES
+-- Performing Test HAVE_C_FLAG_WMISSING_PROTOTYPES - Success
+-- Performing Test HAVE_C_FLAG_WEVERYTHING
+-- Performing Test HAVE_C_FLAG_WEVERYTHING - Failed
+-- Performing Test HAVE_C_FLAG_WPARENTHESES
+-- Performing Test HAVE_C_FLAG_WPARENTHESES - Success
+-- Performing Test HAVE_C_FLAG_W4
+-- Performing Test HAVE_C_FLAG_W4 - Failed
+-- Performing Test HAVE_C_FLAG_WNO_PADDED
+-- Performing Test HAVE_C_FLAG_WNO_PADDED - Success
+-- Performing Test HAVE_C_FLAG_WNO_UNUSED_MACROS
+-- Performing Test HAVE_C_FLAG_WNO_UNUSED_MACROS - Success
+-- Performing Test -Wno-reserved-id-macros
+-- Performing Test -Wno-reserved-id-macros - Failed
+-- Performing Test HAVE_C_FLAG_WNO_FORMAT_NONLITERAL
+-- Performing Test HAVE_C_FLAG_WNO_FORMAT_NONLITERAL - Success
+-- Performing Test HAVE_C_FLAG_WNO_CAST_QUAL
+-- Performing Test HAVE_C_FLAG_WNO_CAST_QUAL - Success
+-- Performing Test HAVE_C_FLAG_WD4820
+-- Performing Test HAVE_C_FLAG_WD4820 - Failed
+-- Performing Test HAVE_C_FLAG_PEDANTIC_ERRORS
+-- Performing Test HAVE_C_FLAG_PEDANTIC_ERRORS - Success
+-- Performing Test HAVE_C_FLAG_FVISIBILITY_HIDDEN
+-- Performing Test HAVE_C_FLAG_FVISIBILITY_HIDDEN - Success
+-- Performing Test HAVE_C_FLAG_FSTACK_PROTECTOR_STRONG
+-- Performing Test HAVE_C_FLAG_FSTACK_PROTECTOR_STRONG - Success
+-- Performing Test HAVE_C_FLAG_FSTACK_PROTECTOR_ALL
+-- Performing Test HAVE_C_FLAG_FSTACK_PROTECTOR_ALL - Success
+-- Could NOT find WinSock (missing: WINSOCK_LIBRARIES WINSOCK_INCLUDE_DIRS) 
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE
+-- Could NOT find LibRt (missing: LIBRT_LIBRARIES) 
+-- Configuring done (19.1s)
+-- Generating done (0.2s)
+-- Build files have been written to: /Users/wu.feihu/ws/artisan-foundry/cxx/.build/civetweb
+[ 16%] Building C object src/CMakeFiles/civetweb-c-library.dir/civetweb.c.o
+[ 33%] Linking C static library libcivetweb.a
+[ 33%] Built target civetweb-c-library
+[ 50%] Building C object src/CMakeFiles/civetweb-c-executable.dir/main.c.o
+[ 66%] Building CXX object src/CMakeFiles/civetweb-cpp.dir/CivetServer.cpp.o
+warning: include location '/usr/local/include' is unsafe for cross-compilation [-Wpoison-system-directories]
+In file included from /Users/wu.feihu/ws/artisan-foundry/vendor/civetweb-1.16/src/CivetServer.cpp:7:
+In file included from /Users/wu.feihu/ws/artisan-foundry/vendor/civetweb-1.16/include/CivetServer.h:11:
+/Users/wu.feihu/ws/artisan-foundry/vendor/civetweb-1.16/include/civetweb.h:168:2: warning: 'long long' is incompatible with C++98 [-Wc++98-compat-pedantic]
+  168 |         long long content_length; /* Length (in bytes) of the request body,
+      |         ^
+/Users/wu.feihu/ws/artisan-foundry/vendor/civetweb-1.16/include/civetweb.h:196:2: warning: 'long long' is incompatible with C++98 [-Wc++98-compat-pedantic]
+  196 |         long long content_length; /* Length (in bytes) of the request body,
+      |         ^
+/Users/wu.feihu/ws/artisan-foundry/vendor/civetweb-1.16/include/civetweb.h:945:34: warning: 'long long' is incompatible with C++98 [-Wc++98-compat-pedantic]
+  945 |                                  long long content_length);
+      |                                  ^
+/Users/wu.feihu/ws/artisan-foundry/vendor/civetweb-1.16/include/civetweb.h:1032:14: warning: 'long long' is incompatible with C++98 [-Wc++98-compat-pedantic]
+ 1032 | CIVETWEB_API long long mg_store_body(struct mg_connection *conn,
+      |              ^
+/Users/wu.feihu/ws/artisan-foundry/vendor/civetweb-1.16/include/civetweb.h:1261:39: warning: 'long long' is incompatible with C++98 [-Wc++98-compat-pedantic]
+ 1261 |         int (*field_store)(const char *path, long long file_size, void *user_data);
+      |                                              ^
+[ 83%] Linking C executable civetweb
+[ 83%] Built target civetweb-c-executable
+In file included from /Users/wu.feihu/ws/artisan-foundry/vendor/civetweb-1.16/src/CivetServer.cpp:7:
+/Users/wu.feihu/ws/artisan-foundry/vendor/civetweb-1.16/include/CivetServer.h:274:5: warning: unknown command tag name [-Wdocumentation-unknown-command]
+  274 |          * @bits: first byte of the websocket frame, see websocket RFC at
+      |            ^~~~~
+/Users/wu.feihu/ws/artisan-foundry/vendor/civetweb-1.16/include/CivetServer.h:276:5: warning: unknown command tag name 'data'; did you mean 'date'? [-Wdocumentation-unknown-command]
+  276 |          * @data, data_len: payload, with mask (if any) already applied.
+      |            ^~~~~~
+      |             date
+/Users/wu.feihu/ws/artisan-foundry/vendor/civetweb-1.16/include/CivetServer.h:327:26: warning: empty paragraph passed to '@throws' command [-Wdocumentation]
+  327 |          * @throws CivetException
+      |            ~~~~~~~~~~~~~~~~~~~~~^
+  328 |          */
+/Users/wu.feihu/ws/artisan-foundry/vendor/civetweb-1.16/include/CivetServer.h:330:55: warning: zero as null pointer constant [-Wzero-as-null-pointer-constant]
+  330 |                     const struct CivetCallbacks *callbacks = 0,
+      |                                                              ^
+      |                                                              nullptr
+/Users/wu.feihu/ws/artisan-foundry/vendor/civetweb-1.16/include/CivetServer.h:331:40: warning: zero as null pointer constant [-Wzero-as-null-pointer-constant]
+  331 |                     const void *UserContext = 0);
+      |                                               ^
+      |                                               nullptr
+/Users/wu.feihu/ws/artisan-foundry/vendor/civetweb-1.16/include/CivetServer.h:333:55: warning: zero as null pointer constant [-Wzero-as-null-pointer-constant]
+  333 |                     const struct CivetCallbacks *callbacks = 0,
+      |                                                              ^
+      |                                                              nullptr
+/Users/wu.feihu/ws/artisan-foundry/vendor/civetweb-1.16/include/CivetServer.h:334:40: warning: zero as null pointer constant [-Wzero-as-null-pointer-constant]
+  334 |                     const void *UserContext = 0);
+      |                                               ^
+      |                                               nullptr
+/Users/wu.feihu/ws/artisan-foundry/vendor/civetweb-1.16/src/CivetServer.cpp:216:20: warning: use of old-style cast [-Wold-style-cast]
+  216 |         CivetServer *me = (CivetServer *)(request_info->user_data);
+      |                           ^              ~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wu.feihu/ws/artisan-foundry/vendor/civetweb-1.16/src/CivetServer.cpp:229:26: warning: use of old-style cast [-Wold-style-cast]
+  229 |         CivetHandler *handler = (CivetHandler *)cbdata;
+      |                                 ^               ~~~~~~
+/Users/wu.feihu/ws/artisan-foundry/vendor/civetweb-1.16/src/CivetServer.cpp:282:20: warning: use of old-style cast [-Wold-style-cast]
+  282 |         CivetServer *me = (CivetServer *)(request_info->user_data);
+      |                           ^              ~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wu.feihu/ws/artisan-foundry/vendor/civetweb-1.16/src/CivetServer.cpp:293:30: warning: use of old-style cast [-Wold-style-cast]
+  293 |         CivetAuthHandler *handler = (CivetAuthHandler *)cbdata;
+      |                                     ^                   ~~~~~~
+/Users/wu.feihu/ws/artisan-foundry/vendor/civetweb-1.16/src/CivetServer.cpp:308:20: warning: use of old-style cast [-Wold-style-cast]
+  308 |         CivetServer *me = (CivetServer *)(request_info->user_data);
+      |                           ^              ~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wu.feihu/ws/artisan-foundry/vendor/civetweb-1.16/src/CivetServer.cpp:315:35: warning: use of old-style cast [-Wold-style-cast]
+  315 |         CivetWebSocketHandler *handler = (CivetWebSocketHandler *)cbdata;
+      |                                          ^                        ~~~~~~
+/Users/wu.feihu/ws/artisan-foundry/vendor/civetweb-1.16/src/CivetServer.cpp:329:20: warning: use of old-style cast [-Wold-style-cast]
+  329 |         CivetServer *me = (CivetServer *)(request_info->user_data);
+      |                           ^              ~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wu.feihu/ws/artisan-foundry/vendor/civetweb-1.16/src/CivetServer.cpp:336:35: warning: use of old-style cast [-Wold-style-cast]
+  336 |         CivetWebSocketHandler *handler = (CivetWebSocketHandler *)cbdata;
+      |                                          ^                        ~~~~~~
+/Users/wu.feihu/ws/artisan-foundry/vendor/civetweb-1.16/src/CivetServer.cpp:352:20: warning: use of old-style cast [-Wold-style-cast]
+  352 |         CivetServer *me = (CivetServer *)(request_info->user_data);
+      |                           ^              ~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wu.feihu/ws/artisan-foundry/vendor/civetweb-1.16/src/CivetServer.cpp:359:35: warning: use of old-style cast [-Wold-style-cast]
+  359 |         CivetWebSocketHandler *handler = (CivetWebSocketHandler *)cbdata;
+      |                                          ^                        ~~~~~~
+/Users/wu.feihu/ws/artisan-foundry/vendor/civetweb-1.16/src/CivetServer.cpp:374:20: warning: use of old-style cast [-Wold-style-cast]
+  374 |         CivetServer *me = (CivetServer *)(request_info->user_data);
+      |                           ^              ~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wu.feihu/ws/artisan-foundry/vendor/civetweb-1.16/src/CivetServer.cpp:381:35: warning: use of old-style cast [-Wold-style-cast]
+  381 |         CivetWebSocketHandler *handler = (CivetWebSocketHandler *)cbdata;
+      |                                          ^                        ~~~~~~
+/Users/wu.feihu/ws/artisan-foundry/vendor/civetweb-1.16/src/CivetServer.cpp:396:15: warning: zero as null pointer constant [-Wzero-as-null-pointer-constant]
+  396 |     : context(0)
+      |               ^
+      |               nullptr
+/Users/wu.feihu/ws/artisan-foundry/vendor/civetweb-1.16/src/CivetServer.cpp:409:44: warning: zero as null pointer constant [-Wzero-as-null-pointer-constant]
+  409 |         struct mg_init_data mg_start_init_data = {0};
+      |                                                   ^
+      |                                                   nullptr
+/Users/wu.feihu/ws/artisan-foundry/vendor/civetweb-1.16/src/CivetServer.cpp:409:45: warning: missing field 'user_data' initializer [-Wmissing-field-initializers]
+  409 |         struct mg_init_data mg_start_init_data = {0};
+      |                                                    ^
+/Users/wu.feihu/ws/artisan-foundry/vendor/civetweb-1.16/src/CivetServer.cpp:414:47: warning: missing field 'code_sub' initializer [-Wmissing-field-initializers]
+  414 |         struct mg_error_data mg_start_error_data = {0};
+      |                                                      ^
+/Users/wu.feihu/ws/artisan-foundry/vendor/civetweb-1.16/src/CivetServer.cpp:433:15: warning: zero as null pointer constant [-Wzero-as-null-pointer-constant]
+  433 |     : context(0)
+      |               ^
+      |               nullptr
+/Users/wu.feihu/ws/artisan-foundry/vendor/civetweb-1.16/src/CivetServer.cpp:453:44: warning: zero as null pointer constant [-Wzero-as-null-pointer-constant]
+  453 |         struct mg_init_data mg_start_init_data = {0};
+      |                                                   ^
+      |                                                   nullptr
+/Users/wu.feihu/ws/artisan-foundry/vendor/civetweb-1.16/src/CivetServer.cpp:453:45: warning: missing field 'user_data' initializer [-Wmissing-field-initializers]
+  453 |         struct mg_init_data mg_start_init_data = {0};
+      |                                                    ^
+/Users/wu.feihu/ws/artisan-foundry/vendor/civetweb-1.16/src/CivetServer.cpp:458:47: warning: missing field 'code_sub' initializer [-Wmissing-field-initializers]
+  458 |         struct mg_error_data mg_start_error_data = {0};
+      |                                                      ^
+/Users/wu.feihu/ws/artisan-foundry/vendor/civetweb-1.16/src/CivetServer.cpp:482:20: warning: use of old-style cast [-Wold-style-cast]
+  482 |         CivetServer *me = (CivetServer *)mg_get_user_data(mg_get_context(conn));
+      |                           ^              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/wu.feihu/ws/artisan-foundry/vendor/civetweb-1.16/src/CivetServer.cpp:546:13: warning: zero as null pointer constant [-Wzero-as-null-pointer-constant]
+  546 |                 context = 0;
+      |                           ^
+      |                           nullptr
+/Users/wu.feihu/ws/artisan-foundry/vendor/civetweb-1.16/src/CivetServer.cpp:624:20: warning: use of old-style cast [-Wold-style-cast]
+  624 |         CivetServer *me = (CivetServer *)(ri->user_data);
+      |                           ^              ~~~~~~~~~~~~~~~
+/Users/wu.feihu/ws/artisan-foundry/vendor/civetweb-1.16/src/CivetServer.cpp:641:46: warning: implicit conversion changes signedness: 'int' to 'size_type' (aka 'unsigned long') [-Wsign-conversion]
+  641 |                                            || ((conobj.postData.size() + r)
+      |                                                                        ~ ^
+/Users/wu.feihu/ws/artisan-foundry/vendor/civetweb-1.16/src/CivetServer.cpp:690:19: warning: implicit conversion changes signedness: 'int' to 'size_type' (aka 'unsigned long') [-Wsign-conversion]
+  690 |                 dst.assign(buf, r);
+      |                     ~~~~~~      ^
+/Users/wu.feihu/ws/artisan-foundry/vendor/civetweb-1.16/src/CivetServer.cpp:720:24: warning: implicit conversion changes signedness: 'int' to 'size_type' (aka 'unsigned long') [-Wsign-conversion]
+  720 |                 postdata.append(buf, r);
+      |                          ~~~~~~      ^
+/Users/wu.feihu/ws/artisan-foundry/vendor/civetweb-1.16/src/CivetServer.cpp:780:39: warning: operand of ? changes signedness: 'int' to 'size_type' (aka 'unsigned long') [-Wsign-conversion]
+  780 |                         server_ports.resize(size < 0 ? 0 : size);
+      |                                      ~~~~~~                ^~~~
+In file included from /Users/wu.feihu/ws/artisan-foundry/vendor/civetweb-1.16/src/CivetServer.cpp:7:
+/Users/wu.feihu/ws/artisan-foundry/vendor/civetweb-1.16/include/CivetServer.h:39:24: warning: 'CivetException' has no out-of-line virtual method definitions; its vtable will be emitted in every translation unit [-Wweak-vtables]
+   39 | class CIVETWEB_CXX_API CivetException : public std::runtime_error
+      |                        ^
+/Users/wu.feihu/ws/artisan-foundry/vendor/civetweb-1.16/include/CivetServer.h:213:24: warning: 'CivetAuthHandler' has no out-of-line virtual method definitions; its vtable will be emitted in every translation unit [-Wweak-vtables]
+  213 | class CIVETWEB_CXX_API CivetAuthHandler
+      |                        ^
+42 warnings generated.
+[100%] Linking CXX static library libcivetweb-cpp.a
+[100%] Built target civetweb-cpp
+Install the project...
+-- Install configuration: "Release"
+-- Installing: /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/civetweb/lib/cmake/civetweb/civetweb-targets.cmake
+-- Installing: /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/civetweb/lib/cmake/civetweb/civetweb-targets-release.cmake
+-- Installing: /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/civetweb/share/pkgconfig/civetweb.pc
+-- Installing: /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/civetweb/share/pkgconfig/civetweb-cpp.pc
+-- Installing: /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/civetweb/lib/cmake/civetweb/civetweb-config.cmake
+-- Installing: /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/civetweb/lib/cmake/civetweb/civetweb-config-version.cmake
+-- Installing: /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/civetweb/lib/cmake/civetweb/FindLibDl.cmake
+-- Installing: /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/civetweb/lib/cmake/civetweb/FindLibRt.cmake
+-- Installing: /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/civetweb/lib/cmake/civetweb/FindWinSock.cmake
+-- Installing: /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/civetweb/lib/libcivetweb.a
+-- Installing: /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/civetweb/include/civetweb.h
+-- Installing: /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/civetweb/bin/civetweb
+-- Installing: /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/civetweb/lib/libcivetweb-cpp.a
+-- Installing: /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/civetweb/include/CivetServer.h

@@ -1,0 +1,41 @@
+-- CMake version: 4.0.2
+-- The CXX compiler identification is AppleClang 17.0.0.17000013
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- {fmt} version: 12.0.0
+-- Build type: Release
+-- Performing Test HAS_NULLPTR_WARNING
+-- Performing Test HAS_NULLPTR_WARNING - Success
+-- Target 'doc' disabled because mkdocs not found
+-- Configuring done (0.7s)
+-- Generating done (0.0s)
+-- Build files have been written to: /Users/wu.feihu/ws/artisan-foundry/cxx/.build/fmt
+[ 33%] Building CXX object CMakeFiles/fmt.dir/src/format.cc.o
+[ 66%] Building CXX object CMakeFiles/fmt.dir/src/os.cc.o
+[100%] Linking CXX static library libfmt.a
+[100%] Built target fmt
+Install the project...
+-- Install configuration: "Release"
+-- Installing: /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/fmt/lib/libfmt.a
+-- Installing: /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/fmt/include/fmt/args.h
+-- Installing: /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/fmt/include/fmt/base.h
+-- Installing: /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/fmt/include/fmt/chrono.h
+-- Installing: /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/fmt/include/fmt/color.h
+-- Installing: /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/fmt/include/fmt/compile.h
+-- Installing: /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/fmt/include/fmt/core.h
+-- Installing: /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/fmt/include/fmt/format.h
+-- Installing: /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/fmt/include/fmt/format-inl.h
+-- Installing: /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/fmt/include/fmt/os.h
+-- Installing: /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/fmt/include/fmt/ostream.h
+-- Installing: /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/fmt/include/fmt/printf.h
+-- Installing: /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/fmt/include/fmt/ranges.h
+-- Installing: /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/fmt/include/fmt/std.h
+-- Installing: /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/fmt/include/fmt/xchar.h
+-- Installing: /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/fmt/lib/cmake/fmt/fmt-config.cmake
+-- Installing: /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/fmt/lib/cmake/fmt/fmt-config-version.cmake
+-- Installing: /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/fmt/lib/cmake/fmt/fmt-targets.cmake
+-- Installing: /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/fmt/lib/cmake/fmt/fmt-targets-release.cmake
+-- Installing: /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/fmt/lib/pkgconfig/fmt.pc

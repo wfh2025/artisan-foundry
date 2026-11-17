@@ -1,0 +1,8 @@
+{
+	"InstallScripts" : 
+	[
+		"/Users/wu.feihu/ws/artisan-foundry/cxx/.build/main/cmake_install.cmake",
+		"/Users/wu.feihu/ws/artisan-foundry/cxx/.build/main/main/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

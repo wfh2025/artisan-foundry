@@ -1,0 +1,79 @@
+-- The CXX compiler identification is AppleClang 17.0.0.17000013
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Using the multi-header code from /Users/wu.feihu/ws/artisan-foundry/vendor/json-3.12.0/include/
+-- Configuring done (0.4s)
+-- Generating done (0.0s)
+CMake Warning:
+  Manually-specified variables were not used by the project:
+
+    CMAKE_EXPORT_COMPILE_COMMANDS
+
+
+-- Build files have been written to: /Users/wu.feihu/ws/artisan-foundry/cxx/.build/json
+Install the project...
+-- Install configuration: "Release"
+-- Installing: /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/json/include
+-- Installing: /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/json/include/nlohmann
+-- Installing: /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/json/include/nlohmann/ordered_map.hpp
+-- Installing: /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/json/include/nlohmann/json.hpp
+-- Installing: /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/json/include/nlohmann/adl_serializer.hpp
+-- Installing: /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/json/include/nlohmann/byte_container_with_subtype.hpp
+-- Installing: /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/json/include/nlohmann/detail
+-- Installing: /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/json/include/nlohmann/detail/hash.hpp
+-- Installing: /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/json/include/nlohmann/detail/string_escape.hpp
+-- Installing: /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/json/include/nlohmann/detail/json_custom_base_class.hpp
+-- Installing: /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/json/include/nlohmann/detail/json_ref.hpp
+-- Installing: /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/json/include/nlohmann/detail/conversions
+-- Installing: /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/json/include/nlohmann/detail/conversions/to_chars.hpp
+-- Installing: /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/json/include/nlohmann/detail/conversions/from_json.hpp
+-- Installing: /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/json/include/nlohmann/detail/conversions/to_json.hpp
+-- Installing: /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/json/include/nlohmann/detail/value_t.hpp
+-- Installing: /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/json/include/nlohmann/detail/input
+-- Installing: /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/json/include/nlohmann/detail/input/position_t.hpp
+-- Installing: /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/json/include/nlohmann/detail/input/parser.hpp
+-- Installing: /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/json/include/nlohmann/detail/input/json_sax.hpp
+-- Installing: /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/json/include/nlohmann/detail/input/binary_reader.hpp
+-- Installing: /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/json/include/nlohmann/detail/input/input_adapters.hpp
+-- Installing: /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/json/include/nlohmann/detail/input/lexer.hpp
+-- Installing: /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/json/include/nlohmann/detail/string_concat.hpp
+-- Installing: /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/json/include/nlohmann/detail/string_utils.hpp
+-- Installing: /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/json/include/nlohmann/detail/macro_scope.hpp
+-- Installing: /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/json/include/nlohmann/detail/output
+-- Installing: /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/json/include/nlohmann/detail/output/output_adapters.hpp
+-- Installing: /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/json/include/nlohmann/detail/output/serializer.hpp
+-- Installing: /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/json/include/nlohmann/detail/output/binary_writer.hpp
+-- Installing: /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/json/include/nlohmann/detail/meta
+-- Installing: /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/json/include/nlohmann/detail/meta/is_sax.hpp
+-- Installing: /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/json/include/nlohmann/detail/meta/call_std
+-- Installing: /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/json/include/nlohmann/detail/meta/call_std/end.hpp
+-- Installing: /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/json/include/nlohmann/detail/meta/call_std/begin.hpp
+-- Installing: /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/json/include/nlohmann/detail/meta/identity_tag.hpp
+-- Installing: /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/json/include/nlohmann/detail/meta/type_traits.hpp
+-- Installing: /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/json/include/nlohmann/detail/meta/cpp_future.hpp
+-- Installing: /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/json/include/nlohmann/detail/meta/detected.hpp
+-- Installing: /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/json/include/nlohmann/detail/meta/void_t.hpp
+-- Installing: /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/json/include/nlohmann/detail/meta/std_fs.hpp
+-- Installing: /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/json/include/nlohmann/detail/json_pointer.hpp
+-- Installing: /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/json/include/nlohmann/detail/exceptions.hpp
+-- Installing: /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/json/include/nlohmann/detail/abi_macros.hpp
+-- Installing: /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/json/include/nlohmann/detail/macro_unscope.hpp
+-- Installing: /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/json/include/nlohmann/detail/iterators
+-- Installing: /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/json/include/nlohmann/detail/iterators/iter_impl.hpp
+-- Installing: /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/json/include/nlohmann/detail/iterators/json_reverse_iterator.hpp
+-- Installing: /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/json/include/nlohmann/detail/iterators/iteration_proxy.hpp
+-- Installing: /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/json/include/nlohmann/detail/iterators/iterator_traits.hpp
+-- Installing: /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/json/include/nlohmann/detail/iterators/internal_iterator.hpp
+-- Installing: /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/json/include/nlohmann/detail/iterators/primitive_iterator.hpp
+-- Installing: /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/json/include/nlohmann/thirdparty
+-- Installing: /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/json/include/nlohmann/thirdparty/hedley
+-- Installing: /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/json/include/nlohmann/thirdparty/hedley/hedley.hpp
+-- Installing: /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/json/include/nlohmann/thirdparty/hedley/hedley_undef.hpp
+-- Installing: /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/json/include/nlohmann/json_fwd.hpp
+-- Installing: /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/json/share/cmake/nlohmann_json/nlohmann_jsonConfig.cmake
+-- Installing: /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/json/share/cmake/nlohmann_json/nlohmann_jsonConfigVersion.cmake
+-- Installing: /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/json/share/cmake/nlohmann_json/nlohmann_jsonTargets.cmake
+-- Installing: /Users/wu.feihu/ws/artisan-foundry/cxx/.deps/json/share/pkgconfig/nlohmann_json.pc

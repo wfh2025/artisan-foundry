@@ -1,0 +1,104 @@
+#include <cstdint>
+
+#include "gmock/gmock.h"
+#include "gtest/gtest.h"
+#include "spdlog/spdlog.h"
+
+#define LOG_SIZEOF(type) SPDLOG_INFO("sizeof(" #type ") = {}", sizeof(type))
+#define LOG_MACRO_VALUE(macro) SPDLOG_INFO(#macro " = {}", macro)
+
+TEST(cstdint_macros, 001)
+{
+    LOG_MACRO_VALUE(INT8_MIN);
+    LOG_MACRO_VALUE(INT8_MAX);
+    LOG_MACRO_VALUE(UINT8_MAX);
+    LOG_MACRO_VALUE(INT16_MIN);
+    LOG_MACRO_VALUE(INT16_MAX);
+    LOG_MACRO_VALUE(UINT16_MAX);
+    LOG_MACRO_VALUE(INT32_MIN);
+    LOG_MACRO_VALUE(INT32_MAX);
+    LOG_MACRO_VALUE(UINT32_MAX);
+    LOG_MACRO_VALUE(INT64_MIN);
+    LOG_MACRO_VALUE(INT64_MAX);
+    LOG_MACRO_VALUE(UINT64_MAX);
+
+    LOG_MACRO_VALUE(INT_LEAST8_MIN);
+    LOG_MACRO_VALUE(INT_LEAST8_MAX);
+    LOG_MACRO_VALUE(UINT_LEAST8_MAX);
+    LOG_MACRO_VALUE(INT_LEAST16_MIN);
+    LOG_MACRO_VALUE(INT_LEAST16_MAX);
+    LOG_MACRO_VALUE(UINT_LEAST16_MAX);
+    LOG_MACRO_VALUE(INT_LEAST32_MIN);
+    LOG_MACRO_VALUE(INT_LEAST32_MAX);
+    LOG_MACRO_VALUE(UINT_LEAST32_MAX);
+    LOG_MACRO_VALUE(INT_LEAST64_MIN);
+    LOG_MACRO_VALUE(INT_LEAST64_MAX);
+    LOG_MACRO_VALUE(UINT_LEAST64_MAX);
+
+    LOG_MACRO_VALUE(INT_FAST8_MIN);
+    LOG_MACRO_VALUE(INT_FAST8_MAX);
+    LOG_MACRO_VALUE(UINT_FAST8_MAX);
+    LOG_MACRO_VALUE(INT_FAST16_MIN);
+    LOG_MACRO_VALUE(INT_FAST16_MAX);
+    LOG_MACRO_VALUE(UINT_FAST16_MAX);
+    LOG_MACRO_VALUE(INT_FAST32_MIN);
+    LOG_MACRO_VALUE(INT_FAST32_MAX);
+    LOG_MACRO_VALUE(UINT_FAST32_MAX);
+    LOG_MACRO_VALUE(INT_FAST64_MIN);
+    LOG_MACRO_VALUE(INT_FAST64_MAX);
+    LOG_MACRO_VALUE(UINT_FAST64_MAX);
+
+    LOG_MACRO_VALUE(INTPTR_MIN);
+    LOG_MACRO_VALUE(INTPTR_MAX);
+    LOG_MACRO_VALUE(UINTPTR_MAX);
+
+    LOG_MACRO_VALUE(INTMAX_MIN);
+    LOG_MACRO_VALUE(INTMAX_MAX);
+    LOG_MACRO_VALUE(UINTMAX_MAX);
+
+    LOG_MACRO_VALUE(PTRDIFF_MIN);
+    LOG_MACRO_VALUE(PTRDIFF_MAX);
+    LOG_MACRO_VALUE(SIG_ATOMIC_MIN);
+    LOG_MACRO_VALUE(SIG_ATOMIC_MAX);
+    LOG_MACRO_VALUE(SIZE_MAX);
+    LOG_MACRO_VALUE(WCHAR_MIN);
+    LOG_MACRO_VALUE(WCHAR_MAX);
+    LOG_MACRO_VALUE(WINT_MIN);
+    LOG_MACRO_VALUE(WINT_MAX);
+}
+
+TEST(cstdint_types, 001)
+{
+    LOG_SIZEOF(std::int8_t);
+    LOG_SIZEOF(std::int16_t);
+    LOG_SIZEOF(std::int32_t);
+    LOG_SIZEOF(std::int64_t);
+    LOG_SIZEOF(std::uint8_t);
+    LOG_SIZEOF(std::uint16_t);
+    LOG_SIZEOF(std::uint32_t);
+    LOG_SIZEOF(std::uint64_t);
+
+    LOG_SIZEOF(std::int_least8_t);
+    LOG_SIZEOF(std::int_least16_t);
+    LOG_SIZEOF(std::int_least32_t);
+    LOG_SIZEOF(std::int_least64_t);
+    LOG_SIZEOF(std::uint_least8_t);
+    LOG_SIZEOF(std::uint_least16_t);
+    LOG_SIZEOF(std::uint_least32_t);
+    LOG_SIZEOF(std::uint_least64_t);
+
+    LOG_SIZEOF(std::int_fast8_t);
+    LOG_SIZEOF(std::int_fast16_t);
+    LOG_SIZEOF(std::int_fast32_t);
+    LOG_SIZEOF(std::int_fast64_t);
+    LOG_SIZEOF(std::uint_fast8_t);
+    LOG_SIZEOF(std::uint_fast16_t);
+    LOG_SIZEOF(std::uint_fast32_t);
+    LOG_SIZEOF(std::uint_fast64_t);
+
+    LOG_SIZEOF(std::intmax_t);
+    LOG_SIZEOF(std::uintmax_t);
+
+    LOG_SIZEOF(std::intptr_t);
+    LOG_SIZEOF(std::uintptr_t);
+}

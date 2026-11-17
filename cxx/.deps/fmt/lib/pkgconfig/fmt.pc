@@ -1,0 +1,11 @@
+prefix=/Users/wu.feihu/ws/artisan-foundry/cxx/.deps/fmt
+exec_prefix=/Users/wu.feihu/ws/artisan-foundry/cxx/.deps/fmt
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: fmt
+Description: A modern formatting library
+Version: 12.0.0
+Libs: -L${libdir} -lfmt
+Cflags: -I${includedir}
+
