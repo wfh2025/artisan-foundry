@@ -5,7 +5,7 @@ PROJ_ARCH="$(uname -m)"
 PROJ_VENDOR="${PROJ_ROOT}/vendor"
 PROJ_CUR_SCRIPT="${PROJ_ROOT}/${BASH_SOURCE[0]##*/}"
 PROJ_RUFF="${PROJ_VENDOR}/ruff-0.17.4/${PROJ_OS}/${PROJ_ARCH}/ruff"
-PROJ_SHFMT="${PROJ_VENDOR}/shfmt-3.14.1/${PROJ_OS}/${PROJ_ARCH}/shfmt"
+PROJ_SHFMT="${PROJ_VENDOR}/shfmt-3.14.1/shfmt"
 PROJ_SHELLCHECK="${PROJ_VENDOR}/shellcheck-0.11.0/${PROJ_OS}/${PROJ_ARCH}/shellcheck"
 PROJ_SHELLHARDEN="${PROJ_VENDOR}/shellharden-4.3.2/${PROJ_OS}/${PROJ_ARCH}/shellharden"
 

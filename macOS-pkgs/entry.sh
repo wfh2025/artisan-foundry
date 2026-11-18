@@ -19,7 +19,7 @@ PROJ_CMAKE=$(command -v cmake)
 
 PROJ_CMAKE_GENERATOR="Ninja"
 
-PROJ_SHFMT="${PROJ_VENDOR}/shfmt-3.14.1/${PROJ_OS}/${PROJ_ARCH}/shfmt"
+PROJ_SHFMT="${PROJ_VENDOR}/shfmt-3.14.1/shfmt"
 PROJ_SHELLCHECK="${PROJ_VENDOR}/shellcheck-0.11.0/${PROJ_OS}/${PROJ_ARCH}/shellcheck"
 
 export PROJ_ROOT PROJ_OS PROJ_ARCH PROJ_CUR_SCRIPT \
