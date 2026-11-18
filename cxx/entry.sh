@@ -6,9 +6,6 @@ PROJ_BUILD="${PROJ_ROOT}/.build"
 PROJ_VENDOR="${PROJ_ROOT}/../vendor"
 PROJ_CUR_SCRIPT="${PROJ_ROOT}/${BASH_SOURCE[0]##*/}"
 
-PROJ_OS="$(uname -s)"
-PROJ_ARCH="$(uname -m)"
-
 PROJ_CC=$(command -v cc)
 PROJ_CXX=$(command -v c++)
 PROJ_CMAKE=$(command -v cmake)
@@ -17,7 +14,7 @@ PROJ_CLANGFORMAT=$(command -v clang-format)
 PROJ_CMAKE_GENERATOR="Ninja"
 
 PROJ_SHFMT="${PROJ_VENDOR}/shfmt-3.14.1/shfmt"
-PROJ_SHELLCHECK="${PROJ_VENDOR}/shellcheck-0.11.0/${PROJ_OS}/${PROJ_ARCH}/shellcheck"
+PROJ_SHELLCHECK="${PROJ_VENDOR}/shellcheck-0.11.0/shellcheck"
 
 PROJ_CLANGFORMAT_STYLE="${PROJ_ROOT}/.clang-format"
 

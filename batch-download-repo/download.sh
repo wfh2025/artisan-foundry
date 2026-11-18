@@ -1,6 +1,4 @@
 #!/usr/bin/env bash
-PROJ_ROOT=$(cd "$(dirname -- "$0")" && pwd -P)
-export PROJ_ROOT
 
 # ./download.sh repos_download ./repo-test.txt ~/tmp/x
 # github批量下载仓库
