@@ -1,6 +1,7 @@
 PROJ_ROOT              := $(abspath $(CURDIR))
 PROJ_DEPS              := ${PROJ_ROOT}/.deps
 PROJ_BUILD             := ${PROJ_ROOT}/.build
+PROJ_CACHE             := ${PROJ_ROOT}/.cache
 PROJ_BUILD_MAIN        := ${PROJ_BUILD}/main
 PROJ_SRC               := ${PROJ_ROOT}
 PROJ_CMAKE             := cmake
@@ -28,7 +29,7 @@ deps: distclean                                                                 
 clean:                                                                                      ## 删除临时目录
 	${PROJ_RM} "${PROJ_BUILD_MAIN}"
 distclean:                                                                                  ## 删除build和deps
-	${PROJ_RM} "${PROJ_BUILD}" && ${PROJ_RM} "${PROJ_DEPS}"
+	${PROJ_RM} "${PROJ_BUILD}" "${PROJ_DEPS}" "${PROJ_CACHE}"
 pretty:                                                                                     ## 代码格式化
 	${PROJ_ROOT}/entry.sh pretty
 run: build                                                                                  ## 运行
