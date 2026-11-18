@@ -21,7 +21,7 @@ PROJ_SWIFTFORMAT=$(command -v swift-format)
 
 PROJ_CMAKE_GENERATOR="Ninja"
 
-PROJ_SHFMT="${PROJ_VENDOR}/shfmt-3.14.1/${PROJ_OS}/${PROJ_ARCH}/shfmt"
+PROJ_SHFMT="${PROJ_VENDOR}/shfmt-3.14.1/shfmt"
 PROJ_SHELLCHECK="${PROJ_VENDOR}/shellcheck-0.11.0/${PROJ_OS}/${PROJ_ARCH}/shellcheck"
 PROJ_RUFF="${PROJ_VENDOR}/ruff-0.17.4/${PROJ_OS}/${PROJ_ARCH}/ruff"
 
