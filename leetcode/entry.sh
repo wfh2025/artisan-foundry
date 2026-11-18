@@ -1,9 +1,4 @@
 #!/usr/bin/env bash
-# ─── 注释规范 ─────────────────────────────
-# 1. 函数上方连续注释块使用 #:
-# 2. 其他地方注释使用 #
-# 3. 私有函数名使用 _ 作为前缀
-# ───────────────────────────────────────────
 PROJ_ROOT=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)
 PROJ_DEPS="${PROJ_ROOT}/.deps"
 PROJ_BUILD="${PROJ_ROOT}/.build"
