@@ -10,30 +10,10 @@ PROJ_BUILD="${PROJ_ROOT}/build"
 PROJ_VENDOR="${PROJ_ROOT}/../vendor"
 PROJ_CUR_SCRIPT="${PROJ_ROOT}/${BASH_SOURCE[0]##*/}"
 
-PROJ_OS="$(uname -s)"
-PROJ_ARCH="$(uname -m)"
-
-PROJ_CC=$(command -v cc)
-PROJ_CXX=$(command -v c++)
-PROJ_CMAKE=$(command -v cmake)
-
-PROJ_CMAKE_GENERATOR="Ninja"
-
 PROJ_SHFMT="${PROJ_VENDOR}/shfmt-3.14.1/shfmt"
-PROJ_SHELLCHECK="${PROJ_VENDOR}/shellcheck-0.11.0/${PROJ_OS}/${PROJ_ARCH}/shellcheck"
-PROJ_RUFF="${PROJ_VENDOR}/ruff-0.17.4/${PROJ_OS}/${PROJ_ARCH}/ruff"
+PROJ_SHELLCHECK="${PROJ_VENDOR}/shellcheck-0.11.0/shellcheck"
+PROJ_RUFF="${PROJ_VENDOR}/ruff-0.17.4/ruff"
 PROJ_RUFF_CONFIG="${PROJ_ROOT}/ruff.toml"
-
-export PROJ_ROOT PROJ_OS PROJ_ARCH PROJ_CUR_SCRIPT \
-    PROJ_VENDOR PROJ_SHFMT PROJ_SHELLCHECK PROJ_BUILD PROJ_DEPS \
-    PROJ_CC PROJ_CXX PROJ_CMAKE_GENERATOR PROJ_CMAKE \
-    PROJ_CLANGFORMAT PROJ_RUFF PROJ_RUFF_CONFIG
-
-#: 调试插槽
-function dbg() {
-    # "$(brew --prefix llvm)/bin/clang-format" "$@"
-    printf '%s \n' "${PROJ_CLANGFORMAT}"
-}
 
 #: 格式化并静态检查代码
 function pretty() {

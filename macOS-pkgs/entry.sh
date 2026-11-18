@@ -10,31 +10,8 @@ PROJ_BUILD="${PROJ_ROOT}/build"
 PROJ_VENDOR="${PROJ_ROOT}/../vendor"
 PROJ_CUR_SCRIPT="${PROJ_ROOT}/${BASH_SOURCE[0]##*/}"
 
-PROJ_OS="$(uname -s)"
-PROJ_ARCH="$(uname -m)"
-
-PROJ_CC=$(command -v cc)
-PROJ_CXX=$(command -v c++)
-PROJ_CMAKE=$(command -v cmake)
-
-PROJ_CMAKE_GENERATOR="Ninja"
-
 PROJ_SHFMT="${PROJ_VENDOR}/shfmt-3.14.1/shfmt"
-PROJ_SHELLCHECK="${PROJ_VENDOR}/shellcheck-0.11.0/${PROJ_OS}/${PROJ_ARCH}/shellcheck"
-
-export PROJ_ROOT PROJ_OS PROJ_ARCH PROJ_CUR_SCRIPT \
-    PROJ_VENDOR PROJ_SHFMT PROJ_SHELLCHECK PROJ_BUILD PROJ_DEPS \
-    PROJ_CC PROJ_CXX PROJ_CMAKE_GENERATOR PROJ_CMAKE
-
-#: 调试插槽
-function dbg() {
-    # "$(brew --prefix llvm)/bin/clang-format" "$@"
-    local distro kernel arch info
-
-    info=$(platform_info) || return 1
-    IFS='|' read -r distro kernel arch <<< "${info}"
-    printf 'distro = %s, kernel = %s, arch = %s \n' "${distro}" "${kernel}" "${arch}"
-}
+PROJ_SHELLCHECK="${PROJ_VENDOR}/shellcheck-0.11.0/shellcheck"
 
 #: 批量安装包，存在则忽略；缺省 Brewfile
 function install_pkgs_noupgrade() {
