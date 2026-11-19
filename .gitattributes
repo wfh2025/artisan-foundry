@@ -1,3 +1,4 @@
+# LFS: shell 工具二进制(vendor/shellcheck、ruff、shfmt、shellharden)
 vendor/shfmt-3.14.1/shfmt_v3.14.1_* filter=lfs diff=lfs merge=lfs -text
 vendor/shfmt-3.14.1/Darwin/** filter=lfs diff=lfs merge=lfs -text
 vendor/shfmt-3.14.1/Linux/** filter=lfs diff=lfs merge=lfs -text
@@ -10,6 +11,7 @@ vendor/ruff-0.17.4/Linux/** filter=lfs diff=lfs merge=lfs -text
 vendor/shellharden-4.3.2/shellharden-* filter=lfs diff=lfs merge=lfs -text
 vendor/shellharden-4.3.2/Darwin/** filter=lfs diff=lfs merge=lfs -text
 vendor/shellharden-4.3.2/Linux/** filter=lfs diff=lfs merge=lfs -text
+# LFS: clangd / clang-format 二进制
 vendor/clangd-23.1.0/Darwin/bin/clangd filter=lfs diff=lfs merge=lfs -text
 vendor/clangd-23.1.0/Linux/x86_64/bin/clangd filter=lfs diff=lfs merge=lfs -text
 vendor/clang-format-23.1.5/Darwin/** filter=lfs diff=lfs merge=lfs -text

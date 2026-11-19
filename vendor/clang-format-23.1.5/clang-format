@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+PROJ_ROOT=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)
+PROJ_OS="$(uname -s)"
+PROJ_ARCH="$(uname -m)"
+PROJ_CLANGFORMAT="${PROJ_ROOT}/${PROJ_OS}/${PROJ_ARCH}/clang-format"
+PROJ_CUR_SCRIPT="${PROJ_ROOT}/${BASH_SOURCE[0]##*/}"
+
+#: 判断两个路径是否指向同一个文件
+#: 比较inode
+#: 符号链接和路径写法不影响结果
+function _same_file() {
+    [[ $1 -ef $2 ]]
+}
+
+if [[ ! -x ${PROJ_CLANGFORMAT} ]]; then
+    if PROJ_CLANGFORMAT=$(command -v clang-format) && ! _same_file "${PROJ_CLANGFORMAT}" "${PROJ_CUR_SCRIPT}"; then
+        printf 'clang-format: no vendored binary for %s/%s, fallback to system: %s\n' \
+            "${PROJ_OS}" "${PROJ_ARCH}" "${PROJ_CLANGFORMAT}" >&2
+    else
+        printf 'clang-format: no binary for %s/%s under: %s\n' \
+            "${PROJ_OS}" "${PROJ_ARCH}" "${PROJ_ROOT}" >&2
+        exit 127
+    fi
+fi
+
+exec "${PROJ_CLANGFORMAT}" "$@"
