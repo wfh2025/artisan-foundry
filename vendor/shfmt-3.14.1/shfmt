@@ -1,9 +1,19 @@
 #!/usr/bin/env bash
 PROJ_ROOT=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)
+PROJ_TOOL=shfmt
 PROJ_OS="$(uname -s)"
 PROJ_ARCH="$(uname -m)"
-PROJ_SHFMT="${PROJ_ROOT}/${PROJ_OS}/${PROJ_ARCH}/shfmt"
-PROJ_CUR_SCRIPT="${PROJ_ROOT}/${BASH_SOURCE[0]##*/}"
+PROJ_CUR_SCRIPT="${PROJ_ROOT}/${PROJ_TOOL}"
+
+#: 平台 -> 官网原始文件名映射表
+#: 键格式:<uname -s>/<uname -m>
+function _bin_for() {
+    case "$1" in
+        Linux/x86_64) echo 'shfmt_v3.14.1_linux_amd64' ;;
+        Darwin/arm64) echo 'shfmt_v3.14.1_darwin_arm64' ;;
+        *) return 1 ;;
+    esac
+}
 
 #: 判断两个路径是否指向同一个文件
 #: 比较inode
@@ -12,15 +22,18 @@ function _same_file() {
     [[ $1 -ef $2 ]]
 }
 
-if [[ ! -x ${PROJ_SHFMT} ]]; then
-    if PROJ_SHFMT=$(command -v shfmt) && ! _same_file "${PROJ_SHFMT}" "${PROJ_CUR_SCRIPT}"; then
-        printf 'shfmt: no vendored binary for %s/%s, fallback to system: %s\n' \
-            "${PROJ_OS}" "${PROJ_ARCH}" "${PROJ_SHFMT}" >&2
+PROJ_FILENAME=$(_bin_for "${PROJ_OS}/${PROJ_ARCH}")
+PROJ_BIN="${PROJ_ROOT}/${PROJ_FILENAME}"
+
+if [[ -z ${PROJ_FILENAME} || ! -x ${PROJ_BIN} ]]; then
+    if PROJ_BIN=$(command -v "${PROJ_TOOL}") && ! _same_file "${PROJ_BIN}" "${PROJ_CUR_SCRIPT}"; then
+        printf '%s: no vendored binary for %s/%s, fallback to system: %s\n' \
+            "${PROJ_TOOL}" "${PROJ_OS}" "${PROJ_ARCH}" "${PROJ_BIN}" >&2
     else
-        printf 'shfmt: no binary for %s/%s under: %s\n' \
-            "${PROJ_OS}" "${PROJ_ARCH}" "${PROJ_ROOT}" >&2
+        printf '%s: no binary for %s/%s under: %s\n' \
+            "${PROJ_TOOL}" "${PROJ_OS}" "${PROJ_ARCH}" "${PROJ_ROOT}" >&2
         exit 127
     fi
 fi
 
-exec "${PROJ_SHFMT}" "$@"
+exec "${PROJ_BIN}" "$@"
