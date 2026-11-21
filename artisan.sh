@@ -1,13 +1,111 @@
 #!/usr/bin/env bash
+################################################使用说明##############################################
+# shell脚本规范
+# 1. 内部函数名以前缀'_'
+# 2. 两个函数之间参数传递不得以共享变量方案实现
+# 3. 函数正上方连续注释使用'#:'，其它地方使用'#'注释
+# 4. shell脚本必须使用shfmt格式化
+# 5. shell脚本必须通过shellcheck格式化
+# 6. shell脚本运行的bash版本以3.x.y为主
+####################################################################################################
 PROJ_ROOT=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)
-
-PROJ_VENDOR="${PROJ_ROOT}/vendor"
 PROJ_CUR_SCRIPT="${PROJ_ROOT}/${BASH_SOURCE[0]##*/}"
+PROJ_VENDOR="${PROJ_ROOT}/vendor"
 
 PROJ_SHFMT="${PROJ_VENDOR}/shfmt-3.14.1/shfmt"
 PROJ_SHELLCHECK="${PROJ_VENDOR}/shellcheck-0.11.0/shellcheck"
+PROJ_TEST="${PROJ_ROOT}/test"
 
-function format_shell_file() {
+#: 测试
+function dbg() {
+    local url="https://gh-proxy.com/https://github.com/astral-sh/ruff/releases/download/0.17.6/ruff-aarch64-apple-darwin.tar.gz"
+    local name="ruff-aarch64-apple-darwin-xxxx.tar.gz"
+    local dst="${PROJ_TEST}/${name}"
+    local rc=0
+
+    rm -fr "${dst}"
+    mkdir -p "$(dirname "${dst}")"
+
+    _wget "${dst}" "${url}" || rc=$?
+
+    echo "dbg, rc: ${rc}"
+    return "${rc}"
+}
+
+#: 下载封装
+#: 需提前创建dst所在目录
+#: dst是存储文件路径
+function _wget() {
+    local dst="$1"
+    local url="$2"
+
+    local rc=0
+    local tries=3
+    local dns_timeout=$((1 * 60))
+    local read_timeout=$((1 * 60))
+    local connect_timeout=$((1 * 60))
+
+    wget --no-verbose \
+        --show-progress \
+        --progress "bar:force:scroll" \
+        --tries "${tries}" \
+        --dns-timeout "${dns_timeout}" \
+        --read-timeout "${read_timeout}" \
+        --connect-timeout "${connect_timeout}" \
+        --output-document "${dst}" "${url}" || rc=$?
+    return "${rc}"
+}
+
+#: 格式化并静态检查代码
+function pretty() {
+    local rc=0
+    _pretty_shell || rc=1
+    return "${rc}"
+}
+
+#: 递归格式化并静态检查所有shell脚本
+function _pretty_shell() {
+    local file rc=0 total=0 fail=0
+
+    local -a blacklist=(
+        -path "${PROJ_VENDOR}"
+        -o -name '.*'
+    )
+
+    local -a suffixes=(
+        -name '*.sh'
+        -o -name '*.bash'
+    )
+
+    local -a find_args=(
+        "${PROJ_ROOT}"
+        \(
+        "${blacklist[@]}"
+        \) -prune -o
+        \(
+        "${suffixes[@]}"
+        \)
+        -type f
+        -print
+    )
+
+    while IFS= read -r file; do
+        [[ -n ${file} ]] || continue
+        total=$((total + 1))
+        printf '==> [pretty] %s\n' "${file}"
+        if ! _format_shell_file "${file}" ||
+            ! _check_shell_file "${file}"; then
+            fail=$((fail + 1))
+            rc=1
+        fi
+    done < <(find "${find_args[@]}" || true)
+
+    printf '==> [pretty] total=%d fail=%d\n' "${total}" "${fail}"
+    return "${rc}"
+}
+
+#: 格式化单个shell文件
+function _format_shell_file() {
     local file="$1"
     "${PROJ_SHFMT}" --indent 4 \
               --case-indent \
@@ -16,7 +114,8 @@ function format_shell_file() {
         --language-dialect auto --write "${file}"
 }
 
-function check_shell_file() {
+#: shellcheck检查单个shell文件
+function _check_shell_file() {
     local file="$1"
     "${PROJ_SHELLCHECK}" --check-sourced \
                          --color=auto \
@@ -30,148 +129,46 @@ function check_shell_file() {
                          --external-sources "${file}"
 }
 
-function now_ms() {
-    local raw sec frac value
+#: 打印命令及功能说明
+#: '#:' => 首行进帮助
+#: 后续行仅作源码注释
+function help() {
+    printf 'Usage: %s <command> [args...]\n\n' "${PROJ_CUR_SCRIPT}"
+    awk '
+        /^#: / && desc == "" {
+            sub(/^#: */, "")
+            desc = $0
+        }
+        /^function / {
+            name = $2
+            sub(/\(\)/, "", name)
+            if (name !~ /^_/) {
+                n++
+                names[n] = name
+                descs[n] = desc
+                if (length(name) > maxlen) maxlen = length(name)
+            }
+            desc = ""
+        }
+        END {
+            for (i = 1; i <= n; i++)
+                printf "  %-*s %s\n", maxlen, names[i], descs[i]
+        }
+    ' "${PROJ_CUR_SCRIPT}"
+}
 
-    # bash >= 5：秒.微秒，小数点固定为 '.'
-    raw=${EPOCHREALTIME-}
-    if [[ ${raw} == *.* ]]; then
-        sec=${raw%%.*}
-        frac=${raw#*.}000
-        value=$((10#${sec} * 1000 + 10#${frac:0:3}))
-        printf '%s\n' "${value}"
+function _main() {
+    local funcName="${1-}"
+    (($#))   && shift
+
+    if [[ -z ${funcName} ]]; then
+        help
         return 0
     fi
-
-    # GNU date。%3N 是毫秒；10# 避免前导 0 被当成八进制
-    if raw=$(date +%s%3N 2> /dev/null) && [[ ${raw} =~ ^[0-9]{13,}$ ]]; then
-        printf '%s\n' "$((10#${raw}))"
-        return 0
+    if ! declare -F "${funcName}" > /dev/null 2>&1; then
+        printf 'Unknown command: %s, try: %s help\n' "${funcName}" "${PROJ_CUR_SCRIPT}" >&2
+        return 127
     fi
-    if command -v gdate > /dev/null 2>&1 &&
-        raw=$(gdate +%s%3N 2> /dev/null) && [[ ${raw} =~ ^[0-9]{13,}$ ]]; then
-        printf '%s\n' "$((10#${raw}))"
-        return 0
-    fi
-    if command -v perl > /dev/null 2>&1 &&
-        raw=$(perl -MTime::HiRes=gettimeofday -e '($s,$us)=gettimeofday(); printf "%d", $s*1000+int($us/1000)' 2> /dev/null) &&
-        [[ ${raw} =~ ^[0-9]+$ ]]; then
-        printf '%s\n' "${raw}"
-        return 0
-    fi
-    if command -v python3 > /dev/null 2>&1 &&
-        raw=$(python3 -c 'import time; print(int(time.time()*1000))' 2> /dev/null) &&
-        [[ ${raw} =~ ^[0-9]+$ ]]; then
-        printf '%s\n' "${raw}"
-        return 0
-    fi
-
-    # 整秒。bash >= 4.2 用内建，否则用 date +%s
-    raw=
-    if ((BASH_VERSINFO[0] > 4 || (BASH_VERSINFO[0] == 4 && BASH_VERSINFO[1] >= 2))); then
-        printf -v raw '%(%s)T' -1
-    fi
-    if [[ ! ${raw} =~ ^[0-9]+$ ]]; then
-        raw=$(date +%s 2> /dev/null || true)
-    fi
-    if [[ ! ${raw} =~ ^[0-9]+$ ]]; then
-        raw=0
-    fi
-    printf '%s\n' "$((10#${raw} * 1000))"
-}
-
-function display_elapsed() {
-    local cmd="$*"
-    local startMs endMs costMs rc=0
-    local elapsed
-
-    startMs=$(now_ms)
-    "$@" || rc=$?
-    endMs=$(now_ms)
-
-    costMs=$((endMs - startMs))
-    if ((costMs < 1000)); then
-        printf -v elapsed '%d ms' "${costMs}"
-    elif ((costMs < 60000)); then
-        printf -v elapsed '%d.%03d s' "$((costMs / 1000))" "$((costMs % 1000))"
-    else
-        printf -v elapsed '%dm %02d.%03d s' \
-            "$((costMs / 60000))" \
-            "$(((costMs / 1000) % 60))" \
-            "$((costMs % 1000))"
-    fi
-
-    printf 'cmd: %s, elapsed: %s\n' "${cmd}" "${elapsed}"
-    return "${rc}"
-}
-
-function display_cmd() {
-    local rc=0
-
-    printf '$ %s\n' "$*"
-    "$@" || rc=$?
-    printf '\n\n'
-    return "${rc}"
-}
-
-function display_diff() {
-    local l="$1"
-    local r="$2"
-    diff -y --suppress-common-lines "${l}" "${r}"
-    printf '\n'
-}
-
-function unique_name() {
-    local prefix timestamp
-    prefix="${1-}"
-    timestamp="$(date +%Y%m%d_%H%M%S)"
-
-    if [[ -n ${prefix} ]]; then
-        printf '%s_%s_%s_%s' "${prefix}" "${timestamp}" "$$" "${RANDOM}"
-    else
-        printf '%s_%s_%s' "${timestamp}" "$$" "${RANDOM}"
-    fi
-}
-
-function watch_cmd() {
-    local cmdName="${1-}"
-    local cmdPath=""
-
-    if [[ -z ${cmdName} ]]; then
-        printf 'Usage: watch_cmd <command> [args...]\n' >&2
-        return 1
-    fi
-    if [[ ${cmdName} == watch_cmd ]]; then
-        printf 'Refusing to watch watch_cmd.\n' >&2
-        return 1
-    fi
-
-    shift
-    if declare -F "${cmdName}" > /dev/null 2>&1; then
-        watch -n -1 -d --exec -- "${PROJ_CUR_SCRIPT}" "${cmdName}" "$@"
-        return
-    fi
-
-    cmdPath=$(type -P "${cmdName}" 2> /dev/null || true)
-    if [[ -z ${cmdPath} ]]; then
-        printf 'Command not found: %s\n' "${cmdName}" >&2
-        return 1
-    fi
-    watch -n -1 -d --exec -- "${cmdPath}" "$@"
-}
-
-function export_cmd_pdf() {
-    local cmd file page section
-    section="$1"
-    cmd="$2"
-    file="${3:-${cmd}.pdf}"
-    page=$(man -w "${section}" "${cmd}") || return 1
-    mandoc -T pdf "${page}" > "${file}"
-}
-
-function main() {
-    local funcName="$1"
-    shift
     "${funcName}" "$@"
 }
-main "$@"
+_main "$@"
