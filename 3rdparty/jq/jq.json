@@ -1,0 +1,23 @@
+{
+    "name": "jq",
+    "latest": "1.8.2",
+    "packages": [
+        {
+            "operating_system": "Darwin",
+            "hardware_platform": "arm64",
+            "version": "1.8.2",
+            "source": "github.com",
+            "type": "executable",
+            "url": "https://github.com/jqlang/jq/releases/download/jq-1.8.2/jq-macos-arm64"
+            
+        },
+        {
+            "operating_system": "Linux",
+            "hardware_platform": "x86_64",
+            "version": "1.8.2",
+            "source": "github.com",
+            "type": "executable",
+            "url": "https://github.com/jqlang/jq/releases/download/jq-1.8.2/jq-linux-amd64"
+        }
+    ]
+}

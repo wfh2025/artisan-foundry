@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 ################################################使用说明##############################################
 # shell脚本规范
-# 1. 内部函数名以前缀'_'
+# 1. 内部函数名以'_'为前缀
 # 2. 两个函数之间参数传递不得以共享变量方案实现
 # 3. 函数正上方连续注释使用'#:'，其它地方使用'#'注释
 # 4. shell脚本必须使用shfmt格式化
@@ -14,22 +14,53 @@ PROJ_VENDOR="${PROJ_ROOT}/vendor"
 
 PROJ_SHFMT="${PROJ_VENDOR}/shfmt-3.14.1/shfmt"
 PROJ_SHELLCHECK="${PROJ_VENDOR}/shellcheck-0.11.0/shellcheck"
-PROJ_TEST="${PROJ_ROOT}/test"
 
 #: 测试
 function dbg() {
-    local url="https://gh-proxy.com/https://github.com/astral-sh/ruff/releases/download/0.17.6/ruff-aarch64-apple-darwin.tar.gz"
-    local name="ruff-aarch64-apple-darwin-xxxx.tar.gz"
-    local dst="${PROJ_TEST}/${name}"
-    local rc=0
+    local -a urls=(
+        "https://github.com/jqlang/jq/releases/download/jq-1.8.2/jq-macos-amd64"
+        "https://github.com/jqlang/jq/releases/download/jq-1.8.2/jq-macos-arm64"
+        "https://github.com/jqlang/jq/releases/download/jq-1.8.2/jq-linux-amd64"
+        "https://github.com/jqlang/jq/releases/download/jq-1.8.2/jq-linux-arm64"
+    )
+    local -a proxies=(
+        "https://cfgh.ikgy.top"
+        "https://gh.07150721.xyz"
+        "https://gh.meali.top"
+    )
+    local dst_dir="${PROJ_ROOT}/vendor2"
+    local url name dst log
+    local rc=0 total=0 fail=0 i
+    local -a pids=() names=() logs=()
 
-    rm -fr "${dst}"
-    mkdir -p "$(dirname "${dst}")"
+    mkdir -p "${dst_dir}"
+    for raw_url in "${urls[@]}"; do
+        name="${raw_url##*/}"
+        url="${proxies[i]}/${raw_url}"
+        dst="${dst_dir}/${name}"
+        log="${dst}.log"
+        total=$((total + 1))
+        printf '==> [fetch] %s\n' "${name}"
+        _wget_with_log "${dst}" "${url}" "${log}" &
+        pids+=("$!")
+        names+=("${name}")
+        logs+=("${log}")
+        i=$(((i+1) % ${#proxies[@]}))
+    done
 
-    _wget "${dst}" "${url}" || rc=$?
+    for ((i = 0; i < total; i++)); do
+        if wait "${pids[i]}"; then
+            printf '==> [fetch] ok: %s\n' "${names[i]}"
+        else
+            printf '==> [fetch] fail: %s, log: %s\n' "${names[i]}" "${logs[i]}"
+            fail=$((fail + 1))
+            rc=1
+        fi
+    done
 
-    echo "dbg, rc: ${rc}"
+    printf '==> [fetch] total=%d fail=%d\n' "${total}" "${fail}"
     return "${rc}"
+
 }
 
 #: 下载封装
@@ -54,6 +85,63 @@ function _wget() {
         --connect-timeout "${connect_timeout}" \
         --output-document "${dst}" "${url}" || rc=$?
     return "${rc}"
+}
+
+#: 并发批量下载文件到vendor2目录
+#: 用法: fetch <url> [<url>...], 文件名取url末段, 失败时保留同名.log日志
+function fetch() {
+    if (($# == 0)); then
+        printf 'Usage: fetch <url> [<url>...]\n' >&2
+        return 2
+    fi
+
+    local dst_dir="${PROJ_ROOT}/vendor2"
+    local url name dst log
+    local rc=0 total=0 fail=0 i
+    local -a pids=() names=() logs=()
+
+    mkdir -p "${dst_dir}"
+
+    for url in "$@"; do
+        name="${url##*/}"
+        dst="${dst_dir}/${name}"
+        log="${dst}.log"
+        total=$((total + 1))
+        printf '==> [fetch] %s\n' "${name}"
+        _wget_with_log "${dst}" "${url}" "${log}" &
+        pids+=("$!")
+        names+=("${name}")
+        logs+=("${log}")
+    done
+
+    for ((i = 0; i < total; i++)); do
+        if wait "${pids[i]}"; then
+            printf '==> [fetch] ok: %s\n' "${names[i]}"
+        else
+            printf '==> [fetch] fail: %s, log: %s\n' "${names[i]}" "${logs[i]}"
+            fail=$((fail + 1))
+            rc=1
+        fi
+    done
+
+    printf '==> [fetch] total=%d fail=%d\n' "${total}" "${fail}"
+    return "${rc}"
+}
+
+#: 下载单个文件
+#: $1: dst文件路径
+#: $2: 下载地址
+#: $3: 日志文件路径, 下载成功后自动删除
+function _wget_with_log() {
+    local dst="$1"
+    local url="$2"
+    local log="$3"
+
+    if _wget "${dst}" "${url}" > "${log}" 2>&1; then
+        rm -f "${log}"
+        return 0
+    fi
+    return 1
 }
 
 #: 格式化并静态检查代码

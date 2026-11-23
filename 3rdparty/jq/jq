@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+PROJ_ROOT=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)
+PROJ_TOOL=jq
+PROJ_OS="$(uname -s)"
+PROJ_ARCH="$(uname -m)"
+PROJ_CUR_SCRIPT="${PROJ_ROOT}/${PROJ_TOOL}"
+
+#: 平台 -> 官网原始文件名映射表
+#: 键格式:<uname -s>/<uname -m>
+function _bin_for() {
+    case "$1" in
+        Linux/x86_64) echo 'jq-linux-amd64' ;;
+        Darwin/arm64) echo 'jq-macos-arm64' ;;
+        *) return 1 ;;
+    esac
+}
+
+#: 判断两个路径是否指向同一个文件
+#: 比较inode
+#: 符号链接和路径写法不影响结果
+function _same_file() {
+    [[ $1 -ef $2 ]]
+}
+
+PROJ_FILENAME=$(_bin_for "${PROJ_OS}/${PROJ_ARCH}")
+PROJ_BIN="${PROJ_ROOT}/${PROJ_FILENAME}"
+
+if [[ -z ${PROJ_FILENAME} || ! -x ${PROJ_BIN} ]]; then
+    if PROJ_BIN=$(command -v "${PROJ_TOOL}") && ! _same_file "${PROJ_BIN}" "${PROJ_CUR_SCRIPT}"; then
+        printf '%s: no vendored binary for %s/%s, fallback to system: %s\n' \
+            "${PROJ_TOOL}" "${PROJ_OS}" "${PROJ_ARCH}" "${PROJ_BIN}" >&2
+    else
+        printf '%s: no binary for %s/%s under: %s\n' \
+            "${PROJ_TOOL}" "${PROJ_OS}" "${PROJ_ARCH}" "${PROJ_ROOT}" >&2
+        exit 127
+    fi
+fi
+
+exec "${PROJ_BIN}" "$@"
